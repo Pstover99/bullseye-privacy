@@ -24,13 +24,13 @@
 </head>
 <body>
   <h1>Privacy Policy for Bullseye</h1>
-  <p class="updated">Last updated: June 28, 2026</p>
+  <p class="updated">Last updated: June 30, 2026</p>
 
   <p>Bullseye ("the app") is a long-range shooting ballistics calculator developed by
-  Evermark Systems ("we," "us"). This policy explains what the app accesses on your device
-  and how that information is handled. In short: Bullseye works entirely on your device. We
-  do not operate a server, we do not have user accounts, and we do not collect, transmit,
-  sell, or share your personal data.</p>
+  Evermark Systems ("we," "us"). The app runs on your device and has no user accounts, and we
+  do not sell your data. To improve the app and fix problems, the published version uses
+  Google Firebase to collect limited, non-identifying analytics and crash diagnostics, as
+  described below. Everything else stays on your device.</p>
 
   <h2>Information the app accesses</h2>
   <p>Bullseye does not require an account and does not ask you for personal information. To
@@ -39,8 +39,9 @@
   <ul>
     <li><strong>Location (GPS).</strong> Used only to compute the Coriolis effect and
     magnetic declination for a more accurate firing solution, and to record the conditions
-    at the time of a logged shot. Your location is used on the device and is never sent to
-    us or to any third party.</li>
+    at the time of a logged shot. Your precise GPS location is used on the device only and is
+    never transmitted. (Separately, the analytics described below estimate an approximate city
+    or country from your IP address.)</li>
     <li><strong>Bluetooth and nearby devices.</strong> Used only to connect to optional
     environmental sensors (such as anemometers and weather meters) so the app can read live
     wind, temperature, pressure, and humidity. On some Android versions the operating system
@@ -62,10 +63,21 @@
   location information is removed from exported files; including it is an explicit, optional
   choice you control.</p>
 
-  <h2>Data collection and third parties</h2>
-  <p>We do not collect, transmit, sell, rent, or share your personal data. The app contains
-  no advertising, no analytics or tracking SDKs, and no third-party data-collection
-  services.</p>
+  <h2>Analytics and crash reporting</h2>
+  <p>The published version of Bullseye uses Google Firebase (Analytics and Crashlytics) to
+  understand how the app is used and to receive automatic crash reports, which help us fix
+  bugs and decide what to improve. This data is limited to: app activity (which features and
+  screens are used), crash and diagnostic information, an approximate location (an estimated
+  city or country derived by Google from your IP address, not your GPS), and a randomly
+  generated app installation identifier. It does not include your name, email, rifle profiles,
+  shot logs, or precise location. The data is processed by Google as our service provider
+  under <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. We do not
+  use it for advertising, and we do not sell or rent it.</p>
+
+  <h2>Data retention and deletion</h2>
+  <p>Analytics and crash data are retained by Firebase for a limited period and then deleted
+  automatically. To request deletion of the data associated with your app installation,
+  contact us at <a href="mailto:parkerstover243@gmail.com">parkerstover243@gmail.com</a>.</p>
 
   <h2>Children</h2>
   <p>Bullseye is intended for an adult audience and is not directed to children.</p>
