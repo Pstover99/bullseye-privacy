@@ -3,10 +3,10 @@
 Last updated: August 17, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
-calculator developed by Evermark Systems ("we," "us"). The app runs on your device and
-has no user accounts, and we do not sell your data. To improve the app and fix problems,
-the published version uses Google Firebase to collect limited, non-identifying analytics
-and crash diagnostics, as described below. Everything else stays on your device.
+calculator developed by Evermark Systems ("we," "us"). This policy explains what the app
+accesses on your device and how that information is handled. In short: Bullseye works
+entirely on your device. We do not operate a server, we do not have user accounts, and
+we do not collect, transmit, sell, or share your personal data.
 
 ## Information the app accesses
 
@@ -16,9 +16,8 @@ locally on your device:
 
 - **Location (GPS).** Used only to compute the Coriolis effect and magnetic declination
   for a more accurate firing solution, and to record the conditions at the time of a
-  logged shot. Your precise GPS location is used on the device only and is never
-  transmitted. (Separately, the analytics described below estimate an approximate city
-  or country from your IP address.)
+  logged shot. Your location is used on the device and is never sent to us or to any
+  third party.
 - **Bluetooth and nearby devices.** Used only to connect to optional environmental
   sensors (such as anemometers and weather meters) so the app can read live wind,
   temperature, pressure, and humidity. On some Android versions the operating system
@@ -56,24 +55,11 @@ do not receive, store, or process shared files.
   the app, which removes hidden photo metadata such as the GPS coordinates a phone
   camera may embed — so a shared image does not reveal where it was taken.
 
-## Analytics and crash reporting
+## Data collection and third parties
 
-The published version of Bullseye uses Google Firebase (Analytics and Crashlytics) to
-understand how the app is used and to receive automatic crash reports, which help us fix
-bugs and decide what to improve. This data is limited to: app activity (which features
-and screens are used), crash and diagnostic information, an approximate location (an
-estimated city or country derived by Google from your IP address, not your GPS), and a
-randomly generated app installation identifier. It does not include your name, email,
-rifle profiles, shot logs, target photos, or precise location. The data is processed by
-Google as our service provider under
-[Google's Privacy Policy](https://policies.google.com/privacy). We do not use it for
-advertising, and we do not sell or rent it.
-
-## Data retention and deletion
-
-Analytics and crash data are retained by Firebase for a limited period and then deleted
-automatically. To request deletion of the data associated with your app installation,
-contact us at parkerstover243@gmail.com.
+We do not collect, transmit, sell, rent, or share your personal data. The app contains
+no advertising, no analytics or tracking SDKs, and no third-party data-collection
+services.
 
 ## Purchases
 
