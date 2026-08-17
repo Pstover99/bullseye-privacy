@@ -3,7 +3,7 @@
 Last updated: August 17, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
-calculator developed by Evermark Systems ("we," "us"). This policy explains what the app
+calculator developed by Core Bridge ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works
 entirely on your device. We do not operate a server, we do not have user accounts, and
 we do not collect, transmit, sell, or share your personal data.
