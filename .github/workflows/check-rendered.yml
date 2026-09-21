@@ -1,0 +1,23 @@
+name: Check rendered page
+
+# index.html is generated from PRIVACY_POLICY.md and must never be hand-edited. This job
+# fails if the two have drifted.
+#
+# It verifies rather than regenerating-and-committing on purpose. This page is linked from
+# the Play listing, so a workflow with write access to it is a bigger risk than the drift
+# it would prevent; and a red check is a clearer instruction than a surprise commit.
+#
+# If this fails: run `python3 render.py` and commit the result.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: index.html matches PRIVACY_POLICY.md
+        run: python3 render.py --check
