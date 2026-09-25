@@ -1,6 +1,6 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: September 21, 2026
+Last updated: September 25, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
@@ -56,22 +56,23 @@ use the following device capabilities, all processed locally on your device:
 
 - **Cloud backup (optional, off by default).** You can create an account — with an email
   address and a password, or with Google if you prefer — to back up your rifles, loads, shot
-  log and settings so they survive a lost or replaced phone. **You do not need a Google
+  log, measured groups, matches and settings so they survive a lost or replaced phone, and to
+  keep two of your own devices in step. **You do not need a Google
   account**, and you do not need an account at all to use the app. It is off until you create
   one, and signing out stops it.
 
-  **In this version an account can be created but nothing is uploaded yet.** Backup itself is
-  still being built, and the app says so on the Account screen. What follows describes what it
-  will do when it is switched on.
+  Backup is switched on and off on the Cloud backup screen, and it is off until you turn it on.
 
   If you sign up with an email address we ask you to confirm it, which is what lets you reset
   a forgotten password later. Your password is stored by our authentication provider in hashed
   form; we never see it. You can delete the account, and everything backed up to it, from
-  Settings → Account, or follow
+  Settings → Account and backup, or follow
   [these instructions](https://pstover99.github.io/bullseye-privacy/delete-account/) if you no
   longer have the app installed. What is uploaded is the same data the app already stores locally — your
-  rifles, loads, shot log, measured groups and settings. **Not** uploaded: audio, target
-  photographs, your location, and anything about how you use the app. The backup is stored
+  rifles, loads, shot log, measured groups, matches and settings. **Not** uploaded: audio,
+  target photographs, your location (including the location saved with each shot and today's
+  weather and location on the Solution screen), paired Bluetooth devices, and anything about how
+  you use the app. The backup is stored
   under your own account and no other user can read it.
 
   Until this feature the app had no internet permission at all, and this policy said so.
@@ -82,14 +83,13 @@ The app does not access your contacts or your photo library at large.
 
 ## Data stored on your device
 
-Your profiles, shot logs, measured groups, settings, and sensor readings are stored locally on
-your device. Target photographs used by the Group Analyzer, and any audio recorded by the
-diagnostic tool described above, are stored in the app's private storage, which other apps
-cannot read. Uninstalling the app removes this data.
+Your profiles, shot logs, measured groups, matches, settings, and sensor readings are stored
+locally on your device. Target photographs used by the Group Analyzer are stored in the app's
+private storage, which other apps cannot read. Uninstalling the app removes this data.
 
 Unless you create an account and switch on cloud backup, none of it is uploaded anywhere. If
-you do, a copy of your rifles, loads, shot log, groups and settings is stored under your own
-account — target photographs, audio and location are never part of that copy. Your phone stays
+you do, a copy of your rifles, loads, shot log, groups, matches and settings is stored under
+your own account — target photographs, audio and location are never part of that copy. Your phone stays
 the original; the backup is only ever a copy of it.
 
 ## Sharing features
