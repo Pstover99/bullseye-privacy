@@ -1,6 +1,6 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: September 25, 2026
+Last updated: September 28, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
@@ -17,11 +17,14 @@ create one for cloud backup it asks for an email address and a password, or uses
 account if you prefer that — see **Cloud backup** below. To provide its features, the app may
 use the following device capabilities, all processed locally on your device:
 
-- **Location (GPS).** Used only to compute the Coriolis effect and magnetic declination
-  for a more accurate firing solution, and to record the conditions at the time of a
-  logged shot. Your location is used on the device and is never sent to us or to any
-  third party. It is deliberately left out of cloud backup as well: a backed-up shot
-  carries its range, conditions and result, but not where you were standing.
+- **Location (GPS).** Used to compute the Coriolis effect and magnetic declination for a
+  more accurate firing solution, and to record the conditions at the time of a logged shot.
+  The app records your **latitude** and the **direction you were firing** (azimuth), whether
+  they come from GPS and the compass or you type them. It does not record your longitude.
+  If you switch on cloud backup, the latitude and azimuth saved with each logged shot, and
+  with each saved load, are backed up with it to your own account (see **Cloud backup**), so a
+  second phone or a restore can use them. They are never sent to any third party. Without
+  cloud backup, they never leave your phone.
 - **Bluetooth and nearby devices.** Used only to connect to optional environmental
   sensors (such as anemometers and weather meters) so the app can read live wind,
   temperature, pressure, and humidity. On some Android versions the operating system
@@ -69,11 +72,12 @@ use the following device capabilities, all processed locally on your device:
   Settings → Account and backup, or follow
   [these instructions](https://pstover99.github.io/bullseye-privacy/delete-account/) if you no
   longer have the app installed. What is uploaded is the same data the app already stores locally — your
-  rifles, loads, shot log, measured groups, matches and settings. **Not** uploaded: audio,
-  target photographs, your location (including the location saved with each shot and today's
-  weather and location on the Solution screen), paired Bluetooth devices, and anything about how
-  you use the app. The backup is stored
-  under your own account and no other user can read it.
+  rifles, loads, shot log, measured groups, matches and settings. That includes the latitude and
+  firing direction saved with each logged shot and each saved load: it is what makes a shot's
+  conditions complete on another phone. **Not** uploaded: audio, target photographs, your
+  longitude, today's weather and location on the Solution screen, paired Bluetooth devices, and
+  anything about how you use the app. The backup is stored under your own account and no other
+  user can read it. Deleting the account deletes all of it, location included.
 
   Until this feature the app had no internet permission at all, and this policy said so.
   That is no longer true and we would rather say it plainly than leave a stale promise
@@ -89,7 +93,8 @@ private storage, which other apps cannot read. Uninstalling the app removes this
 
 Unless you create an account and switch on cloud backup, none of it is uploaded anywhere. If
 you do, a copy of your rifles, loads, shot log, groups, matches and settings is stored under
-your own account — target photographs, audio and location are never part of that copy. Your phone stays
+your own account, including the latitude and firing direction saved with each shot and load.
+Target photographs, audio and your longitude are never part of that copy. Your phone stays
 the original; the backup is only ever a copy of it.
 
 ## Sharing features
