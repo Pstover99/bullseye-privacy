@@ -59,7 +59,7 @@ use the following device capabilities, all processed locally on your device:
 
 - **Cloud backup (optional, off by default).** You can create an account — with an email
   address and a password, or with Google if you prefer — to back up your rifles, loads, shot
-  log, measured groups, matches and settings so they survive a lost or replaced phone, and to
+  log, measured groups, matches, load-development records and settings so they survive a lost or replaced phone, and to
   keep two of your own devices in step. **You do not need a Google
   account**, and you do not need an account at all to use the app. It is off until you create
   one, and signing out stops it.
@@ -72,7 +72,7 @@ use the following device capabilities, all processed locally on your device:
   Settings → Account and backup, or follow
   [these instructions](https://pstover99.github.io/bullseye-privacy/delete-account/) if you no
   longer have the app installed. What is uploaded is the same data the app already stores locally — your
-  rifles, loads, shot log, measured groups, matches and settings. That includes the latitude and
+  rifles, loads, shot log, measured groups, matches, load-development records and settings. That includes the latitude and
   firing direction saved with each logged shot and each saved load: it is what makes a shot's
   conditions complete on another phone. **Not** uploaded: audio, target photographs, your
   longitude, today's weather and location on the Solution screen, paired Bluetooth devices, and
@@ -87,12 +87,12 @@ The app does not access your contacts or your photo library at large.
 
 ## Data stored on your device
 
-Your profiles, shot logs, measured groups, matches, settings, and sensor readings are stored
+Your profiles, shot logs, measured groups, matches, load-development records, settings, and sensor readings are stored
 locally on your device. Target photographs used by the Group Analyzer are stored in the app's
 private storage, which other apps cannot read. Uninstalling the app removes this data.
 
 Unless you create an account and switch on cloud backup, none of it is uploaded anywhere. If
-you do, a copy of your rifles, loads, shot log, groups, matches and settings is stored under
+you do, a copy of your rifles, loads, shot log, groups, matches, load-development records and settings is stored under
 your own account, including the latitude and firing direction saved with each shot and load.
 Target photographs, audio and your longitude are never part of that copy. Your phone stays
 the original; the backup is only ever a copy of it.
