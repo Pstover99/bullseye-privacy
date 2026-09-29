@@ -1,6 +1,6 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: September 28, 2026
+Last updated: September 29, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
@@ -84,8 +84,9 @@ use the following device capabilities, all processed locally on your device:
   standing. Everything else still works with no network connection.
 
 - **Notifications (optional).** If you turn on maintenance reminders, the app asks to show
-  notifications and posts them itself, from the phone, when a rifle is due a clean or its barrel
-  nears the life you entered. Nothing about them is sent anywhere.
+  notifications and posts them itself, from the phone, when a rifle is due a clean (by rounds, or
+  on a date you set, which the phone checks once a day) or its barrel nears the life you
+  entered. Nothing about them is sent anywhere.
 
 The app does not access your contacts or your photo library at large.
 
