@@ -83,6 +83,10 @@ use the following device capabilities, all processed locally on your device:
   That is no longer true and we would rather say it plainly than leave a stale promise
   standing. Everything else still works with no network connection.
 
+- **Notifications (optional).** If you turn on maintenance reminders, the app asks to show
+  notifications and posts them itself, from the phone, when a rifle is due a clean or its barrel
+  nears the life you entered. Nothing about them is sent anywhere.
+
 The app does not access your contacts or your photo library at large.
 
 ## Data stored on your device
