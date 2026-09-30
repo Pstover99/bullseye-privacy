@@ -147,4 +147,4 @@ updated "Last updated" date.
 
 ## Contact
 
-If you have questions about this policy, contact us at parkerstover243@gmail.com.
+If you have questions about this policy, contact us at appdevcorebridge@gmail.com.
