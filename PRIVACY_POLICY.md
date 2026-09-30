@@ -1,13 +1,13 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: September 29, 2026
+Last updated: September 30, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works on your
 device. There is one exception, it is optional, and it is off unless you switch it on — you can
-create an account so your data survives a lost phone. Without an account, none of your data
-leaves your phone. We run no server of our own, we show no ads, we use no analytics or
+create an account so your data survives a lost phone. Without an account, the app sends none
+of your data anywhere. We run no server of our own, we show no ads, we use no analytics or
 tracking, and we do not sell or share your data.
 
 ## Information the app accesses
@@ -96,11 +96,14 @@ Your profiles, shot logs, measured groups, matches, load-development records, ba
 locally on your device. Target photographs used by the Group Analyzer are stored in the app's
 private storage, which other apps cannot read. Uninstalling the app removes this data.
 
-Unless you create an account and switch on cloud backup, none of it is uploaded anywhere. If
+Unless you create an account and switch on cloud backup, the app uploads none of it. If
 you do, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under
 your own account, including the latitude and firing direction saved with each shot and load.
 Target photographs, audio and your longitude are never part of that copy. Your phone stays
 the original; the backup is only ever a copy of it.
+
+If your phone's own backup is on, Android also keeps a copy of this data in your Google
+account. Target photographs are not part of it.
 
 ## Sharing features
 
