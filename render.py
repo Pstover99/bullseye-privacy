@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Render PRIVACY_POLICY.md into index.html using template.html.
+"""Build every page of the site from _layout.html.
 
-    python3 render.py           # write index.html
-    python3 render.py --check   # exit 1 if index.html is stale (what CI runs)
+    python3 render.py           # write the pages
+    python3 render.py --check   # exit 1 if any page is stale (what CI runs)
 
-index.html is generated, never hand-edited. This page is linked from the Play listing and
-is the copy users actually read; the markdown beside it is a copy of docs/PRIVACY_POLICY.md
-in the app repo. Editing the HTML directly is how the two drifted far enough apart that the
-published page still described an app with no accounts, months after accounts shipped.
+Every .html page here is generated, never hand-edited. One layout carries the header, footer
+and <head> for all of them, so a page cannot drift out of step with the others; the bodies live
+in _pages/, and the privacy policy's body is rendered from PRIVACY_POLICY.md, a copy of
+docs/PRIVACY_POLICY.md in the app repo. Editing the HTML directly is how the published policy
+once still described an app with no accounts, months after accounts shipped.
 
 The markdown is deliberately plain: headings, paragraphs, and bullets whose continuation
 lines are indented two spaces. A bullet may hold several paragraphs, separated by a blank
 line and indented the same way.
+
+Underscored files and folders are not published: GitHub Pages' Jekyll build skips them.
 """
 import html
 import re
@@ -19,10 +22,29 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
+LAYOUT = HERE / "_layout.html"
 MARKDOWN = HERE / "PRIVACY_POLICY.md"
-TEMPLATE = HERE / "template.html"
-OUTPUT = HERE / "index.html"
+SITE = "https://bullseyeballisticscalculator.com/"
 
+# (output, body source, root prefix, title, description). The root prefix is how a page reaches
+# the site root with a relative link, so the pages also work under a project URL. 404.html is
+# served at whatever path was missed, so only an absolute root works for it.
+PAGES = [
+    ("index.html", "_pages/home.html", "",
+     "Bullseye Ballistics Calculator",
+     "A ballistics calculator for Android. Live wind and weather from your Bluetooth sensors, "
+     "a shot log, groups from a photo, load development and more."),
+    ("privacy/index.html", "PRIVACY_POLICY.md", "../",
+     "Privacy policy · Bullseye Ballistics",
+     "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
+     "to delete it."),
+    ("delete-account/index.html", "_pages/delete-account.html", "../",
+     "Delete your account · Bullseye Ballistics",
+     "How to delete your Bullseye Ballistics account and everything backed up to it."),
+    ("404.html", "_pages/404.html", "/",
+     "Page not found · Bullseye Ballistics",
+     "There is no page at this address."),
+]
 
 def inline(text: str) -> str:
     text = html.escape(text, quote=False)
@@ -93,22 +115,48 @@ def render(md: str) -> str:
     return "\n\n".join(out)
 
 
-def build() -> str:
-    return TEMPLATE.read_text().replace("{{BODY}}", render(MARKDOWN.read_text()))
+def body_for(source: str) -> str:
+    if source.endswith(".md"):
+        doc = re.sub(r"\n +\n", "\n\n", render((HERE / source).read_text()).replace("\n", "\n  "))
+        return (
+            '<section class="doc">\n  <div class="wrap">\n    <div class="label">Legal</div>\n'
+            f"  {doc}\n  </div>\n</section>\n"
+        )
+    return (HERE / source).read_text()
+
+
+def build(output: str, source: str, root: str, title: str, description: str) -> str:
+    path = "" if output == "index.html" else output.removesuffix("index.html")
+    page = LAYOUT.read_text()
+    fields = {
+        "{{BODY}}": body_for(source).rstrip("\n"),
+        "{{TITLE}}": html.escape(title),
+        "{{DESCRIPTION}}": html.escape(description),
+        "{{URL}}": SITE + ("" if output == "404.html" else path),
+        "{{CURRENT_PRIVACY}}": ' aria-current="page"' if output.startswith("privacy/") else "",
+        "{{CURRENT_DELETE}}": ' aria-current="page"' if output.startswith("delete-account/") else "",
+    }
+    for key, value in fields.items():
+        page = page.replace(key, value)
+    # Last, so a {{ROOT}} inside a body is filled in too.
+    return page.replace("{{ROOT}}", root)
 
 
 if __name__ == "__main__":
-    page = build()
-    if "--check" in sys.argv:
-        current = OUTPUT.read_text() if OUTPUT.exists() else ""
-        if current != page:
-            print(
-                "index.html is out of date with PRIVACY_POLICY.md.\n"
-                "Run: python3 render.py",
-                file=sys.stderr,
-            )
+    check = "--check" in sys.argv
+    stale = []
+    for output, *spec in PAGES:
+        page = build(output, *spec)
+        target = HERE / output
+        if check:
+            if not target.exists() or target.read_text() != page:
+                stale.append(output)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(page)
+            print(f"wrote {output}")
+    if check:
+        if stale:
+            print("Out of date: " + ", ".join(stale) + "\nRun: python3 render.py", file=sys.stderr)
             sys.exit(1)
-        print("index.html is up to date")
-    else:
-        OUTPUT.write_text(page)
-        print(f"wrote {OUTPUT.name}")
+        print("every page is up to date")

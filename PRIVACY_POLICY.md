@@ -70,7 +70,7 @@ use the following device capabilities, all processed locally on your device:
   a forgotten password later. Your password is stored by our authentication provider in hashed
   form; we never see it. You can delete the account, and everything backed up to it, from
   Settings → Account and backup, or follow
-  [these instructions](https://pstover99.github.io/bullseye-privacy/delete-account/) if you no
+  [these instructions](https://bullseyeballisticscalculator.com/delete-account/) if you no
   longer have the app installed. What is uploaded is the same data the app already stores locally — your
   rifles, loads, shot log, measured groups, matches, load-development records, barrel and cleaning records and settings. That includes the latitude and
   firing direction saved with each logged shot and each saved load: it is what makes a shot's

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 10 88 88" role="img" aria-label="Bullseye Ballistics">
+  <!-- The launcher icon (app/src/main/res/drawable/ic_launcher_foreground.xml) on its background colour. -->
+  <rect x="10" y="10" width="88" height="88" fill="#1A2332"/>
+  <g stroke="#F5C265" stroke-linecap="butt" fill="none">
+    <path stroke-width="2.5" d="M54 18V40M54 68V90M18 54H40M68 54H90"/>
+    <path stroke-width="1" d="M54 40V50M54 58V68M40 54H50M58 54H68"/>
+    <circle stroke-width="0.7" cx="54" cy="54" r="2.5"/>
+  </g>
+  <g fill="#FF5252">
+    <circle cx="47" cy="47" r="3"/>
+    <circle cx="61" cy="49" r="3"/>
+    <circle cx="49" cy="62" r="3"/>
+  </g>
+</svg>
