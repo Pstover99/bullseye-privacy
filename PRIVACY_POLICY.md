@@ -1,6 +1,6 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: September 30, 2026
+Last updated: October 1, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
@@ -24,7 +24,8 @@ use the following device capabilities, all processed locally on your device:
   If you switch on cloud backup, the latitude and azimuth saved with each logged shot, and
   with each saved load, are backed up with it to your own account (see **Cloud backup**), so a
   second phone or a restore can use them. They are never sent to any third party. Without
-  cloud backup, they never leave your phone.
+  cloud backup, they are not sent to us. If your phone's own backup is on, Android also keeps
+  a copy of them in your Google account, as it does for the rest of the app's data.
 - **Bluetooth and nearby devices.** Used only to connect to optional environmental
   sensors (such as anemometers and weather meters) so the app can read live wind,
   temperature, pressure, and humidity. On some Android versions the operating system
