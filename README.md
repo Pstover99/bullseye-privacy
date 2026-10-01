@@ -17,7 +17,8 @@ creation. If either path ever changes, change it in the Play Console the same da
 
 ## Editing
 
-Every `.html` page is **generated**. Edit the source, then:
+Every `.html` page is **generated**. Never edit `index.html` or any other output directly: CI
+fails the PR, and the next render throws the edit away. Edit the source, then:
 
 ```bash
 python3 render.py
@@ -51,7 +52,9 @@ keeps the header and footer from drifting apart the same way.
   emulator. A golden built from a hand-typed fixture can show numbers no rifle would produce;
   check the ballistics before using one. The range screen here is an emulator capture of a real
   solve, and the readout strip and range card show the same load.
-- Words follow the app's `docs/COPY_STYLE.md`: plain, short, no internals.
+- Words follow the app's `docs/COPY_STYLE.md`: plain, short, no internals, and **US spelling**
+  (center, dialed, color). `render.py` fails on the British forms, using the same list as the
+  app's `CopySpellingTest`.
 
 ## Assets
 

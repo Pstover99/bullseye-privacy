@@ -43,7 +43,7 @@ use the following device capabilities, all processed locally on your device:
 
   *Voice shot calls* (Settings → Voice shot calls). When it is on, the app listens while
   a target solution is on screen so you can say "hit" or "miss low left" instead of
-  tapping. Speech is recognised **on your phone**, by a model shipped inside the app —
+  tapping. Speech is recognized **on your phone**, by a model shipped inside the app —
   **no audio is recorded, saved or sent anywhere.** The microphone is closed the moment
   you leave the solution screen or the app goes to the background, and the only thing
   kept is the shot you called, exactly as if you had tapped it. The app also keeps the
