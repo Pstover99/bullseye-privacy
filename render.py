@@ -115,6 +115,49 @@ def render(md: str) -> str:
     return "\n\n".join(out)
 
 
+# British spellings, the same list as the app's CopySpellingTest
+# (Bullseye-VC: app/src/test/kotlin/com/ballistics/app/ui/CopySpellingTest.kt). docs/COPY_STYLE.md
+# rule 10: US spelling, because testers read the British forms as odd. Keep the two lists in step.
+BRITISH = {
+    "centre": "center", "centres": "centers", "centred": "centered", "centring": "centering",
+    "dialled": "dialed", "dialling": "dialing",
+    "cancelled": "canceled", "cancelling": "canceling",
+    "labelled": "labeled", "labelling": "labeling",
+    "levelled": "leveled", "travelled": "traveled", "modelled": "modeled",
+    "colour": "color", "colours": "colors", "coloured": "colored",
+    "favour": "favor", "favours": "favors", "favoured": "favored",
+    "behaviour": "behavior", "neighbour": "neighbor", "honour": "honor",
+    "metre": "meter", "metres": "meters",
+    "centimetre": "centimeter", "centimetres": "centimeters",
+    "millimetre": "millimeter", "millimetres": "millimeters",
+    "kilometre": "kilometer", "kilometres": "kilometers",
+    "litre": "liter", "litres": "liters",
+    "calibre": "caliber", "calibres": "calibers",
+    "analyse": "analyze", "analysed": "analyzed", "analysing": "analyzing",
+    "licence": "license", "catalogue": "catalog", "defence": "defense",
+    "grey": "gray", "aluminium": "aluminum",
+    "recognise": "recognize", "recognised": "recognized", "recogniser": "recognizer",
+    "organise": "organize", "organised": "organized",
+    "customise": "customize", "customised": "customized",
+    "optimise": "optimize", "optimised": "optimized",
+    "minimise": "minimize", "maximise": "maximize",
+    "initialise": "initialize", "initialised": "initialized",
+    "normalise": "normalize", "normalised": "normalized",
+    "summarise": "summarize", "visualise": "visualize",
+    "synchronise": "synchronize", "synchronised": "synchronized",
+    "prioritise": "prioritize", "realise": "realize", "stabilise": "stabilize",
+    "authorise": "authorize", "authorised": "authorized",
+}
+
+
+def british_spellings(page: str) -> list[str]:
+    """British spellings in a page's visible text: tags, comments, styles and scripts removed."""
+    text = re.sub(r"<!--.*?-->|<(style|script)\b.*?</\1>", " ", page, flags=re.S | re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    words = re.findall(r"[A-Za-z]+", text)
+    return sorted({f"{w} -> {BRITISH[w.lower()]}" for w in words if w.lower() in BRITISH})
+
+
 def body_for(source: str) -> str:
     if source.endswith(".md"):
         doc = re.sub(r"\n +\n", "\n\n", render((HERE / source).read_text()).replace("\n", "\n  "))
@@ -145,8 +188,10 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
 if __name__ == "__main__":
     check = "--check" in sys.argv
     stale = []
+    spelling = []
     for output, *spec in PAGES:
         page = build(output, *spec)
+        spelling += [f"{output}: {hit}" for hit in british_spellings(page)]
         target = HERE / output
         if check:
             if not target.exists() or target.read_text() != page:
@@ -155,6 +200,9 @@ if __name__ == "__main__":
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(page)
             print(f"wrote {output}")
+    if spelling:
+        print("British spelling (docs/COPY_STYLE.md rule 10 is US spelling):\n  " + "\n  ".join(spelling), file=sys.stderr)
+        sys.exit(1)
     if check:
         if stale:
             print("Out of date: " + ", ".join(stale) + "\nRun: python3 render.py", file=sys.stderr)
