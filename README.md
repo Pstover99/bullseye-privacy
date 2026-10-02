@@ -8,6 +8,7 @@ redirect them.
 | Page | URL |
 |---|---|
 | Home | https://bullseyeballisticscalculator.com/ |
+| Features | https://bullseyeballisticscalculator.com/features/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
 
@@ -31,6 +32,7 @@ have drifted.
 |---|---|
 | Header, footer, `<head>` on every page | `_layout.html` |
 | Home page | `_pages/home.html` |
+| Feature tour | `_pages/features.html` |
 | Account deletion | `_pages/delete-account.html` |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
@@ -48,10 +50,20 @@ keeps the header and footer from drifting apart the same way.
 - **Every claim about the app must be true of the shipped app.** Check the code, not the store
   listing: the listing once named a sensor with no support and a match feature that did not
   exist.
-- **Screenshots come from the app,** either its committed Paparazzi goldens or a capture on the
-  emulator. A golden built from a hand-typed fixture can show numbers no rifle would produce;
-  check the ballistics before using one. The range screen here is an emulator capture of a real
-  solve, and the readout strip and range card show the same load.
+- **Screenshots come from the app,** either a capture on a phone or emulator, or one of its
+  committed Paparazzi goldens. A golden built from a hand-typed fixture can show numbers no rifle
+  would produce; check the ballistics before using one. The hero and the readout strip under it
+  come from the same capture (a 6GT at 1,024 yd with both Calypso sensors live, 2026-10-01), so
+  the strip quotes the card. Three goldens stand in where no capture existed: `shot-string`,
+  `log-analysis` and `match`.
+- **Phone captures are cropped and re-encoded,** never published raw. The Android status bar
+  (clock, signal) and the navigation bar come off (120 px and 126 px at 1080×2400; the
+  full-screen solution card has no status bar, so only the bottom), then the image is resized to
+  720 px wide and saved as WebP at quality 82. A capture must not show another person's name or
+  email; the cloud-backup screen was left out for that reason.
+- **Nothing that is not shipped goes in a feature section.** The one place for it is the
+  "Not in the app yet" panel, which names the state (in development, planned) and says dates
+  are not set. The AI assistant is planned, not built, and is described only there.
 - Words follow the app's `docs/COPY_STYLE.md`: plain, short, no internals, and **US spelling**
   (center, dialed, color). `render.py` fails on the British forms, using the same list as the
   app's `CopySpellingTest`.

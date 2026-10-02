@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bullseye Ballistics Calculator</title>
-<meta name="description" content="A ballistics calculator for Android. Live wind and weather from your Bluetooth sensors, a shot log, groups from a photo, load development and more.">
+<meta name="description" content="A ballistics calculator for Android that learns your rifle. Live wind and weather from your Bluetooth sensors, hit probability, a shot log that trues the load, groups from a photo, matches, load development and an external HUD.">
 <link rel="canonical" href="https://bullseyeballisticscalculator.com/">
 <meta name="theme-color" content="#101311">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bullseye Ballistics">
 <meta property="og:title" content="Bullseye Ballistics Calculator">
-<meta property="og:description" content="A ballistics calculator for Android. Live wind and weather from your Bluetooth sensors, a shot log, groups from a photo, load development and more.">
+<meta property="og:description" content="A ballistics calculator for Android that learns your rifle. Live wind and weather from your Bluetooth sensors, hit probability, a shot log that trues the load, groups from a photo, matches, load development and an external HUD.">
 <meta property="og:url" content="https://bullseyeballisticscalculator.com/">
 <meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@
       <b>Bullseye</b>
     </a>
     <nav class="nav" aria-label="Site">
-      <a href="#features">Features</a>
+      <a href="features/">Features</a>
       <a href="privacy/">Privacy</a>
       <a href="delete-account/">Delete account</a>
     </nav>
@@ -41,81 +41,116 @@
       <div>
         <div class="label">Ballistics calculator for Android</div>
         <h1>Dial it once. <span>Hit it first.</span></h1>
-        <p class="lead">Bullseye turns your rifle data and the conditions on the ground into elevation and windage you can read at a glance. It takes live wind and weather from your Bluetooth sensors, and it logs every shot so you can see how your dope holds up.</p>
+        <p class="lead">Bullseye reads the wind and weather from your Bluetooth sensors, solves the shot, and logs what happened. Every shot you call makes the next solution a little more yours.</p>
         <div class="cta-row">
           <span class="btn btn-outline">Coming soon to Google Play</span>
           <span class="soon">One-time purchase.<br>Every feature included.</span>
         </div>
       </div>
       <div class="frame">
-        <img src="assets/img/range-screen.png" width="448" height="1000" alt="The range screen at 500 yards: elevation 11.58 MOA up and windage 3.79 MOA right, with hit and miss buttons.">
+        <img src="assets/img/solution-live.webp" width="720" height="1516" alt="The solution card at 1,024 yards: elevation 7.82 mil up and windage 0.10 mil right. Wind, temperature, pressure and humidity are marked Live. Hit and Miss buttons at the bottom.">
       </div>
     </div>
   </section>
 
-  <div class="readout" aria-label="Solver output at 500 yards">
+  <div class="readout" aria-label="Solver output at 1,024 yards">
     <div class="wrap">
       <div class="cells">
-        <div><div class="label">500 yd · Elevation</div><div class="v"><em>▲</em> 11.58 MOA</div></div>
-        <div><div class="label">10 mph · Windage</div><div class="v"><em>▶</em> 3.79 MOA</div></div>
-        <div><div class="label">Velocity</div><div class="v">1,767 fps</div></div>
-        <div><div class="label">Time of flight</div><div class="v">0.70 s</div></div>
+        <div><div class="label">1,024 yd · Elevation</div><div class="v"><em>▲</em> 7.82 mil</div></div>
+        <div><div class="label">2 mph live · Windage</div><div class="v"><em>▶</em> 0.10 mil</div></div>
+        <div><div class="label">Density altitude</div><div class="v">2,571 ft</div></div>
+        <div><div class="label">Air temperature</div><div class="v">80.1 °F</div></div>
       </div>
-      <p class="readout-note">.308 Win, 175 gr SMK, G7 0.243, 2,610 fps, 100 yd zero, 59 °F at sea level, 10 mph from 3 o'clock. Windage includes spin drift. Solved by the app, as on the range screen above.</p>
+      <p class="readout-note">6GT, 109 gr Berger, G7 .292, 96 yd zero. Wind from a Calypso Ultrasonic; temperature, pressure and humidity from a Calypso WeatherDot. Captured on the phone at the range, as on the card above.</p>
     </div>
   </div>
 
-  <section id="features">
+  <section>
+    <div class="wrap">
+      <div class="label">How it works</div>
+      <h2>A loop, not a lookup</h2>
+      <p class="intro">A calculator gives you a number. Bullseye gives you the number, then watches what the bullet did and uses it next time.</p>
+      <div class="loop">
+        <div><div class="n">01</div><h3>Measure</h3><p>Sensors fill in wind, temperature, pressure and humidity. GPS and the compass fill in latitude and direction.</p></div>
+        <div><div class="n">02</div><h3>Solve</h3><p>Elevation, wind hold, hit chance, time of flight, and velocity and energy at the target.</p></div>
+        <div><div class="n">03</div><h3>Shoot</h3><p>Read the dial on the phone or on the HUD on your scope. Call the shot by voice or with a tap.</p></div>
+        <div><div class="n">04</div><h3>Record</h3><p>Each shot is saved with its call, where it landed, and the conditions at that moment.</p></div>
+        <div><div class="n">05</div><h3>Analyze</h3><p>Hit rate by distance, where your misses land, dope by density altitude, and what the sensors were worth.</p></div>
+        <div><div class="n">06</div><h3>Improve</h3><p>True the load from your log with one tap. The next solution uses it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="flush">
     <div class="wrap">
       <div class="label">What it does</div>
       <h2>Everything for the shot, and after it</h2>
-      <p class="intro">Build a profile once. Bullseye solves the shot with a full point-mass engine and keeps a record of what actually happened.</p>
+      <p class="intro">Set up a rifle and load once. Bullseye solves the shot with a full point-mass engine and keeps a record of what actually happened.</p>
       <div class="grid">
         <article class="panel">
           <div class="label">Solve</div>
           <h3>Firing solutions</h3>
-          <p>Elevation and windage in MOA or mil, from G1 or G7 drag. Spin drift is applied for you. Coriolis uses your GPS latitude and a compass bearing.</p>
+          <p>Elevation and windage in MOA or mil, from G1 or G7 drag. Spin drift and aerodynamic jump are applied for you. Coriolis uses your GPS latitude and a compass bearing.</p>
         </article>
         <article class="panel">
           <div class="label">Sense</div>
           <h3>Live sensors</h3>
-          <p>Connect several Bluetooth sensors at once. Wind, temperature, pressure and humidity feed one live solution.</p>
+          <p>Connect several Bluetooth sensors at once. Wind, temperature, pressure and humidity feed one live solution, and a stale reading drops out on its own.</p>
+        </article>
+        <article class="panel">
+          <div class="label">Odds</div>
+          <h3>Hit probability</h3>
+          <p>Your chance of a hit on the target you pick, with the biggest sources of error ranked. Set a wind band and the card says when the live wind is inside it.</p>
         </article>
         <article class="panel">
           <div class="label">True</div>
-          <h3>Two-point truing</h3>
-          <p>Enter what you really dialed at two known distances. Bullseye adjusts muzzle velocity and drag to match your rifle.</p>
+          <h3>Truing</h3>
+          <p>Enter what you really dialed at two distances, or let Bullseye fit muzzle velocity and drag to the misses in your log. One tap applies it.</p>
         </article>
         <article class="panel">
           <div class="label">Log</div>
           <h3>Shot log and voice calls</h3>
-          <p>Say "hit" or "miss, one mil low" and the shot is logged. Track your hit rate by distance.</p>
+          <p>Say "hit" or "miss, three tenths left" and the shot is logged with the solution and the conditions. Or tap the miss on a 3×3 grid.</p>
         </article>
         <article class="panel">
           <div class="label">Measure</div>
           <h3>Groups from a photo</h3>
-          <p>Photograph the target, then mark two reference points, your aim point and the holes. Bullseye measures the group and how far its center is from your aim.</p>
+          <p>Photograph the target and mark the holes. Bullseye measures the group, plots it, and shows what it does on any target at any distance.</p>
         </article>
         <article class="panel">
           <div class="label">Develop</div>
           <h3>Load development</h3>
-          <p>Record charge ladders and seating tests with velocity and group size per rung. Turn the best rung into a load.</p>
+          <p>Charge ladders and seating tests with velocity and group size per rung. Type the first, last and step, and the rungs fill in. Turn the best rung into a load.</p>
         </article>
         <article class="panel">
           <div class="label">Compete</div>
           <h3>Matches</h3>
-          <p>Build the stage list, then step through it on the day. Each target's dial is ready, and every shot you log is tagged with its stage.</p>
+          <p>Build the stages and targets, then step through them from the solution screen. No distances to type on the clock.</p>
         </article>
         <article class="panel">
           <div class="label">Maintain</div>
           <h3>Barrel life and cleaning</h3>
-          <p>Rounds count as you log shots. See barrel life left, and turn on a reminder for when a clean is due.</p>
+          <p>Rounds count as you log shots. See barrel life left, log cleanings, and get a reminder when a clean is due.</p>
         </article>
         <article class="panel">
           <div class="label">Adjust</div>
           <h3>Powder temperature</h3>
           <p>Enter your load's velocity at two or more temperatures. The solution follows the ammo temperature on the day.</p>
         </article>
+        <article class="panel">
+          <div class="label">Display</div>
+          <h3>External HUD</h3>
+          <p>Pair an M5StickS3 and the live solution streams to a small display on your rifle. Choose what it shows and in what order.</p>
+        </article>
+        <article class="panel">
+          <div class="label">Keep</div>
+          <h3>Cloud backup</h3>
+          <p>Optional. Sign in and your rifles, shot log, groups and matches are backed up. Photos, location and pairings stay on the phone.</p>
+        </article>
+      </div>
+      <div class="cta-row after">
+        <a class="btn btn-outline" href="features/">See every feature</a>
+        <span class="soon">Screen by screen, with screenshots.</span>
       </div>
     </div>
   </section>
@@ -124,27 +159,27 @@
     <div class="wrap">
       <div class="label">In the app</div>
       <h2>Built to read at the range</h2>
-      <p class="intro">Big numbers and high contrast, so the dial reads at a glance.</p>
+      <p class="intro">Big numbers and high contrast. Full brightness while the solution is open, so it reads in the sun.</p>
       <div class="screens">
         <figure class="wide">
-          <div class="frame"><img src="assets/img/range-card.png" width="514" height="376" alt="A range card for a Tikka T3x CTR with 175 SMK: elevation, wind, spin drift, velocity and time of flight every 100 yards to 1,000."></div>
+          <div class="frame"><img src="assets/img/range-card.png" width="514" height="376" loading="lazy" decoding="async" alt="A range card for a Tikka T3x CTR with 175 SMK: elevation, wind, spin drift, velocity and time of flight every 100 yards to 1,000."></div>
           <figcaption><div class="label">Range card</div><p>A full dope table for the load. Share it as an image or as text.</p></figcaption>
         </figure>
         <figure>
-          <div class="frame"><img src="assets/img/home.png" width="372" height="1000" alt="The home screen: tiles for the target solution, profiles, matches, shot log, groups, sensors, load development and maintenance."></div>
-          <figcaption><div class="label">Home</div><p>Each tile shows where you left off.</p></figcaption>
+          <div class="frame"><img src="assets/img/home.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The home screen: tiles for target solution, profiles, sensors, groups, shot log, converter, display, matches, tutorial, load development and cloud backup, each showing its current state."></div>
+          <figcaption><div class="label">Home</div><p>Each tile shows where you left off. Arrange them your way.</p></figcaption>
         </figure>
         <figure>
-          <div class="frame"><img src="assets/img/load-dev.png" width="514" height="1000" alt="A charge ladder of H4350 under a 140 ELD-M, comparing velocity and group size across the rungs."></div>
-          <figcaption><div class="label">Load development</div><p>Velocity and group size for every rung.</p></figcaption>
+          <div class="frame"><img src="assets/img/solution-card.webp" width="720" height="1516" loading="lazy" decoding="async" alt="The full-screen solution card: elevation 7.86 mil up, windage 1.72 mil right, velocity, time of flight, wind, temperature, pressure, humidity and density altitude, a 61% hit probability, and hit and miss buttons."></div>
+          <figcaption><div class="label">Solution</div><p>The dial, the conditions it came from, and your hit chance.</p></figcaption>
         </figure>
         <figure>
-          <div class="frame"><img src="assets/img/velocity.png" width="514" height="1000" alt="A velocity check of six readings: average 2,715 fps, SD 4.3, ES 12."></div>
-          <figcaption><div class="label">Velocity check</div><p>Average, SD and ES from your chronograph readings.</p></figcaption>
+          <div class="frame"><img src="assets/img/sensors-live.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The sensors screen with a Calypso Ultrasonic and a WeatherDot both live, showing wind, temperature, pressure, humidity and battery, and a picker for which sensor supplies each reading."></div>
+          <figcaption><div class="label">Sensors</div><p>Two sensors live at once. Pick which one supplies each reading.</p></figcaption>
         </figure>
         <figure>
-          <div class="frame"><img src="assets/img/group-photo.png" width="514" height="1000" alt="Five impacts marked on a photographed target, with two reference marks one inch apart."></div>
-          <figcaption><div class="label">Groups</div><p>Mark the holes on a photo and get the size.</p></figcaption>
+          <div class="frame"><img src="assets/img/group-result.webp" width="720" height="1436" loading="lazy" decoding="async" alt="A measured group: 0.31 in at 96 yards, mean radius 0.10 in, a dispersion plot with sigma ellipses, and vertical and horizontal spread with confidence intervals."></div>
+          <figcaption><div class="label">Groups</div><p>Size, mean radius, spread per axis and the offset from your aim.</p></figcaption>
         </figure>
       </div>
     </div>
@@ -161,6 +196,7 @@
           <li><strong>WeatherFlow Tempest</strong> shooting weather meter</li>
           <li><strong>RuuviTag</strong></li>
           <li>Most Bluetooth sensors that use the standard <strong>Environmental Sensing</strong> service</li>
+          <li><strong>M5StickS3</strong> as an external HUD</li>
         </ul>
         <p>Use more than one at a time. Pick which sensor supplies each reading.</p>
       </article>
@@ -174,6 +210,22 @@
           <li>Target photos and voice audio never leave your phone.</li>
         </ul>
         <p><a href="privacy/">Read the privacy policy</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="flush">
+    <div class="wrap">
+      <article class="panel tall next">
+        <div class="label">Not in the app yet</div>
+        <h2>What is coming</h2>
+        <ul>
+          <li><strong>Shot impact sensors</strong><span class="tag">In development</span><br>Impacts recorded without a call.</li>
+          <li><strong>Laser rangefinders</strong><span class="tag">In development</span><br>The distance arrives by Bluetooth instead of being typed.</li>
+          <li><strong>Video devices</strong><span class="tag">In development</span><br>Spotting-scope cameras paired to the app.</li>
+          <li><strong>An assistant</strong><span class="tag">Planned</span><br>Reads your log and today's conditions and says what to change. Planned as an optional add-on, so the app itself stays a one-time purchase with every feature included.</li>
+        </ul>
+        <p>Nothing on this list is in the app today. Dates are not set.</p>
       </article>
     </div>
   </section>

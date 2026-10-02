@@ -32,8 +32,14 @@ SITE = "https://bullseyeballisticscalculator.com/"
 PAGES = [
     ("index.html", "_pages/home.html", "",
      "Bullseye Ballistics Calculator",
-     "A ballistics calculator for Android. Live wind and weather from your Bluetooth sensors, "
-     "a shot log, groups from a photo, load development and more."),
+     "A ballistics calculator for Android that learns your rifle. Live wind and weather from "
+     "your Bluetooth sensors, hit probability, a shot log that trues the load, groups from a "
+     "photo, matches, load development and an external HUD."),
+    ("features/index.html", "_pages/features.html", "../",
+     "Features · Bullseye Ballistics",
+     "Every feature, screen by screen: the solution card, live sensors, the solver, rifles and "
+     "loads, the shot log, groups, matches, voice calls, the external HUD, backup, barrel care "
+     "and load development."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -176,6 +182,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{TITLE}}": html.escape(title),
         "{{DESCRIPTION}}": html.escape(description),
         "{{URL}}": SITE + ("" if output == "404.html" else path),
+        "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
         "{{CURRENT_PRIVACY}}": ' aria-current="page"' if output.startswith("privacy/") else "",
         "{{CURRENT_DELETE}}": ' aria-current="page"' if output.startswith("delete-account/") else "",
     }
