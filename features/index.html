@@ -41,46 +41,43 @@
       <div class="label">Feature tour</div>
       <h1 class="hero-h1">Every screen, <span>in order</span></h1>
       <p class="intro">What Bullseye does, section by section, with the screens as they look on the phone. Every feature is included in the one-time purchase.</p>
-      <ul class="tour-nav" aria-label="Sections">
-        <li><a href="#solution">Solution</a></li>
-        <li><a href="#sensors">Sensors</a></li>
-        <li><a href="#solver">Solver</a></li>
-        <li><a href="#earth">Coriolis</a></li>
-        <li><a href="#rifles">Rifles and loads</a></li>
-        <li><a href="#log">Shot log</a></li>
-        <li><a href="#groups">Groups</a></li>
-        <li><a href="#matches">Matches</a></li>
-        <li><a href="#voice">Voice</a></li>
-        <li><a href="#hud">External HUD</a></li>
-        <li><a href="#backup">Backup</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#settings">Settings</a></li>
-        <li><a href="#barrel">Barrel care</a></li>
-        <li><a href="#loaddev">Load development</a></li>
-        <li><a href="#platform">Platform</a></li>
-        <li><a href="#next">Coming</a></li>
-      </ul>
     </div>
   </section>
+
+  <nav class="tour-bar" aria-label="Sections">
+    <div class="wrap">
+      <ul class="tour-links"><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li><li><a href="#next">Coming</a></li></ul>
+      <details class="tour-menu">
+        <summary><span class="label">Sections</span></summary>
+        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li><li><a href="#next">Coming</a></li></ul>
+      </details>
+    </div>
+  </nav>
 
   <section class="tour" id="solution">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Solution screen</div>
+        <div class="label"><span class="num">01 / 16</span>Solution screen</div>
         <h2>The dial, large and bright</h2>
         <p>Elevation and windage in MOA or mil, with the linear value in inches or centimeters under each. One tap switches MOA and mil on every screen that dials.</p>
         <ul>
           <li><strong>Hit probability</strong> against the target you choose, with the error budget ranked: wind read, muzzle velocity, range estimate, ballistic coefficient and group dispersion.</li>
           <li><strong>Wind band.</strong> Set the bracket you are holding for and the card says when the live wind is inside it. A readiness line says when your conditions are met.</li>
           <li><strong>Call the shot</strong> with Hit, Miss or No-call. A 3×3 grid takes the miss direction with one tap, and you can add how far off in mil or MOA. Or say it: voice calls are built in.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 6 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Shot strings</strong> started, named and continued from the solution screen. The running hit count stays in view.</li>
           <li><strong>Stats you choose.</strong> Velocity and energy at the target, time of flight, stability factor, wind, aerodynamic jump and conditions. Turn each on or off and set the order.</li>
           <li><strong>Target presets</strong> for hit probability: MOA and mil sizes, steel plates, IPSC zones, popper, deer and elk vitals, or your own size.</li>
           <li><strong>Every input is marked</strong> Live or Manual, so you know where each number came from.</li>
           <li><strong>Full-screen card</strong> with large text for reading at the rifle. The dial scrubs distance on the clock, or captures an azimuth for one distance and moving targets.</li>
           <li><strong>Full brightness</strong> while the solution is open, and a keep-screen-on option.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
+      <div class="screens-col">
       <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/solution-card.webp" width="720" height="1516" loading="lazy" decoding="async" alt="The full-screen solution card: elevation 7.86 mil up, windage 1.72 mil right, stats for velocity, time of flight, wind, temperature, pressure, humidity and density altitude, a 61% hit probability with wind read as the largest error source, and Hit and Miss buttons."></div>
@@ -94,6 +91,10 @@
           <div class="frame"><img src="../assets/img/wind-band.webp" width="720" height="1516" loading="lazy" decoding="async" alt="The solution card with the wind band bar below the dial, showing where the live wind sits inside the bracket you set."></div>
           <figcaption><div class="label">Wind band</div><p>The bar shows where the live wind sits in your bracket.</p></figcaption>
         </figure>
+      </div>
+      <details class="more">
+        <summary><span class="label"><span class="closed">Show 4 more screens</span><span class="opened">Show fewer screens</span></span></summary>
+        <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/miss-grid.webp" width="720" height="1516" loading="lazy" decoding="async" alt="The miss grid: a 3×3 grid of High Left to Low Right around the target, a No-call button and Skip."></div>
           <figcaption><div class="label">Miss grid</div><p>One tap for where it landed. Skip if you did not see it.</p></figcaption>
@@ -110,6 +111,8 @@
           <div class="frame"><img src="../assets/img/display-stats.webp" width="720" height="1516" loading="lazy" decoding="async" alt="Target solution display settings: switches for velocity, energy, time of flight, stability factor, aerodynamic jump, wind and conditions, each with a one-line description."></div>
           <figcaption><div class="label">Your stats</div><p>Show what you care about. Hide the rest.</p></figcaption>
         </figure>
+        </div>
+      </details>
       </div>
     </div>
   </section>
@@ -117,19 +120,24 @@
   <section class="tour rev" id="sensors">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Wind, conditions and sensors</div>
+        <div class="label"><span class="num">02 / 16</span>Wind, conditions and sensors</div>
         <h2>Type as little as possible</h2>
         <p>The more sensors you connect, the less you type. Bullseye stays connected to several at once and fills the solution from them.</p>
         <ul>
           <li><strong>Several sensors at once,</strong> merged per reading. A reading that goes stale is released on its own, so the solution never runs on an old number.</li>
           <li><strong>Live feed</strong> from the Calypso Ultrasonic, Calypso WeatherDot and WeatherFlow Tempest, plus RuuviTag and most sensors that use the standard Environmental Sensing service.</li>
           <li><strong>Pick the source</strong> for wind, temperature, pressure and humidity. If that sensor drops out, the reading goes back to manual rather than silently switching.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 5 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Wind smoothing,</strong> fixed or by distance band, with a staleness threshold.</li>
           <li><strong>Calypso direction calibration,</strong> so the meter can face any way and does not need to be moved.</li>
           <li><strong>Auto fill</strong> of the solution from Bluetooth, and auto-reconnect to saved sensors.</li>
           <li><strong>GPS latitude and compass azimuth</strong> from the phone, with a GPS power profile you choose. The live heading shows its accuracy, and you can lock it once set up.</li>
           <li><strong>Battery and connection state</strong> for every device on the sensors screen.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
       <div class="shots two">
         <figure>
@@ -147,13 +155,17 @@
   <section class="tour" id="solver">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Ballistic solver</div>
+        <div class="label"><span class="num">03 / 16</span>Ballistic solver</div>
         <h2>A full point-mass engine</h2>
         <p>Bullseye traces the bullet's flight in small steps with RK4 integration, checking the rate of change four times in every step. Gravity, drag, wind, spin and the Earth's rotation all act on the bullet as they change along the way, so the result is accurate past the transonic zone, not just near the zero.</p>
         <ul>
           <li><strong>G1 and G7 drag models.</strong></li>
           <li><strong>Drop, windage, velocity, energy, stability and time of flight</strong> at any range, with a full trajectory table. Transonic and subsonic ranges are highlighted.</li>
           <li><strong>Spin drift, aerodynamic jump and stability factor</strong> are calculated and applied.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 8 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Coriolis</strong> from latitude and azimuth, with an option to turn it on at launch.</li>
           <li><strong>Shot angle</strong> from the phone's sensors or typed by hand.</li>
           <li><strong>Temperature, station pressure and humidity</strong> go into the solution, and the density altitude is shown.</li>
@@ -162,7 +174,8 @@
           <li><strong>Muzzle velocity by powder temperature,</strong> from a table you keep per load.</li>
           <li><strong>Cold-bore and clean-bore offsets</strong> for the first shot, when you say the first shot is one.</li>
           <li><strong>Zero conditions</strong> stored per load, so the zero corrects when the day is different.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
       <div>
         <div class="shots card">
@@ -206,7 +219,7 @@
   <section class="tour rev" id="earth">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Coriolis, spin drift and jump</div>
+        <div class="label"><span class="num">04 / 16</span>Coriolis, spin drift and jump</div>
         <h2>The small corrections, done for you</h2>
         <p>The Earth turns under the bullet while it flies. Shooting north or south moves the impact mostly up or down; shooting east or west moves it mostly sideways. The longer the flight, the bigger the shift. At 1,000 yards it is usually a few tenths of a mil, depending on your latitude and direction of fire, and it grows from there.</p>
         <p>Bullseye takes your latitude from GPS and your direction of fire from the compass, works out the Coriolis correction, adds spin drift and aerodynamic jump, and folds all three into the dial. You can also type the latitude and azimuth by hand.</p>
@@ -223,18 +236,24 @@
   <section class="tour" id="rifles">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Rifles and loads</div>
+        <div class="label"><span class="num">05 / 16</span>Rifles and loads</div>
         <h2>Set it up once</h2>
         <p>Any number of rifles, each with its own loads. Pick the current rifle and load once and the whole app uses them.</p>
         <ul>
           <li><strong>Rifle:</strong> name, bore diameter, twist rate and direction, sight height.</li>
           <li><strong>Load:</strong> bullet weight, diameter and length, drag model and ballistic coefficient, muzzle velocity, zero range, zero conditions, maximum range and range step.</li>
           <li><strong>Advanced, per load:</strong> cold-bore and clean-bore shots, zero offsets, zero conditions, muzzle velocity against temperature, and truing. Most shooters can skip these.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 3 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Velocity checks</strong> from your chronograph, kept with the load. Use the measured spread in hit probability, and let Bullseye adjust velocity as the barrel wears.</li>
           <li><strong>Copy, rename and delete</strong> loads; rename and delete rifles.</li>
           <li><strong>Preview the full trajectory</strong> for the load before you shoot it.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
+      <div class="screens-col">
       <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/load-bullet.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Rifle setup, bullet section: G7 drag table, ballistic coefficient .292, 109 gr, diameter 0.243 in, length 1.277 in, twist 7 in per turn, right-hand."></div>
@@ -248,6 +267,10 @@
           <div class="frame"><img src="../assets/img/zero-conditions.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Rifle setup, zero conditions: temperature 75 °F, pressure 28.95 inHg, humidity 61.3%, altitude 1,060 ft, with a button to use today's conditions."></div>
           <figcaption><div class="label">Zero conditions</div><p>The weather you zeroed in, so a different day corrects.</p></figcaption>
         </figure>
+      </div>
+      <details class="more">
+        <summary><span class="label"><span class="closed">Show 3 more screens</span><span class="opened">Show fewer screens</span></span></summary>
+        <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/mv-temperature.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Rifle setup, muzzle velocity against temperature: a table with 80 °F at 2,907 fps, 100 °F at 2,913 fps and 49 °F at 2,863 fps, starting from Hodgdon Varget."></div>
           <figcaption><div class="label">Velocity by temperature</div><p>Start from the powder, replace with your own chrono readings.</p></figcaption>
@@ -260,6 +283,8 @@
           <div class="frame"><img src="../assets/img/velocity-checks.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Rifle setup, velocity checks: an Add velocity check button, and switches to use the measured spread and to adjust velocity for barrel wear."></div>
           <figcaption><div class="label">Velocity checks</div><p>Your chrono readings, with their date and temperature.</p></figcaption>
         </figure>
+        </div>
+      </details>
       </div>
     </div>
   </section>
@@ -267,19 +292,24 @@
   <section class="tour rev" id="log">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Shot log and analysis</div>
+        <div class="label"><span class="num">06 / 16</span>Shot log and analysis</div>
         <h2>A record that pays you back</h2>
         <p>Every call you make is a shot in the log, with the distance, the solution the app gave you, and the conditions at that moment. That is a real-world record of your rifle, not a paper DOPE card.</p>
         <ul>
           <li><strong>Shot strings</strong> with each shot's call, miss location, distance, name, notes and where each number came from.</li>
           <li><strong>Analysis across the strings you pick:</strong> hit rate by distance, where your misses land, and cold bore against warm bore.</li>
           <li><strong>Dope by density altitude,</strong> and predicted against observed for each shot.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 3 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Sensor payoff:</strong> how much the live sensors improved the solution over typing it in.</li>
           <li><strong>Truing from your log:</strong> a muzzle velocity offset and drag scale fitted to your logged misses, applied with one tap.</li>
           <li><strong>CSV export</strong> of any string.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
-      <div class="shots two">
+      <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/shot-string.webp" width="372" height="1000" loading="lazy" decoding="async" alt="A shot string: 6 hits of 11 at 55%, hit rate by distance from 300 to 800 yards, and the newest shots with their call, predicted drop and wind, and the profile."></div>
           <figcaption><div class="label">A string</div><p>Hit rate by distance and every shot with its solution.</p></figcaption>
@@ -295,19 +325,25 @@
   <section class="tour" id="groups">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Groups</div>
+        <div class="label"><span class="num">07 / 16</span>Groups</div>
         <h2>Measure it, then see what it means</h2>
         <p>Record a group three ways: measured from a photo of the target, entered shot by shot, or entered as the numbers you already have.</p>
         <ul>
           <li><strong>From a photo:</strong> camera or gallery, a known distance on the target for scale, perspective correction, then place each hole under a fixed crosshair and nudge it.</li>
           <li><strong>The numbers:</strong> extreme spread, mean radius, spread on each axis with a 95 percent confidence interval, and how far the group center sits from your aim point. In inches, centimeters, MOA or mil.</li>
           <li><strong>The plot:</strong> one and two sigma ellipses, scale rings, the aim point and every hole drawn at caliber, so you see the group's size, shape, direction and center.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 4 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Pooled per rifle and load.</strong> The pooled dispersion feeds hit probability on the solution screen.</li>
           <li><strong>Simulate:</strong> put a saved group on any target preset at any distance, drawn to shape, with a shot cloud colored by hit and miss. Drag the aim point and read the offset. Rifle only, or with today's conditions.</li>
           <li><strong>Export</strong> the target image with the group's statistics drawn on it.</li>
           <li><strong>The list</strong> shows thumbnails, with multi-select and batch delete.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
+      <div class="screens-col">
       <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/group-result.webp" width="720" height="1436" loading="lazy" decoding="async" alt="A measured group: 0.31 in at 96 yards, mean radius 0.10 in, vertical 0.13 in and horizontal 0.05 in with confidence intervals, group center 0.11 up and 0.01 right of aim, and a Simulate button."></div>
@@ -321,6 +357,10 @@
           <div class="frame"><img src="../assets/img/simulate-conditions.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The same simulation with today's conditions: 5% hit chance, with wind read of 0.27 mil and range estimate of 0.12 mil named as the biggest terms."></div>
           <figcaption><div class="label">With today's conditions</div><p>The same target once wind read and range error are in.</p></figcaption>
         </figure>
+      </div>
+      <details class="more">
+        <summary><span class="label"><span class="closed">Show 2 more screens</span><span class="opened">Show fewer screens</span></span></summary>
+        <div class="shots">
         <figure>
           <div class="frame"><img src="../assets/img/group-photo.png" width="514" height="1000" loading="lazy" decoding="async" alt="Five impacts marked on a photographed target, with two reference marks one inch apart."></div>
           <figcaption><div class="label">From a photo</div><p>Mark the scale, your aim point and the holes.</p></figcaption>
@@ -329,6 +369,8 @@
           <div class="frame"><img src="../assets/img/group-export.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The export preview: the target photo with the group's distance, shot count, size and mean radius drawn on a card over it, and Share, Save and Save as copy buttons."></div>
           <figcaption><div class="label">Export</div><p>The photo with the numbers on it. Share or save.</p></figcaption>
         </figure>
+        </div>
+      </details>
       </div>
     </div>
   </section>
@@ -336,7 +378,7 @@
   <section class="tour rev" id="matches">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Matches</div>
+        <div class="label"><span class="num">08 / 16</span>Matches</div>
         <h2>Walk it once, then shoot it</h2>
         <ul>
           <li><strong>Stages and targets</strong> in engagement order, with a size and label per target and a briefing per stage.</li>
@@ -357,16 +399,21 @@
   <section class="tour" id="voice">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Voice shot calls</div>
+        <div class="label"><span class="num">09 / 16</span>Voice shot calls</div>
         <h2>Stay in the rifle</h2>
         <p>Optional and off by default. After the shot, say "hit", or "miss, three tenths left", and Bullseye logs it with the solution and the wind and weather at that moment. Your hands stay on the rifle.</p>
         <ul>
           <li><strong>What it understands:</strong> hit, impact, miss and no call, a direction, and how far off in mil or MOA. "Undo" or "scratch that" takes the last shot back.</li>
           <li><strong>A follow-up window</strong> for adding the direction after the call.</li>
           <li><strong>On-device recognition.</strong> Audio never leaves the phone and is never written to a file.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 2 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Shots are not calls.</strong> Impulse blanking and a near-field gate keep the shot itself, and the shooter next to you, from being heard as a call.</li>
           <li><strong>Listens only while a solution is on screen,</strong> and the settings page says exactly what it listens for and where the audio goes.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
       <div class="shots one">
         <figure>
@@ -380,7 +427,7 @@
   <section class="tour rev" id="hud">
     <div class="wrap">
       <div class="copy">
-        <div class="label">External HUD</div>
+        <div class="label"><span class="num">10 / 16</span>External HUD</div>
         <h2>The dial on the rifle</h2>
         <p>Pair an M5StickS3 as a Bullseye HUD and the live solution streams to it. Mount it where you can see it from behind the scope and the phone can stay in your pocket.</p>
         <ul>
@@ -405,17 +452,22 @@
   <section class="tour" id="backup">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Account and cloud backup</div>
+        <div class="label"><span class="num">11 / 16</span>Account and cloud backup</div>
         <h2>Optional, and yours to delete</h2>
         <ul>
           <li><strong>Sign in</strong> with email and password or with Google. Nothing in the app needs an account.</li>
           <li><strong>What is backed up:</strong> rifles and loads, the shot log, group measurements, matches, load development, barrel and cleaning records, and settings.</li>
           <li><strong>What stays on the phone:</strong> target photos, sensor and HUD pairings, and today's conditions.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 4 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>When:</strong> at app start and after edits. The backup screen shows what is backed up and what is still waiting.</li>
           <li><strong>Delete the account</strong> from inside the app. The backup is erased first, after you sign in again to confirm.</li>
           <li><strong>File export and import</strong> is a backup that needs no account.</li>
           <li><strong>No advertising, no analytics, no data sold.</strong> <a href="../privacy/">The privacy policy</a> says exactly what is stored.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
       <div class="copy">
         <div class="panel tall">
@@ -430,7 +482,7 @@
   <section class="tour rev" id="tools">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Tools</div>
+        <div class="label"><span class="num">12 / 16</span>Tools</div>
         <h2>The small things you reach for</h2>
         <ul>
           <li><strong>Unit converter:</strong> MOA to mil and back, for spotting for someone who dials the other unit. Range, size and reticle reading solved for any one from the other two, for when you mil a target.</li>
@@ -450,18 +502,23 @@
   <section class="tour" id="settings">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Settings and appearance</div>
+        <div class="label"><span class="num">13 / 16</span>Settings and appearance</div>
         <h2>Make it yours</h2>
         <ul>
           <li><strong>Units</strong> for range, linear and angular values.</li>
           <li><strong>Light and dark theme,</strong> with a choice of accent color.</li>
           <li><strong>Home layout</strong> order, and an orientation lock.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 5 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
           <li><strong>Text size</strong> for the solution card: compact, standard or large.</li>
           <li><strong>Hit probability:</strong> target preset and size, wind read error, muzzle velocity spread.</li>
           <li><strong>Bluetooth, wind smoothing and GPS,</strong> and Coriolis on at launch.</li>
           <li><strong>Shot logging,</strong> including the miss location prompt.</li>
           <li><strong>Voice</strong> and the microphone permission.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
       <div class="shots one">
         <figure>
@@ -475,7 +532,7 @@
   <section class="tour rev" id="barrel">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Barrel life, cleaning and reminders</div>
+        <div class="label"><span class="num">14 / 16</span>Barrel life, cleaning and reminders</div>
         <h2>Know where the barrel is</h2>
         <ul>
           <li><strong>Round count</strong> per barrel, counted from the shots you log, against the life you expect. Add rounds you fired without logging.</li>
@@ -500,7 +557,7 @@
   <section class="tour" id="loaddev">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Load development</div>
+        <div class="label"><span class="num">15 / 16</span>Load development</div>
         <h2>Ladders that keep their data</h2>
         <ul>
           <li><strong>Charge ladders and seating tests,</strong> with the components, the date and where it was shot.</li>
@@ -529,7 +586,7 @@
   <section class="tour" id="platform">
     <div class="wrap">
       <div class="copy">
-        <div class="label">Platform and data</div>
+        <div class="label"><span class="num">16 / 16</span>Platform and data</div>
         <h2>Android, bought once</h2>
         <ul>
           <li><strong>Android 8.0 or newer.</strong> One-time purchase with every feature included.</li>

@@ -265,3 +265,54 @@ footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; te
 }
 .hero-h1 span { color: var(--accent); }
 .tour .panel.tall h3 { font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; margin: 10px 0 10px; }
+
+/* Feature tour: sticky section bar, section numbers, folds */
+.tour-bar { position: sticky; top: 0; z-index: 5; background: var(--bg); border-block: 1px solid var(--line); }
+.tour-links { display: flex; gap: 0 18px; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; white-space: nowrap; }
+.tour-links::-webkit-scrollbar { display: none; }
+.tour-links a, .tour-menu li a {
+  display: inline-block; padding: 14px 0;
+  font: 500 0.74rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+}
+.tour-links a:hover, .tour-menu li a:hover { color: var(--fg); }
+.tour-menu { display: none; }
+.tour-menu summary { list-style: none; cursor: pointer; padding: 14px 0; display: flex; align-items: center; gap: 10px; }
+.tour-menu summary::-webkit-details-marker { display: none; }
+.tour-menu summary .label { color: var(--fg); }
+.tour-menu summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); margin-top: -4px; }
+.tour-menu[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.tour-menu ul { margin: 0; padding: 0 0 12px; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; }
+.tour-menu li a { padding: 9px 0; }
+.tour { scroll-margin-top: 60px; }
+.num { color: var(--accent); margin-right: 12px; }
+
+details.more { margin-top: 6px; }
+details.more > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; padding: 10px 0; }
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary .label { color: var(--accent); }
+details.more > summary::before { content: ""; width: 6px; height: 6px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); flex: none; }
+details.more[open] > summary::before { transform: rotate(45deg); }
+details.more > summary .opened, details.more[open] > summary .closed { display: none; }
+details.more[open] > summary .opened { display: inline; }
+details.more > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tour .copy details.more ul { margin-top: 4px; }
+.screens-col details.more { margin-top: 18px; }
+.screens-col details.more .shots { margin-top: 14px; }
+
+@media (max-width: 900px) {
+  .tour-links { display: none; }
+  .tour-menu { display: block; }
+}
+
+/* Phones: a section's screens sit in one row and swipe sideways, so three screens cost one row. */
+@media (max-width: 560px) {
+  .shots, .shots.two, .shots.one, .shots.card {
+    display: flex; gap: 12px; max-width: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin-inline: -16px; padding: 0 16px 6px; scrollbar-width: none;
+  }
+  .shots::-webkit-scrollbar { display: none; }
+  .shots figure { flex: 0 0 66%; scroll-snap-align: start; }
+  .shots .wide, .shots.card figure { flex-basis: 100%; }
+}
