@@ -120,9 +120,11 @@ do not receive, store, or process shared files.
   latitude and firing direction saved with each shot. Location is not removed from it. Share
   a backup file only with someone you would show where you shoot.
 - **Group image export.** You can share a measured group as an image of your target
-  photo with the measurements drawn on it. The image is re-rendered before it leaves
-  the app, which removes hidden photo metadata such as the GPS coordinates a phone
-  camera may embed — so a shared image does not reveal where it was taken.
+  photo with the measurements drawn on it, or save it to your phone's gallery. The image
+  is re-rendered before it leaves the app, which removes hidden photo metadata such as the
+  GPS coordinates a phone camera may embed — so a shared or saved image does not reveal
+  where it was taken. A copy saved to your gallery is yours: it stays there, like any
+  other photo, if you delete the group or the app.
 
 ## Data collection and third parties
 
