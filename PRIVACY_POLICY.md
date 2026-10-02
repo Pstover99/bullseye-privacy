@@ -1,6 +1,6 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: October 1, 2026
+Last updated: October 2, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge ("we," "us"). This policy explains what the app
@@ -116,6 +116,9 @@ do not receive, store, or process shared files.
 - **Shot-string export.** You can export your shot-string data to a file. By default,
   location information is removed from exported files; including it is an explicit,
   optional choice you control.
+- **Backup file.** "Back up to a file" saves everything the app holds, including the
+  latitude and firing direction saved with each shot. Location is not removed from it. Share
+  a backup file only with someone you would show where you shoot.
 - **Group image export.** You can share a measured group as an image of your target
   photo with the measurements drawn on it. The image is re-rendered before it leaves
   the app, which removes hidden photo metadata such as the GPS coordinates a phone
