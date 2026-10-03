@@ -3,7 +3,7 @@
 Last updated: October 2, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
-calculator developed by Core Bridge ("we," "us"). This policy explains what the app
+calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works on your
 device. There is one exception, it is optional, and it is off unless you switch it on — you can
 create an account so your data survives a lost phone. Without an account, the app sends none
