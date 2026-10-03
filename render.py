@@ -164,6 +164,23 @@ def british_spellings(page: str) -> list[str]:
     return sorted({f"{w} -> {BRITISH[w.lower()]}" for w in words if w.lower() in BRITISH})
 
 
+COPYRIGHT = "&copy; 2026 Core Bridge, LLC. All rights reserved."
+
+
+def visible_text(page: str) -> str:
+    text = re.sub(r"<!--.*?-->|<(style|script)\b.*?</\1>", " ", page, flags=re.S | re.I)
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text))
+
+
+def company_slips(page: str) -> list[str]:
+    """The owner's rules for every page: the copyright line is in the footer, and the company is
+    always "Core Bridge, LLC." in full. An address such as appdevcorebridge@ is not a name."""
+    slips = [] if COPYRIGHT in page else ["missing the footer line: " + html.unescape(COPYRIGHT)]
+    for m in re.finditer(r"(?<![A-Za-z])core\s*bridge(?!, LLC\.)", visible_text(page), flags=re.I):
+        slips.append(f'"{m.group(0)}" should read "Core Bridge, LLC."')
+    return slips
+
+
 def body_for(source: str) -> str:
     if source.endswith(".md"):
         doc = re.sub(r"\n +\n", "\n\n", render((HERE / source).read_text()).replace("\n", "\n  "))
@@ -182,6 +199,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{TITLE}}": html.escape(title),
         "{{DESCRIPTION}}": html.escape(description),
         "{{URL}}": SITE + ("" if output == "404.html" else path),
+        "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
         "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
         "{{CURRENT_PRIVACY}}": ' aria-current="page"' if output.startswith("privacy/") else "",
         "{{CURRENT_DELETE}}": ' aria-current="page"' if output.startswith("delete-account/") else "",
@@ -196,9 +214,11 @@ if __name__ == "__main__":
     check = "--check" in sys.argv
     stale = []
     spelling = []
+    company = []
     for output, *spec in PAGES:
         page = build(output, *spec)
         spelling += [f"{output}: {hit}" for hit in british_spellings(page)]
+        company += [f"{output}: {slip}" for slip in company_slips(page)]
         target = HERE / output
         if check:
             if not target.exists() or target.read_text() != page:
@@ -207,6 +227,9 @@ if __name__ == "__main__":
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(page)
             print(f"wrote {output}")
+    if company:
+        print("Company name and copyright:\n  " + "\n  ".join(company), file=sys.stderr)
+        sys.exit(1)
     if spelling:
         print("British spelling (docs/COPY_STYLE.md rule 10 is US spelling):\n  " + "\n  ".join(spelling), file=sys.stderr)
         sys.exit(1)

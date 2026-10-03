@@ -37,6 +37,7 @@ have drifted.
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
 | Look | `assets/site.css` |
+| Carousels, the home showcase, the full-size viewer | `assets/site.js` |
 
 `PRIVACY_POLICY.md` is a copy of `docs/PRIVACY_POLICY.md` in the app repo, which is the source of
 truth. Copy it over, re-render, commit.
@@ -61,12 +62,17 @@ keeps the header and footer from drifting apart the same way.
   full-screen solution card has no status bar, so only the bottom), then the image is resized to
   720 px wide and saved as WebP at quality 82. A capture must not show another person's name or
   email; the cloud-backup screen was left out for that reason.
-- **Nothing that is not shipped goes in a feature section.** The one place for it is the
-  "Not in the app yet" panel, which names the state (in development, planned) and says dates
-  are not set. The AI assistant is planned, not built, and is described only there.
-- Words follow the app's `docs/COPY_STYLE.md`: plain, short, no internals, and **US spelling**
-  (center, dialed, color). `render.py` fails on the British forms, using the same list as the
-  app's `CopySpellingTest`.
+- **Nothing that is not shipped goes on the site, and nothing upcoming is previewed.** There is
+  no roadmap or "coming soon" feature list: it hands ideas to competitors (owner's decision,
+  2026-10-02). The AI assistant is not named anywhere until it ships; the home page's one line
+  "it's only getting smarter from here" is the whole hint.
+- **The voice is the owner's.** Feature copy follows the owner's website notes (the Word doc
+  the screenshots came from): their phrasing, with typos fixed and anything not shipped taken
+  out. Keep it plain and short, no internals, and **US spelling** (center, dialed, color).
+  `render.py` fails on the British forms, using the same list as the app's `CopySpellingTest`.
+- **The company is always "Core Bridge, LLC."**, and every page ends with
+  "© 2026 Core Bridge, LLC. All rights reserved." in the shared footer. `render.py` fails a page
+  that is missing the line or names the company any other way, so a new page cannot slip.
 
 ## Assets
 
