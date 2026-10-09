@@ -1,14 +1,14 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: October 2, 2026
+Last updated: October 10, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works on your
-device. There is one exception, it is optional, and it is off unless you switch it on — you can
-create an account so your data survives a lost phone. Without an account, the app sends none
-of your data anywhere. We run no server of our own, we show no ads, we use no analytics or
-tracking, and we do not sell or share your data.
+device. There are two exceptions, both optional: you can create an account so your data
+survives a lost phone, and with an account you can ask Sagitta, the app's AI assistant, about
+your shooting. Without an account, the app sends none of your data anywhere. We show no ads, we
+use no analytics or tracking, and we do not sell or share your data.
 
 ## Information the app accesses
 
@@ -37,7 +37,8 @@ use the following device capabilities, all processed locally on your device:
   camera itself. You may instead choose an existing image, which your device's photo
   picker provides one file at a time; the app has no access to the rest of your photo
   library. Any image you use is copied into the app's private storage, is never
-  uploaded, and is deleted when you delete the group it belongs to.
+  uploaded unless you attach it to a question for Sagitta (below), and is deleted when you
+  delete the group it belongs to.
 
 - **Microphone (optional, off by default).** One feature uses it, and it is off unless you
   turn it on.
@@ -126,15 +127,36 @@ do not receive, store, or process shared files.
   where it was taken. A copy saved to your gallery is yours: it stays there, like any
   other photo, if you delete the group or the app.
 
+## Sagitta, the AI assistant (optional)
+
+Sagitta answers questions about your rifles, loads and shooting. It needs an account, and only
+accounts with a plan can use it.
+
+- **What is sent.** Each question you ask, with the earlier messages of that conversation,
+  goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer.
+  To answer, Sagitta reads the records it needs from the app, such as a load, a shot string or
+  a group, and those go with the question. Your location and your device's identifiers are
+  never sent.
+- **Photos and files you attach**, such as a target, a chronograph screen or a match book, are
+  sent once, for that answer, and are not kept by us or in the chat.
+- **What we keep.** Your plan, and how much of the month's allowance you have used. We do not
+  keep your questions, answers, photos or files on our server; your conversations stay on your
+  phone. Our server's logs note that a question was asked and what it cost, never what it said.
+- **Google** processes this data on our behalf as our service provider, and its terms do not
+  allow it to use the data to train its models.
+- **Deleting your account** also deletes your plan and usage on our server, keeping only a
+  note that the account was closed.
+
 ## Data collection and third parties
 
 We do not sell, rent, or trade your personal data, and we do not profile you. The app contains
 no advertising and no analytics or tracking SDKs — Google Analytics and Crashlytics were
 removed in August 2026 and are not coming back.
 
-We use one third-party service, and only if you create an account: **Google Firebase**, which
-handles sign-in and stores the backup. Google processes that data on our behalf as our service
-provider. If you never create an account, none of your data is sent to them or to us.
+We use two third-party services, and only if you create an account: **Google Firebase**, which
+handles sign-in and stores the backup, and, if you use Sagitta, **Google Cloud's Vertex AI**,
+which runs the model that writes its answers. Google processes that data on our behalf as our
+service provider. If you never create an account, none of your data is sent to them or to us.
 
 ## Purchases
 
