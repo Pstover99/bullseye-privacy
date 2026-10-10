@@ -43,9 +43,9 @@
     <div class="label">Legal</div>
     <h1>Privacy Policy for Bullseye Ballistics</h1>
 
-    <p class="updated">Last updated: October 2, 2026</p>
+    <p class="updated">Last updated: October 10, 2026</p>
 
-    <p>Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app accesses on your device and how that information is handled. In short: Bullseye works on your device. There is one exception, it is optional, and it is off unless you switch it on — you can create an account so your data survives a lost phone. Without an account, the app sends none of your data anywhere. We run no server of our own, we show no ads, we use no analytics or tracking, and we do not sell or share your data.</p>
+    <p>Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app accesses on your device and how that information is handled. In short: Bullseye works on your device. There are two exceptions, both optional: you can create an account so your data survives a lost phone, and with an account you can ask Sagitta, the app's AI assistant, about your shooting. Without an account, the app sends none of your data anywhere. We show no ads, we use no analytics or tracking, and we do not sell or share your data.</p>
 
     <h2>Information the app accesses</h2>
 
@@ -57,7 +57,7 @@
 
       <li><strong>Bluetooth and nearby devices.</strong> Used only to connect to optional environmental sensors (such as anemometers and weather meters) so the app can read live wind, temperature, pressure, and humidity. On some Android versions the operating system requires the location permission in order to scan for Bluetooth devices; the app does not use this permission to track you.</li>
 
-      <li><strong>Camera and photo picker (optional).</strong> The Group Analyzer can measure a shot group from a photograph of the target. Taking the photo hands the job to your device's own camera app — Bullseye does not request the camera permission and has no access to the camera itself. You may instead choose an existing image, which your device's photo picker provides one file at a time; the app has no access to the rest of your photo library. Any image you use is copied into the app's private storage, is never uploaded, and is deleted when you delete the group it belongs to.</li>
+      <li><strong>Camera and photo picker (optional).</strong> The Group Analyzer can measure a shot group from a photograph of the target. Taking the photo hands the job to your device's own camera app — Bullseye does not request the camera permission and has no access to the camera itself. You may instead choose an existing image, which your device's photo picker provides one file at a time; the app has no access to the rest of your photo library. Any image you use is copied into the app's private storage, is never uploaded unless you attach it to a question for Sagitta (below), and is deleted when you delete the group it belongs to.</li>
 
       <li><strong>Microphone (optional, off by default).</strong> One feature uses it, and it is off unless you turn it on.<p><em>Voice shot calls</em> (Settings → Voice shot calls). When it is on, the app listens while a target solution is on screen so you can say "hit" or "miss low left" instead of tapping. Speech is recognized <strong>on your phone</strong>, by a model shipped inside the app — <strong>no audio is recorded, saved or sent anywhere.</strong> The microphone is closed the moment you leave the solution screen or the app goes to the background, and the only thing kept is the shot you called, exactly as if you had tapped it. The app also keeps the words it thought it heard on screen so you can see and undo a mistake; that text is never stored.</p><p><strong>Your voice is never uploaded</strong>, because it is never written down in the first place.</p><p>An earlier version also included a hidden diagnostic that <em>did</em> record short audio clips at a shooting range, so we could measure how phone microphones behave around gunfire. <strong>That tool has been removed</strong>, and any clips it left on your phone are deleted automatically the next time you open the updated app.</p></li>
 
@@ -91,11 +91,29 @@
 
     </ul>
 
+    <h2>Sagitta, the AI assistant (optional)</h2>
+
+    <p>Sagitta answers questions about your rifles, loads and shooting. It needs an account, and only accounts with a plan can use it.</p>
+
+    <ul>
+
+      <li><strong>What is sent.</strong> Each question you ask, with the earlier messages of that conversation, goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer. To answer, Sagitta reads the records it needs from the app, such as a load, a shot string or a group, and those go with the question. Your location and your device's identifiers are never sent.</li>
+
+      <li><strong>Photos and files you attach</strong>, such as a target, a chronograph screen or a match book, are sent once, for that answer, and are not kept by us or in the chat.</li>
+
+      <li><strong>What we keep.</strong> Your plan, and how much of the month's allowance you have used. We do not keep your questions, answers, photos or files on our server; your conversations stay on your phone. Our server's logs note that a question was asked and what it cost, never what it said.</li>
+
+      <li><strong>Google</strong> processes this data on our behalf as our service provider, and its terms do not allow it to use the data to train its models.</li>
+
+      <li><strong>Deleting your account</strong> also deletes your plan and usage on our server, keeping only a note that the account was closed.</li>
+
+    </ul>
+
     <h2>Data collection and third parties</h2>
 
     <p>We do not sell, rent, or trade your personal data, and we do not profile you. The app contains no advertising and no analytics or tracking SDKs — Google Analytics and Crashlytics were removed in August 2026 and are not coming back.</p>
 
-    <p>We use one third-party service, and only if you create an account: <strong>Google Firebase</strong>, which handles sign-in and stores the backup. Google processes that data on our behalf as our service provider. If you never create an account, none of your data is sent to them or to us.</p>
+    <p>We use two third-party services, and only if you create an account: <strong>Google Firebase</strong>, which handles sign-in and stores the backup, and, if you use Sagitta, <strong>Google Cloud's Vertex AI</strong>, which runs the model that writes its answers. Google processes that data on our behalf as our service provider. If you never create an account, none of your data is sent to them or to us.</p>
 
     <h2>Purchases</h2>
 
