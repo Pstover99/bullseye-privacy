@@ -12,9 +12,9 @@ use no analytics or tracking, and we do not sell or share your data.
 
 ## Information the app accesses
 
-Bullseye does not require an account, and every feature works without one. If you choose to
-create one for cloud backup it asks for an email address and a password, or uses your Google
-account if you prefer that — see **Cloud backup** below. To provide its features, the app may
+Bullseye does not require an account, and every feature but Sagitta works without one. If you
+choose to create one for cloud backup it asks for an email address and a password, or uses your
+Google account if you prefer that — see **Cloud backup** below. To provide its features, the app may
 use the following device capabilities, processed on your device except where noted below:
 
 - **Location (GPS).** Used to compute the Coriolis effect and magnetic declination for a
@@ -151,7 +151,11 @@ accounts with a plan can use it.
   our server; your conversations stay on your phone. Our server's logs note that a question was
   asked and what it cost, never what it said.
 - **Google** processes this data on our behalf as our service provider, and its terms do not
-  allow it to use the data to train its models.
+  allow it to use the data to train its models. Google may keep what is sent, photos included,
+  and the answer for up to 24 hours, to answer later questions faster. If its automated checks
+  flag a question as possible misuse, Google may keep it, with what was sent with it, for up to
+  90 days so its staff can review it. These copies expire on their own; we cannot delete them
+  sooner.
 - **Deleting your account** also deletes your plan and usage on our server, keeping only a
   note that the account was closed.
 
