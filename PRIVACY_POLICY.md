@@ -15,7 +15,7 @@ use no analytics or tracking, and we do not sell or share your data.
 Bullseye does not require an account, and every feature works without one. If you choose to
 create one for cloud backup it asks for an email address and a password, or uses your Google
 account if you prefer that — see **Cloud backup** below. To provide its features, the app may
-use the following device capabilities, all processed locally on your device:
+use the following device capabilities, processed on your device except where noted below:
 
 - **Location (GPS).** Used to compute the Coriolis effect and magnetic declination for a
   more accurate firing solution, and to record the conditions at the time of a logged shot.
@@ -23,9 +23,10 @@ use the following device capabilities, all processed locally on your device:
   they come from GPS and the compass or you type them. It does not record your longitude.
   If you switch on cloud backup, the latitude and azimuth saved with each logged shot, and
   with each saved load, are backed up with it to your own account (see **Cloud backup**), so a
-  second phone or a restore can use them. They are never sent to any third party. Without
-  cloud backup, they are not sent to us. If your phone's own backup is on, Android also keeps
-  a copy of them in your Google account, as it does for the rest of the app's data.
+  second phone or a restore can use them. If you ask Sagitta, the app's AI assistant, about
+  your shots or a firing solution, the latitude and azimuth go with your question (see
+  **Sagitta** below). If your phone's own backup is on, Android also keeps a copy of them in
+  your Google account, as it does for the rest of the app's data. They are sent nowhere else.
 - **Bluetooth and nearby devices.** Used only to connect to optional environmental
   sensors (such as anemometers and weather meters) so the app can read live wind,
   temperature, pressure, and humidity. On some Android versions the operating system
@@ -98,8 +99,8 @@ Your profiles, shot logs, measured groups, matches, load-development records, ba
 locally on your device. Target photographs used by the Group Analyzer are stored in the app's
 private storage, which other apps cannot read. Uninstalling the app removes this data.
 
-Unless you create an account and switch on cloud backup, the app uploads none of it. If
-you do, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under
+Unless you create an account and switch on cloud backup, or ask Sagitta about it (below), the
+app uploads none of it. With backup on, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under
 your own account, including the latitude and firing direction saved with each shot and load.
 Target photographs, audio and your longitude are never part of that copy. Your phone stays
 the original; the backup is only ever a copy of it.
@@ -135,13 +136,20 @@ accounts with a plan can use it.
 - **What is sent.** Each question you ask, with the earlier messages of that conversation,
   goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer.
   To answer, Sagitta reads the records it needs from the app, such as a load, a shot string or
-  a group, and those go with the question. Your location and your device's identifiers are
-  never sent.
+  a group, and those go with the question.
+- **Your location.** Sagitta uses your latitude and firing direction (azimuth) to account for
+  the Coriolis effect. When it reads a shot string, the latitude and azimuth saved with each
+  shot go with your question. When it works out a firing solution or a hit chance, the
+  latitude and azimuth on your Solution screen go too, if they are filled in. Your longitude is
+  never sent, because the app does not record it. Your device's identifiers are never sent
+  either.
 - **Photos and files you attach**, such as a target, a chronograph screen or a match book, are
-  sent once, for that answer, and are not kept by us or in the chat.
+  sent once, for that answer, and are not kept by us or in the chat. A photo's hidden details,
+  such as where it was taken, are removed before it is sent.
 - **What we keep.** Your plan, and how much of the month's allowance you have used. We do not
-  keep your questions, answers, photos or files on our server; your conversations stay on your
-  phone. Our server's logs note that a question was asked and what it cost, never what it said.
+  keep your questions, answers, the records Sagitta reads, your location, photos or files on
+  our server; your conversations stay on your phone. Our server's logs note that a question was
+  asked and what it cost, never what it said.
 - **Google** processes this data on our behalf as our service provider, and its terms do not
   allow it to use the data to train its models.
 - **Deleting your account** also deletes your plan and usage on our server, keeping only a

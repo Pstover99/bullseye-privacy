@@ -49,11 +49,11 @@
 
     <h2>Information the app accesses</h2>
 
-    <p>Bullseye does not require an account, and every feature works without one. If you choose to create one for cloud backup it asks for an email address and a password, or uses your Google account if you prefer that — see <strong>Cloud backup</strong> below. To provide its features, the app may use the following device capabilities, all processed locally on your device:</p>
+    <p>Bullseye does not require an account, and every feature works without one. If you choose to create one for cloud backup it asks for an email address and a password, or uses your Google account if you prefer that — see <strong>Cloud backup</strong> below. To provide its features, the app may use the following device capabilities, processed on your device except where noted below:</p>
 
     <ul>
 
-      <li><strong>Location (GPS).</strong> Used to compute the Coriolis effect and magnetic declination for a more accurate firing solution, and to record the conditions at the time of a logged shot. The app records your <strong>latitude</strong> and the <strong>direction you were firing</strong> (azimuth), whether they come from GPS and the compass or you type them. It does not record your longitude. If you switch on cloud backup, the latitude and azimuth saved with each logged shot, and with each saved load, are backed up with it to your own account (see <strong>Cloud backup</strong>), so a second phone or a restore can use them. They are never sent to any third party. Without cloud backup, they are not sent to us. If your phone's own backup is on, Android also keeps a copy of them in your Google account, as it does for the rest of the app's data.</li>
+      <li><strong>Location (GPS).</strong> Used to compute the Coriolis effect and magnetic declination for a more accurate firing solution, and to record the conditions at the time of a logged shot. The app records your <strong>latitude</strong> and the <strong>direction you were firing</strong> (azimuth), whether they come from GPS and the compass or you type them. It does not record your longitude. If you switch on cloud backup, the latitude and azimuth saved with each logged shot, and with each saved load, are backed up with it to your own account (see <strong>Cloud backup</strong>), so a second phone or a restore can use them. If you ask Sagitta, the app's AI assistant, about your shots or a firing solution, the latitude and azimuth go with your question (see <strong>Sagitta</strong> below). If your phone's own backup is on, Android also keeps a copy of them in your Google account, as it does for the rest of the app's data. They are sent nowhere else.</li>
 
       <li><strong>Bluetooth and nearby devices.</strong> Used only to connect to optional environmental sensors (such as anemometers and weather meters) so the app can read live wind, temperature, pressure, and humidity. On some Android versions the operating system requires the location permission in order to scan for Bluetooth devices; the app does not use this permission to track you.</li>
 
@@ -73,7 +73,7 @@
 
     <p>Your profiles, shot logs, measured groups, matches, load-development records, barrel and cleaning records, settings, and sensor readings are stored locally on your device. Target photographs used by the Group Analyzer are stored in the app's private storage, which other apps cannot read. Uninstalling the app removes this data.</p>
 
-    <p>Unless you create an account and switch on cloud backup, the app uploads none of it. If you do, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under your own account, including the latitude and firing direction saved with each shot and load. Target photographs, audio and your longitude are never part of that copy. Your phone stays the original; the backup is only ever a copy of it.</p>
+    <p>Unless you create an account and switch on cloud backup, or ask Sagitta about it (below), the app uploads none of it. With backup on, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under your own account, including the latitude and firing direction saved with each shot and load. Target photographs, audio and your longitude are never part of that copy. Your phone stays the original; the backup is only ever a copy of it.</p>
 
     <p>If your phone's own backup is on, Android also keeps a copy of this data in your Google account. Target photographs are not part of it.</p>
 
@@ -97,11 +97,13 @@
 
     <ul>
 
-      <li><strong>What is sent.</strong> Each question you ask, with the earlier messages of that conversation, goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer. To answer, Sagitta reads the records it needs from the app, such as a load, a shot string or a group, and those go with the question. Your location and your device's identifiers are never sent.</li>
+      <li><strong>What is sent.</strong> Each question you ask, with the earlier messages of that conversation, goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer. To answer, Sagitta reads the records it needs from the app, such as a load, a shot string or a group, and those go with the question.</li>
 
-      <li><strong>Photos and files you attach</strong>, such as a target, a chronograph screen or a match book, are sent once, for that answer, and are not kept by us or in the chat.</li>
+      <li><strong>Your location.</strong> Sagitta uses your latitude and firing direction (azimuth) to account for the Coriolis effect. When it reads a shot string, the latitude and azimuth saved with each shot go with your question. When it works out a firing solution or a hit chance, the latitude and azimuth on your Solution screen go too, if they are filled in. Your longitude is never sent, because the app does not record it. Your device's identifiers are never sent either.</li>
 
-      <li><strong>What we keep.</strong> Your plan, and how much of the month's allowance you have used. We do not keep your questions, answers, photos or files on our server; your conversations stay on your phone. Our server's logs note that a question was asked and what it cost, never what it said.</li>
+      <li><strong>Photos and files you attach</strong>, such as a target, a chronograph screen or a match book, are sent once, for that answer, and are not kept by us or in the chat. A photo's hidden details, such as where it was taken, are removed before it is sent.</li>
+
+      <li><strong>What we keep.</strong> Your plan, and how much of the month's allowance you have used. We do not keep your questions, answers, the records Sagitta reads, your location, photos or files on our server; your conversations stay on your phone. Our server's logs note that a question was asked and what it cost, never what it said.</li>
 
       <li><strong>Google</strong> processes this data on our behalf as our service provider, and its terms do not allow it to use the data to train its models.</li>
 
