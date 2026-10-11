@@ -502,6 +502,25 @@ section.sagitta { padding-block: 24px 0; }
 #sagitta-hero .sg-dot[aria-current="true"]::after { width: 20px; background: var(--sg-accent); }
 #sagitta-hero .sg-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; z-index: 3; background: color-mix(in srgb, var(--fg) 7%, transparent); }
 #sagitta-hero .sg-progress span { display: block; height: 100%; background: var(--sg-accent); transform-origin: left; transform: scaleX(0); }
+/* Slide 1: the app's home screen, faded in behind the text. Not on phones. */
+#sagitta-hero .sg-intro { position: relative; }
+#sagitta-hero .sg-intro > *:not(.sg-ghost) { position: relative; z-index: 1; }
+#sagitta-hero .sg-ghost {
+  position: absolute; z-index: 0; top: 14px; right: 4%; width: clamp(230px, 31%, 360px); aspect-ratio: 600 / 1189;
+  background: url("img/sagitta-app-ghost.webp") top center / 100% auto no-repeat;
+  opacity: 0.5; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 94%), linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 94%), linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+/* The screenshot is dark, so it is fainter on the light scheme. */
+@media (prefers-color-scheme: light) {
+  #sagitta-hero .sg-ghost { opacity: 0.2; }
+}
+@media (min-width: 761px) {
+  #sagitta-hero .sg-intro > *:not(.sg-ghost) { max-width: 57%; }
+}
 /* Without site.js: no controls, and the slides scroll sideways. */
 html:not(.js) #sagitta-hero .sg-controls, html:not(.js) #sagitta-hero .sg-progress { display: none; }
 html:not(.js) #sagitta-hero .sg-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
@@ -521,6 +540,7 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
   #sagitta-hero .sg-dot { width: 19px; }
   #sagitta-hero .sg-slide { padding-bottom: 78px; }
   #sagitta-hero .sg-chip { font-size: 0.82rem; padding: 6px 12px; }
+  #sagitta-hero .sg-ghost { display: none; } /* no screenshot on phones */
   #sagitta-hero .sg-eyebrow { font-size: 0.68rem; letter-spacing: 0.07em; }
 }
 @media (prefers-reduced-motion: reduce) {
