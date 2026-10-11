@@ -186,8 +186,10 @@ footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; te
   .readout .v { font-size: 1.1rem; }
 }
 
-/* The loop: six steps on the home page */
+/* The loop: Sagitta, then six steps, on the home page. Sagitta takes a row of its own, so the
+   six steps fill even rows below it at every width. */
 .loop { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.loop .loop-ai { grid-column: 1 / -1; }
 .loop > div {
   background: var(--panel);
   padding: 18px 16px 20px;

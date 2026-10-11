@@ -32,14 +32,15 @@ SITE = "https://bullseyeballisticscalculator.com/"
 PAGES = [
     ("index.html", "_pages/home.html", "",
      "Bullseye Ballistics Calculator",
-     "A ballistics calculator for Android that learns your rifle. Live wind and weather from "
-     "your Bluetooth sensors, hit probability, a shot log that trues the load, groups from a "
+     "A ballistics calculator for Android that learns your rifle. Sagitta Ballistics AI that "
+     "explains why you missed, live wind and weather from your Bluetooth sensors, hit "
+     "probability, a gun number for every load, a shot log that trues the load, groups from a "
      "photo, matches, load development and an external HUD."),
     ("features/index.html", "_pages/features.html", "../",
      "Features · Bullseye Ballistics",
-     "Every feature, screen by screen: the solution card, live sensors, the solver, rifles and "
-     "loads, the shot log, groups, matches, voice calls, the external HUD, backup, barrel care "
-     "and load development."),
+     "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
+     "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
+     "HUD, backup, the gun number, barrel care and load development."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
