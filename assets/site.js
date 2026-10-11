@@ -4,6 +4,7 @@
  *
  *   [data-carousel]  a row of screens with arrows, dots and a counter
  *   [data-showcase]  the home page's feature tabs beside one phone frame
+ *   #sagitta-hero    the Sagitta slides at the top of the home page
  *   .frame img       tap any screenshot to see it full size; arrows step through its group
  *   .tour-links      the feature tour's bar marks the section on screen
  */
@@ -129,6 +130,89 @@
     show(0);
   }
   document.querySelectorAll("[data-showcase]").forEach(showcase);
+
+  /* Sagitta slides: they move on by themselves, and hold still while the mouse or a finger is
+     on them, while one has focus, while they are off screen or the tab is hidden, and for
+     anyone who has asked for reduced motion. data-interval is each slide's time in ms. */
+  function sagitta(root) {
+    const INTERVAL = parseInt(root.dataset.interval, 10) || 8000;
+    const track = root.querySelector(".sg-track");
+    const slides = [...root.querySelectorAll(".sg-slide")];
+    const bar = root.querySelector(".sg-progress span");
+    const pauseBtn = root.querySelector(".sg-pause");
+    const n = slides.length;
+    let idx = 0, userPaused = reduced.matches;
+    let hovering = false, focusInside = false, touching = false, inView = true;
+    let elapsed = 0, last = performance.now();
+    const dots = slides.map((s, i) => {
+      s.setAttribute("aria-label", `${i + 1} of ${n}`);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "sg-dot";
+      b.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      b.addEventListener("click", () => go(i));
+      root.querySelector(".sg-dots").append(b);
+      return b;
+    });
+    const go = (i) => {
+      idx = (i + n) % n;
+      track.style.transform = `translate3d(${-idx * 100}%,0,0)`;
+      slides.forEach((s, k) => {
+        s.setAttribute("aria-hidden", k === idx ? "false" : "true");
+        s.inert = k !== idx;
+      });
+      dots.forEach((d, k) => d.setAttribute("aria-current", k === idx ? "true" : "false"));
+      elapsed = 0;
+      bar.style.transform = "scaleX(0)";
+    };
+    const syncPause = () => {
+      root.classList.toggle("sg-paused", userPaused);
+      pauseBtn.setAttribute("aria-label", userPaused ? "Start automatic slide show" : "Pause automatic slide show");
+      track.setAttribute("aria-live", userPaused ? "polite" : "off");
+    };
+    const tick = (t) => {
+      const dt = Math.min(t - last, 100);
+      last = t;
+      if (!userPaused && !hovering && !focusInside && !touching && inView && !document.hidden) {
+        elapsed += dt;
+        bar.style.transform = `scaleX(${Math.min(elapsed / INTERVAL, 1)})`;
+        if (elapsed >= INTERVAL) go(idx + 1);
+      }
+      requestAnimationFrame(tick);
+    };
+    root.querySelector(".sg-next").addEventListener("click", () => go(idx + 1));
+    root.querySelector(".sg-prev").addEventListener("click", () => go(idx - 1));
+    pauseBtn.addEventListener("click", () => { userPaused = !userPaused; syncPause(); });
+    root.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hovering = true; });
+    root.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hovering = false; });
+    root.addEventListener("focusin", () => { focusInside = true; });
+    root.addEventListener("focusout", () => { focusInside = false; });
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") go(idx + 1);
+      else if (e.key === "ArrowLeft") go(idx - 1);
+    });
+    // Swipe with a finger or pen.
+    let x0 = null, y0 = null;
+    track.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "mouse") return;
+      x0 = e.clientX; y0 = e.clientY; touching = true;
+    });
+    track.addEventListener("pointerup", (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0, dy = e.clientY - y0;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(idx + (dx < 0 ? 1 : -1));
+      x0 = y0 = null;
+      touching = false;
+    });
+    track.addEventListener("pointercancel", () => { x0 = y0 = null; touching = false; });
+    // Only run while it is on screen.
+    new IntersectionObserver(([e]) => { inView = e.isIntersecting; }, { threshold: 0.25 }).observe(root);
+    go(0);
+    syncPause();
+    requestAnimationFrame(tick);
+  }
+  const sagittaHero = document.getElementById("sagitta-hero");
+  if (sagittaHero) sagitta(sagittaHero);
 
   /* Lightbox: any screenshot opens full size. Arrows, swipe and the keyboard step through the
      other screens in the same group (a carousel, a showcase or a section). */
