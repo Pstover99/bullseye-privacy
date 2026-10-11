@@ -48,18 +48,101 @@
 
   <nav class="tour-bar" aria-label="Sections">
     <div class="wrap">
-      <ul class="tour-links"><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li></ul>
+      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li></ul>
       <details class="tour-menu">
         <summary><span class="label">Sections</span></summary>
-        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li></ul>
+        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#platform">Platform</a></li></ul>
       </details>
     </div>
   </nav>
 
-  <section class="tour" id="solution">
+  <section class="tour" id="sagitta">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">01 / 16</span>Solution screen</div>
+        <div class="label"><span class="num">01 / 18</span>Sagitta Ballistics AI</div>
+        <h2>Artificial Intelligence</h2>
+        <p>The AI built into Bullseye Ballistics is called Sagitta AI ©. Sagitta is a purpose-built Ballistics AI © that turns the ballistics solver app into an integrated long-range shooting ecosystem that combines environmental sensors, ballistic computation, shot logging and AI-powered predictive and post-shot analysis.</p>
+        <p><strong>Sagitta</strong> connects what the solver predicted, what the environment did, what the shooter called, and what actually happened, then turns that into understandable explanations and useful training insight.</p>
+        <ul>
+          <li><strong>Explain why a shot likely missed:</strong> Compare the predicted solution, recorded impact, wind changes and atmospheric conditions to identify the most likely cause.</li>
+          <li><strong>Detect recurring miss patterns:</strong> Identify consistent left, right, high or low misses under specific wind, bore or atmospheric conditions.</li>
+          <li><strong>Compare predicted and actual performance:</strong> Compare modeled hit probability with actual hit rate and determine whether differences came primarily from horizontal or vertical dispersion.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="label"><span class="closed">Show 15 more</span><span class="opened">Show fewer</span></span></summary>
+          <ul>
+          <li><strong>Recommend solver truing:</strong> Analyze observed vertical offsets across multiple distances and determine whether the data supports adjusting muzzle velocity, drag scale or zero offset.</li>
+          <li><strong>Evaluate wind-call accuracy:</strong> Compare the entered wind call, live sensor readings, computed wind hold and actual impact location to estimate whether the wind was undercalled or overcalled.</li>
+          <li><strong>Identify the dominant error source:</strong> Rank likely contributors such as wind uncertainty, range uncertainty, muzzle-velocity variation, rifle dispersion, ballistic-coefficient uncertainty or shot execution.</li>
+          <li><strong>Analyze load performance across conditions:</strong> Determine whether vertical dispersion changes with temperature, muzzle velocity follows the stored powder-temperature model or performance degrades near the transonic region.</li>
+          <li><strong>Detect cold-bore and clean-bore behavior:</strong> Analyze first-shot offsets across logged sessions and identify conditions in which those effects are strongest.</li>
+          <li><strong>Compare loads objectively:</strong> Compare loads using dispersion, velocity consistency, hit rate, retained energy, transonic distance and actual long-range results.</li>
+          <li><strong>Estimate sensor value:</strong> Show whether live wind and atmospheric sensors improved hit probability or reduced observed error compared with manually entered conditions.</li>
+          <li><strong>Provide pre-string guidance:</strong> Estimate hit probability before firing and identify the uncertainty most likely to limit performance.</li>
+          <li><strong>Provide post-string summaries:</strong> Summarize hits, misses, predicted dispersion and environmental changes for a completed shot string.</li>
+          <li><strong>Recommend a wind bracket:</strong> Use current wind observations and the load's wind sensitivity to suggest practical lower and upper holds rather than only one exact solution.</li>
+          <li><strong>Detect questionable data:</strong> Flag sensor dropouts, stale readings, improbable atmospheric changes, chronograph outliers, incorrect distances or shot calls that conflict with the recorded solution.</li>
+          <li><strong>Find performance trends over time:</strong> Show whether hit rate is improving, wind-call error is decreasing or load performance is changing as barrel round count increases.</li>
+          <li><strong>Support natural-language queries:</strong> Let the user ask questions such as "Why did I keep missing left today?", "Which load performs best beyond 800 yards?" or "At what distance does this load's hit probability fall below 70% in these conditions?"</li>
+          <li><strong>Create personalized range recommendations:</strong> Suggest the distances or conditions that would provide the most useful next data for improving the current model.</li>
+          <li><strong>Express confidence and uncertainty:</strong> Distinguish conclusions supported by substantial data from tentative observations based on limited records.</li>
+          <li>…and much more.</li>
+          </ul>
+        </details>
+        <p class="pull">Because Sagitta is deeply integrated into Bullseye Ballistics, you can ask extremely complex questions about your shooting data and receive clear, actionable answers almost instantly.</p>
+        <p>Let Sagitta know how you like to discuss this stuff. The answers it provides will remain the same regardless of your selection; it's the tone (its attitude) you can have fun with. You can get super nerdy and opt for Ballistician mode, where you can basically forget about short, concise answers and expect many figures, methods and technical terms to be thrown around. Or, if you just want the straight dope, go with Caveman mode, in which case the answers remain the same without the fancy words, and every term is explained as if it's the first time you have seen fire. Or, if you can handle some light jabs about your shooting and enjoy a sprinkle of humor, go with Sassy. Again, the underlying answers will always be the same; we're talking about the delivery of the answer only. Plain is the default mode in which Sagitta talks; it's a decent mix of providing short answers first and details if you ask.</p>
+      </div>
+      <div class="carousel" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-home.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The app's home screen: the target solution card at 1,024 yards and +7.92 mil, a Sagitta card that says Ask a question about your rifles, loads and shots, and tiles for profiles, sensors, groups, shot log, converter, maintenance, display and gun number."></div>
+          <figcaption><div class="label">Ask a question</div><p>Sagitta is one tap from the home screen.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-chats.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The Sagitta screen: Ask about your rifles, loads, shots and groups, Sagitta answers from your own records, and a list of recent conversations such as reading valley winds at long range and bore fouling and velocity consistency."></div>
+          <figcaption><div class="label">Conversations</div><p>Sagitta answers from your own records.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-compare-loads.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Sagitta comparing Berger 120 loads and groups against a Berger 109 load: the 109 shoots slightly tighter on paper while the 120s buck the wind better at distance, followed by each load's details and the pooled group statistics."></div>
+          <figcaption><div class="label">Compare loads</div><p>Your loads and groups side by side, from your records.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-wind-budget.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Sagitta comparing wind drift at 1,024 yards in a 7 mph full-value wind: total drift and mil hold for four loads, with the Berger 120 Oct load drifting 4.8 inches less than the Berger 109 load."></div>
+          <figcaption><div class="label">Wind error budget</div><p>Calculate and compare different loads' wind error budget.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-wind-budget-2.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The same answer continued: the effect of a 1 mph wind-reading error on an 18-inch IPSC target at 1,024 yards, 77% first-round hit probability for the 109 load and 82% for the 120 load, and each load's gun number and wind constant."></div>
+          <figcaption><div class="label">Wind error budget, continued</div><p>Hit probability with a 1 mph wind-reading error, and each load's gun number.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/group-ask-sagitta.webp" width="720" height="1436" loading="lazy" decoding="async" alt="A measured group of 0.63 inches at 96 yards with its dispersion plot, vertical and horizontal dispersion, group center, a Simulate button and an Ask Sagitta button."></div>
+          <figcaption><div class="label">From a group</div><p>Ask Sagitta about the group you're looking at.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-tone.webp" width="720" height="1436" loading="lazy" decoding="async" alt="How Sagitta talks: Plain, short plain answers first and detail when you ask; Caveman, very simple words that explain every term; Sassy, jokes about your data then the real answer; Ballistician, full figures, methods and technical terms."></div>
+          <figcaption><div class="label">How Sagitta talks</div><p>Plain, Caveman, Sassy or Ballistician.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-sassy-brass.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Sagitta in Sassy mode answering which brass is better, Alpha or Lapua: a joke about the spelling of Lapua, then a comparison of dimensional uniformity, primer pockets and longevity."></div>
+          <figcaption><div class="label">Sassy</div><p>The same answer, with a few jabs.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-sassy-groups.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Sagitta comparing a 10-shot group with the rest of the rifle's log: the group's extreme spread and mean radius, pooled statistics across 12 groups and 89 shots, and how it stacks up against a group from earlier that morning."></div>
+          <figcaption><div class="label">Against your log</div><p>One group compared with every group for the rifle.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/sagitta-what-if.webp" width="720" height="1436" loading="lazy" decoding="async" alt="Sagitta answering what if the 120 load had a 0.5 inch group: dispersion, drift, drop, velocity and time of flight compared with the 109 load at 1,024 yards, and a verdict for calm and shifting winds."></div>
+          <figcaption><div class="label">What if</div><p>Change one number and see how the loads compare.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour rev" id="solution">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label"><span class="num">02 / 18</span>Solution screen</div>
         <h2>Large, bright, clean</h2>
         <p>Elevation and windage in MOA or mil, with the linear value in inches or centimeters displayed underneath. One tap switches MOA and mil on every screen that dials.</p>
         <ul>
@@ -115,10 +198,10 @@
     </div>
   </section>
 
-  <section class="tour rev" id="sensors">
+  <section class="tour" id="sensors">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">02 / 16</span>Wind, conditions and sensors</div>
+        <div class="label"><span class="num">03 / 18</span>Wind, conditions and sensors</div>
         <h2>Fewer inputs, more shooting</h2>
         <p>The goal is to capture as many inputs as possible automatically and keep manual input to a minimum. The more sensors you have, the less time you spend futzing with your solver or pointing a device in a particular direction like a cave person before you shoot.</p>
         <ul>
@@ -152,10 +235,10 @@
     </div>
   </section>
 
-  <section class="tour" id="solver">
+  <section class="tour rev" id="solver">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">03 / 16</span>Ballistic solver</div>
+        <div class="label"><span class="num">04 / 18</span>Ballistic solver</div>
         <h2>A full point-mass engine</h2>
         <p>A point-mass trajectory solver using RK4 integration. RK4 traces the trajectory in small increments and checks the rate of change four times during every increment, which is substantially more accurate than one estimate per step. That lets the solver keep updating velocity and position while gravity, aerodynamic drag, wind and Coriolis change throughout the flight.</p>
         <ul>
@@ -218,10 +301,10 @@
     </div>
   </section>
 
-  <section class="tour rev" id="earth">
+  <section class="tour" id="earth">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">04 / 16</span>Coriolis, spin drift and jump</div>
+        <div class="label"><span class="num">05 / 18</span>Coriolis, spin drift and jump</div>
         <h2>The Earth turns under the bullet</h2>
         <p>The Coriolis effect exists because the Earth rotates underneath the bullet while it's in flight. How much it moves the impact depends on your latitude, your direction of fire, the time of flight and the velocity.</p>
         <ul>
@@ -243,10 +326,10 @@
     </div>
   </section>
 
-  <section class="tour" id="rifles">
+  <section class="tour rev" id="rifles">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">05 / 16</span>Rifles and loads</div>
+        <div class="label"><span class="num">06 / 18</span>Rifles and loads</div>
         <h2>Set it up once</h2>
         <p>Any number of rifles, each with nested loads. Select the current rifle and load once and it's used across the whole app.</p>
         <ul>
@@ -294,10 +377,10 @@
     </div>
   </section>
 
-  <section class="tour rev" id="log">
+  <section class="tour" id="log">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">06 / 16</span>Shot log and analysis</div>
+        <div class="label"><span class="num">07 / 18</span>Shot log and analysis</div>
         <h2>Beyond paper DOPE</h2>
         <p>The app records each shot: hit or miss, where it landed on the target, the distance, the environmental conditions at the time of the shot, and the time. That builds a real-world performance database instead of relying on paper DOPE alone.</p>
         <ul>
@@ -329,10 +412,10 @@
     </div>
   </section>
 
-  <section class="tour" id="groups">
+  <section class="tour rev" id="groups">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">07 / 16</span>Groups and group analysis</div>
+        <div class="label"><span class="num">08 / 18</span>Groups and group analysis</div>
         <h2>See the shape of your group</h2>
         <p>Record groups three ways: measured from a target photo, entered shot by shot, or entered as the statistics you already have.</p>
         <ul>
@@ -378,10 +461,10 @@
     </div>
   </section>
 
-  <section class="tour rev" id="matches">
+  <section class="tour" id="matches">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">08 / 16</span>Matches</div>
+        <div class="label"><span class="num">09 / 18</span>Matches</div>
         <h2>Walk it once, then shoot it</h2>
         <ul>
           <li><strong>Matches with stages and targets</strong> in engagement order, with a size and label per target.</li>
@@ -401,10 +484,10 @@
     </div>
   </section>
 
-  <section class="tour" id="voice">
+  <section class="tour rev" id="voice">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">09 / 16</span>Voice shot calls</div>
+        <div class="label"><span class="num">10 / 18</span>Voice shot calls</div>
         <h2>Stay in the rifle</h2>
         <p>Optional, and off by default. Speak hit, impact or miss, the direction and how far off the shot was, and it's logged. For example, after your shot you say "miss, three tenths mil left", and the app captures and logs it with the atmospherics and wind at that moment.</p>
         <ul>
@@ -430,10 +513,10 @@
     </div>
   </section>
 
-  <section class="tour rev" id="hud">
+  <section class="tour" id="hud">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">10 / 16</span>External HUD display</div>
+        <div class="label"><span class="num">11 / 18</span>External HUD display</div>
         <h2>The dial on the rifle</h2>
         <p>Pair an M5StickS3 display as a Bullseye Ballistics HUD and the live solution streams to it. Mount it where you can see it from behind the scope, and the phone can stay in your pocket.</p>
         <ul>
@@ -457,10 +540,10 @@
     </div>
   </section>
 
-  <section class="tour" id="backup">
+  <section class="tour rev" id="backup">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">11 / 16</span>Account and cloud backup</div>
+        <div class="label"><span class="num">12 / 18</span>Account and cloud backup</div>
         <h2>Optional, and yours to delete</h2>
         <ul>
           <li><strong>Optional sign-in</strong> with email and password or with Google. Nothing in the app needs an account.</li>
@@ -487,16 +570,18 @@
     </div>
   </section>
 
-  <section class="tour rev" id="tools">
+  <section class="tour" id="tools">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">12 / 16</span>Tools</div>
+        <div class="label"><span class="num">13 / 18</span>Tools</div>
         <h2>The small things you reach for</h2>
         <ul>
           <li><strong>Unit converter:</strong> MOA to mil and back. Comes in handy when you're spotting for someone who uses MOA and you use mil, or vice versa.</li>
           <li><strong>Range, size and reticle reading,</strong> solved for any one from the other two. Comes in handy when you mil a target to work out its size or distance.</li>
           <li><strong>Tutorial:</strong> a walk through the app, replayable from settings.</li>
           <li><strong>Customize HUD</strong> for the external display.</li>
+          <li><strong>Gun number calculator.</strong></li>
+          <li><strong>Cleaning log.</strong></li>
         </ul>
       </div>
       <div class="carousel single" data-carousel>
@@ -510,10 +595,49 @@
     </div>
   </section>
 
+  <section class="tour rev" id="gun-number">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label"><span class="num">14 / 18</span>Gun number</div>
+        <h2>A fast mental wind system</h2>
+        <p>Bullseye Ballistics automatically calculates the best gun number for each load. Once known, your gun number becomes a very fast mental wind system.</p>
+        <p>A <strong>gun number</strong> is the full-value wind speed (mph) that causes your bullet to drift approximately:</p>
+        <ul>
+          <li>0.1 mil at 100 yards</li>
+          <li>0.2 mil at 200 yards</li>
+          <li>0.3 mil at 300 yards</li>
+          <li>0.4 mil at 400 yards</li>
+          <li>0.5 mil at 500 yards</li>
+        </ul>
+        <p>…and so on.</p>
+        <h3>Example</h3>
+        <p>If your gun number is <strong>5 mph</strong>:</p>
+        <ul>
+          <li>500 yd target in a 5 mph full-value wind = 0.5 mil</li>
+          <li>500 yd target in a 10 mph wind = 1.0 mil</li>
+          <li>500 yd target in a 2.5 mph wind = 0.25 mil</li>
+        </ul>
+        <p>You simply multiply the range constant by the wind multiple.</p>
+      </div>
+      <div class="carousel" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="../assets/img/gun-number.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The gun number screen for a 6GT with the Lupua Brass Berger 109 load: a gun number of 6.0 mph, full-value wind for 0.1 mil every 100 yards at 2,900 fps, and a check-by-range table comparing the rule with the full solve from 100 to 1,000 yards."></div>
+          <figcaption><div class="label">Gun number</div><p>Worked out per load, and checked against the full solve at every range.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/gun-number-info.webp" width="720" height="1436" loading="lazy" decoding="async" alt="The gun number explanation: the full-value wind, in mph, that moves this load 0.1 mil every 100 yards; in twice that wind, hold twice as much; it leaves out spin drift, and the table shows where the rule is off."></div>
+          <figcaption><div class="label">What it means</div><p>The rule in a few lines, one tap away.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="tour" id="settings">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">13 / 16</span>Settings and appearance</div>
+        <div class="label"><span class="num">15 / 18</span>Settings and appearance</div>
         <h2>Make it yours</h2>
         <ul>
           <li><strong>Units</strong> for range, linear and angular values.</li>
@@ -545,10 +669,13 @@
   <section class="tour rev" id="barrel">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">14 / 16</span>Barrel life, cleaning logs and reminders</div>
+        <div class="label"><span class="num">16 / 18</span>Barrel life, cleaning logs and reminders</div>
         <h2>Know where the barrel is</h2>
         <p>Track the full life of the barrel by actual round count against expected round count.</p>
         <ul>
+          <li>Tracks barrel life and displays percentage of life remaining and actual round count against expected total round count.</li>
+          <li>Tracks cleanings, type of cleaning (routine or deep cleaning), what was cleaned (bore, action, bolt, muzzle device, etc.), products used plus any additional notes you may add.</li>
+          <li>Add reminders to clean based on desired round counts or specific dates.</li>
           <li><strong>Round count</strong> per barrel, counted from the shots you log. Add rounds you fired without logging.</li>
           <li><strong>Cleaning frequency</strong> by round count or by calendar, whichever comes first, for routine and deep cleans.</li>
           <li><strong>Log each clean</strong> with everything that was cleaned: chamber, bolt, bore, muzzle device. Shots after a bore clean are tagged clean-bore and kept out of truing.</li>
@@ -573,7 +700,7 @@
   <section class="tour" id="loaddev">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">15 / 16</span>Load development</div>
+        <div class="label"><span class="num">17 / 18</span>Load development</div>
         <h2>Ladders that keep their data</h2>
         <p>Run and track seating and charge ladder tests, and keep every result set.</p>
         <ul>
@@ -605,7 +732,7 @@
   <section class="tour rev" id="platform">
     <div class="wrap">
       <div class="copy">
-        <div class="label"><span class="num">16 / 16</span>Platform and data</div>
+        <div class="label"><span class="num">18 / 18</span>Platform and data</div>
         <h2>Android, bought once</h2>
         <ul>
           <li><strong>Android 8.0 or newer.</strong> One-time purchase with all features included.</li>
