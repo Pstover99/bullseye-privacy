@@ -169,7 +169,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 28px; flex-wr
 footer p { margin: 6px 0 0; color: var(--muted); font-size: 0.92rem; }
 footer .links { display: flex; gap: 22px; flex-wrap: wrap; align-items: flex-start; }
 footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
-.mail { font-family: var(--font-mono); color: var(--fg); }
+.mail { font-family: var(--font-mono); color: var(--fg); overflow-wrap: anywhere; }
 
 @media (max-width: 900px) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 40px 32px; }
