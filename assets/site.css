@@ -621,3 +621,11 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero { display: none; }
   .hud-controls { grid-template-columns: minmax(0, 1fr) auto; grid-auto-flow: row dense; gap: 6px 14px; }
   .hud-controls input[type="range"] { grid-column: 1 / -1; margin-bottom: 10px; }
 }
+
+/* Wind Corridor page. The demo is its own page (assets/wind-corridor-demo.html), shown in a frame:
+   a phone-shaped stage on wide screens, the whole frame on phones. */
+.wc-hero .wrap { grid-template-columns: minmax(0, 1fr); }
+.wc-hero p.lead { max-width: 40em; }
+.wc-demo-section { border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.wc-demo { background: #04070A; }
+.wc-demo iframe { display: block; width: 100%; height: clamp(600px, 88vh, 920px); border: 0; }

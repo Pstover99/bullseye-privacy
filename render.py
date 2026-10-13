@@ -46,6 +46,10 @@ PAGES = [
      "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "
      "your elevation and windage holds during the trigger press, with built-in level and angle "
      "sensors. Try it in the simulator."),
+    ("wind-corridor/index.html", "_pages/wind-corridor.html", "../",
+     "Wind Corridor · Bullseye Ballistics",
+     "Pair Bullseye Ballistics with Calypso LoRa wind meters downrange and see the wind between "
+     "you and the target, live. Learn what it looks like in the mirage, leaves, trees and grass."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -57,6 +61,10 @@ PAGES = [
      "Page not found · Bullseye Ballistics",
      "There is no page at this address."),
 ]
+
+# Pages not linked from anywhere yet, kept out of search results until they are.
+NOINDEX = {"wind-corridor/index.html"}
+
 
 def inline(text: str) -> str:
     text = html.escape(text, quote=False)
@@ -204,6 +212,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{BODY}}": body_for(source).rstrip("\n"),
         "{{TITLE}}": html.escape(title),
         "{{DESCRIPTION}}": html.escape(description),
+        "{{ROBOTS}}": '\n<meta name="robots" content="noindex">' if output in NOINDEX else "",
         "{{URL}}": SITE + ("" if output == "404.html" else path),
         "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
         "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
