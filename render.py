@@ -54,6 +54,10 @@ PAGES = [
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
      "to delete it."),
+    ("terms/index.html", "_pages/terms.html", "../",
+     "Terms of Use · Bullseye Ballistics",
+     "The terms for using Bullseye Ballistics, Sagitta AI, the External Display and this website, "
+     "including firearm and reloading safety, ballistic estimates and subscriptions."),
     ("delete-account/index.html", "_pages/delete-account.html", "../",
      "Delete your account · Bullseye Ballistics",
      "How to delete your Bullseye Ballistics account and everything backed up to it."),
