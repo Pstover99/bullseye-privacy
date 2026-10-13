@@ -11,6 +11,7 @@ redirect them.
 | Features | https://bullseyeballisticscalculator.com/features/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
+| Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
 
@@ -38,6 +39,7 @@ have drifted.
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Account deletion | `_pages/delete-account.html` |
+| Terms of Use | `_pages/terms.html`, from "Bullseye Ballistics - Terms of Use.docx" |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
 | Look | `assets/site.css` |
