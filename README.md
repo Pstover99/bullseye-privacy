@@ -10,6 +10,7 @@ redirect them.
 | Home | https://bullseyeballisticscalculator.com/ |
 | Features | https://bullseyeballisticscalculator.com/features/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
+| Wind Corridor (not linked yet) | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
 
@@ -35,6 +36,7 @@ have drifted.
 | Home page | `_pages/home.html` |
 | Feature tour | `_pages/features.html` |
 | External Display and its simulator | `_pages/external-display.html` |
+| Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Account deletion | `_pages/delete-account.html` |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
@@ -76,11 +78,15 @@ keeps the header and footer from drifting apart the same way.
   "© 2026 Core Bridge, LLC. All rights reserved." in the shared footer. `render.py` fails a page
   that is missing the line or names the company any other way, so a new page cannot slip.
 
+- **A page can be published before anything links to it.** `NOINDEX` in `render.py` keeps such
+  a page out of search results; take it out of the set when the page gets its first link.
+  Wind Corridor is one (2026-10-13).
+
 ## Assets
 
-- Fonts (Rajdhani, IBM Plex Mono, IBM Plex Sans) are served from `assets/fonts/` so a visit
-  makes no third-party request. They are under the SIL Open Font License; see
-  `assets/fonts/OFL-*.txt`.
+- Fonts (Rajdhani, IBM Plex Mono, IBM Plex Sans, and Barlow for the Wind Corridor demo) are
+  served from `assets/fonts/` so a visit makes no third-party request. They are under the SIL
+  Open Font License; see `assets/fonts/OFL-*.txt`.
 - `assets/img/logo.svg` and `favicon.svg` are the app's launcher icon
   (`app/src/main/res/drawable/ic_launcher_foreground.xml` on `#1A2332`).
 
