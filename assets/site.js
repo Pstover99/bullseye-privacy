@@ -216,8 +216,8 @@
 
   /* External Display simulator: the footer becomes a level bar once the cant passes half a
      degree, shows LEVEL briefly when it is back within 0.4, then returns. The angle in the header
-     turns amber while it moves and gray once it would have been sent. The owner's StickS3 mockup
-     (sticks3_hud_with_level_bar.html), same states and timings. */
+     turns amber while it moves and gray once it would have been sent. Same states and timings as
+     the owner's mockup of the display. */
   function hudSim(root) {
     const $ = (k) => root.querySelector(`[data-${k}]`);
     const cs = $("cant"), as = $("angle"), foot = $("foot"), bar = $("bar"), msg = $("msg"), mk = $("mk"), lb = $("lb"), ang = $("ang");
