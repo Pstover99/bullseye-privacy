@@ -10,7 +10,7 @@ redirect them.
 | Home | https://bullseyeballisticscalculator.com/ |
 | Features | https://bullseyeballisticscalculator.com/features/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
-| Wind Corridor (not linked yet) | https://bullseyeballisticscalculator.com/wind-corridor/ |
+| Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
 
@@ -80,7 +80,7 @@ keeps the header and footer from drifting apart the same way.
 
 - **A page can be published before anything links to it.** `NOINDEX` in `render.py` keeps such
   a page out of search results; take it out of the set when the page gets its first link.
-  Wind Corridor is one (2026-10-13).
+  Wind Corridor was one until it was linked on 2026-10-13.
 
 ## Assets
 

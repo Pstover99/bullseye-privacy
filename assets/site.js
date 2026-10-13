@@ -82,6 +82,8 @@
         t.tabIndex = k === i ? 0 : -1;
       });
       panes.forEach((p, k) => p.classList.toggle("on", k === i));
+      // A link that belongs to one tab, shown while that tab is.
+      root.querySelectorAll("[data-tab]").forEach((l) => { l.hidden = l.dataset.tab !== tabs[i].id; });
       const now = root.querySelector(".sc-now");
       if (now) now.textContent = tabs[i].querySelector(".sc-desc").textContent;
       if (focus) tabs[i].focus();
