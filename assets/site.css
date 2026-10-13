@@ -562,3 +562,62 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
   #sagitta-hero .sg-track { transition: none; }
   #sagitta-hero .sg-progress { display: none; }
 }
+
+/* External Display page */
+.ext-hero .frame { max-width: 380px; }
+.ext-notes { margin-top: 14px; }
+.ext-notes .panel p strong { color: var(--fg); font-weight: 600; }
+
+/* External Display simulator. The device is drawn on a 616-unit grid (a 480 x 270 screen) and
+   scales with the page: --u is one unit of the device's width. The colors are the device's own,
+   so they do not follow the site theme. */
+.hud-sim-section { border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.hud-sim { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: clamp(14px, 3vw, 28px); background: var(--panel-low); }
+.hud-device { width: 100%; max-width: 616px; container-type: inline-size; }
+.hud-body {
+  --u: calc(100cqw / 616);
+  display: flex; align-items: center; gap: calc(46 * var(--u));
+  padding: calc(26 * var(--u)) calc(30 * var(--u));
+  background: #5F5E5A; border-radius: calc(22 * var(--u));
+}
+.hud-screen {
+  width: calc(480 * var(--u)); height: calc(270 * var(--u)); flex: none;
+  display: flex; flex-direction: column; box-sizing: border-box;
+  background: #2C2C2A; color: #F1EFE8; font-family: var(--font-body);
+  border: calc(6 * var(--u)) solid #2C2C2A; border-radius: calc(4 * var(--u));
+  font-variant-numeric: tabular-nums;
+}
+.hud-button { width: calc(30 * var(--u)); height: calc(170 * var(--u)); flex: none; background: #378ADD; border-radius: calc(15 * var(--u)); }
+.hud-top, .hud-row { display: flex; align-items: center; padding: 0 calc(8 * var(--u)); border-bottom: 1px solid #5F5E5A; flex: none; }
+.hud-top { justify-content: space-between; height: calc(44 * var(--u)); font-size: calc(22 * var(--u)); }
+.hud-range { font-size: calc(30 * var(--u)); font-weight: 500; }
+.hud-ang { color: #D3D1C7; font-family: var(--font-mono); }
+.hud-link { color: #D3D1C7; }
+.hud-linkon { color: #F0997B; }
+.hud-row { justify-content: flex-end; gap: calc(14 * var(--u)); height: calc(84 * var(--u)); }
+.hud-arrow { color: #D85A30; font-size: calc(40 * var(--u)); line-height: 1; }
+.hud-val { font-size: calc(74 * var(--u)); font-weight: 500; line-height: 1; }
+.hud-unit { font-size: calc(22 * var(--u)); align-self: flex-end; margin-bottom: calc(14 * var(--u)); color: #D3D1C7; }
+.hud-bottom { flex: 1; position: relative; }
+.hud-bottom > div { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 calc(8 * var(--u)); font-family: var(--font-mono); font-size: calc(22 * var(--u)); }
+.hud-bottom > [hidden] { display: none; }
+.hud-foot { justify-content: space-between; }
+.hud-bar { gap: calc(10 * var(--u)); }
+.hud-track { position: relative; flex: 1; height: calc(24 * var(--u)); border: 1px solid #888780; border-radius: calc(12 * var(--u)); overflow: hidden; }
+.hud-zone { position: absolute; left: 50%; top: 0; bottom: 0; width: 8.8%; transform: translateX(-50%); background: #27500A; }
+.hud-center { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #B4B2A9; }
+.hud-mark { position: absolute; top: calc(3 * var(--u)); width: calc(18 * var(--u)); height: calc(18 * var(--u)); border-radius: 50%; background: #97C459; left: calc(50% - 9 * var(--u)); }
+.hud-lb { font-weight: 500; min-width: calc(108 * var(--u)); text-align: right; color: #97C459; }
+.hud-msg { justify-content: center; font-size: calc(24 * var(--u)) !important; font-weight: 500; }
+.hud-controls { display: grid; grid-template-columns: auto minmax(0, 1fr) 4.5em; gap: 12px 14px; align-items: center; width: 100%; max-width: 480px; }
+.hud-controls label { font-size: 0.9rem; color: var(--muted); }
+.hud-controls input[type="range"] { width: 100%; margin: 0; accent-color: var(--accent); }
+.hud-controls output { font: 500 0.9rem/1 var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
+.hud-zero { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; width: 100%; max-width: 480px; }
+.hud-zero .btn { border: 0; cursor: pointer; font-size: 0.92rem; padding: 11px 18px; }
+html:not(.js) .hud-controls, html:not(.js) .hud-zero { display: none; }
+@media (max-width: 560px) {
+  /* Label and reading on one line, the slider full width under them. */
+  .hud-controls { grid-template-columns: minmax(0, 1fr) auto; grid-auto-flow: row dense; gap: 6px 14px; }
+  .hud-controls input[type="range"] { grid-column: 1 / -1; margin-bottom: 10px; }
+}

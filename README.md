@@ -9,6 +9,7 @@ redirect them.
 |---|---|
 | Home | https://bullseyeballisticscalculator.com/ |
 | Features | https://bullseyeballisticscalculator.com/features/ |
+| External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
 
@@ -33,11 +34,12 @@ have drifted.
 | Header, footer, `<head>` on every page | `_layout.html` |
 | Home page | `_pages/home.html` |
 | Feature tour | `_pages/features.html` |
+| External Display and its simulator | `_pages/external-display.html` |
 | Account deletion | `_pages/delete-account.html` |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
 | Look | `assets/site.css` |
-| Carousels, the home showcase, the full-size viewer | `assets/site.js` |
+| Carousels, the home showcase, the full-size viewer, the External Display simulator | `assets/site.js` |
 
 `PRIVACY_POLICY.md` is a copy of `docs/PRIVACY_POLICY.md` in the app repo, which is the source of
 truth. Copy it over, re-render, commit.

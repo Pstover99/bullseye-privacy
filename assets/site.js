@@ -214,6 +214,81 @@
   const sagittaHero = document.getElementById("sagitta-hero");
   if (sagittaHero) sagitta(sagittaHero);
 
+  /* External Display simulator: the footer becomes a level bar once the cant passes half a
+     degree, shows LEVEL briefly when it is back within 0.4, then returns. The angle in the header
+     turns amber while it moves and gray once it would have been sent. The owner's StickS3 mockup
+     (sticks3_hud_with_level_bar.html), same states and timings. */
+  function hudSim(root) {
+    const $ = (k) => root.querySelector(`[data-${k}]`);
+    const cs = $("cant"), as = $("angle"), foot = $("foot"), bar = $("bar"), msg = $("msg"), mk = $("mk"), lb = $("lb"), ang = $("ang");
+    let state = "FOOTER", enterT = null, confT = null, sendT = null, msgT = null, sent = 3.1;
+    const fmtA = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(1) + "°";
+    const show = () => {
+      if (msgT) { foot.hidden = true; bar.hidden = true; msg.hidden = false; return; }
+      msg.hidden = true;
+      foot.hidden = state !== "FOOTER";
+      bar.hidden = state === "FOOTER";
+    };
+    const drawBar = () => {
+      const v = parseFloat(cs.value), a = Math.abs(v);
+      mk.style.left = `calc(${50 + Math.max(-1, Math.min(1, v / 5)) * 44}% - 9 * var(--u))`;
+      let c, t;
+      if (state === "LEVEL_CONFIRM") { c = "#97C459"; t = "LEVEL"; }
+      else { c = a <= 1.5 ? "#EF9F27" : "#E24B4A"; t = v < 0 ? "◀ " + a.toFixed(1) + "°" : a.toFixed(1) + "° ▶"; }
+      mk.style.background = c;
+      lb.style.color = c;
+      lb.textContent = t;
+    };
+    const cant = () => {
+      const v = parseFloat(cs.value), a = Math.abs(v);
+      $("co").textContent = (v > 0 ? "R " : v < 0 ? "L " : "") + a.toFixed(1) + "°";
+      if (state === "FOOTER") {
+        if (a > 0.5) {
+          if (!enterT) enterT = setTimeout(() => {
+            enterT = null;
+            if (Math.abs(parseFloat(cs.value)) > 0.5) { state = "LEVEL_BAR"; drawBar(); show(); }
+          }, 150);
+        } else { clearTimeout(enterT); enterT = null; }
+      } else if (state === "LEVEL_BAR") {
+        if (a <= 0.4) { state = "LEVEL_CONFIRM"; confT = setTimeout(() => { state = "FOOTER"; show(); }, 700); }
+      } else if (state === "LEVEL_CONFIRM") {
+        if (a > 0.5) { clearTimeout(confT); state = "LEVEL_BAR"; }
+      }
+      drawBar();
+      show();
+    };
+    const angle = () => {
+      const v = parseFloat(as.value);
+      $("ao").textContent = fmtA(v);
+      ang.textContent = fmtA(v);
+      ang.style.color = Math.abs(v - sent) >= 0.5 ? "#EF9F27" : "#D3D1C7";
+      clearTimeout(sendT);
+      sendT = setTimeout(() => { sent = v; ang.style.color = "#D3D1C7"; }, 600);
+    };
+    const flash = (t, c) => {
+      clearTimeout(msgT);
+      msg.textContent = t;
+      msg.style.color = c;
+      msgT = setTimeout(() => { msgT = null; show(); }, 1000);
+      show();
+    };
+    $("zero").addEventListener("click", () => {
+      const c = Math.abs(parseFloat(cs.value)), a = Math.abs(parseFloat(as.value));
+      if (c <= 10 && a <= 10) {
+        cs.value = 0; as.value = 0;
+        clearTimeout(confT); clearTimeout(enterT); enterT = null;
+        state = "FOOTER"; sent = 0;
+        cant(); angle();
+        flash("ZEROED", "#97C459");
+      } else flash("ZERO FAILED", "#E24B4A");
+    });
+    cs.addEventListener("input", cant);
+    as.addEventListener("input", angle);
+    cant();
+    angle();
+  }
+  document.querySelectorAll("[data-hud-sim]").forEach(hudSim);
+
   /* Lightbox: any screenshot opens full size. Arrows, swipe and the keyboard step through the
      other screens in the same group (a carousel, a showcase or a section). */
   const box = document.createElement("dialog");
