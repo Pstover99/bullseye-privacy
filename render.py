@@ -41,6 +41,11 @@ PAGES = [
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
      "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
      "HUD, backup, the gun number, barrel care and load development."),
+    ("external-display/index.html", "_pages/external-display.html", "../",
+     "Bullseye Ballistics External Display",
+     "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "
+     "your elevation and windage holds during the trigger press, with built-in level and angle "
+     "sensors. Try it in the simulator."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -202,6 +207,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{URL}}": SITE + ("" if output == "404.html" else path),
         "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
         "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
+        "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
         "{{CURRENT_PRIVACY}}": ' aria-current="page"' if output.startswith("privacy/") else "",
         "{{CURRENT_DELETE}}": ' aria-current="page"' if output.startswith("delete-account/") else "",
     }
