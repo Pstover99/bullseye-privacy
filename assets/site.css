@@ -629,3 +629,8 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero { display: none; }
 .wc-demo-section { border-top: 1px solid var(--line); scroll-margin-top: 16px; }
 .wc-demo { background: #04070A; }
 .wc-demo iframe { display: block; width: 100%; height: clamp(600px, 88vh, 920px); border: 0; }
+
+/* Wind Corridor links. The showcase's sits under the phone, out of the layout, so showing it
+   never moves the tabs or the page. */
+#sagitta-hero .sg-more { margin: 16px 0 0; }
+.sc-link { position: absolute; left: 0; right: 0; top: 100%; margin: 12px 0 0; text-align: center; }
