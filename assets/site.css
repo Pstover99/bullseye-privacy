@@ -398,7 +398,7 @@ footer .legal { display: block; margin-top: 28px; }
 .sc-tab .sc-title { display: inline; font: 700 1.2rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
 .sc-tab .sc-desc { display: block; margin: 0; max-height: 0; overflow: hidden; opacity: 0; font-size: 0.95rem; transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease; }
 .sc-tab[aria-selected="true"] { background: var(--panel); color: var(--fg); }
-.sc-tab[aria-selected="true"] .sc-desc { max-height: 8em; opacity: 1; margin-top: 8px; color: var(--muted); }
+.sc-tab[aria-selected="true"] .sc-desc { max-height: 14em; opacity: 1; margin-top: 8px; color: var(--muted); }
 .sc-tab::after {
   content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
   background: var(--accent); transform-origin: left; transform: scaleX(0);
