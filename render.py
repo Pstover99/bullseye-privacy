@@ -40,7 +40,7 @@ PAGES = [
      "Features · Bullseye Ballistics",
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
      "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
-     "HUD, backup, the gun number, barrel care and load development."),
+     "HUD, the stability calculator, backup, the gun number, barrel care and load development."),
     ("external-display/index.html", "_pages/external-display.html", "../",
      "Bullseye Ballistics External Display",
      "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "

@@ -217,6 +217,22 @@ footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; te
 .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
 .cols .panel ul { margin-top: 10px; }
 .cols .panel li { margin-bottom: 4px; font-size: 0.95rem; }
+.tour .cols .panel h3 { margin-top: 0; }
+.cols .panel ul + p { margin-top: 10px; }
+.tour .copy li > ul { margin-top: 8px; }
+
+/* Stability: how to read Sg, with dots in the app's gauge colors. */
+.sg-table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 0.95rem; }
+.sg-table th { font: 500 0.75rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 12px 8px 0; border-bottom: 1px solid var(--line-strong); }
+.sg-table td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--muted); }
+.sg-table td:nth-child(-n+2) { color: var(--fg); white-space: nowrap; }
+.sg-dot { display: inline-block; width: 0.65em; height: 0.65em; border-radius: 50%; margin-right: 8px; vertical-align: 0.02em; }
+.sg-unstable { background: #D9483B; }
+.sg-marginal { background: #F0B429; }
+.sg-stable { background: #3DCB7A; }
+@media (max-width: 560px) {
+  .sg-table td:nth-child(2) { white-space: normal; }
+}
 
 @media (max-width: 900px) {
   .loop { grid-template-columns: repeat(3, minmax(0, 1fr)); }
