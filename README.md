@@ -37,7 +37,7 @@ have drifted.
 | Header, footer, `<head>` on every page | `_layout.html` |
 | Home page | `_pages/home.html` |
 | Feature tour | `_pages/features.html` |
-| Comparison | `_pages/comparison.html`, from "feature-comparison-table.md" (the table's rows) |
+| Comparison | `_pages/comparison.html` (the table is edited here; the old .md is retired) |
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Account deletion | `_pages/delete-account.html` |
