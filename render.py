@@ -41,6 +41,11 @@ PAGES = [
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
      "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
      "HUD, the stability calculator, backup, the gun number, barrel care and load development."),
+    ("comparison/index.html", "_pages/comparison.html", "../",
+     "Comparison · Bullseye Ballistics",
+     "Compare Bullseye Ballistics to other popular solver apps, feature by feature: firing "
+     "solutions, sensors, the External Display, shot logging and analysis, truing, groups, "
+     "matches, load development, barrel care and Sagitta AI."),
     ("external-display/index.html", "_pages/external-display.html", "../",
      "Bullseye Ballistics External Display",
      "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "
@@ -220,6 +225,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{URL}}": SITE + ("" if output == "404.html" else path),
         "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
         "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
+        "{{CURRENT_COMPARISON}}": ' aria-current="page"' if output.startswith("comparison/") else "",
         "{{CURRENT_WIND}}": ' aria-current="page"' if output.startswith("wind-corridor/") else "",
         "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
     }
