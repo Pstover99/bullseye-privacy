@@ -650,3 +650,42 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero { display: none; }
    never moves the tabs or the page. */
 #sagitta-hero .sg-more { margin: 16px 0 0; }
 .sc-link { position: absolute; left: 0; right: 0; top: 100%; margin: 12px 0 0; text-align: center; }
+
+/* Comparison page. The column headings stick to the top of the screen while the table
+   scrolls under them, so the reader always knows which column is which. border-collapse is
+   separate because collapsed borders don't travel with a sticky cell. */
+.cmp-head { padding-block: 48px 8px; }
+.cmp-head .intro { margin-bottom: 0; }
+.cmp { padding-top: 24px; }
+.cmp-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.cmp-table thead th {
+  position: sticky; top: 0; z-index: 2; background: var(--bg);
+  padding: 14px 16px; border-bottom: 2px solid var(--line-strong);
+  font: 500 0.75rem/1.35 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-align: center; vertical-align: bottom;
+}
+.cmp-table thead th:first-child { text-align: left; padding-left: 0; }
+.cmp-table thead th:last-child { color: var(--accent); }
+.cmp-table thead th:nth-child(n+2) { width: 150px; }
+.cmp-table tbody th, .cmp-table td { padding: 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cmp-table tbody th { padding-left: 0; text-align: left; font-weight: 400; }
+.cmp-table tbody th strong { display: block; font: 700 1.1rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; color: var(--fg); }
+.cmp-table tbody th span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.95rem; }
+.cmp-table td { text-align: center; }
+.cmp-table td:last-child { background: var(--accent-soft); }
+.cmp-mark { display: inline-block; width: 26px; height: 26px; margin-top: 2px; }
+.cmp-mark svg { display: block; width: 100%; height: 100%; fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.cmp-mark.yes svg { stroke: #3DCB7A; }
+.cmp-mark.no svg { stroke: var(--muted); opacity: 0.7; }
+@media (prefers-color-scheme: light) {
+  .cmp-mark.yes svg { stroke: #1E9E57; }
+}
+@media (max-width: 560px) {
+  .cmp-table thead th { padding: 10px 6px; font-size: 0.62rem; letter-spacing: 0.04em; }
+  .cmp-table thead th:nth-child(n+2) { width: 68px; }
+  .cmp-table tbody th { padding-right: 10px; }
+  .cmp-table td { padding: 14px 6px; }
+  .cmp-table tbody th strong { font-size: 1rem; }
+  .cmp-table tbody th span { font-size: 0.9rem; }
+  .cmp-mark { width: 22px; height: 22px; }
+}

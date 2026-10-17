@@ -9,6 +9,7 @@ redirect them.
 |---|---|
 | Home | https://bullseyeballisticscalculator.com/ |
 | Features | https://bullseyeballisticscalculator.com/features/ |
+| Comparison | https://bullseyeballisticscalculator.com/comparison/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
@@ -36,6 +37,7 @@ have drifted.
 | Header, footer, `<head>` on every page | `_layout.html` |
 | Home page | `_pages/home.html` |
 | Feature tour | `_pages/features.html` |
+| Comparison | `_pages/comparison.html`, from "feature-comparison-table.md" (the table's rows) |
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Account deletion | `_pages/delete-account.html` |
