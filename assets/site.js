@@ -218,13 +218,67 @@
 
   /* External Display simulator: the footer becomes a level bar once the cant passes half a
      degree, shows LEVEL briefly when it is back within 0.4, then returns. The angle in the header
-     turns amber while it moves and gray once it would have been sent. Same states and timings as
-     the owner's mockup of the display. */
+     turns amber while it moves and gray once it would have been sent, and the holds are then
+     solved again for it. Same states, timings and solver as the owner's mockup of the display
+     (External HUD/StickS3/sticks3_hud_with_level_bar.html). */
+
+  // Point-mass G7 solver for the sim's load. The trajectory is integrated in the line-of-sight
+  // frame with gravity resolved by the shooting angle, so uphill and downhill holds come from the
+  // real trajectory.
+  const HUD_LOAD = { mv: 2710, bc: 0.326, sh: 1.75, zero: 100, sg: 1.75 }, HUD_RANGE_YD = 1024, HUD_WIND_MPH = 7, HUD_WIND_CLOCK = 3;
+  const G7 = [[0,.1198],[.05,.1197],[.1,.1196],[.15,.1194],[.2,.1193],[.25,.1194],[.3,.1194],[.35,.1194],[.4,.1193],[.45,.1193],[.5,.1194],[.55,.1193],[.6,.1194],[.65,.1197],[.7,.1202],[.725,.1207],[.75,.1215],[.775,.1226],[.8,.1242],[.825,.1266],[.85,.1306],[.875,.1368],[.9,.1464],[.925,.166],[.95,.2054],[.975,.2993],[1,.3803],[1.025,.4015],[1.05,.4043],[1.075,.4034],[1.1,.4014],[1.125,.3987],[1.15,.3955],[1.2,.3884],[1.25,.381],[1.3,.3732],[1.35,.3657],[1.4,.358],[1.5,.344],[1.55,.3376],[1.6,.3315],[1.65,.326],[1.7,.3209],[1.75,.316],[1.8,.3117],[1.85,.3078],[1.9,.3042],[1.95,.301],[2,.298],[2.05,.2951],[2.1,.2922],[2.15,.2892],[2.2,.2864],[2.25,.2835],[2.3,.2807],[2.35,.2779],[2.4,.2752],[2.45,.2725],[2.5,.2697],[2.55,.267],[2.6,.2643],[2.65,.2615],[2.7,.2588],[2.75,.2561],[2.8,.2533],[2.85,.2506],[2.9,.2479],[2.95,.2451],[3,.2424]];
+  const IN = 0.0254, YD = 0.9144, FPS = 0.3048, MPH = 0.44704, GRAV = 9.80665, SOS = 340.29, RHO = 1.225;
+  const cdG7 = (m) => {
+    if (m >= 3) return 0.2424;
+    let i = 1;
+    while (G7[i][0] < m) i++;
+    const [a, b] = G7[i - 1], [c, d] = G7[i];
+    return b + (d - b) * (m - a) / (c - a);
+  };
+  const fly = (launch, angDeg, R, cross) => {
+    const k = RHO * (Math.PI / 8) * (IN * IN / 0.45359237) / HUD_LOAD.bc, ph = angDeg * Math.PI / 180;
+    const gx = -GRAV * Math.sin(ph), gy = -GRAV * Math.cos(ph), dt = 0.0005;
+    let x = 0, y = -HUD_LOAD.sh * IN, z = 0, vx = HUD_LOAD.mv * FPS * Math.cos(launch), vy = HUD_LOAD.mv * FPS * Math.sin(launch), vz = 0, t = 0;
+    while (true) {
+      const rz = vz + cross, vr = Math.hypot(vx, vy, rz), a = k * cdG7(vr / SOS) * vr, px = x, py = y, pz = z, pt = t;
+      vx += (-a * vx + gx) * dt; vy += (-a * vy + gy) * dt; vz += (-a * rz) * dt;
+      x += vx * dt; y += vy * dt; z += vz * dt; t += dt;
+      if (x >= R) {
+        const f = (R - px) / (x - px);
+        return { y: py + (y - py) * f, z: pz + (z - pz) * f, t: pt + (t - pt) * f, v: Math.hypot(vx, vy, vz) };
+      }
+    }
+  };
+  let zeroLaunch = null;
+  const hudSolve = (angDeg) => {
+    if (zeroLaunch === null) {
+      let lo = -0.01, hi = 0.02;
+      for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; fly(m, 0, HUD_LOAD.zero * YD, 0).y > 0 ? hi = m : lo = m; }
+      zeroLaunch = (lo + hi) / 2;
+    }
+    const R = HUD_RANGE_YD * YD, cross = HUD_WIND_MPH * MPH * Math.sin(HUD_WIND_CLOCK / 12 * 2 * Math.PI), r = fly(zeroLaunch, angDeg, R, cross);
+    const spin = 1.25 * (HUD_LOAD.sg + 1.2) * Math.pow(r.t, 1.83) * IN;
+    return { elev: -r.y / R * 1000, wind: -(r.z + spin) / R * 1000, tof: r.t, vel: r.v / FPS };
+  };
+
   function hudSim(root) {
     const $ = (k) => root.querySelector(`[data-${k}]`);
     const cs = $("cant"), as = $("angle"), foot = $("foot"), bar = $("bar"), msg = $("msg"), mk = $("mk"), lb = $("lb"), ang = $("ang");
     let state = "FOOTER", enterT = null, confT = null, sendT = null, msgT = null, sent = 3.1;
     const fmtA = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(1) + "°";
+    const level = hudSolve(0);
+    const holds = (angDeg) => {
+      const h = hudSolve(angDeg);
+      $("ev").textContent = h.elev.toFixed(2);
+      $("wv").textContent = Math.abs(h.wind).toFixed(2);
+      $("wa").textContent = h.wind < 0 ? "◀" : "▶";
+      $("fv").textContent = Math.round(h.vel) + " fps";
+      $("ft").textContent = h.tof.toFixed(2) + " s";
+      const d = h.elev - level.elev;
+      $("cmp").textContent = Math.abs(angDeg) < 0.05
+        ? `Level ground: elevation ${level.elev.toFixed(2)} mil at ${HUD_RANGE_YD} yd`
+        : `At ${fmtA(angDeg)}: elevation ${h.elev.toFixed(2)} mil vs ${level.elev.toFixed(2)} mil on level ground (${Math.abs(d) < 0.005 ? "" : d < 0 ? "−" : "+"}${Math.abs(d).toFixed(2)} mil)`;
+    };
     const show = () => {
       if (msgT) { foot.hidden = true; bar.hidden = true; msg.hidden = false; return; }
       msg.hidden = true;
@@ -265,7 +319,7 @@
       ang.textContent = fmtA(v);
       ang.style.color = Math.abs(v - sent) >= 0.5 ? "#EF9F27" : "#D3D1C7";
       clearTimeout(sendT);
-      sendT = setTimeout(() => { sent = v; ang.style.color = "#D3D1C7"; }, 600);
+      sendT = setTimeout(() => { sent = v; ang.style.color = "#D3D1C7"; holds(v); }, 600);
     };
     const flash = (t, c) => {
       clearTimeout(msgT);
@@ -288,6 +342,7 @@
     as.addEventListener("input", angle);
     cant();
     angle();
+    holds(sent);
   }
   document.querySelectorAll("[data-hud-sim]").forEach(hudSim);
 

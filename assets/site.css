@@ -631,7 +631,11 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
 .hud-controls output { font: 500 0.9rem/1 var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
 .hud-zero { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; width: 100%; max-width: 480px; }
 .hud-zero .btn { border: 0; cursor: pointer; font-size: 0.92rem; padding: 11px 18px; }
-html:not(.js) .hud-controls, html:not(.js) .hud-zero { display: none; }
+.hud-note { width: 100%; max-width: 480px; font-size: 0.85rem; line-height: 1.5; color: var(--muted); }
+.hud-note p { margin: 0; }
+.hud-cmp { font-weight: 500; color: var(--fg); }
+.hud-cmp:empty { display: none; }
+html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { display: none; }
 @media (max-width: 560px) {
   /* Label and reading on one line, the slider full width under them. */
   .hud-controls { grid-template-columns: minmax(0, 1fr) auto; grid-auto-flow: row dense; gap: 6px 14px; }
