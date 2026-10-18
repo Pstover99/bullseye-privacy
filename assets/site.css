@@ -669,14 +669,14 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   color: var(--muted); text-align: center; vertical-align: bottom;
 }
 .cmp-table thead th:first-child { text-align: left; padding-left: 0; }
-.cmp-table thead th:last-child { color: var(--accent); }
+.cmp-table thead th:nth-child(2) { color: var(--accent); }
 .cmp-table thead th:nth-child(n+2) { width: 150px; }
 .cmp-table tbody th, .cmp-table td { padding: 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .cmp-table tbody th { padding-left: 0; text-align: left; font-weight: 400; }
 .cmp-table tbody th strong { display: block; font: 700 1.1rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; color: var(--fg); }
 .cmp-table tbody th span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.95rem; }
 .cmp-table td { text-align: center; }
-.cmp-table td:last-child { background: var(--accent-soft); }
+.cmp-table tbody tr:not(.cmp-group) td:nth-child(2) { background: var(--accent-soft); }
 .cmp-mark { display: inline-block; width: 26px; height: 26px; margin-top: 2px; }
 .cmp-mark svg { display: block; width: 100%; height: 100%; fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .cmp-mark.yes svg { stroke: #3DCB7A; }
@@ -692,4 +692,26 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   .cmp-table tbody th strong { font-size: 1rem; }
   .cmp-table tbody th span { font-size: 0.9rem; }
   .cmp-mark { width: 22px; height: 22px; }
+}
+/* The callout under the intro, and the jump links to each section. */
+.cmp-callout { margin-top: 28px; padding: 18px 22px; background: var(--panel); border-left: 3px solid var(--accent); max-width: 46em; }
+.cmp-callout .nowrap { white-space: nowrap; }
+.cmp-callout strong { display: block; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--accent); }
+.cmp-callout p { margin: 6px 0 0; color: var(--fg); }
+.cmp-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.cmp-jump a {
+  font: 500 0.72rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  text-decoration: none; padding: 9px 12px; border: 1px solid var(--line-strong);
+}
+.cmp-jump a:hover { color: var(--fg); border-color: var(--accent); }
+/* Section heading rows inside the table. scroll-margin keeps a jumped-to section clear of the
+   sticky column headings. */
+.cmp-table tbody { scroll-margin-top: 56px; }
+.cmp-table tr.cmp-group th { padding: 44px 0 12px; border-bottom: 2px solid var(--accent); }
+.cmp-table tbody:first-of-type tr.cmp-group th { padding-top: 20px; }
+.cmp-group-title { display: flex; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+.cmp-group h2 { margin: 0; font: 700 1.6rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--fg); }
+.cmp-table tr.cmp-group th span { margin-top: 6px; }
+@media (max-width: 560px) {
+  .cmp-group h2 { font-size: 1.35rem; }
 }
