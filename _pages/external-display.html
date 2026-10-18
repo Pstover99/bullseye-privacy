@@ -68,16 +68,16 @@
               </div>
               <div class="hud-row">
                 <span class="hud-arrow">▲</span>
-                <span class="hud-val">8.03</span>
+                <span class="hud-val" data-ev>8.03</span>
                 <span class="hud-unit">mil</span>
               </div>
               <div class="hud-row">
-                <span class="hud-arrow">▶</span>
-                <span class="hud-val">1.08</span>
+                <span class="hud-arrow" data-wa>▶</span>
+                <span class="hud-val" data-wv>1.08</span>
                 <span class="hud-unit">mil</span>
               </div>
               <div class="hud-bottom">
-                <div class="hud-foot" data-foot><span>1518 fps</span><span>1.46 s</span><span>7.0 mph @3</span></div>
+                <div class="hud-foot" data-foot><span data-fv>1518 fps</span><span data-ft>1.46 s</span><span>7.0 mph @3</span></div>
                 <div class="hud-bar" data-bar hidden>
                   <div class="hud-track">
                     <div class="hud-zone"></div>
@@ -97,12 +97,16 @@
           <input type="range" id="hud-cant" min="-5" max="5" step="0.1" value="0" data-cant>
           <output for="hud-cant" data-co>0.0°</output>
           <label for="hud-angle">Shooting angle</label>
-          <input type="range" id="hud-angle" min="-30" max="30" step="0.1" value="3.1" data-angle>
+          <input type="range" id="hud-angle" min="-45" max="45" step="0.1" value="3.1" data-angle>
           <output for="hud-angle" data-ao>+3.1°</output>
         </div>
         <div class="hud-zero">
           <button class="btn btn-outline" type="button" data-zero>Hold top button 2 s (zero)</button>
-          <span class="soon">Angle turns amber while moving, gray once sent</span>
+          <span class="soon">Angle is amber while moving; holds update once sent</span>
+        </div>
+        <div class="hud-note">
+          <p class="hud-cmp" data-cmp></p>
+          <p>Load: 6.5 Creedmoor, Hornady 140 gr ELD Match, 2710 fps, G7 BC 0.326, 1.75 in sight height, 100 yd zero. Standard atmosphere (59°F, 29.92 inHg), 7 mph wind from 3 o'clock, right-hand twist. Holds come from a point-mass G7 trajectory solved along the line of sight with gravity split by the shooting angle, plus spin drift.</p>
         </div>
       </div>
     </div>
