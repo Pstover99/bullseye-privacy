@@ -16,6 +16,7 @@ line and indented the same way.
 
 Underscored files and folders are not published: GitHub Pages' Jekyll build skips them.
 """
+import hashlib
 import html
 import re
 import sys
@@ -204,6 +205,14 @@ def company_slips(page: str) -> list[str]:
     return slips
 
 
+def version(asset: str) -> str:
+    """A short hash of an asset, added to its URL. GitHub Pages lets browsers keep a file for ten
+    minutes, so without it a fresh page can run against last version's script: the External
+    Display simulator once kept its fixed holds that way, right after the solver shipped."""
+    # Line endings normalized, so a Windows checkout and CI agree.
+    return hashlib.sha256((HERE / asset).read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:10]
+
+
 def body_for(source: str) -> str:
     if source.endswith(".md"):
         doc = re.sub(r"\n +\n", "\n\n", render((HERE / source).read_text()).replace("\n", "\n  "))
@@ -222,6 +231,8 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{TITLE}}": html.escape(title),
         "{{DESCRIPTION}}": html.escape(description),
         "{{ROBOTS}}": '\n<meta name="robots" content="noindex">' if output in NOINDEX else "",
+        "{{CSS_V}}": version("assets/site.css"),
+        "{{JS_V}}": version("assets/site.js"),
         "{{URL}}": SITE + ("" if output == "404.html" else path),
         "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
         "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
