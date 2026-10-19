@@ -85,7 +85,7 @@
       // A link that belongs to one tab, shown while that tab is.
       root.querySelectorAll("[data-tab]").forEach((l) => { l.hidden = l.dataset.tab !== tabs[i].id; });
       const now = root.querySelector(".sc-now");
-      if (now) now.textContent = tabs[i].querySelector(".sc-desc").textContent;
+      if (now) now.innerHTML = tabs[i].querySelector(".sc-desc").innerHTML; // keeps any bold
       if (focus) tabs[i].focus();
       const strip = root.querySelector(".sc-tabs");
       if (strip.scrollWidth > strip.clientWidth) {
