@@ -204,6 +204,8 @@ footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; te
 /* Feature tour page */
 .tour-head { padding-block: 48px 8px; }
 .tour { border-top: 1px solid var(--line); padding-block: 56px; scroll-margin-top: 16px; }
+/* The link to the Comparison page, between the last feature and Platform and data. */
+.tour-next { border-top: 1px solid var(--line); padding-block: 40px; }
 .tour .wrap { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.3fr); gap: 40px; align-items: start; }
 .tour.rev .wrap { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.95fr); }
 .tour.rev .copy { order: 2; }
