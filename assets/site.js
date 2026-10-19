@@ -58,8 +58,20 @@
       bar.querySelector(".next").disabled = atEnd;
       root.classList.toggle("fits", track.scrollWidth <= track.clientWidth + 4);
     };
-    bar.querySelector(".prev").addEventListener("click", () => go(current - 1));
-    bar.querySelector(".next").addEventListener("click", () => go(current + 1));
+    // Step from where the row actually sits. At the end of the row the counter shows the last
+    // screen, but the row can't scroll as far as the screen before it, so "current - 1" would
+    // ask for a place it can't reach and Back would do nothing.
+    bar.querySelector(".prev").addEventListener("click", () => {
+      const left = track.scrollLeft;
+      let i = 0;
+      slides.forEach((_, k) => { if (stop(k) < left - 4) i = k; });
+      go(i);
+    });
+    bar.querySelector(".next").addEventListener("click", () => {
+      const left = track.scrollLeft;
+      const i = slides.findIndex((_, k) => stop(k) > left + 4);
+      go(i < 0 ? slides.length - 1 : i);
+    });
     let raf = 0;
     track.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
     addEventListener("resize", sync);
