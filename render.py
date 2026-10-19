@@ -36,12 +36,13 @@ PAGES = [
      "A ballistics calculator for Android that learns your rifle. Sagitta Ballistics AI that "
      "explains why you missed, live wind and weather from your Bluetooth sensors, hit "
      "probability, a gun number for every load, a shot log that trues the load, groups from a "
-     "photo, matches, load development and an external HUD."),
+     "photo, matches, load development, Hunting Zero and an external HUD."),
     ("features/index.html", "_pages/features.html", "../",
      "Features · Bullseye Ballistics",
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
      "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
-     "HUD, the stability calculator, backup, the gun number, barrel care and load development."),
+     "HUD, the stability calculator, backup, the gun number, barrel care, load development and "
+     "Hunting Zero."),
     ("comparison/index.html", "_pages/comparison.html", "../",
      "Comparison · Bullseye Ballistics",
      "Compare Bullseye Ballistics to other popular solver apps, feature by feature: firing "
@@ -56,6 +57,11 @@ PAGES = [
      "Wind Corridor · Bullseye Ballistics",
      "Pair Bullseye Ballistics with Calypso LoRa wind meters downrange and see the wind between "
      "you and the target, live. Learn what it looks like in the mirage, leaves, trees and grass."),
+    ("hunting/index.html", "_pages/hunting.html", "../",
+     "Hunting Zero · Bullseye Ballistics",
+     "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
+     "zone, your group size and the conditions where you hunt, so you can hold dead center out "
+     "to your maximum point-blank range."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -239,6 +245,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{CURRENT_COMPARISON}}": ' aria-current="page"' if output.startswith("comparison/") else "",
         "{{CURRENT_WIND}}": ' aria-current="page"' if output.startswith("wind-corridor/") else "",
         "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
+        "{{CURRENT_HUNTING}}": ' aria-current="page"' if output.startswith("hunting/") else "",
     }
     for key, value in fields.items():
         page = page.replace(key, value)

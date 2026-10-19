@@ -717,3 +717,45 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
 @media (max-width: 560px) {
   .cmp-group h2 { font-size: 1.35rem; }
 }
+
+/* Hunting page. The hold colors are the app's own, the same as the Stability dots. */
+/* On wide screens the text takes the room and each screen sits in a 360px column, as in the
+   guide page. Phones stack like every other tour section. */
+@media (min-width: 901px) {
+  .hz-hero .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .tour.hz .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 56px; align-items: center; }
+  .tour.hz.rev .wrap { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
+}
+.tour.hz .carousel .track > figure { flex-basis: 100%; }
+@media (max-width: 900px) {
+  .tour.hz .carousel { width: 100%; max-width: 380px; justify-self: center; }
+}
+.hz-shot { margin: 0; width: 100%; max-width: 440px; justify-self: center; }
+.hz-shot figcaption { margin-top: 12px; text-align: center; }
+.hz-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.hz-chip {
+  font: 500 0.72rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  padding: 8px 11px; border: 1px solid var(--line-strong);
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+.hz-chip.on { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.tour h2.hz-sub { margin-top: 32px; }
+.hz-legend { list-style: none; padding: 0 !important; }
+.hz-legend li { display: flex; gap: 12px; align-items: baseline; }
+.hz-dot { flex: none; width: 11px; height: 11px; transform: rotate(45deg); position: relative; top: 1px; }
+.hz-dot.go { background: #3DCB7A; }
+.hz-dot.warn { background: #F0B429; }
+.hz-dot.stop { background: #D9483B; }
+.hz-dot.past { background: var(--line-strong); }
+.tour .copy .hz-quote { margin: 18px 0 0; padding: 10px 14px; border-left: 3px solid #F0B429; background: rgb(240 180 41 / 0.08); color: #F0B429; }
+@media (prefers-color-scheme: light) {
+  .tour .copy .hz-quote { color: #8A6100; border-left-color: #C48F00; }
+}
+.hz-smart { border-top: 1px solid var(--line); }
+.hz-grid { margin-top: 28px; }
+.hz-grid .panel h3 { margin-top: 0; }
+.hz-cta { border-top: 1px solid var(--line); text-align: center; padding-block: 72px 88px; }
+.hz-cta h2 { font-size: clamp(2rem, 4.4vw, 3rem); max-width: 18em; margin-inline: auto; }
+.hz-cta h2 span { color: var(--accent); }
+.hz-cta p { color: var(--muted); margin: 0 0 28px; }
+.hz-cta .cta-row { justify-content: center; }
