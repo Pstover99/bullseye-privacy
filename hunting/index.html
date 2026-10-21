@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hunting Zero · Bullseye Ballistics</title>
-<meta name="description" content="Hunting Zero works out exactly how high to sight in for your load, the animal&#x27;s vital zone, your group size and the conditions where you hunt, so you can hold dead center out to your maximum point-blank range.">
+<title>Hunting · Bullseye Ballistics</title>
+<meta name="description" content="Hunting Zero works out exactly how high to sight in for your load, the animal&#x27;s vital zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold center or gives the exact hold, and checks every shot is ethical.">
 <link rel="canonical" href="https://bullseyeballisticscalculator.com/hunting/">
 <meta name="theme-color" content="#101311">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bullseye Ballistics">
-<meta property="og:title" content="Hunting Zero · Bullseye Ballistics">
-<meta property="og:description" content="Hunting Zero works out exactly how high to sight in for your load, the animal&#x27;s vital zone, your group size and the conditions where you hunt, so you can hold dead center out to your maximum point-blank range.">
+<meta property="og:title" content="Hunting · Bullseye Ballistics">
+<meta property="og:description" content="Hunting Zero works out exactly how high to sight in for your load, the animal&#x27;s vital zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold center or gives the exact hold, and checks every shot is ethical.">
 <meta property="og:url" content="https://bullseyeballisticscalculator.com/hunting/">
 <meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=c9e01a06c2">
+<link rel="stylesheet" href="../assets/site.css?v=895f35d6e1">
 <script src="../assets/site.js?v=f5cd2d2e25" defer></script>
 </head>
 <body>
@@ -40,6 +40,13 @@
 </header>
 
 <main>
+  <nav class="tour-bar hz-subnav" aria-label="On this page">
+    <div class="wrap">
+      <ul class="tour-links"><li><a href="#hunting-zero">Hunting Zero Calculator</a></li><li><a href="#hunt-mode">Hunting Mode</a></li></ul>
+    </div>
+  </nav>
+
+  <div class="hz-part" id="hunting-zero">
   <section class="hero hz-hero">
     <div class="wrap">
       <div>
@@ -168,11 +175,238 @@
     </div>
   </section>
 
+  </div>
+
+  <div class="hz-part" id="hunt-mode">
+  <section class="hero hz-hero hm-hero">
+    <div class="wrap">
+      <div>
+        <div class="label feature-label">Hunt Mode</div>
+        <h2 class="hero-h1">Hold center.<br><span>Or the exact hold.</span></h2>
+        <p class="lead">Hunt Mode cuts the solver down to what matters with an animal in front of you: your elevation hold, your windage, and a straight answer on whether the shot is ethical. Point the phone at the animal, type the range, and read the hold.</p>
+        <ol class="hm-key" aria-label="What's on the Hunt Mode screen">
+          <li><span class="n" aria-hidden="true">1</span><span><b>Game size chip</b>Medium (8 in vitals) or Large (10 in). Tap to switch.</span></li>
+          <li><span class="n" aria-hidden="true">2</span><span><b>Max point blank</b>How far you can hold center with this load, today.</span></li>
+          <li><span class="n" aria-hidden="true">3</span><span><b>Hold Center</b>Replaces the elevation number when the range is inside max point blank.</span></li>
+          <li><span class="n" aria-hidden="true">4</span><span><b>Ethical shot</b>Energy on target and reliable bullet expansion, checked every solve.</span></li>
+          <li><span class="n" aria-hidden="true">5</span><span><b>Captured shot data</b>Direction of fire, shot angle and latitude, read when you aim.</span></li>
+          <li><span class="n" aria-hidden="true">6</span><span><b>Recapture</b>Animal moved, or you did? Aim again to refresh the shot.</span></li>
+        </ol>
+      </div>
+      <figure class="hz-shot hm-phone">
+        <div class="frame"><div class="hm-marks"><img src="../assets/img/hm-hold-center.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 200 yards for a Medium game size: HOLD CENTER for elevation, max point blank 285 yards, windage +0.06 MOA right, ethical shot with 2,829 ft·lb on target."><span class="hm-mark" style="--x:62%;--y:7.3%" aria-hidden="true">1</span><span class="hm-mark" style="--x:95%;--y:10.4%" aria-hidden="true">2</span><span class="hm-mark" style="--x:93%;--y:16.2%" aria-hidden="true">3</span><span class="hm-mark" style="--x:95%;--y:47.8%" aria-hidden="true">4</span><span class="hm-mark" style="--x:95%;--y:86.7%" aria-hidden="true">5</span><span class="hm-mark" style="--x:95%;--y:95.4%" aria-hidden="true">6</span></div></div>
+        <figcaption class="label">200 yd, inside max point blank</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="label">Aim &amp; Capture</div>
+      <h2>Point. Range. Shoot.</h2>
+      <p class="intro">No menus and no typing beyond the yards. Hunt Mode reads the shot from the phone itself.</p>
+      <div class="grid hz-grid hm-steps">
+        <article class="panel"><div class="label feature-label">Step 1</div><h3>Aim the phone at the animal</h3><p>Tap Aim &amp; Capture and hold steady. Hunt Mode records your direction of fire, the uphill or downhill angle, and your latitude for Coriolis.</p></article>
+        <article class="panel"><div class="label feature-label">Step 2</div><h3>Type the range</h3><p>The range keypad opens as soon as the capture finishes. Enter the yards from your rangefinder and tap Solve.</p></article>
+        <article class="panel"><div class="label feature-label">Step 3</div><h3>Read the hold</h3><p>Elevation and windage come up big, with angle and Coriolis already in the numbers. If the animal moves or you change position, tap Recapture.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="hm-split">
+        <div>
+          <div class="label">Hold Center</div>
+          <h2>Inside max point blank, just hold center</h2>
+        </div>
+        <div class="hm-copy">
+          <p>Set your game size once. Hunt Mode works out how far your bullet stays inside that animal's vital zone with the zero on your rifle. That distance is your <strong>max point blank</strong>, shown right on the elevation card.</p>
+          <p>When the range is inside it, the elevation readout simply says <strong>HOLD CENTER</strong>. Past it, you get the exact hold in MOA or mil, whichever you dial, with the other unit and inches underneath.</p>
+          <p>Windage is always shown, so you still know where the wind is pushing the bullet.</p>
+        </div>
+      </div>
+      <div class="hm-vs">
+        <h3>Same rifle. Same 295 yards. Different animal.</h3>
+        <p>A bigger vital zone means a longer max point blank.</p>
+      </div>
+      <div class="hm-compare">
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-295-medium.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 295 yards, Medium game: max point blank 285 yards, elevation +1.01 MOA up."></div>
+          <figcaption><span class="hm-tag">M · 8 in vitals</span><b>Deer: max point blank 285 yd</b><p>The deer is 10 yards past max point blank, so Hunt Mode gives the hold: <span class="hm-num">+1.01 MOA</span> up.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-295-large.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 295 yards, Large game: max point blank 295 yards, HOLD CENTER."></div>
+          <figcaption><span class="hm-tag">L · 10 in vitals</span><b>Elk: max point blank 295 yd</b><p>The 10 in vital zone carries this load to 295 yards. Hold center.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour hz rev" id="game-size">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label">Game size</div>
+        <h2>One tap on the chip</h2>
+        <ul class="hm-rows">
+          <li><span class="k">Deer · M</span><span class="v">Medium game, 8 in vitals. Deer, pronghorn, sheep.</span></li>
+          <li><span class="k">Elk · L</span><span class="v">Large game, 10 in vitals. Elk, moose.</span></li>
+          <li><span class="k">Off</span><span class="v">MOA or mil holds only. Never shows Hold Center.</span></li>
+        </ul>
+        <p>Hunt Mode remembers the last game size you picked, so it's ready next time you open it.</p>
+      </div>
+      <div class="carousel single" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-game-size.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Game size picker: Deer, Medium game, 8 in vitals; Elk, Large game, 10 in vitals; Off, show holds only."></div>
+          <figcaption><div class="label">Game size</div><p>Deer, Elk or Off.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="hm-split">
+        <div>
+          <div class="label">Max point blank</div>
+          <h2>Worked out for today, not for the box</h2>
+        </div>
+        <div class="hm-copy">
+          <p>The max point blank printed on an ammo box assumes sea-level air, a generic zero and a perfect shooter. Hunt Mode works it out from your rifle, your zero and the air you're actually hunting in. Then it solves the real shot on top of that.</p>
+        </div>
+      </div>
+      <div class="cols hm-inputs">
+        <div class="panel">
+          <h3>What sets max point blank</h3>
+          <p>Your rifle in today's air. It holds steady as you glass from one animal to the next.</p>
+          <ul class="hm-rows">
+            <li><span class="k">Today's air</span><span class="v">Temperature, pressure and altitude from your sensors. Thin mountain air carries a bullet farther.</span></li>
+            <li><span class="k">Load + zero</span><span class="v">The muzzle velocity and bullet you logged, and the zero saved on the load, including a high-at-100 hunting zero.</span></li>
+            <li><span class="k">Game size</span><span class="v">8 in or 10 in vitals.</span></li>
+            <li><span class="k">Your group</span><span class="v">With Use my group size on, the vital zone shrinks by your logged group, so it only promises what you can hold.</span></li>
+            <li><span class="k">Ethical limits</span><span class="v">It never runs past your minimum energy or your bullet's reliable expansion.</span></li>
+          </ul>
+        </div>
+        <div class="panel live">
+          <h3>What goes into every hold</h3>
+          <p>The shot in front of you, captured when you aim.</p>
+          <ul class="hm-rows">
+            <li><span class="k">Shot angle</span><span class="v">Uphill or downhill, measured by the phone. <span class="hm-num">+3.4°</span> in these screens.</span></li>
+            <li><span class="k">Coriolis</span><span class="v">From your direction of fire and latitude. <span class="hm-num">276° W · 38.9° N</span>.</span></li>
+            <li><span class="k">Wind</span><span class="v">Speed and clock direction, with an arrow showing where it's headed. Tap to change it.</span></li>
+            <li><span class="k">Range</span><span class="v">Straight from your rangefinder.</span></li>
+          </ul>
+          <p class="hm-applied">✓ Angle + Coriolis applied · shown on every Hunt Mode solve</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="hm-split">
+        <div>
+          <div class="label">Ethical shot</div>
+          <h2>Two checks on every solve</h2>
+        </div>
+        <div class="hm-copy">
+          <p>A hold you can make isn't always a shot you should take. Hunt Mode runs two checks on every solve. If both pass, the card turns green and reads <strong class="hm-go">ETHICAL SHOT</strong>. If either fails, it turns red, reads <strong class="hm-stop">TOO FAR</strong>, and tells you how many yards to close.</p>
+        </div>
+      </div>
+      <div class="hm-tests">
+        <div><h3>Energy on target</h3><p>Impact energy must be above your minimum. It's 1,000 ft·lb by default, and you can change it in Settings.</p></div>
+        <div><h3>Reliable bullet expansion</h3><p>Impact velocity must be at or above the bullet's minimum expansion velocity. Get it from the bullet maker and enter it on the load. Leave it blank and Hunt Mode skips this check.</p></div>
+      </div>
+      <div class="carousel hm-seq" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-500-yd.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 500 yards: elevation +6.61 MOA up, ethical shot, 1,971 ft·lb on target, reliable bullet expansion to 742 yards."></div>
+          <figcaption>
+            <span class="hm-verdict go">✓ Ethical shot</span>
+            <span class="hm-range">500 yd</span>
+            <ul class="hm-facts">
+              <li>Hold <span class="hm-num">+6.61 MOA</span> up (<span class="hm-num">+1.92 mil · 34.6″</span>)</li>
+              <li><span class="hm-num">1,971 ft·lb</span> on target</li>
+              <li>Reliable bullet expansion to 742 yd</li>
+            </ul>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-800-yd.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 800 yards: elevation +17.12 MOA, too far, 1,330 ft·lb on target, past reliable bullet expansion, close 58 yards."></div>
+          <figcaption>
+            <span class="hm-verdict stop">✕ Too far</span>
+            <span class="hm-range">800 yd</span>
+            <ul class="hm-facts">
+              <li><span class="hm-num">1,330 ft·lb</span> is still plenty of energy</li>
+              <li>The bullet is too slow to expand reliably</li>
+              <li>Close 58 yd to get back inside 742</li>
+            </ul>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-1000-yd.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 1,000 yards: elevation +26.01 MOA, too far, 996 ft·lb is below the 1,000 ft·lb minimum, and past reliable bullet expansion."></div>
+          <figcaption>
+            <span class="hm-verdict stop">✕ Too far · both checks</span>
+            <span class="hm-range">1,000 yd</span>
+            <ul class="hm-facts">
+              <li><span class="hm-num">996 ft·lb</span> is under the 1,000 minimum, close 3 yd</li>
+              <li>258 yd past reliable bullet expansion</li>
+              <li>The hold is still shown: <span class="hm-num">+26.01 MOA</span></li>
+            </ul>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour hz" id="hunt-settings">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label">Settings › Hunt mode</div>
+        <h2>Three settings. That's all.</h2>
+        <ul class="hm-set">
+          <li><b>Minimum energy</b><span>1,000 ft·lb out of the box. Caps your max point blank and flags any shot at or below it.</span></li>
+          <li><b>Use my group size</b><span>Shrinks the vital zone by your load's logged group spread, in Hold Center and the Hunting Zero calculator.</span></li>
+          <li><b>Open range keypad after capture</b><span>Opens the keypad as soon as Aim &amp; Capture finishes, so the range is the only thing you type.</span></li>
+        </ul>
+        <p class="hm-note"><strong>Minimum expansion velocity</strong> is set on the load, since it belongs to the bullet. Loads tagged <strong>Hunting</strong> open the solver in Hunt Mode automatically, and the mode box always shows TARGET or HUNT.</p>
+      </div>
+      <div class="carousel single" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="../assets/img/hm-settings.webp" width="720" height="660" loading="lazy" decoding="async" alt="Settings, Hunt Mode: minimum energy 1000 ft·lb, Use my group size on, Open range keypad after capture on."></div>
+          <figcaption><div class="label">Settings › Hunt mode</div><p>Minimum energy and two switches.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="hm-split">
+        <div>
+          <div class="label">Less on screen</div>
+          <h2>Built for when the animal steps out</h2>
+        </div>
+        <div class="hm-copy">
+          <p>Target mode shows stats, hit probability and wind bands. Hunt Mode drops all of that. You get big holds, the wind, and a yes or no on the shot, readable at arm's length.</p>
+          <p>Hunt Mode helps you decide. Know your rifle, confirm your data at distance, and follow your local hunting regulations.</p>
+        </div>
+      </div>
+      <p class="hm-foot">Screens are live solves from Bullseye Ballistics, using a 300 WM 200 gr ELD-X hand load, MOA dial-in.</p>
+    </div>
+  </section>
+  </div>
+
   <section class="hz-cta">
     <div class="wrap">
-      <div class="label feature-label">Hunting Zero</div>
+      <div class="label feature-label">Hunting Zero · Hunt Mode</div>
       <h2>Know your point-blank range <span>before the season starts.</span></h2>
-      <p>Hunting Zero is in Bullseye Ballistics now.</p>
+      <p>Hunting Zero and Hunt Mode are in Bullseye Ballistics now.</p>
       <div class="cta-row">
         <a class="btn btn-outline" href="../features/">See every feature</a>
         <a class="btn btn-outline" href="../comparison/">Compare to other solver apps</a>
