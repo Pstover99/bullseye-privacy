@@ -36,13 +36,13 @@ PAGES = [
      "A ballistics calculator for Android that learns your rifle. Sagitta Ballistics AI that "
      "explains why you missed, live wind and weather from your Bluetooth sensors, hit "
      "probability, a gun number for every load, a shot log that trues the load, groups from a "
-     "photo, matches, load development, Hunting Zero and an external HUD."),
+     "photo, matches, load development, Hunting Zero, Hunt Mode and an external HUD."),
     ("features/index.html", "_pages/features.html", "../",
      "Features · Bullseye Ballistics",
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
      "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
-     "HUD, the stability calculator, backup, the gun number, barrel care, load development and "
-     "Hunting Zero."),
+     "HUD, the stability calculator, backup, the gun number, barrel care, load development, "
+     "Hunting Zero and Hunt Mode."),
     ("comparison/index.html", "_pages/comparison.html", "../",
      "Comparison · Bullseye Ballistics",
      "Compare Bullseye Ballistics to other popular solver apps, feature by feature: firing "
@@ -58,10 +58,10 @@ PAGES = [
      "Pair Bullseye Ballistics with Calypso LoRa wind meters downrange and see the wind between "
      "you and the target, live. Learn what it looks like in the mirage, leaves, trees and grass."),
     ("hunting/index.html", "_pages/hunting.html", "../",
-     "Hunting Zero · Bullseye Ballistics",
+     "Hunting · Bullseye Ballistics",
      "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
-     "zone, your group size and the conditions where you hunt, so you can hold dead center out "
-     "to your maximum point-blank range."),
+     "zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold "
+     "center or gives the exact hold, and checks every shot is ethical."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "

@@ -8,10 +8,10 @@
 
   <nav class="tour-bar" aria-label="Sections">
     <div class="wrap">
-      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#platform">Platform</a></li></ul>
+      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       <details class="tour-menu">
         <summary><span class="label">Sections</span></summary>
-        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#platform">Platform</a></li></ul>
+        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       </details>
     </div>
   </nav>
@@ -814,6 +814,44 @@
     </div>
   </section>
 
+  <section class="tour rev" id="hunt-mode">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label feature-label">Hunt Mode</div>
+        <h2>Hold center, or the exact hold</h2>
+        <p>Hunt Mode cuts the solver down to what matters with an animal in front of you: your elevation hold, your windage, and a straight answer on whether the shot is ethical.</p>
+        <ul>
+          <li><strong>Point, range, shoot:</strong> aim the phone at the animal to capture the direction of fire, shot angle and latitude, type the range, and read the hold. Angle and Coriolis are already in the numbers.</li>
+          <li><strong>Hold Center:</strong> pick Deer (8 in vitals) or Elk (10 in) on the game size chip. Inside max point blank, the elevation readout simply says HOLD CENTER. Past it, you get the exact hold in MOA or mil.</li>
+          <li><strong>Max point blank for today,</strong> worked out from your load, your zero, today's air and, if you like, your logged group size.</li>
+          <li><strong>Ethical shot check</strong> on every solve: energy on target above your minimum, and impact velocity above the bullet's minimum expansion velocity. Fail either and it reads TOO FAR, with the yards to close.</li>
+          <li><strong>Less on screen:</strong> big holds, the wind, and a yes or no on the shot, readable at arm's length. Loads tagged Hunting open the solver in Hunt Mode automatically.</li>
+        </ul>
+        <p class="hint"><a href="{{ROOT}}hunting/#hunt-mode">More on Hunt Mode</a></p>
+      </div>
+      <div class="carousel" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="{{ROOT}}assets/img/hm-hold-center.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 200 yards for a Medium game size: HOLD CENTER for elevation, max point blank 285 yards, windage +0.06 MOA right, ethical shot with 2,829 ft·lb on target."></div>
+          <figcaption><div class="label">Hold Center</div><p>Inside max point blank, just hold center.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="{{ROOT}}assets/img/hm-game-size.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Game size picker: Deer, Medium game, 8 in vitals; Elk, Large game, 10 in vitals; Off, show holds only."></div>
+          <figcaption><div class="label">Game size</div><p>Deer, Elk or Off, one tap on the chip.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="{{ROOT}}assets/img/hm-500-yd.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 500 yards: elevation +6.61 MOA up, ethical shot, 1,971 ft·lb on target, reliable bullet expansion to 742 yards."></div>
+          <figcaption><div class="label">Ethical shot</div><p>Past point blank: the exact hold, and both checks pass.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="{{ROOT}}assets/img/hm-800-yd.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Hunt Mode at 800 yards: elevation +17.12 MOA, too far, 1,330 ft·lb on target, past reliable bullet expansion, close 58 yards."></div>
+          <figcaption><div class="label">Too far</div><p>Too slow to expand reliably. Close 58 yd.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="tour-next">
     <div class="wrap">
       <div class="cta-row">
@@ -823,7 +861,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="platform">
+  <section class="tour" id="platform">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Platform and data</div>

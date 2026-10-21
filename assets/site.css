@@ -759,3 +759,89 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
 .hz-cta h2 span { color: var(--accent); }
 .hz-cta p { color: var(--muted); margin: 0 0 28px; }
 .hz-cta .cta-row { justify-content: center; }
+
+/* Hunting page subnav: two links, so they stay in the bar on phones too (no Sections menu).
+   Each link marks its half of the page (the .hz-part wrappers). */
+.hz-subnav .tour-links { display: flex; gap: 0 28px; }
+.hz-subnav .tour-links a { padding: 16px 0; font-size: 0.8rem; }
+.hz-part { scroll-margin-top: 48px; }
+
+/* Hunt Mode, the second half of the Hunting page. */
+.hm-hero { border-top: 1px solid var(--line); }
+.hm-hero .hero-h1 { margin: 14px 0 20px; }
+.hm-phone { max-width: 340px; }
+.hm-marks { position: relative; }
+.hm-mark {
+  position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); pointer-events: none;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #170B03;
+  border: 2px solid #050605; font: 500 12px/20px var(--font-mono); text-align: center;
+}
+.hm-key { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; }
+.hm-key li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; font-size: 0.92rem; line-height: 1.45; color: var(--muted); }
+.hm-key b { display: block; color: var(--fg); font-weight: 600; }
+.hm-key .n { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #170B03; font: 500 12px/24px var(--font-mono); text-align: center; }
+.hm-steps .panel h3 { margin-top: 12px; }
+.hm-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.hm-copy p { margin: 10px 0 0; color: var(--muted); }
+.hm-copy p:first-child { margin-top: 0; }
+.hm-copy strong { color: var(--fg); font-weight: 600; }
+.hm-copy strong.hm-go { color: #3DCB7A; }
+.hm-copy strong.hm-stop { color: #D9483B; }
+.hm-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--fg); white-space: nowrap; }
+.hm-vs { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-top: 48px; padding-top: 28px; border-top: 1px dashed var(--line-strong); }
+.hm-vs h3 { font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; margin: 0; }
+.hm-vs p { margin: 0; color: var(--muted); }
+.hm-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: 40px; margin-top: 32px; }
+.hm-compare figure, .hm-seq figure { margin: 0; min-width: 0; }
+.hm-compare figcaption { margin-top: 14px; color: var(--muted); font-size: 0.92rem; }
+.hm-compare figcaption b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 2px; }
+.hm-compare figcaption p { margin: 0; }
+.hm-tag {
+  display: inline-block; margin-bottom: 8px; padding: 4px 9px; font: 500 0.7rem/1.3 var(--font-mono); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); background: var(--accent-soft);
+}
+.hm-rows { list-style: none; margin: 18px 0 0 !important; padding: 0 !important; }
+.hm-rows li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; margin: 0 !important; padding: 11px 0; border-top: 1px solid var(--line); font-size: 0.93rem; line-height: 1.5; }
+.hm-rows li:first-child { border-top: 0; padding-top: 0; }
+.hm-rows .k { font: 500 0.72rem/1.7 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+.hm-rows .v { color: var(--muted); }
+.tour .copy .hm-rows + p { margin-top: 16px; }
+.hm-inputs { margin-top: 32px; }
+.hm-inputs .panel h3 { margin-top: 0; }
+.hm-inputs .panel.live .k { color: var(--accent); }
+.panel p.hm-applied { margin-top: 16px; color: #3DCB7A; font-weight: 600; }
+.hm-tests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+.hm-tests > div { border-left: 3px solid #3DCB7A; padding: 2px 0 2px 20px; }
+.hm-tests h3 { font: 700 1.25rem/1.15 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; margin: 0 0 6px; }
+.hm-tests p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+/* The three distances sit side by side on wide screens, and swipe on phones. */
+.hm-seq { margin-top: 48px; }
+.hm-seq .track > figure { flex-basis: calc((100% - 32px) / 3); }
+.hm-seq figcaption { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+.hm-verdict { align-self: flex-start; padding: 5px 10px; font: 500 0.74rem/1.3 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; }
+.hm-verdict.go { color: #3DCB7A; background: rgb(61 203 122 / 0.1); border: 1px solid rgb(61 203 122 / 0.45); }
+.hm-verdict.stop { color: #EF5A50; background: rgb(217 72 59 / 0.1); border: 1px solid rgb(217 72 59 / 0.5); }
+.hm-range { font: 700 1.9rem/1 var(--font-display); letter-spacing: 0.02em; }
+.hm-facts { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; color: var(--muted); }
+.hm-set { list-style: none; margin: 16px 0 0 !important; padding: 0 !important; }
+.hm-set li { display: flex; flex-direction: column; gap: 2px; margin: 0 !important; padding: 14px 0; border-top: 1px solid var(--line); }
+.hm-set li:first-child { border-top: 0; padding-top: 0; }
+.hm-set b { color: var(--fg); font-weight: 600; }
+.tour .copy p.hm-note { margin: 18px 0 0; padding: 14px 16px; background: var(--panel); font-size: 0.93rem; }
+.hm-foot { margin: 40px 0 0; font: 400 0.78rem/1.5 var(--font-mono); color: var(--muted); }
+@media (prefers-color-scheme: light) {
+  .hm-copy strong.hm-go, .panel p.hm-applied, .hm-verdict.go { color: #1B7F45; }
+  .hm-copy strong.hm-stop, .hm-verdict.stop { color: #B8362A; }
+  .hm-tests > div { border-left-color: #2FA862; }
+}
+@media (max-width: 900px) {
+  .hm-split { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .hm-tests { grid-template-columns: minmax(0, 1fr); }
+  .hm-seq { max-width: 380px; margin-inline: auto; }
+  .hm-seq .track > figure { flex-basis: 100%; }
+}
+@media (max-width: 560px) {
+  .hm-key { grid-template-columns: minmax(0, 1fr); }
+  .hm-compare { grid-template-columns: minmax(0, 320px); gap: 40px; }
+  .hm-rows li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
