@@ -845,3 +845,135 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   .hm-compare { grid-template-columns: minmax(0, 320px); gap: 40px; }
   .hm-rows li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+
+/* ==========================================================================
+   Hunting page: photo heroes
+   1. .hz-hero--photo  photo behind the first Hunting Zero hero
+   2. .hm-band         photo band that opens the Hunt Mode half
+   Both stay dark in either theme: the photos are dusk and overcast scenes.
+   ========================================================================== */
+
+/* 1. Hunting Zero hero ---------------------------------------------------- */
+.hz-hero--photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --bg: #101311; --panel: #1E241D; --panel-low: #171B16;
+  --line: #2C332A; --line-strong: #4B5546;
+  --fg: #ECF0E8; --muted: #9AA694;
+  --accent: #FF7A33; --accent-soft: #43220E;
+  color: var(--fg);
+  color-scheme: dark;
+}
+.hz-hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #101311;
+  background-image: url("img/hz-hero-bg-2400.jpg");
+  background-image: image-set(
+    url("img/hz-hero-bg-2400.webp") type("image/webp"),
+    url("img/hz-hero-bg-2400.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
+  background-size: 130% auto;   /* keeps the hunter right of the result card */
+  background-position: 0% 20%;
+}
+.hz-hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(16, 19, 17, .90) 0%,
+    rgba(16, 19, 17, .72) 40%,
+    rgba(16, 19, 17, .20) 72%,
+    rgba(16, 19, 17, .10) 100%);
+}
+
+/* Between the phone layout and about 1200 px there's only about 80 px of photo right of the
+   card, so the hunter ends up behind it. A narrower card, set to the left of its column, leaves
+   him room. */
+@media (min-width: 901px) and (max-width: 1199px) {
+  .hz-hero--photo .hz-shot { max-width: 320px; justify-self: start; }
+}
+
+/* 2. Hunt Mode photo band ------------------------------------------------- */
+.hm-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  min-height: clamp(420px, 40vw, 600px);
+  display: flex;
+  align-items: center;
+  --fg: #ECF0E8; --muted: #9AA694; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  color: var(--fg);
+}
+.hm-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #101311;
+  background-image: url("img/hm-band-bg-2000.jpg");
+  background-image: image-set(
+    url("img/hm-band-bg-2000.webp") type("image/webp"),
+    url("img/hm-band-bg-2000.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 36%;
+}
+.hm-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, transparent 84%, var(--bg) 100%),
+    linear-gradient(90deg,
+      rgba(16, 19, 17, .82) 0%,
+      rgba(16, 19, 17, .55) 38%,
+      rgba(16, 19, 17, .08) 68%,
+      rgba(16, 19, 17, 0) 100%);
+}
+.hm-band .wrap { width: 100%; padding-block: 56px 72px; }
+.hm-band .hero-h1 { margin: 14px 0 0; text-shadow: 0 2px 24px rgba(0, 0, 0, .35); }
+.hm-hero--after-band { border-top: 0; }
+.hm-hero--after-band .wrap { align-items: start; padding-top: 32px; }
+
+/* Phones and tablets ------------------------------------------------------ */
+@media (max-width: 900px) {
+  .hz-hero--photo::before {
+    background-image: url("img/hz-hero-bg-1200.jpg");
+    background-image: image-set(
+      url("img/hz-hero-bg-1200.webp") type("image/webp"),
+      url("img/hz-hero-bg-1200.jpg") type("image/jpeg"));
+    background-size: cover;
+    background-position: 85% 30%;
+  }
+  .hz-hero--photo::after {
+    background: linear-gradient(180deg,
+      rgba(16, 19, 17, .55) 0%,
+      rgba(16, 19, 17, .85) 45%,
+      rgba(16, 19, 17, .95) 100%);
+  }
+  .hm-band { min-height: 420px; align-items: flex-start; }
+  .hm-band::before {
+    background-image: url("img/hm-band-bg-1000.jpg");
+    background-image: image-set(
+      url("img/hm-band-bg-1000.webp") type("image/webp"),
+      url("img/hm-band-bg-1000.jpg") type("image/jpeg"));
+    background-size: auto 112%;
+    background-position: 62% 0%;
+  }
+  .hm-band::after {
+    background:
+      linear-gradient(180deg, transparent 80%, var(--bg) 100%),
+      linear-gradient(180deg,
+        rgba(16, 19, 17, .85) 0%,
+        rgba(16, 19, 17, .55) 40%,
+        rgba(16, 19, 17, 0) 65%);
+  }
+  .hm-band .wrap { padding-block: 24px; }
+}
