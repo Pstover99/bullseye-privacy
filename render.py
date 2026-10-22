@@ -62,6 +62,11 @@ PAGES = [
      "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
      "zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold "
      "center or gives the exact hold, and checks every shot is ethical."),
+    ("matches/index.html", "_pages/matches.html", "../",
+     "Matches · Bullseye Ballistics",
+     "Upload a match book or photograph a stage card, and Sagitta sets up the match in Bullseye "
+     "Ballistics: every stage, position, target, distance and size, with the Match Director's "
+     "notes. Then step through every target at the line."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -79,7 +84,7 @@ PAGES = [
 ]
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = set()
+NOINDEX = {"matches/index.html"}
 
 
 def inline(text: str) -> str:
