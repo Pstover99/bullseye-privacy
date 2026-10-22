@@ -1116,3 +1116,76 @@ section.hero--photo p.lead { color: #DDE3D8; }
   }
   section.hero--photo .wrap { padding-top: 96px; }
 }
+
+/* ==========================================================================
+   Matches page
+   ========================================================================== */
+.mx-hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); }
+.mx-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+.mx-hero-phones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.mx-hero-phones figure:last-child { margin-top: 48px; }
+
+.mx-sec { border-top: 1px solid var(--line); padding-block: 64px; scroll-margin-top: 16px; }
+.mx-sec h2 { margin-top: 8px; }
+.mx-intro { color: var(--muted); max-width: 62ch; margin: 12px 0 0; font-size: 1.05rem; }
+.mx-intro strong { color: var(--fg); font-weight: 500; }
+
+/* How it works */
+.mx-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 28px; counter-reset: step; }
+.mx-steps .panel { position: relative; padding-top: 20px; }
+.mx-steps .panel::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  display: block; font: 700 2.2rem/1 var(--font-display); color: var(--accent); margin-bottom: 10px;
+}
+.mx-steps h3 { margin: 0 0 6px; }
+.mx-steps p { margin: 0; color: var(--muted); }
+
+/* Phones in a row, each with its caption */
+.mx-phones { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 28px; align-items: start; margin-top: 32px; }
+.mx-phones figure, .mx-hero-phones figure { margin: 0; }
+.mx-phones figcaption { margin-top: 14px; }
+.mx-phones figcaption .label { color: var(--accent); }
+.mx-phones figcaption p { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Copy beside phones */
+.mx-split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
+.mx-split.rev > .mx-copy { order: 2; }
+.mx-split .mx-phones { margin-top: 0; }
+.mx-split .mx-one { width: 100%; max-width: 340px; justify-self: center; }
+.mx-copy ul { margin: 16px 0 0; padding-left: 1.1rem; color: var(--muted); }
+.mx-copy li { margin-bottom: 10px; }
+.mx-copy li strong { color: var(--fg); font-weight: 500; }
+.mx-inset { margin: 24px 0 0; }
+.mx-inset figcaption { margin-top: 10px; color: var(--muted); font-size: 0.9rem; }
+
+.mx-film-wrap { margin-top: 64px; }
+.mx-inset { max-width: 260px; }
+
+/* Solution cards, stepped with Next */
+.mx-film { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 32px; }
+.mx-film figure { margin: 0; }
+.mx-film figcaption { margin-top: 12px; text-align: center; }
+.mx-film figcaption p { margin: 4px 0 0; color: var(--muted); font-size: 0.92rem; }
+.mx-next {
+  font: 700 0.85rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); white-space: nowrap; margin-top: -48px;
+}
+
+/* Tablets and phones: rows of screenshots scroll sideways */
+@media (max-width: 900px) {
+  .mx-hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .mx-hero-phones { max-width: 520px; }
+  .mx-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mx-split, .mx-split.rev { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .mx-split.rev > .mx-copy { order: 0; }
+  .mx-phones, .mx-film {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin-inline: -16px; padding: 0 16px 8px; scroll-padding-inline: 16px;
+  }
+  .mx-phones > figure, .mx-film > figure { flex: 0 0 min(72%, 300px); scroll-snap-align: start; }
+  .mx-next { display: none; }
+}
+@media (max-width: 560px) {
+  .mx-steps { grid-template-columns: minmax(0, 1fr); }
+  .mx-hero-phones figure:last-child { margin-top: 28px; }
+}
