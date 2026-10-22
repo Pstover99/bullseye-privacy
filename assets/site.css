@@ -1139,6 +1139,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 }
 .mx-steps h3 { margin: 0 0 6px; }
 .mx-steps p { margin: 0; color: var(--muted); }
+.mx-note { color: var(--muted); max-width: 72ch; margin: 28px 0 0; padding-left: 16px; border-left: 2px solid var(--accent); font-size: 1.05rem; }
 
 /* Phones in a row, each with its caption */
 .mx-phones { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 28px; align-items: start; margin-top: 32px; }
