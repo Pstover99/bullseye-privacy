@@ -1046,3 +1046,73 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
       var(--bg) 100%);
   }
 }
+
+/* ==========================================================================
+   Home page: photo hero
+   Photo behind the "learns your rifle" hero, under the Sagitta slides. It
+   stays dark in either theme and fades into the page at the top and bottom.
+   Paths are relative to assets/site.css.
+   ========================================================================== */
+section.hero--photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 32px;   /* gap below the slides, for the top fade */
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  --accent-soft: rgba(67, 34, 14, .85);
+  --panel: #1E241D; --panel-low: #171B16; --line: #2C332A; --line-strong: #4B5546;
+  color: var(--fg);
+}
+section.hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #101311;
+  background-image: url("img/home-hero-bg-1500.jpg");
+  background-image: image-set(
+    url("img/home-hero-bg-1500.webp") type("image/webp"),
+    url("img/home-hero-bg-1500.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 58%;   /* scope between the text and the phone */
+  filter: saturate(.85) contrast(1.05);
+}
+section.hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, transparent 14%, transparent 80%, var(--bg) 100%),
+    linear-gradient(90deg,
+      rgba(16, 19, 17, .92) 0%,
+      rgba(16, 19, 17, .80) 40%,
+      rgba(16, 19, 17, .30) 70%,
+      rgba(16, 19, 17, .45) 100%);
+}
+section.hero--photo h1,
+section.hero--photo p.lead { text-shadow: 0 2px 18px rgba(0, 0, 0, .45); }
+section.hero--photo p.lead { color: #DDE3D8; }
+
+/* Phones and tablets ------------------------------------------------------ */
+@media (max-width: 900px) {
+  section.hero--photo::before {
+    background-image: url("img/home-hero-bg-900.jpg");
+    background-image: image-set(
+      url("img/home-hero-bg-900.webp") type("image/webp"),
+      url("img/home-hero-bg-900.jpg") type("image/jpeg"));
+    background-position: 60% 50%;
+  }
+  /* The section is tall on phones, so a 12% top fade ran about 190 px deep and the light label
+     sat on near-page color in light mode. A fixed 80 px fade, with the text starting below it. */
+  section.hero--photo::after {
+    background: linear-gradient(180deg,
+      var(--bg) 0,
+      rgba(16, 19, 17, .70) 80px,
+      rgba(16, 19, 17, .85) 50%,
+      rgba(16, 19, 17, .95) 90%,
+      var(--bg) 100%);
+  }
+  section.hero--photo .wrap { padding-top: 96px; }
+}
