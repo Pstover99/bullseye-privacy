@@ -1193,3 +1193,34 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .mx-hero-phones figure:nth-child(2) { margin-top: 20px; }
   .mx-hero-phones figure:nth-child(3) { margin-top: 40px; }
 }
+
+/* ==========================================================================
+   Wind Corridor page: Calypso LoRa wind meters
+   ========================================================================== */
+.wc-calypso { border-top: 1px solid var(--line); padding-block: 64px 72px; }
+.wc-calypso-card {
+  display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: center;
+  padding: 40px; background: var(--panel-low); border: 1px solid var(--line);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+}
+.wc-calypso-brand { display: grid; gap: 16px; justify-items: center; text-align: center; }
+.wc-calypso-brand a { display: block; width: 100%; max-width: 320px; }
+.wc-calypso-brand img { display: block; width: 100%; height: auto; }
+.wc-calypso-copy h2 { margin: 8px 0 14px; }
+.wc-calypso-copy h2 a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.wc-calypso-copy h2 a:hover { color: var(--accent); }
+.wc-calypso-copy > p { color: var(--muted); max-width: 56ch; margin: 0; }
+.wc-calypso-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 26px; }
+.wc-calypso-facts div { padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); }
+.wc-calypso-facts b { display: block; font: 700 1.6rem/1 var(--font-display); color: var(--accent); }
+.wc-calypso-facts span { display: block; margin-top: 6px; font-size: 0.88rem; line-height: 1.35; color: var(--muted); }
+.wc-calypso .cta-row { margin: 0; }
+.wc-calypso-copy > p.wc-calypso-note { margin: 12px 0 0; font-size: 0.85rem; }
+
+@media (max-width: 900px) {
+  .wc-calypso-card { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 28px 20px; }
+  .wc-calypso-brand a { max-width: 260px; }
+}
+@media (max-width: 560px) {
+  .wc-calypso-facts { grid-template-columns: minmax(0, 1fr); }
+}
