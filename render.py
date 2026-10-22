@@ -84,7 +84,7 @@ PAGES = [
 ]
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = {"matches/index.html"}
+NOINDEX = set()
 
 
 def inline(text: str) -> str:
@@ -251,6 +251,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{CURRENT_WIND}}": ' aria-current="page"' if output.startswith("wind-corridor/") else "",
         "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
         "{{CURRENT_HUNTING}}": ' aria-current="page"' if output.startswith("hunting/") else "",
+        "{{CURRENT_MATCHES}}": ' aria-current="page"' if output.startswith("matches/") else "",
     }
     for key, value in fields.items():
         page = page.replace(key, value)
