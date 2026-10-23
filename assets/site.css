@@ -144,6 +144,10 @@ h2 {
 .panel ul { margin: 14px 0 0; padding-left: 1.1rem; color: var(--muted); }
 .panel li { margin-bottom: 8px; }
 .panel li strong { color: var(--fg); font-weight: 500; }
+.panel.tall .bt-callout { margin: 16px 0 26px; padding: 18px 22px; background: var(--panel-low); border-left: 3px solid var(--accent); }
+.panel.tall .bt-callout h3 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.1; letter-spacing: 0.02em; color: var(--accent); }
+.panel.tall .bt-callout p { color: var(--fg); }
+.panel.tall .bt-subhead { margin: 26px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 1.3rem; }
 
 /* Document pages: privacy policy, account deletion */
 .doc { padding-block: 48px 72px; }

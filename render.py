@@ -190,11 +190,15 @@ BRITISH = {
     "authorise": "authorize", "authorised": "authorized",
 }
 
+# Product names are spelled the way their makers spell them, British form or not.
+BRAND_NAMES = ["Gunship Grey"]
+
 
 def british_spellings(page: str) -> list[str]:
     """British spellings in a page's visible text: tags, comments, styles and scripts removed."""
     text = re.sub(r"<!--.*?-->|<(style|script)\b.*?</\1>", " ", page, flags=re.S | re.I)
     text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\b(?:%s)\b" % "|".join(BRAND_NAMES), " ", text)
     words = re.findall(r"[A-Za-z]+", text)
     return sorted({f"{w} -> {BRITISH[w.lower()]}" for w in words if w.lower() in BRITISH})
 
