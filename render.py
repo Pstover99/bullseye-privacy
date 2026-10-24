@@ -67,6 +67,11 @@ PAGES = [
      "Upload a match book or photograph a stage card, and Sagitta sets up the match in Bullseye "
      "Ballistics: every stage, position, target, distance and size, with the Match Director's "
      "notes. Then step through every target at the line."),
+    ("under-the-hood/index.html", "_pages/under-the-hood.html", "../",
+     "Under the Hood · Bullseye Ballistics",
+     "How Bullseye Ballistics turns live wind into a hold: smoothing matched to your target "
+     "distance, wind direction averaged as a vector, a full flight simulation in 1 ms steps, and "
+     "air density that changes as an angled shot climbs or drops."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -256,6 +261,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
         "{{CURRENT_HUNTING}}": ' aria-current="page"' if output.startswith("hunting/") else "",
         "{{CURRENT_MATCHES}}": ' aria-current="page"' if output.startswith("matches/") else "",
+        "{{CURRENT_HOOD}}": ' aria-current="page"' if output.startswith("under-the-hood/") else "",
     }
     for key, value in fields.items():
         page = page.replace(key, value)

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Under the Hood · Bullseye Ballistics</title>
+<meta name="description" content="How Bullseye Ballistics turns live wind into a hold: smoothing matched to your target distance, wind direction averaged as a vector, a full flight simulation in 1 ms steps, and air density that changes as an angled shot climbs or drops.">
+<link rel="canonical" href="https://bullseyeballisticscalculator.com/under-the-hood/">
+<meta name="theme-color" content="#101311">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bullseye Ballistics">
+<meta property="og:title" content="Under the Hood · Bullseye Ballistics">
+<meta property="og:description" content="How Bullseye Ballistics turns live wind into a hold: smoothing matched to your target distance, wind direction averaged as a vector, a full flight simulation in 1 ms steps, and air density that changes as an angled shot climbs or drops.">
+<meta property="og:url" content="https://bullseyeballisticscalculator.com/under-the-hood/">
+<meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=46e0858959">
+<script src="../assets/site.js?v=6014057b20" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Bullseye Ballistics home">
+      <img class="logo" src="../assets/img/logo.svg" width="34" height="34" alt="">
+      <b>Bullseye</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="../features/">Features</a>
+      <a href="../comparison/">Comparison</a>
+      <a href="../wind-corridor/">Wind Corridor</a>
+      <a href="../external-display/">External display</a>
+      <a href="../hunting/">Hunting</a>
+      <a href="../matches/">Matches</a>
+      <a href="../under-the-hood/" aria-current="page">Under the Hood</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="bb-tech">
+  <div class="bb-wrap">
+
+    <header class="bb-head">
+      <div class="label">Solver technical detail</div>
+      <h1 class="hero-h1">Under the <span>hood</span></h1>
+      <p class="intro">How Bullseye turns live wind into a hold, and why an angled shot changes the air the bullet flies through.</p>
+    </header>
+
+    <!-- ===== SECTION 1: WIND ===== -->
+    <article aria-labelledby="bb-wind-title">
+      <div class="bb-eyebrow">Under the hood · Wind</div>
+      <h2 id="bb-wind-title">How Bullseye turns live wind into a hold</h2>
+      <p class="bb-summary"><strong>In short:</strong> we take the last few seconds of sensor wind, weight it toward the newest readings, and smooth it more at longer range. That wind goes into a full flight simulation, and the sideways drift it computes becomes your hold.</p>
+
+  <!-- ===== 1. PIPELINE ===== -->
+  <figure aria-labelledby="bb-f1">
+    <div class="bb-eyebrow">The whole path</div>
+    <h3 id="bb-f1">From the wind meter to your hold</h3>
+    <div class="bb-pipe">
+      <div class="bb-stage"><b>Live sensor</b><span>Raw wind speed and direction, shown as-is on the solution card</span></div>
+      <div class="bb-stage"><b>Smooth</b><span>Exponential average, stronger at longer range</span></div>
+      <div class="bb-stage"><b>Clock direction</b><span>Wind turned relative to your direction of fire</span></div>
+      <div class="bb-stage"><b>Simulate</b><span>Full flight in 1 ms steps, drag on airspeed</span></div>
+      <div class="bb-stage bb-out"><b>Hold</b><span>Drift + spin drift + zero offset, ÷ range, in mil or MOA. Aerodynamic jump goes to elevation.</span></div>
+    </div>
+  </figure>
+
+      <h3><span class="bb-step">1</span>Smoothing the live wind reading</h3>
+      <p>Raw wind data is noisy. If your hold jumped with every flicker of the meter, you'd be chasing numbers instead of shooting. So Bullseye smooths live sensor wind with an <strong>exponential moving average (EMA)</strong>.</p>
+      <ul>
+        <li><strong>Weighted toward what's happening now.</strong> New readings count the most. Older readings never drop out completely; they just count for less and less. In practice, your hold reflects mostly the last 3 to 5 seconds of wind.</li>
+        <li><strong>Matched to your target distance.</strong> A bullet headed to 1,000 yards is in the air much longer than one headed to 300, so it lives through more of the wind. Bullseye smooths more at longer distances, using distance bands chosen to roughly match bullet flight time.</li>
+        <li><strong>Direction is averaged correctly.</strong> Wind direction is averaged as a vector, not as raw compass degrees. A wind swinging between 350° and 10° averages to about 0°, as it should, not 180°, which is what a simple average of the numbers would give you.</li>
+      </ul>
+
+  <!-- ===== 2. RAW VS SMOOTHED ===== -->
+  <figure aria-labelledby="bb-f2">
+    <div class="bb-eyebrow">Smoothing</div>
+    <h3 id="bb-f2">Gusts show up instantly. Your hold doesn't chase them.</h3>
+    <div class="bb-legend">
+      <span><i style="background:var(--bb-raw)"></i>Raw sensor wind</span>
+      <span><i style="background:var(--bb-near)"></i>Hold wind, short range</span>
+      <span><i style="background:var(--bb-accent)"></i>Hold wind, long range</span>
+    </div>
+    <div class="bb-scroll"><svg id="bb-ema" viewBox="0 0 760 290" role="img" aria-label="Thirty seconds of gusty wind. The raw reading spikes and dips; the short-range hold wind follows it closely but smoothly; the long-range hold wind is smoother still."></svg></div>
+    <p class="bb-cap">The Wind number on the solution card follows the raw reading, so you see every gust. The hold uses the smoothed line. The further the target, the longer the bullet is in the air, and the more the smoothing evens out.</p>
+    <div class="bb-note">Illustrative wind trace.</div>
+  </figure>
+
+  <!-- ===== 3. WEIGHTS ===== -->
+  <figure aria-labelledby="bb-f3">
+    <div class="bb-eyebrow">What counts</div>
+    <h3 id="bb-f3">Mostly the last few seconds, newest first</h3>
+    <div class="bb-toggle" role="group" aria-label="Target distance">
+      <button type="button" data-band="near" aria-pressed="false">Short range</button>
+      <button type="button" data-band="far" aria-pressed="true">Long range</button>
+    </div>
+    <div class="bb-scroll"><svg id="bb-weights" viewBox="0 0 760 250" role="img" aria-label="Bar chart of how much each second of past wind counts toward the hold. The newest second counts most and each older second counts less."></svg></div>
+    <p class="bb-cap">Each bar is how much one second of past wind counts toward the hold. Older readings never drop to zero; they just fade.</p>
+    <div class="bb-note">The app's default smoothing: short range is 0–500 yd, long range is 1,000–1,500 yd.</div>
+  </figure>
+
+  <!-- ===== 4. VECTOR DIRECTION ===== -->
+  <figure aria-labelledby="bb-f4">
+    <div class="bb-eyebrow">Direction</div>
+    <h3 id="bb-f4">Averaging wind the right way around the compass</h3>
+    <div class="bb-two">
+      <svg viewBox="0 0 320 320" role="img" aria-label="Compass. Two readings at 350 and 10 degrees. Their vector average points to 0 degrees, north. A plain average of the numbers would wrongly point to 180 degrees, south.">
+        <defs>
+          <marker id="bb-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
+        </defs>
+        <circle cx="160" cy="160" r="128" fill="var(--bb-bg)" stroke="var(--bb-line-strong)" stroke-width="2"/>
+        <g id="bb-ticks" stroke="var(--bb-line-strong)"></g>
+        <text x="160" y="22" text-anchor="middle" class="bb-strong">0°</text>
+        <text x="300" y="164" text-anchor="middle">90°</text>
+        <text x="160" y="310" text-anchor="middle">180°</text>
+        <text x="20" y="164" text-anchor="middle">270°</text>
+        <!-- readings at 350° and 10° (length 100) -->
+        <line x1="160" y1="160" x2="142.6" y2="61.5" stroke="var(--bb-near)" stroke-width="2.5" marker-end="url(#bb-ah)"/>
+        <line x1="160" y1="160" x2="177.4" y2="61.5" stroke="var(--bb-near)" stroke-width="2.5" marker-end="url(#bb-ah)"/>
+        <text x="118" y="70" text-anchor="end" fill="var(--bb-near)">350°</text>
+        <text x="202" y="70" fill="var(--bb-near)">10°</text>
+        <!-- vector average to 0°, length ≈ 98.5 -->
+        <line x1="160" y1="160" x2="160" y2="56" stroke="var(--bb-accent)" stroke-width="4" marker-end="url(#bb-ah)"/>
+        <!-- naive average to 180° -->
+        <line x1="160" y1="160" x2="160" y2="262" stroke="var(--bb-bad)" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#bb-ah)"/>
+        <g stroke="var(--bb-bad)" stroke-width="3"><line x1="150" y1="226" x2="170" y2="246"/><line x1="170" y1="226" x2="150" y2="246"/></g>
+        <circle cx="160" cy="160" r="5" fill="var(--bb-fg)"/>
+      </svg>
+      <div style="display:grid; gap:14px">
+        <div class="bb-legend" style="flex-direction:column; gap:10px">
+          <span><i style="background:var(--bb-near)"></i>Two readings: 350° and 10°</span>
+          <span><i style="background:var(--bb-accent); height:4px"></i>Bullseye's average: 0°</span>
+          <span><i style="background:var(--bb-bad)"></i>Plain number average: (350 + 10) ÷ 2 = 180°</span>
+        </div>
+        <p class="bb-cap">Wind direction wraps around at north. Averaging the raw degrees would put a wind that's hovering around 12 o'clock at 6 o'clock instead. Bullseye averages each reading as an arrow, so the result points where the wind actually is.</p>
+      </div>
+    </div>
+  </figure>
+
+      <h3><span class="bb-step">2</span>You still see every gust</h3>
+      <p>Only the <em>hold</em> is smoothed. The <strong>Wind</strong> number on the solution card shows the raw sensor reading, so you see a gust the moment it arrives and can decide for yourself whether to wait it out or send it.</p>
+
+      <h3><span class="bb-step">3</span>You stay in control</h3>
+      <ul>
+        <li><strong>Manual wind is never touched.</strong> Only live sensor wind is smoothed. Wind you type in by hand goes into the solve exactly as entered.</li>
+        <li><strong>Adjustable.</strong> You can change the smoothing level for each distance band, or turn off distance matching entirely, in <span class="bb-path">Settings → Sensors and GPS → Wind smoothing</span>.</li>
+      </ul>
+
+      <h3><span class="bb-step">4</span>From wind to hold: a full trajectory simulation</h3>
+      <p>Bullseye doesn't use a shortcut formula for wind. The smoothed wind goes into the same full trajectory solver that computes your elevation:</p>
+      <ol>
+        <li><strong>Wind is converted to a clock direction</strong> relative to your direction of fire and treated as constant across the whole flight.</li>
+        <li><strong>The bullet is simulated in 1-millisecond steps</strong> from muzzle to target. Flight time is built into the physics, not estimated.</li>
+        <li><strong>Drag is applied to the bullet's speed through the air, not over the ground.</strong> That's how real air resistance works, and it's why a crosswind keeps pushing the bullet sideways for the entire flight.</li>
+        <li><strong>The hold is calculated.</strong> The bullet's sideways distance at the target, plus spin drift and your zero offset, is divided by the range to give your hold in mil or MOA.</li>
+        <li><strong>Aerodynamic jump goes to elevation.</strong> A crosswind also nudges the bullet slightly up or down, an effect called aerodynamic jump. Bullseye applies it to your elevation, not your wind hold, because it moves the bullet vertically.</li>
+      </ol>
+
+  <!-- ===== 5. DRAG ON AIRSPEED ===== -->
+  <figure aria-labelledby="bb-f5">
+    <div class="bb-eyebrow">The physics</div>
+    <h3 id="bb-f5">Why a crosswind keeps pushing</h3>
+    <div class="bb-two">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Top-down vector diagram. The bullet moves downrange. A crosswind blows across. Relative to the air, the bullet is moving slightly into the wind, so drag, which opposes that motion, has a sideways component pushing the bullet with the wind.">
+        <defs>
+          <marker id="bb-ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
+        </defs>
+        <!-- crosswind arrows (blowing upward in this top view) -->
+        <g stroke="var(--bb-near)" stroke-width="2" marker-end="url(#bb-ah2)" opacity="0.55">
+          <line x1="40" y1="280" x2="40" y2="230"/><line x1="110" y1="280" x2="110" y2="230"/>
+          <line x1="250" y1="280" x2="250" y2="230"/><line x1="320" y1="280" x2="320" y2="230"/>
+        </g>
+        <text x="180" y="292" text-anchor="middle" fill="var(--bb-near)">crosswind</text>
+        <!-- bullet at 150,150 -->
+        <!-- velocity over ground: right -->
+        <line x1="150" y1="150" x2="330" y2="150" stroke="var(--bb-muted)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#bb-ah2)"/>
+        <text x="330" y="140" text-anchor="end">over the ground</text>
+        <!-- velocity through the air: ground minus wind → right and down -->
+        <line x1="150" y1="150" x2="330" y2="196" stroke="var(--bb-fg)" stroke-width="2.5" marker-end="url(#bb-ah2)"/>
+        <text x="330" y="218" text-anchor="end" class="bb-strong">through the air</text>
+        <!-- drag: opposite airspeed → left and up -->
+        <line x1="150" y1="150" x2="40" y2="122" stroke="var(--bb-accent)" stroke-width="4" marker-end="url(#bb-ah2)"/>
+        <text x="84" y="122" fill="var(--bb-accent-text)" class="bb-strong">drag</text>
+        <!-- sideways component of drag -->
+        <line x1="40" y1="150" x2="40" y2="124" stroke="var(--bb-accent)" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="20" y="80" fill="var(--bb-accent-text)">sideways push,</text>
+        <text x="20" y="96" fill="var(--bb-accent-text)">with the wind</text>
+        <ellipse cx="150" cy="150" rx="14" ry="6" fill="var(--bb-fg)"/>
+      </svg>
+      <div style="display:grid; gap:12px">
+        <p class="bb-cap">Drag works against the bullet's motion <strong style="color:var(--bb-fg)">through the air</strong>, not over the ground. In a crosswind, those two directions differ, so drag always has a sideways part that pushes the bullet with the wind.</p>
+        <p class="bb-cap">That push lasts the entire flight. Bullseye recalculates it every millisecond instead of approximating the whole trip with one formula.</p>
+      </div>
+    </div>
+    <div class="bb-note">Top-down view. Wind angle exaggerated for clarity.</div>
+  </figure>
+
+  <!-- ===== 6. DRIFT TO HOLD ===== -->
+  <figure aria-labelledby="bb-f6">
+    <div class="bb-eyebrow">The answer</div>
+    <h3 id="bb-f6">Sideways drift at the target becomes your hold</h3>
+    <div class="bb-scroll"><svg id="bb-drift" viewBox="0 0 760 300" role="img" aria-label="Top-down view of the flight. Drift is small near the muzzle and grows faster with distance as the bullet slows. At the target, wind drift, spin drift and zero offset add up, and that total divided by the range is the hold."></svg></div>
+    <p class="bb-cap">Drift grows faster with distance because the bullet slows down and spends longer in the wind. At the target, Bullseye adds wind drift, spin drift and your zero offset, then divides by the range: <strong style="color:var(--bb-fg)">hold = (wind drift + spin drift + zero offset) ÷ range</strong>.</p>
+    <div class="bb-note">Top-down view. Sideways scale exaggerated; components drawn in one direction for clarity.</div>
+  </figure>
+    </article>
+
+    <hr>
+
+    <!-- ===== SECTION 2: UPHILL / AIR DENSITY ===== -->
+    <article aria-labelledby="bb-uphill-title">
+      <div class="bb-eyebrow">Under the hood · Angled shots</div>
+      <h2 id="bb-uphill-title">The bullet climbs into thinner air</h2>
+      <p>Shoot uphill and the bullet doesn't stay in the air it left the muzzle in. On a <strong>+20° shot to 1,000 yards</strong>, the target sits about <strong>312 m (1,025 ft) above you</strong>, where the air is roughly 3% thinner. Thinner air means less drag, so the bullet holds more speed and drops less.</p>
+      <p>Bullseye updates air density throughout the flight as the bullet gains or loses height, instead of assuming muzzle conditions the whole way. It works in both directions: shooting downhill, the bullet descends into denser air and the solver accounts for that too.</p>
+
+      <div class="bb-scroll">
+        <svg viewBox="0 0 770 300" role="img" aria-labelledby="bb-dg-t bb-dg-d">
+          <title id="bb-dg-t">Side view of a +20° uphill shot to 1,000 yards</title>
+          <desc id="bb-dg-d">The bullet rises 312 meters through four air bands. Air density relative to the muzzle is 99.0% at 100 m, 98.1% at 200 m and 97.2% at 300 m.</desc>
+          <!-- density bands, 100 m each; 0.6 px per m on both axes, ground at y=260 -->
+          <rect x="40" y="200" width="600" height="60" fill="rgba(var(--bb-air), 0.30)"/>
+          <rect x="40" y="140" width="600" height="60" fill="rgba(var(--bb-air), 0.22)"/>
+          <rect x="40" y="80"  width="600" height="60" fill="rgba(var(--bb-air), 0.15)"/>
+          <rect x="40" y="20"  width="600" height="60" fill="rgba(var(--bb-air), 0.08)"/>
+          <text x="648" y="16">air density</text>
+          <text x="648" y="258">100%</text>
+          <text x="648" y="204">99.0% at 100 m</text>
+          <text x="648" y="144">98.1% at 200 m</text>
+          <text x="648" y="84">97.2% at 300 m</text>
+          <line x1="40" y1="260" x2="640" y2="260" stroke="var(--bb-line-strong)" stroke-width="2"/>
+          <!-- line of sight: 859 m across, 312.7 m up -->
+          <line x1="60" y1="260" x2="575" y2="72.4" stroke="var(--bb-muted)" stroke-width="1" stroke-dasharray="2 5"/>
+          <path d="M60 260 Q 330 150 575 72.4" fill="none" stroke="var(--bb-accent)" stroke-width="2.5"/>
+          <circle cx="60" cy="260" r="6" fill="var(--bb-fg)"/>
+          <text x="60" y="284" text-anchor="middle">muzzle</text>
+          <circle cx="575" cy="72.4" r="11" fill="none" stroke="var(--bb-fg)" stroke-width="2"/>
+          <circle cx="575" cy="72.4" r="4" fill="var(--bb-accent)"/>
+          <text x="575" y="104" text-anchor="middle">1000 yd</text>
+          <text x="420" y="196" class="bb-big">+312 m</text>
+          <text x="130" y="244">+20°</text>
+        </svg>
+      </div>
+      <p class="bb-note">Bullet path curvature is exaggerated for clarity. Heights and distances are to scale.</p>
+    </article>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="label">Bullseye Ballistics is made by Core Bridge, LLC.</div>
+      <p>Questions or support: <a class="mail" href="mailto:info@BullsEyeBallisticsCalculator.com">info@BullsEyeBallisticsCalculator.com</a></p>
+    </div>
+    <nav class="links" aria-label="Legal">
+      <a href="../terms/">Terms of Use</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../delete-account/">Delete your account</a>
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <p class="copyright">&copy; 2026 Core Bridge, LLC. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

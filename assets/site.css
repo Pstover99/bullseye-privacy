@@ -1228,3 +1228,84 @@ section.hero--photo p.lead { color: #DDE3D8; }
 @media (max-width: 560px) {
   .wc-calypso-facts { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Under the Hood: the solver write-up and its diagrams. Colors and fonts come from the site's
+   tokens; --bb-air, --bb-near, --bb-raw and --bb-bad are the diagrams' own. --bb-accent-text is
+   a darker orange in light mode so small orange text stays readable on the pale panels. */
+.bb-tech {
+  --bb-bg: var(--bg); --bb-panel: var(--panel-low); --bb-fg: var(--fg); --bb-muted: var(--muted);
+  --bb-line: var(--line); --bb-line-strong: var(--line-strong); --bb-accent: var(--accent);
+  --bb-accent-text: var(--accent); --bb-air: 79, 155, 209;
+  --bb-near: #4F9BD1; --bb-raw: #5D6857; --bb-bad: #E0675A;
+  --bb-display: var(--font-display); --bb-body: var(--font-body); --bb-mono: var(--font-mono);
+  color: var(--bb-fg); font: 16px/1.6 var(--bb-body);
+  padding: 48px 16px 64px;
+}
+@media (prefers-color-scheme: light) {
+  .bb-tech { --bb-accent-text: #B84A10; --bb-air: 47, 120, 176; --bb-near: #2F78B0; --bb-raw: #A3AB98; --bb-bad: #B23A2E; }
+}
+.bb-tech * { box-sizing: border-box; }
+/* Every grid column is minmax(0, 1fr), so a wide diagram scrolls inside its .bb-scroll on a phone
+   instead of stretching the column and pushing the text off the screen. */
+.bb-tech .bb-wrap { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
+.bb-tech .bb-head .hero-h1 { margin: 10px 0 14px; }
+.bb-tech article { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.bb-tech .bb-eyebrow { font: 500 0.72rem/1 var(--bb-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bb-muted); }
+.bb-tech h2 { font: 700 clamp(1.9rem, 5vw, 2.8rem)/1.05 var(--bb-display); margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
+.bb-tech h3 { font: 700 1.45rem/1.1 var(--bb-display); margin: 10px 0 0; text-transform: uppercase; letter-spacing: 0.02em; }
+.bb-tech h3 .bb-step { color: var(--bb-accent-text); margin-right: 6px; }
+.bb-tech p { margin: 0; max-width: 68ch; }
+.bb-tech strong { font-weight: 600; }
+.bb-tech ul, .bb-tech ol { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; max-width: 68ch; }
+.bb-tech li::marker { color: var(--bb-accent-text); font-weight: 600; }
+.bb-tech .bb-summary {
+  background: var(--bb-panel); border: 1px solid var(--bb-line); border-left: 4px solid var(--bb-accent);
+  padding: 16px 20px; font-size: 1.08rem;
+}
+.bb-tech .bb-path { font: 500 0.9em var(--bb-mono); white-space: nowrap; }
+.bb-tech .bb-note { font: 0.74rem/1.4 var(--bb-mono); color: var(--bb-muted); }
+.bb-tech hr { border: 0; border-top: 1px solid var(--bb-line-strong); margin: 0; }
+.bb-tech figure {
+  margin: 0; background: var(--bb-panel); border: 1px solid var(--bb-line); padding: 22px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0;
+}
+.bb-tech figure h3 { font: 700 clamp(1.4rem, 3.6vw, 1.9rem)/1.08 var(--bb-display); margin: 0; }
+.bb-tech .bb-cap { color: var(--bb-muted); font-size: 0.95rem; max-width: 66ch; margin: 0; }
+.bb-tech .bb-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.88rem; color: var(--bb-muted); }
+.bb-tech .bb-legend i { display: inline-block; width: 16px; height: 3px; vertical-align: middle; margin-right: 6px; }
+.bb-tech .bb-scroll { overflow-x: auto; }
+.bb-tech .bb-scroll svg { min-width: 520px; }
+.bb-tech svg { width: 100%; height: auto; display: block; }
+.bb-tech svg text { font-family: var(--bb-mono); font-size: 12px; fill: var(--bb-muted); }
+.bb-tech svg .bb-strong { fill: var(--bb-fg); font-weight: 500; }
+.bb-tech svg .bb-big { font-family: var(--bb-display); font-size: 24px; font-weight: 700; fill: var(--bb-fg); }
+.bb-tech svg .bb-disp { font-family: var(--bb-display); font-weight: 700; font-size: 20px; text-transform: uppercase; fill: var(--bb-fg); }
+.bb-tech .bb-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+/* The pipeline: five stages, the hold last. */
+.bb-tech .bb-pipe { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: step; }
+.bb-tech .bb-stage {
+  position: relative; background: var(--bb-bg); border: 1px solid var(--bb-line-strong); border-top: 3px solid var(--bb-accent);
+  padding: 12px; display: grid; gap: 4px; align-content: start; counter-increment: step; min-width: 0;
+}
+.bb-tech .bb-stage::before { content: counter(step, decimal-leading-zero); font: 500 0.72rem/1 var(--bb-mono); color: var(--bb-accent-text); }
+.bb-tech .bb-stage b { font: 700 1.15rem/1.1 var(--bb-display); letter-spacing: 0.02em; text-transform: uppercase; }
+.bb-tech .bb-stage span { font-size: 0.84rem; color: var(--bb-muted); line-height: 1.35; }
+.bb-tech .bb-stage:not(:last-child)::after {
+  content: "›"; position: absolute; right: -10px; top: 50%; transform: translate(50%, -50%);
+  font: 500 1.3rem/1 var(--bb-mono); color: var(--bb-accent-text);
+}
+.bb-tech .bb-stage.bb-out { background: var(--bb-accent); border-color: var(--bb-accent); color: #1A0B02; }
+.bb-tech .bb-stage.bb-out span, .bb-tech .bb-stage.bb-out::before { color: #1A0B02; }
+/* The short range / long range switch on the weights chart. */
+.bb-tech .bb-toggle { display: inline-flex; border: 1px solid var(--bb-line-strong); justify-self: start; }
+.bb-tech .bb-toggle button {
+  font: 500 0.78rem/1 var(--bb-mono); letter-spacing: 0.06em; padding: 8px 12px; background: transparent;
+  color: var(--bb-muted); border: 0; cursor: pointer;
+}
+.bb-tech .bb-toggle button[aria-pressed="true"] { background: var(--bb-fg); color: var(--bb-bg); }
+.bb-tech button:focus-visible { outline: 2px solid var(--bb-accent); outline-offset: 2px; }
+@media (max-width: 720px) {
+  .bb-tech .bb-pipe { grid-template-columns: minmax(0, 1fr); }
+  .bb-tech .bb-stage:not(:last-child)::after { content: "⌄"; right: 50%; top: auto; bottom: -12px; transform: translateX(50%); }
+  .bb-tech .bb-two { grid-template-columns: minmax(0, 1fr); }
+  .bb-tech figure { padding: 16px; }
+}

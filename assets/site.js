@@ -7,6 +7,7 @@
  *   #sagitta-hero    the Sagitta slides at the top of the home page
  *   .frame img       tap any screenshot to see it full size; arrows step through its group
  *   .tour-links      the feature tour's bar marks the section on screen
+ *   .bb-tech         Under the Hood: draws the wind charts and the drift diagram
  */
 (() => {
   "use strict";
@@ -438,5 +439,153 @@
       mark();
     }, { rootMargin: "-80px 0px -55% 0px" });
     byId.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* Under the Hood: the charts are drawn here so their numbers come from the same constants.
+     The smoothing time constants are the app's defaults (WindSmoothingLevel in AppSettings.kt):
+     Responsive (alpha 0.50) for 0-500 yd and Smooth (alpha 0.30) for 1,000-1,500 yd, at the
+     Calypso's 1 Hz, tau = -1 / ln(1 - alpha). */
+  const tech = document.querySelector(".bb-tech");
+  if (tech) {
+    const NS = "http://www.w3.org/2000/svg";
+    const TAU_NEAR = -1 / Math.log(1 - 0.5), TAU_FAR = -1 / Math.log(1 - 0.3);
+    const el = (tag, attrs, parent) => {
+      const e = document.createElementNS(NS, tag);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(e);
+      return e;
+    };
+    const txt = (parent, x, y, s, attrs) => {
+      const t = el("text", Object.assign({ x, y }, attrs || {}), parent);
+      t.textContent = s;
+      return t;
+    };
+
+    // Compass ticks.
+    const ticks = document.getElementById("bb-ticks");
+    for (let d = 0; d < 360; d += 10) {
+      const a = d * Math.PI / 180, r1 = d % 90 === 0 ? 114 : 121;
+      el("line", { x1: 160 + r1 * Math.sin(a), y1: 160 - r1 * Math.cos(a), x2: 160 + 128 * Math.sin(a), y2: 160 - 128 * Math.cos(a), "stroke-width": d % 90 === 0 ? 2 : 1 }, ticks);
+    }
+
+    // Raw against smoothed wind: an illustrative gusty trace, smoothed at both time constants.
+    (() => {
+      const svg = document.getElementById("bb-ema");
+      const W = 760, H = 290, L = 48, R = 16, T = 14, B = 34, T_END = 30, Y_MAX = 18, DT = 0.1;
+      let seed = 7;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+      const gusts = [[5.5, 5, 0.7], [12.5, 3.5, 1.4], [16, -3.5, 1.0], [22.5, 6.5, 0.6], [26.5, 3, 0.9]];
+      const raw = [], near = [], far = [];
+      const an = 1 - Math.exp(-DT / TAU_NEAR), af = 1 - Math.exp(-DT / TAU_FAR);
+      let n = 0;
+      for (let i = 0; i <= T_END / DT; i++) {
+        const t = i * DT;
+        let v = 8 + 1.5 * Math.sin(2 * Math.PI * t / 22);
+        gusts.forEach((g) => { v += g[1] * Math.exp(-Math.pow((t - g[0]) / g[2], 2)); });
+        n = 0.75 * n + 1.1 * (rnd() * 2 - 1);
+        v = Math.max(0.5, v + n);
+        raw.push(v);
+        near.push(i ? near[i - 1] + an * (v - near[i - 1]) : v);
+        far.push(i ? far[i - 1] + af * (v - far[i - 1]) : v);
+      }
+      const X = (t) => L + t / T_END * (W - L - R);
+      const Y = (v) => T + (1 - v / Y_MAX) * (H - T - B);
+      for (let y = 0; y <= Y_MAX; y += 3) {
+        el("line", { x1: L, x2: W - R, y1: Y(y), y2: Y(y), stroke: "var(--bb-line)" }, svg);
+        txt(svg, L - 8, Y(y) + 4, y, { "text-anchor": "end" });
+      }
+      for (let s = 5; s <= T_END; s += 5) txt(svg, X(s), H - 12, s + " s", { "text-anchor": "middle" });
+      txt(svg, L - 8, H - 12, "mph", { "text-anchor": "end" });
+      const path = (arr, color, w) => {
+        const d = arr.map((v, i) => (i ? "L" : "M") + X(i * DT).toFixed(1) + " " + Y(v).toFixed(1)).join("");
+        el("path", { d, fill: "none", stroke: color, "stroke-width": w, "stroke-linejoin": "round" }, svg);
+      };
+      path(raw, "var(--bb-raw)", 1.5);
+      path(near, "var(--bb-near)", 2.5);
+      path(far, "var(--bb-accent)", 3.5);
+      const gi = Math.round(22.5 / DT);
+      el("line", { x1: X(22.5), x2: X(22.5), y1: Y(raw[gi]) - 6, y2: Y(raw[gi]) - 26, stroke: "var(--bb-muted)" }, svg);
+      txt(svg, X(22.5), Y(raw[gi]) - 32, "gust: on screen instantly", { "text-anchor": "middle", class: "bb-strong" });
+    })();
+
+    // How much each second of past wind counts toward the hold, with the range switch.
+    (() => {
+      const svg = document.getElementById("bb-weights");
+      const W = 760, H = 250, L = 48, R = 16, T = 30, B = 34, N = 10, MAX = 0.65;
+      const draw = (tau) => {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        const w = [];
+        for (let k = 0; k < N; k++) w.push(Math.exp(-k / tau) - Math.exp(-(k + 1) / tau));
+        const slot = (W - L - R) / N, bw = slot * 0.62;
+        const Y = (v) => T + (1 - v / MAX) * (H - T - B);
+        [0, 0.2, 0.4, 0.6].forEach((v) => {
+          el("line", { x1: L, x2: W - R, y1: Y(v), y2: Y(v), stroke: "var(--bb-line)" }, svg);
+          txt(svg, L - 8, Y(v) + 4, Math.round(v * 100) + "%", { "text-anchor": "end" });
+        });
+        let cum = 0, cut = 0;
+        w.forEach((v, k) => {
+          cum += v;
+          const x = L + k * slot + (slot - bw) / 2;
+          el("rect", { x, y: Y(v), width: bw, height: Y(0) - Y(v), fill: k < 5 ? "var(--bb-accent)" : "var(--bb-raw)" }, svg);
+          txt(svg, x + bw / 2, Y(v) - 6, (v * 100).toFixed(v < 0.1 ? 1 : 0) + "%", { "text-anchor": "middle", class: k === 0 ? "bb-strong" : "" });
+          txt(svg, x + bw / 2, H - 12, k === 0 ? "newest" : k + " s ago", { "text-anchor": "middle" });
+          if (k === 4) cut = cum;
+        });
+        const xr = L + 5 * slot;
+        el("line", { x1: xr, x2: xr, y1: T - 18, y2: Y(0), stroke: "var(--bb-fg)", "stroke-dasharray": "4 4" }, svg);
+        txt(svg, xr - 8, T - 6, "last 5 s: " + Math.round(cut * 100) + "% of the hold", { "text-anchor": "end", class: "bb-strong" });
+      };
+      const btns = tech.querySelectorAll(".bb-toggle button");
+      btns.forEach((b) => b.addEventListener("click", () => {
+        btns.forEach((o) => o.setAttribute("aria-pressed", o === b ? "true" : "false"));
+        draw(b.dataset.band === "near" ? TAU_NEAR : TAU_FAR);
+      }));
+      draw(TAU_FAR);
+    })();
+
+    // Drift to hold: drift grows with flight time, then wind drift, spin drift and the zero
+    // offset stack at the target.
+    (() => {
+      const svg = document.getElementById("bb-drift");
+      const X0 = 60, X1 = 640, Y0 = 250, DRIFT = 150, K = 0.8, WIND = 0.82;
+      const defs = el("defs", {}, svg);
+      const m = el("marker", { id: "bb-ah3", viewBox: "0 0 10 10", refX: 8, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" }, defs);
+      el("path", { d: "M0 0L10 5L0 10z", fill: "context-stroke" }, m);
+      [140, 260, 380, 500].forEach((x) => {
+        el("line", { x1: x, y1: 292, x2: x, y2: 270, stroke: "var(--bb-near)", "stroke-width": 2, opacity: 0.55, "marker-end": "url(#bb-ah3)" }, svg);
+      });
+      el("line", { x1: X0, y1: Y0, x2: X1 + 40, y2: Y0, stroke: "var(--bb-muted)", "stroke-dasharray": "2 5" }, svg);
+      txt(svg, X1 + 40, Y0 + 18, "line of sight", { "text-anchor": "end" });
+      // Lag: time of flight minus the vacuum time, normalized.
+      const lag = (u) => (Math.exp(K * u) - 1) / K - u;
+      const LMAX = lag(1);
+      const yAt = (u) => Y0 - lag(u) / LMAX * DRIFT * WIND;
+      let d = "";
+      for (let i = 0; i <= 100; i++) {
+        const u = i / 100;
+        d += (i ? "L" : "M") + (X0 + u * (X1 - X0)).toFixed(1) + " " + yAt(u).toFixed(1);
+      }
+      el("path", { d, fill: "none", stroke: "var(--bb-accent)", "stroke-width": 3 }, svg);
+      [0.25, 0.5, 0.75].forEach((u) => {
+        const x = X0 + u * (X1 - X0);
+        el("line", { x1: x, x2: x, y1: Y0, y2: yAt(u), stroke: "var(--bb-accent)", "stroke-width": 1, opacity: 0.5 }, svg);
+        txt(svg, x, Y0 + 18, Math.round(u * 100) + "% of range", { "text-anchor": "middle" });
+      });
+      const yW = Y0 - DRIFT * WIND, ySp = yW - DRIFT * 0.1, yZ = ySp - DRIFT * 0.08;
+      const seg = (y1, y2, color, label) => {
+        el("line", { x1: X1 + 26, x2: X1 + 26, y1, y2, stroke: color, "stroke-width": 8 }, svg);
+        txt(svg, X1 + 38, (y1 + y2) / 2 + 4, label, {});
+      };
+      seg(Y0, yW, "var(--bb-accent)", "wind drift");
+      seg(yW, ySp, "var(--bb-near)", "spin drift");
+      seg(ySp, yZ, "var(--bb-muted)", "zero offset");
+      el("circle", { cx: X0, cy: Y0, r: 6, fill: "var(--bb-fg)" }, svg);
+      txt(svg, X0, Y0 + 18, "muzzle", { "text-anchor": "middle" });
+      el("circle", { cx: X1, cy: Y0, r: 10, fill: "none", stroke: "var(--bb-fg)", "stroke-width": 2 }, svg);
+      el("line", { x1: X0, y1: Y0, x2: X1, y2: yZ, stroke: "var(--bb-fg)", "stroke-width": 1.5, "stroke-dasharray": "6 4" }, svg);
+      const ang = Math.atan2(Y0 - yZ, X1 - X0), rA = 120;
+      el("path", { d: "M" + (X0 + rA) + " " + Y0 + " A " + rA + " " + rA + " 0 0 0 " + (X0 + rA * Math.cos(ang)).toFixed(1) + " " + (Y0 - rA * Math.sin(ang)).toFixed(1), fill: "none", stroke: "var(--bb-fg)", "stroke-width": 1.5 }, svg);
+      txt(svg, X0 + rA + 8, Y0 - 4, "hold", { class: "bb-disp" });
+    })();
   }
 })();
