@@ -51,7 +51,46 @@
       <p class="intro">How Bullseye turns live wind into a hold, and why an angled shot changes the air the bullet flies through.</p>
     </header>
 
-    <!-- ===== SECTION 1: WIND ===== -->
+    <!-- ===== SECTION 1: UPHILL / AIR DENSITY ===== -->
+    <article aria-labelledby="bb-uphill-title">
+      <div class="bb-eyebrow">Under the hood · Angled shots</div>
+      <h2 id="bb-uphill-title">The bullet climbs into thinner air</h2>
+      <p>Shoot uphill and the bullet doesn't stay in the air it left the muzzle in. On a <strong>+20° shot to 1,000 yards</strong>, the target sits about <strong>312 m (1,025 ft) above you</strong>, where the air is roughly 3% thinner. Thinner air means less drag, so the bullet holds more speed and drops less.</p>
+      <p>Bullseye updates air density throughout the flight as the bullet gains or loses height, instead of assuming muzzle conditions the whole way. It works in both directions: shooting downhill, the bullet descends into denser air and the solver accounts for that too.</p>
+
+      <div class="bb-scroll">
+        <svg viewBox="0 0 770 300" role="img" aria-labelledby="bb-dg-t bb-dg-d">
+          <title id="bb-dg-t">Side view of a +20° uphill shot to 1,000 yards</title>
+          <desc id="bb-dg-d">The bullet rises 312 meters through four air bands. Air density relative to the muzzle is 99.0% at 100 m, 98.1% at 200 m and 97.2% at 300 m.</desc>
+          <!-- density bands, 100 m each; 0.6 px per m on both axes, ground at y=260 -->
+          <rect x="40" y="200" width="600" height="60" fill="rgba(var(--bb-air), 0.30)"/>
+          <rect x="40" y="140" width="600" height="60" fill="rgba(var(--bb-air), 0.22)"/>
+          <rect x="40" y="80"  width="600" height="60" fill="rgba(var(--bb-air), 0.15)"/>
+          <rect x="40" y="20"  width="600" height="60" fill="rgba(var(--bb-air), 0.08)"/>
+          <text x="648" y="16">air density</text>
+          <text x="648" y="258">100%</text>
+          <text x="648" y="204">99.0% at 100 m</text>
+          <text x="648" y="144">98.1% at 200 m</text>
+          <text x="648" y="84">97.2% at 300 m</text>
+          <line x1="40" y1="260" x2="640" y2="260" stroke="var(--bb-line-strong)" stroke-width="2"/>
+          <!-- line of sight: 859 m across, 312.7 m up -->
+          <line x1="60" y1="260" x2="575" y2="72.4" stroke="var(--bb-muted)" stroke-width="1" stroke-dasharray="2 5"/>
+          <path d="M60 260 Q 330 150 575 72.4" fill="none" stroke="var(--bb-accent)" stroke-width="2.5"/>
+          <circle cx="60" cy="260" r="6" fill="var(--bb-fg)"/>
+          <text x="60" y="284" text-anchor="middle">muzzle</text>
+          <circle cx="575" cy="72.4" r="11" fill="none" stroke="var(--bb-fg)" stroke-width="2"/>
+          <circle cx="575" cy="72.4" r="4" fill="var(--bb-accent)"/>
+          <text x="575" y="104" text-anchor="middle">1000 yd</text>
+          <text x="420" y="196" class="bb-big">+312 m</text>
+          <text x="130" y="244">+20°</text>
+        </svg>
+      </div>
+      <p class="bb-note">Bullet path curvature is exaggerated for clarity. Heights and distances are to scale.</p>
+    </article>
+
+    <hr>
+
+    <!-- ===== SECTION 2: WIND ===== -->
     <article aria-labelledby="bb-wind-title">
       <div class="bb-eyebrow">Under the hood · Wind</div>
       <h2 id="bb-wind-title">How Bullseye turns live wind into a hold</h2>
@@ -209,45 +248,6 @@
     <p class="bb-cap">Drift grows faster with distance because the bullet slows down and spends longer in the wind. At the target, Bullseye adds wind drift, spin drift and your zero offset, then divides by the range: <strong style="color:var(--bb-fg)">hold = (wind drift + spin drift + zero offset) ÷ range</strong>.</p>
     <div class="bb-note">Top-down view. Sideways scale exaggerated; components drawn in one direction for clarity.</div>
   </figure>
-    </article>
-
-    <hr>
-
-    <!-- ===== SECTION 2: UPHILL / AIR DENSITY ===== -->
-    <article aria-labelledby="bb-uphill-title">
-      <div class="bb-eyebrow">Under the hood · Angled shots</div>
-      <h2 id="bb-uphill-title">The bullet climbs into thinner air</h2>
-      <p>Shoot uphill and the bullet doesn't stay in the air it left the muzzle in. On a <strong>+20° shot to 1,000 yards</strong>, the target sits about <strong>312 m (1,025 ft) above you</strong>, where the air is roughly 3% thinner. Thinner air means less drag, so the bullet holds more speed and drops less.</p>
-      <p>Bullseye updates air density throughout the flight as the bullet gains or loses height, instead of assuming muzzle conditions the whole way. It works in both directions: shooting downhill, the bullet descends into denser air and the solver accounts for that too.</p>
-
-      <div class="bb-scroll">
-        <svg viewBox="0 0 770 300" role="img" aria-labelledby="bb-dg-t bb-dg-d">
-          <title id="bb-dg-t">Side view of a +20° uphill shot to 1,000 yards</title>
-          <desc id="bb-dg-d">The bullet rises 312 meters through four air bands. Air density relative to the muzzle is 99.0% at 100 m, 98.1% at 200 m and 97.2% at 300 m.</desc>
-          <!-- density bands, 100 m each; 0.6 px per m on both axes, ground at y=260 -->
-          <rect x="40" y="200" width="600" height="60" fill="rgba(var(--bb-air), 0.30)"/>
-          <rect x="40" y="140" width="600" height="60" fill="rgba(var(--bb-air), 0.22)"/>
-          <rect x="40" y="80"  width="600" height="60" fill="rgba(var(--bb-air), 0.15)"/>
-          <rect x="40" y="20"  width="600" height="60" fill="rgba(var(--bb-air), 0.08)"/>
-          <text x="648" y="16">air density</text>
-          <text x="648" y="258">100%</text>
-          <text x="648" y="204">99.0% at 100 m</text>
-          <text x="648" y="144">98.1% at 200 m</text>
-          <text x="648" y="84">97.2% at 300 m</text>
-          <line x1="40" y1="260" x2="640" y2="260" stroke="var(--bb-line-strong)" stroke-width="2"/>
-          <!-- line of sight: 859 m across, 312.7 m up -->
-          <line x1="60" y1="260" x2="575" y2="72.4" stroke="var(--bb-muted)" stroke-width="1" stroke-dasharray="2 5"/>
-          <path d="M60 260 Q 330 150 575 72.4" fill="none" stroke="var(--bb-accent)" stroke-width="2.5"/>
-          <circle cx="60" cy="260" r="6" fill="var(--bb-fg)"/>
-          <text x="60" y="284" text-anchor="middle">muzzle</text>
-          <circle cx="575" cy="72.4" r="11" fill="none" stroke="var(--bb-fg)" stroke-width="2"/>
-          <circle cx="575" cy="72.4" r="4" fill="var(--bb-accent)"/>
-          <text x="575" y="104" text-anchor="middle">1000 yd</text>
-          <text x="420" y="196" class="bb-big">+312 m</text>
-          <text x="130" y="244">+20°</text>
-        </svg>
-      </div>
-      <p class="bb-note">Bullet path curvature is exaggerated for clarity. Heights and distances are to scale.</p>
     </article>
 
   </div>
