@@ -1248,7 +1248,6 @@ section.hero--photo p.lead { color: #DDE3D8; }
 /* Every grid column is minmax(0, 1fr), so a wide diagram scrolls inside its .bb-scroll on a phone
    instead of stretching the column and pushing the text off the screen. */
 .bb-tech .bb-wrap { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
-.bb-tech .bb-head .hero-h1 { margin: 10px 0 14px; }
 .bb-tech article { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .bb-tech .bb-eyebrow { font: 500 0.72rem/1 var(--bb-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bb-muted); }
 .bb-tech h2 { font: 700 clamp(1.9rem, 5vw, 2.8rem)/1.05 var(--bb-display); margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -1310,3 +1309,27 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .bb-tech .bb-two { grid-template-columns: minmax(0, 1fr); }
   .bb-tech figure { padding: 16px; }
 }
+
+/* Under the Hood: photo hero. Reuses the Wind Corridor .wc-hero--photo styles; only the photo and
+   its focal point change. The 2400 and 1500 px images serve high-DPI screens. */
+.uth-hero.wc-hero--photo::before {
+  background-image: url("img/uth-hero-bg-1500.jpg");
+  background-image: image-set(
+    url("img/uth-hero-bg-1500.webp") 1x type("image/webp"),
+    url("img/uth-hero-bg-2400.webp") 2x type("image/webp"),
+    url("img/uth-hero-bg-1500.jpg") 1x type("image/jpeg"),
+    url("img/uth-hero-bg-2400.jpg") 2x type("image/jpeg"));
+  background-position: 70% 45%;   /* keeps the turret in view on the right */
+}
+@media (max-width: 900px) {
+  .uth-hero.wc-hero--photo::before {
+    background-image: url("img/uth-hero-bg-900.jpg");
+    background-image: image-set(
+      url("img/uth-hero-bg-900.webp") 1x type("image/webp"),
+      url("img/uth-hero-bg-1500.webp") 2x type("image/webp"),
+      url("img/uth-hero-bg-900.jpg") 1x type("image/jpeg"),
+      url("img/uth-hero-bg-1500.jpg") 2x type("image/jpeg"));
+    background-position: 72% 40%;
+  }
+}
+.wc-hero--photo + section.bb-tech { padding-top: 24px; }   /* close the gap below the hero's fade */
