@@ -1257,34 +1257,6 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .bb-tech strong { font-weight: 600; }
 .bb-tech ul, .bb-tech ol { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; max-width: 68ch; }
 .bb-tech li::marker { color: var(--bb-accent-text); font-weight: 600; }
-/* Our approach: the case the two write-ups below make. A panel with an orange top rule, the
-   turn and the closing line in the display face, and the small effects adding up to clicks. */
-.bb-tech .bb-approach {
-  background: var(--bb-panel); border: 1px solid var(--bb-line); border-top: 3px solid var(--bb-accent);
-  padding: clamp(22px, 4vw, 40px); gap: 16px;
-}
-.bb-tech .bb-approach h2 span { color: var(--bb-accent); }
-.bb-tech .bb-approach q { font-weight: 600; quotes: "“" "”"; }
-.bb-tech .bb-approach .bb-turn {
-  font: 700 clamp(1.35rem, 3.2vw, 1.75rem)/1.15 var(--bb-display); text-transform: uppercase; letter-spacing: 0.02em;
-  color: var(--bb-accent-text); margin-block: 6px;
-}
-.bb-tech .bb-addup { list-style: none; padding: 0; margin: 4px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: none; }
-.bb-tech .bb-addup li {
-  font: 500 0.78rem/1 var(--bb-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--bb-fg);
-  border: 1px solid var(--bb-line-strong); background: var(--bb-bg); padding: 9px 12px;
-}
-.bb-tech .bb-addup li + li { position: relative; margin-left: 22px; }
-.bb-tech .bb-addup li + li::before {
-  content: "+"; position: absolute; left: -19px; top: 50%; transform: translateY(-50%);
-  color: var(--bb-accent-text); font-weight: 600;
-}
-.bb-tech .bb-addup .bb-sum::before { content: "="; }
-.bb-tech .bb-addup .bb-sum { background: var(--bb-accent); border-color: var(--bb-accent); color: #1A0B02; font-weight: 600; }
-.bb-tech .bb-approach .bb-close {
-  font: 700 clamp(1.6rem, 4.2vw, 2.3rem)/1.05 var(--bb-display); text-transform: uppercase; letter-spacing: 0.02em;
-  margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--bb-line-strong); max-width: none;
-}
 .bb-tech .bb-summary {
   background: var(--bb-panel); border: 1px solid var(--bb-line); border-left: 4px solid var(--bb-accent);
   padding: 16px 20px; font-size: 1.08rem;
@@ -1361,3 +1333,43 @@ section.hero--photo p.lead { color: #DDE3D8; }
   }
 }
 .wc-hero--photo + section.bb-tech { padding-top: 24px; }   /* close the gap below the hero's fade */
+/* Under the Hood: "Our approach" inside the hero, under the lead. Smaller and quieter than the
+   lead so the title stays the first read; the hero grows to fit it, and the fade into the page
+   starts lower so the last lines stay on the dark photo. */
+.uth-hero .uth-approach {
+  max-width: 36em; margin-top: 4px; padding-top: 20px;
+  border-top: 1px solid rgba(236, 240, 232, .2);
+}
+.uth-hero .uth-approach h2 {
+  font: 700 1.3rem/1.1 var(--font-display); margin: 8px 0 12px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
+}
+.uth-hero .uth-approach p {
+  font-size: 0.94rem; line-height: 1.6; color: #C3CCBE; margin: 0 0 10px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, .6);
+}
+.uth-hero .uth-approach .uth-turn { color: #ECF0E8; font-weight: 600; }
+.uth-hero .uth-approach .uth-close {
+  font: 700 1.05rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--accent); margin: 16px 0 0;
+}
+.uth-hero.wc-hero--photo .wrap { padding-bottom: 96px; }
+.uth-hero.wc-hero--photo::after {
+  background:
+    linear-gradient(180deg, rgba(16, 19, 17, .35) 0%, transparent 14%, transparent 84%, var(--bg) 100%),
+    linear-gradient(90deg,
+      rgba(16, 19, 17, .92) 0%,
+      rgba(16, 19, 17, .82) 45%,
+      rgba(16, 19, 17, .35) 70%,
+      rgba(16, 19, 17, .15) 100%);
+}
+@media (max-width: 900px) {
+  .uth-hero.wc-hero--photo .wrap { padding-bottom: 72px; }
+  .uth-hero.wc-hero--photo::after {
+    background: linear-gradient(180deg,
+      rgba(16, 19, 17, .55) 0%,
+      rgba(16, 19, 17, .82) 30%,
+      rgba(16, 19, 17, .92) 92%,
+      var(--bg) 100%);
+  }
+}
