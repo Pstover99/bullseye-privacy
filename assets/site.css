@@ -1349,6 +1349,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   text-shadow: 0 1px 12px rgba(0, 0, 0, .6);
 }
 .uth-hero .uth-approach .uth-turn { color: #ECF0E8; font-weight: 600; }
+.uth-hero .uth-approach q { font-weight: 600; }
 .uth-hero .uth-approach .uth-close {
   font: 700 1.05rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em;
   color: var(--accent); margin: 16px 0 0;
