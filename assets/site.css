@@ -1247,7 +1247,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .bb-tech * { box-sizing: border-box; }
 /* Every grid column is minmax(0, 1fr), so a wide diagram scrolls inside its .bb-scroll on a phone
    instead of stretching the column and pushing the text off the screen. */
-.bb-tech .bb-wrap { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
+.bb-tech .bb-wrap { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
 .bb-tech .bb-head .hero-h1 { margin: 10px 0 14px; }
 .bb-tech article { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .bb-tech .bb-eyebrow { font: 500 0.72rem/1 var(--bb-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bb-muted); }
@@ -1264,7 +1264,8 @@ section.hero--photo p.lead { color: #DDE3D8; }
 }
 .bb-tech .bb-path { font: 500 0.9em var(--bb-mono); white-space: nowrap; }
 .bb-tech .bb-note { font: 0.74rem/1.4 var(--bb-mono); color: var(--bb-muted); }
-.bb-tech hr { border: 0; border-top: 1px solid var(--bb-line-strong); margin: 0; }
+/* The divider between the two write-ups keeps 56px either side; the heading sits 24px above the first. */
+.bb-tech hr { border: 0; border-top: 1px solid var(--bb-line-strong); margin: 32px 0; }
 .bb-tech figure {
   margin: 0; background: var(--bb-panel); border: 1px solid var(--bb-line); padding: 22px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0;
 }
