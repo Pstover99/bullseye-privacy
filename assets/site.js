@@ -7,9 +7,77 @@
  *   #sagitta-hero    the Sagitta slides at the top of the home page
  *   .frame img       tap any screenshot to see it full size; arrows step through its group
  *   .tour-links      the feature tour's bar marks the section on screen
- *   .bb-tech         Under the Hood: draws the wind charts and the drift diagram
+ *   #bb-ema          Under the Hood: draws the wind charts and the drift diagram
  *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
  */
+// Grouped site nav: dropdowns on wide screens, a full menu on phones. First, so that an error in
+// any page's own code below can't stop the nav from working.
+(function () {
+  var bar = document.querySelector('.gn');
+  if (!bar) return;
+  var toggle = bar.querySelector('.gn-toggle');
+  var groups = Array.prototype.slice.call(bar.querySelectorAll('.gn-group'));
+  var hover = window.matchMedia('(hover: hover) and (min-width: 901px)');
+
+  function closeGroups(except) {
+    groups.forEach(function (g) {
+      if (g === except) return;
+      g.classList.remove('gn-show');
+      g.querySelector('button').setAttribute('aria-expanded', 'false');
+    });
+  }
+  function setMenu(open) {
+    bar.classList.toggle('gn-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('gn-lock', open);
+  }
+
+  groups.forEach(function (g) {
+    var btn = g.querySelector('button');
+    var leaving = 0;
+    btn.addEventListener('click', function (e) {
+      var open = !g.classList.contains('gn-show');
+      // With a mouse, hovering already opened it: a click on the button (e.detail is 0 for a
+      // keyboard press) would close the panel just as the pointer heads for its links.
+      if (!open && hover.matches && e.detail > 0) return;
+      closeGroups(g);
+      g.classList.toggle('gn-show', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    g.addEventListener('mouseenter', function () {
+      if (!hover.matches) return;
+      clearTimeout(leaving);
+      closeGroups(g);
+      g.classList.add('gn-show');
+      btn.setAttribute('aria-expanded', 'true');
+    });
+    // A short grace period, so a pointer that cuts a corner on its way to a link doesn't close it.
+    g.addEventListener('mouseleave', function () {
+      if (!hover.matches) return;
+      leaving = setTimeout(function () {
+        g.classList.remove('gn-show');
+        btn.setAttribute('aria-expanded', 'false');
+      }, 250);
+    });
+  });
+
+  toggle.addEventListener('click', function () { setMenu(!bar.classList.contains('gn-open')); });
+  // A link to a section of the page you're on doesn't load a new page, so close the menu for it.
+  bar.addEventListener('click', function (e) {
+    if (!e.target.closest('a')) return;
+    closeGroups();
+    if (bar.classList.contains('gn-open')) setMenu(false);
+  });
+
+  document.addEventListener('click', function (e) { if (!bar.contains(e.target)) closeGroups(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    closeGroups();
+    if (bar.classList.contains('gn-open')) { setMenu(false); toggle.focus(); }
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
+})();
+
 (() => {
   "use strict";
   document.documentElement.classList.add("js");
@@ -446,8 +514,9 @@
      The smoothing time constants are the app's defaults (WindSmoothingLevel in AppSettings.kt):
      Responsive (alpha 0.50) for 0-500 yd and Smooth (alpha 0.30) for 1,000-1,500 yd, at the
      Calypso's 1 Hz, tau = -1 / ln(1 - alpha). */
+  // The Truing page borrows the .bb-tech styles but has none of these charts.
   const tech = document.querySelector(".bb-tech");
-  if (tech) {
+  if (tech && document.getElementById("bb-ema")) {
     const NS = "http://www.w3.org/2000/svg";
     const TAU_NEAR = -1 / Math.log(1 - 0.5), TAU_FAR = -1 / Math.log(1 - 0.3);
     const el = (tag, attrs, parent) => {
@@ -589,71 +658,4 @@
       txt(svg, X0 + rA + 8, Y0 - 4, "hold", { class: "bb-disp" });
     })();
   }
-})();
-
-// Grouped site nav: dropdowns on wide screens, a full menu on phones.
-(function () {
-  var bar = document.querySelector('.gn');
-  if (!bar) return;
-  var toggle = bar.querySelector('.gn-toggle');
-  var groups = Array.prototype.slice.call(bar.querySelectorAll('.gn-group'));
-  var hover = window.matchMedia('(hover: hover) and (min-width: 901px)');
-
-  function closeGroups(except) {
-    groups.forEach(function (g) {
-      if (g === except) return;
-      g.classList.remove('gn-show');
-      g.querySelector('button').setAttribute('aria-expanded', 'false');
-    });
-  }
-  function setMenu(open) {
-    bar.classList.toggle('gn-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-    document.documentElement.classList.toggle('gn-lock', open);
-  }
-
-  groups.forEach(function (g) {
-    var btn = g.querySelector('button');
-    var leaving = 0;
-    btn.addEventListener('click', function (e) {
-      var open = !g.classList.contains('gn-show');
-      // With a mouse, hovering already opened it: a click on the button (e.detail is 0 for a
-      // keyboard press) would close the panel just as the pointer heads for its links.
-      if (!open && hover.matches && e.detail > 0) return;
-      closeGroups(g);
-      g.classList.toggle('gn-show', open);
-      btn.setAttribute('aria-expanded', String(open));
-    });
-    g.addEventListener('mouseenter', function () {
-      if (!hover.matches) return;
-      clearTimeout(leaving);
-      closeGroups(g);
-      g.classList.add('gn-show');
-      btn.setAttribute('aria-expanded', 'true');
-    });
-    // A short grace period, so a pointer that cuts a corner on its way to a link doesn't close it.
-    g.addEventListener('mouseleave', function () {
-      if (!hover.matches) return;
-      leaving = setTimeout(function () {
-        g.classList.remove('gn-show');
-        btn.setAttribute('aria-expanded', 'false');
-      }, 250);
-    });
-  });
-
-  toggle.addEventListener('click', function () { setMenu(!bar.classList.contains('gn-open')); });
-  // A link to a section of the page you're on doesn't load a new page, so close the menu for it.
-  bar.addEventListener('click', function (e) {
-    if (!e.target.closest('a')) return;
-    closeGroups();
-    if (bar.classList.contains('gn-open')) setMenu(false);
-  });
-
-  document.addEventListener('click', function (e) { if (!bar.contains(e.target)) closeGroups(); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    closeGroups();
-    if (bar.classList.contains('gn-open')) { setMenu(false); toggle.focus(); }
-  });
-  window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
 })();
