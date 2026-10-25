@@ -9,11 +9,14 @@ redirect them.
 |---|---|
 | Home | https://bullseyeballisticscalculator.com/ |
 | Features | https://bullseyeballisticscalculator.com/features/ |
+| Sagitta AI | https://bullseyeballisticscalculator.com/sagitta/ |
+| Sensors | https://bullseyeballisticscalculator.com/sensors/ |
 | Comparison | https://bullseyeballisticscalculator.com/comparison/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Under the Hood | https://bullseyeballisticscalculator.com/under-the-hood/ |
 | Truing (linked only from Under the Hood) | https://bullseyeballisticscalculator.com/truing/ |
+| Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
@@ -36,9 +39,12 @@ have drifted.
 
 | To change | Edit |
 |---|---|
-| Header, footer, `<head>` on every page | `_layout.html` |
+| Header, footer, `<head>` on every page | `_layout.html`; which nav link and group is marked as the current page is set by `NAV` and `NAV_GROUPS` in `render.py` |
 | Home page | `_pages/home.html` |
 | Feature tour | `_pages/features.html` |
+| Sagitta AI | `_pages/sagitta.html` |
+| Sensors | `_pages/sensors.html` |
+| Get the app (store badges are `assets/img/badge-*`, unlinked until the app is in each store) | `_pages/get-the-app.html` |
 | Comparison | `_pages/comparison.html` (the table is edited here; the old .md is retired) |
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
@@ -49,7 +55,7 @@ have drifted.
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
 | Look | `assets/site.css` |
-| Carousels, the home showcase, the full-size viewer, the External Display simulator | `assets/site.js` |
+| Carousels, the home showcase, the full-size viewer, the External Display simulator, the nav's dropdowns and phone menu | `assets/site.js` |
 
 `PRIVACY_POLICY.md` is a copy of `docs/PRIVACY_POLICY.md` in the app repo, which is the source of
 truth. Copy it over, re-render, commit.

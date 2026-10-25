@@ -8,6 +8,7 @@
  *   .frame img       tap any screenshot to see it full size; arrows step through its group
  *   .tour-links      the feature tour's bar marks the section on screen
  *   .bb-tech         Under the Hood: draws the wind charts and the drift diagram
+ *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
  */
 (() => {
   "use strict";
@@ -588,4 +589,57 @@
       txt(svg, X0 + rA + 8, Y0 - 4, "hold", { class: "bb-disp" });
     })();
   }
+})();
+
+// Grouped site nav: dropdowns on wide screens, a full menu on phones.
+(function () {
+  var bar = document.querySelector('.gn');
+  if (!bar) return;
+  var toggle = bar.querySelector('.gn-toggle');
+  var groups = Array.prototype.slice.call(bar.querySelectorAll('.gn-group'));
+  var hover = window.matchMedia('(hover: hover) and (min-width: 901px)');
+
+  function closeGroups(except) {
+    groups.forEach(function (g) {
+      if (g === except) return;
+      g.classList.remove('gn-show');
+      g.querySelector('button').setAttribute('aria-expanded', 'false');
+    });
+  }
+  function setMenu(open) {
+    bar.classList.toggle('gn-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('gn-lock', open);
+  }
+
+  groups.forEach(function (g) {
+    var btn = g.querySelector('button');
+    btn.addEventListener('click', function () {
+      var open = !g.classList.contains('gn-show');
+      closeGroups(g);
+      g.classList.toggle('gn-show', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    g.addEventListener('mouseenter', function () {
+      if (!hover.matches) return;
+      closeGroups(g);
+      g.classList.add('gn-show');
+      btn.setAttribute('aria-expanded', 'true');
+    });
+    g.addEventListener('mouseleave', function () {
+      if (!hover.matches) return;
+      g.classList.remove('gn-show');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  toggle.addEventListener('click', function () { setMenu(!bar.classList.contains('gn-open')); });
+
+  document.addEventListener('click', function (e) { if (!bar.contains(e.target)) closeGroups(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    closeGroups();
+    if (bar.classList.contains('gn-open')) { setMenu(false); toggle.focus(); }
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
 })();
