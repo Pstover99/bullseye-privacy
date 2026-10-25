@@ -1518,6 +1518,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sn-card p { margin: 0; color: var(--muted); }
 .sn-card a.sn-more { margin-top: auto; padding-top: 4px; color: var(--accent); font-weight: 600; text-decoration: none; }
 .sn-card a.sn-more:hover { text-decoration: underline; }
+.sn-card a.sn-more + a.sn-more { margin-top: 0; padding-top: 0; }
 .sn-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .sn-tag { font: 500 0.68rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 6px 8px; }
 .sn-how { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 40px; }
