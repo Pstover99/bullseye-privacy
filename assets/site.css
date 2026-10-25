@@ -1272,6 +1272,19 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .bb-tech .bb-table td { padding: 9px 22px; border-bottom: 1px solid var(--bb-line); white-space: nowrap; }
 .bb-tech .bb-table tr:last-child td { border-bottom: 0; }
 .bb-tech .bb-table td:last-child { font-weight: 600; color: var(--bb-fg); }
+
+/* Truing: a plain page head like Comparison's, then the Under the Hood write-up styles. The two
+   Truing card screenshots sit side by side in the site's corner-bracket frames, and stack on a
+   phone. */
+.trg-head { padding-bottom: 0; }
+.trg-head .wrap { max-width: 912px; padding-inline: 16px; }   /* lines up with the 880px column below */
+.bb-tech.trg { padding-top: 32px; }
+.bb-tech .trg-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.bb-tech .trg-shot { background: none; border: 0; padding: 0; gap: 10px; }
+.bb-tech .trg-shot .frame img { width: 100%; height: auto; display: block; }
+@media (max-width: 600px) {
+  .bb-tech .trg-shots { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
+}
 /* The divider between the two write-ups keeps 56px either side; the heading sits 24px above the first. */
 .bb-tech hr { border: 0; border-top: 1px solid var(--bb-line-strong); margin: 32px 0; }
 .bb-tech figure {
