@@ -18,26 +18,40 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=8f55b32418">
-<script src="../assets/site.js?v=6014057b20" defer></script>
+<link rel="stylesheet" href="../assets/site.css?v=5f66e629d1">
+<script src="../assets/site.js?v=86b6847a5a" defer></script>
 </head>
 <body>
-<header class="top">
-  <div class="wrap">
+<header class="top gn-header">
+  <div class="wrap gn">
     <a class="brand" href="../" aria-label="Bullseye Ballistics home">
       <img class="logo" src="../assets/img/logo.svg" width="34" height="34" alt="">
       <b>Bullseye</b>
     </a>
-    <nav class="nav" aria-label="Site">
-      <a href="../">Home</a>
-      <a href="../features/">Features</a>
-      <a href="../comparison/">Comparison</a>
-      <a href="../wind-corridor/">Wind Corridor</a>
-      <a href="../external-display/">External display</a>
-      <a href="../hunting/">Hunting</a>
-      <a href="../matches/">Matches</a>
+    <nav class="gn-menu" id="gn-menu" aria-label="Site">
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-features">Features</button>
+        <div class="gn-panel" id="gn-features">
+          <a href="../features/"><b>All features</b><span>Everything the app does</span></a>
+          <a href="../sagitta/"><b>Sagitta AI</b><span>The ballistics AI at the core</span></a>
+          <a href="../sensors/"><b>Sensors</b><span>Live wind and weather</span></a>
+          <a href="../wind-corridor/"><b>Wind Corridor</b><span>See the wind downrange</span></a>
+          <a href="../external-display/"><b>External display</b><span>Your solution on the rifle</span></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-field">In the field</button>
+        <div class="gn-panel" id="gn-field">
+          <a href="../hunting/"><b>Hunting</b><span>Hunting Zero and Hunt Mode</span></a>
+          <a href="../matches/"><b>Matches</b><span>From match book to first shot</span></a>
+        </div>
+      </div>
       <a href="../under-the-hood/" aria-current="page">Under the Hood</a>
+      <a href="../comparison/">Compare</a>
+      <a class="gn-cta" href="../get-the-app/">Get the app</a>
     </nav>
+    <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    <button class="gn-toggle" type="button" aria-expanded="false" aria-controls="gn-menu">Menu</button>
   </div>
 </header>
 

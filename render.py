@@ -77,6 +77,17 @@ PAGES = [
      "Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it "
      "corrects your velocity and drag together so every other distance matches too. With a "
      "before-and-after example, and how adaptive wind smoothing keeps your hold steady in gusts."),
+    ("sagitta/index.html", "_pages/sagitta.html", "../",
+     "Sagitta Ballistics AI · Bullseye Ballistics",
+     "Sagitta Ballistics AI connects what the solver predicted, what the environment did, what "
+     "you called and what actually happened, then explains why you missed and how to fix it."),
+    ("sensors/index.html", "_pages/sensors.html", "../",
+     "Sensors · Bullseye Ballistics",
+     "Bluetooth wind and weather sensors that work with Bullseye Ballistics: Calypso and "
+     "WeatherFlow Tempest, several at once."),
+    ("get-the-app/index.html", "_pages/get-the-app.html", "../",
+     "Get the app · Bullseye Ballistics",
+     "Bullseye Ballistics is coming soon to Google Play and the App Store."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
@@ -92,6 +103,19 @@ PAGES = [
      "Page not found · Bullseye Ballistics",
      "There is no page at this address."),
 ]
+
+# The header's links, by the {{CURRENT_...}} key in _layout.html, and the folder each opens.
+NAV = {
+    "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
+    "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
+    "HUNTING": "hunting/", "MATCHES": "matches/",
+    "HOOD": "under-the-hood/", "COMPARISON": "comparison/", "GET": "get-the-app/",
+}
+# The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
+NAV_GROUPS = {
+    "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
+    "FIELD": ["HUNTING", "MATCHES"],
+}
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
 NOINDEX = set()
@@ -259,15 +283,13 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
         "{{CSS_V}}": version("assets/site.css"),
         "{{JS_V}}": version("assets/site.js"),
         "{{URL}}": SITE + ("" if output == "404.html" else path),
-        "{{CURRENT_HOME}}": ' aria-current="page"' if output == "index.html" else "",
-        "{{CURRENT_FEATURES}}": ' aria-current="page"' if output.startswith("features/") else "",
-        "{{CURRENT_COMPARISON}}": ' aria-current="page"' if output.startswith("comparison/") else "",
-        "{{CURRENT_WIND}}": ' aria-current="page"' if output.startswith("wind-corridor/") else "",
-        "{{CURRENT_EXTERNAL}}": ' aria-current="page"' if output.startswith("external-display/") else "",
-        "{{CURRENT_HUNTING}}": ' aria-current="page"' if output.startswith("hunting/") else "",
-        "{{CURRENT_MATCHES}}": ' aria-current="page"' if output.startswith("matches/") else "",
-        "{{CURRENT_HOOD}}": ' aria-current="page"' if output.startswith("under-the-hood/") else "",
     }
+    # The nav: mark the page you're on, and the group its link sits in.
+    here = output.split("/")[0] + "/"
+    for key, prefix in NAV.items():
+        fields["{{CURRENT_" + key + "}}"] = ' aria-current="page"' if here == prefix else ""
+    for key, members in NAV_GROUPS.items():
+        fields["{{GROUP_" + key + "}}"] = " gn-current" if here in [NAV[m] for m in members] else ""
     for key, value in fields.items():
         page = page.replace(key, value)
     # Last, so a {{ROOT}} inside a body is filled in too.
