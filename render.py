@@ -76,7 +76,7 @@ PAGES = [
      "Truing · Bullseye Ballistics",
      "Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it "
      "corrects your velocity and drag together so every other distance matches too. With a "
-     "before-and-after example."),
+     "before-and-after example, and how adaptive wind smoothing keeps your hold steady in gusts."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "

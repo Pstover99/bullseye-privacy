@@ -1285,6 +1285,17 @@ section.hero--photo p.lead { color: #DDE3D8; }
 @media (max-width: 600px) {
   .bb-tech .trg-shots { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
 }
+/* Wind smoothing: four settings screens in a row (two by two on a phone), each caption led by
+   the numbered steps it shows, in the same orange discs as the callouts on the screenshots. */
+.bb-tech .trg-shots--four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.bb-tech .trg-shots--four .frame { padding: 8px; }
+.bb-tech .trg-step {
+  display: inline-block; min-width: 20px; height: 20px; border-radius: 10px; margin-right: 5px;
+  background: var(--bb-accent); color: #fff; font: 600 0.72rem/20px var(--bb-body); text-align: center;
+}
+@media (max-width: 600px) {
+  .bb-tech .trg-shots--four { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
+}
 /* The divider between the two write-ups keeps 56px either side; the heading sits 24px above the first. */
 .bb-tech hr { border: 0; border-top: 1px solid var(--bb-line-strong); margin: 32px 0; }
 .bb-tech figure {

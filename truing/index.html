@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Truing · Bullseye Ballistics</title>
-<meta name="description" content="Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it corrects your velocity and drag together so every other distance matches too. With a before-and-after example.">
+<meta name="description" content="Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it corrects your velocity and drag together so every other distance matches too. With a before-and-after example, and how adaptive wind smoothing keeps your hold steady in gusts.">
 <link rel="canonical" href="https://bullseyeballisticscalculator.com/truing/">
 <meta name="theme-color" content="#101311">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bullseye Ballistics">
 <meta property="og:title" content="Truing · Bullseye Ballistics">
-<meta property="og:description" content="Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it corrects your velocity and drag together so every other distance matches too. With a before-and-after example.">
+<meta property="og:description" content="Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it corrects your velocity and drag together so every other distance matches too. With a before-and-after example, and how adaptive wind smoothing keeps your hold steady in gusts.">
 <meta property="og:url" content="https://bullseyeballisticscalculator.com/truing/">
 <meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=0d6f947863">
+<link rel="stylesheet" href="../assets/site.css?v=8f55b32418">
 <script src="../assets/site.js?v=6014057b20" defer></script>
 </head>
 <body>
@@ -216,6 +216,87 @@
         <li><strong>Re-true after a change.</strong> A new velocity, BC or zero, including a zero offset, means a new true.</li>
       </ul>
     </article>
+
+    <hr>
+
+    <!-- ===== ADAPTIVE WIND SMOOTHING ===== -->
+    <article aria-labelledby="ws-title" id="wind-smoothing">
+      <div class="bb-eyebrow">Adaptive wind smoothing</div>
+      <h2 id="ws-title">Wind smoothing: steady holds in gusty wind</h2>
+      <p>Live wind from your sensor changes every second. If your hold followed every reading, it would jump with each gust. Bullseye averages the wind first, so your hold follows the wind your bullet will actually fly through.</p>
+      <p class="bb-summary">Your wind readout still shows the live wind. You see a gust the moment it hits; only the hold is smoothed. Wind you enter by hand is used exactly as entered.</p>
+
+      <h3>How the average works</h3>
+      <p>About once a second, a new reading comes in and is blended into the average. The newest reading always counts most, and older ones fade out gradually instead of dropping off all at once. Speed and direction are averaged together, so a wind swinging between 350° and 10° averages to about 0°, not 180°.</p>
+
+      <h3>Five levels</h3>
+      <div class="bb-scroll">
+        <table class="bb-table">
+          <thead><tr><th scope="col">Level</th><th scope="col">Newest reading counts</th><th scope="col">Follows a lasting change in about</th><th scope="col">A 10 to 15 mph gust, 3 seconds in</th></tr></thead>
+          <tbody>
+            <tr><td>Responsive</td><td>50%</td><td>4 s</td><td>14.4 mph</td></tr>
+            <tr><td>Balanced</td><td>40%</td><td>6 s</td><td>13.9 mph</td></tr>
+            <tr><td>Smooth</td><td>30%</td><td>8 s</td><td>13.3 mph</td></tr>
+            <tr><td>Heavy</td><td>20%</td><td>13 s</td><td>12.4 mph</td></tr>
+            <tr><td>Max</td><td>15%</td><td>18 s</td><td>11.9 mph</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Responsive follows the wind closely. Max lets a passing gust go by and moves only for a shift that lasts.</p>
+
+      <h3>Matched to your distance</h3>
+      <p>With Adaptive on (recommended), Bullseye picks the level from your target distance. The longer your bullet is in the air, the more an average describes what it flies through, and the less the gust at the moment you fire matters.</p>
+      <div class="bb-scroll">
+        <table class="bb-table">
+          <thead><tr><th scope="col">Target distance</th><th scope="col">Level</th><th scope="col">Flight time, fast 6 mm match bullet</th></tr></thead>
+          <tbody>
+            <tr><td>0–500 yd</td><td>Responsive</td><td>under 0.7 s</td></tr>
+            <tr><td>500–1,000 yd</td><td>Balanced</td><td>0.7 to 1.5 s</td></tr>
+            <tr><td>1,000–1,500 yd</td><td>Smooth</td><td>1.5 to 2.6 s</td></tr>
+            <tr><td>1,500–2,000 yd</td><td>Heavy</td><td>2.6 to 4 s</td></tr>
+            <tr><td>2,000+ yd</td><td>Max</td><td>over 4 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Change your smoothing</h3>
+      <ol>
+        <li>Tap the gear at the top right of any screen to open <strong>Settings</strong>.</li>
+        <li>Under Sensors, tap <strong>Sensors and GPS</strong>.</li>
+        <li>Scroll down to <strong>Wind smoothing</strong>.</li>
+        <li>Leave <strong>Adaptive</strong> on to set the smoothing by distance, or turn it off to use one level at every distance.</li>
+        <li>To change a distance band, tap its level and pick Responsive, Balanced, Smooth, Heavy or Max.</li>
+      </ol>
+      <div class="trg-shots trg-shots--four">
+        <figure class="trg-shot">
+          <div class="frame"><img src="../assets/img/ws-settings.webp" width="720" height="1447" loading="lazy" decoding="async" alt="Settings, with the gear marked 1 and Sensors and GPS under Sensors marked 2"></div>
+          <figcaption class="bb-cap"><span class="trg-step">1</span><span class="trg-step">2</span>Settings, then Sensors and GPS</figcaption>
+        </figure>
+        <figure class="trg-shot">
+          <div class="frame"><img src="../assets/img/ws-sensors.webp" width="720" height="1447" loading="lazy" decoding="async" alt="Sensors and GPS, with Wind smoothing marked 3 and the Adaptive switch marked 4"></div>
+          <figcaption class="bb-cap"><span class="trg-step">3</span><span class="trg-step">4</span>Wind smoothing and Adaptive</figcaption>
+        </figure>
+        <figure class="trg-shot">
+          <div class="frame"><img src="../assets/img/ws-bands.webp" width="720" height="1447" loading="lazy" decoding="async" alt="Smoothing per distance band, one level for each band, with the 1000–1500 yd band marked 5"></div>
+          <figcaption class="bb-cap"><span class="trg-step">5</span>A level for each distance band</figcaption>
+        </figure>
+        <figure class="trg-shot">
+          <div class="frame"><img src="../assets/img/ws-levels.webp" width="720" height="1447" loading="lazy" decoding="async" alt="The five levels to choose from: Responsive, Balanced, Smooth, Heavy and Max, marked 5"></div>
+          <figcaption class="bb-cap"><span class="trg-step">5</span>Pick one of five levels</figcaption>
+        </figure>
+      </div>
+
+      <h3>Which to use</h3>
+      <ul>
+        <li>Gusty, switchy wind at long range: go heavier, so your hold doesn't chase every gust.</li>
+        <li>Steady wind that builds slowly, or you want to fire the moment it changes: go lighter.</li>
+        <li>Not sure: leave Adaptive on with the defaults.</li>
+      </ul>
+    </article>
+
+    <hr>
+
+    <p class="hint"><a href="../under-the-hood/">More on how the solver works: Under the Hood&nbsp;&rarr;</a></p>
 
   </div>
 </section>
