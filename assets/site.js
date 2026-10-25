@@ -642,6 +642,12 @@
   });
 
   toggle.addEventListener('click', function () { setMenu(!bar.classList.contains('gn-open')); });
+  // A link to a section of the page you're on doesn't load a new page, so close the menu for it.
+  bar.addEventListener('click', function (e) {
+    if (!e.target.closest('a')) return;
+    closeGroups();
+    if (bar.classList.contains('gn-open')) setMenu(false);
+  });
 
   document.addEventListener('click', function (e) { if (!bar.contains(e.target)) closeGroups(); });
   document.addEventListener('keydown', function (e) {
