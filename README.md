@@ -43,7 +43,7 @@ have drifted.
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Under the Hood (solver technical detail) | `_pages/under-the-hood.html`; its charts are drawn in `assets/site.js` |
-| Truing | `_pages/truing.html`; its three charts are inline SVG in the page |
+| Truing, and adaptive wind smoothing | `_pages/truing.html`; its three charts are inline SVG in the page |
 | Account deletion | `_pages/delete-account.html` |
 | Terms of Use | `_pages/terms.html`, from "Bullseye Ballistics - Terms of Use.docx" |
 | Not-found page | `_pages/404.html` |
