@@ -614,22 +614,30 @@
 
   groups.forEach(function (g) {
     var btn = g.querySelector('button');
-    btn.addEventListener('click', function () {
+    var leaving = 0;
+    btn.addEventListener('click', function (e) {
       var open = !g.classList.contains('gn-show');
+      // With a mouse, hovering already opened it: a click on the button (e.detail is 0 for a
+      // keyboard press) would close the panel just as the pointer heads for its links.
+      if (!open && hover.matches && e.detail > 0) return;
       closeGroups(g);
       g.classList.toggle('gn-show', open);
       btn.setAttribute('aria-expanded', String(open));
     });
     g.addEventListener('mouseenter', function () {
       if (!hover.matches) return;
+      clearTimeout(leaving);
       closeGroups(g);
       g.classList.add('gn-show');
       btn.setAttribute('aria-expanded', 'true');
     });
+    // A short grace period, so a pointer that cuts a corner on its way to a link doesn't close it.
     g.addEventListener('mouseleave', function () {
       if (!hover.matches) return;
-      g.classList.remove('gn-show');
-      btn.setAttribute('aria-expanded', 'false');
+      leaving = setTimeout(function () {
+        g.classList.remove('gn-show');
+        btn.setAttribute('aria-expanded', 'false');
+      }, 250);
     });
   });
 

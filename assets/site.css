@@ -1427,6 +1427,9 @@ section.hero--photo p.lead { color: #DDE3D8; }
   clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
 }
 .gn-group.gn-show .gn-panel { display: block; }
+/* The 10px between a button and its panel belongs to the group, so the pointer can cross it
+   without the panel closing. */
+.gn-group.gn-show::after { content: ""; position: absolute; top: 100%; left: -18px; width: 300px; height: 12px; }
 .gn-panel a { display: block; padding: 10px 12px; text-decoration: none; color: var(--fg); }
 .gn-panel a:hover, .gn-panel a:focus-visible { background: var(--panel-low); }
 .gn-panel a b { display: block; font-weight: 600; font-size: 0.98rem; }
@@ -1460,7 +1463,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   }
   .gn-open .gn-menu { display: flex; }
   .gn-group > button { pointer-events: none; color: var(--muted); font-size: 0.7rem; padding: 18px 0 6px; box-shadow: none; }
-  .gn-group > button::after { display: none; }
+  .gn-group > button::after, .gn-group.gn-show::after { display: none; }
   .gn-group.gn-current > button { color: var(--muted); box-shadow: none; }
   .gn-panel { display: block; position: static; min-width: 0; padding: 0; background: none; border: 0; box-shadow: none; clip-path: none; }
   .gn-panel a, .gn-menu > a:not(.gn-cta) { padding: 13px 0; border-bottom: 1px solid var(--line); min-height: 48px; box-sizing: border-box; }
