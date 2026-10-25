@@ -59,7 +59,7 @@
     <hr>
 
     <!-- ===== SECTION 2: WIND ===== -->
-    <article aria-labelledby="bb-wind-title">
+    <article id="wind" aria-labelledby="bb-wind-title">
       <div class="bb-eyebrow">Under the hood · Wind</div>
       <h2 id="bb-wind-title">How Bullseye turns live wind into a hold</h2>
       <p class="bb-summary"><strong>In short:</strong> we take the last few seconds of sensor wind, weight it toward the newest readings, and smooth it more at longer range. That wind goes into a full flight simulation, and the sideways drift it computes becomes your hold.</p>
@@ -222,7 +222,7 @@
     <hr>
 
     <!-- ===== SECTION 3: ELEVATION ===== -->
-    <article aria-labelledby="bb-elev-title">
+    <article id="elevation" aria-labelledby="bb-elev-title">
       <div class="bb-eyebrow">Under the hood · Elevation</div>
       <h2 id="bb-elev-title">How your elevation hold is worked out</h2>
       <p class="bb-summary">You zero once. Bullseye works out how far your bore is tilted up from your scope’s line of sight at zero, then flies today’s shot at that tilt through today’s air, one millisecond at a time. The hold keeps up as your rifle changes: the weather, the powder temperature, a cold or clean bore, and the barrel's round count.</p>

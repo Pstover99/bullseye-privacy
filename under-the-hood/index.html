@@ -18,8 +18,8 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=e0ec39c70e">
-<script src="../assets/site.js?v=c96cde0bd7" defer></script>
+<link rel="stylesheet" href="../assets/site.css?v=83d94dce31">
+<script src="../assets/site.js?v=7456af1c2c" defer></script>
 </head>
 <body>
 <header class="top gn-header">
@@ -50,6 +50,8 @@
         <button type="button" aria-expanded="false" aria-controls="gn-hood">Under the Hood</button>
         <div class="gn-panel" id="gn-hood">
           <a href="../under-the-hood/" aria-current="page"><b>Solver Technical Detail</b><span>How wind and elevation become a hold</span></a>
+          <a class="gn-sub" href="../under-the-hood/#wind"><b>Wind Hold Calculation</b></a>
+          <a class="gn-sub" href="../under-the-hood/#elevation"><b>Elevation Hold Calculation</b></a>
           <a href="../truing/"><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
         </div>
       </div>
@@ -123,7 +125,7 @@
     <hr>
 
     <!-- ===== SECTION 2: WIND ===== -->
-    <article aria-labelledby="bb-wind-title">
+    <article id="wind" aria-labelledby="bb-wind-title">
       <div class="bb-eyebrow">Under the hood · Wind</div>
       <h2 id="bb-wind-title">How Bullseye turns live wind into a hold</h2>
       <p class="bb-summary"><strong>In short:</strong> we take the last few seconds of sensor wind, weight it toward the newest readings, and smooth it more at longer range. That wind goes into a full flight simulation, and the sideways drift it computes becomes your hold.</p>
@@ -286,7 +288,7 @@
     <hr>
 
     <!-- ===== SECTION 3: ELEVATION ===== -->
-    <article aria-labelledby="bb-elev-title">
+    <article id="elevation" aria-labelledby="bb-elev-title">
       <div class="bb-eyebrow">Under the hood · Elevation</div>
       <h2 id="bb-elev-title">How your elevation hold is worked out</h2>
       <p class="bb-summary">You zero once. Bullseye works out how far your bore is tilted up from your scope’s line of sight at zero, then flies today’s shot at that tilt through today’s air, one millisecond at a time. The hold keeps up as your rifle changes: the weather, the powder temperature, a cold or clean bore, and the barrel's round count.</p>
