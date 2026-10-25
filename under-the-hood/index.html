@@ -125,7 +125,7 @@
       <p>Raw wind data is noisy. If your hold jumped with every flicker of the meter, you'd be chasing numbers instead of shooting. So Bullseye smooths live sensor wind with an <strong>exponential moving average (EMA)</strong>.</p>
       <ul>
         <li><strong>Weighted toward what's happening now.</strong> New readings count the most. Older readings never drop out completely; they just count for less and less. In practice, your hold reflects mostly the last 3 to 5 seconds of wind.</li>
-        <li><strong>Matched to your target distance.</strong> A bullet headed to 1,000 yards is in the air much longer than one headed to 300, so it lives through more of the wind. Bullseye smooths more at longer distances, using distance bands chosen to roughly match bullet flight time.</li>
+        <li><strong>Matched to your target distance.</strong> A bullet headed to 1,000 yards is in the air much longer than one headed to 300, so it lives through more of the wind. Bullseye smooths more at longer distances, using user tunable distance bands chosen to roughly match bullet flight time.</li>
         <li><strong>Direction is averaged correctly.</strong> Wind direction is averaged as a vector, not as raw compass degrees. A wind swinging between 350° and 10° averages to about 0°, as it should, not 180°, which is what a simple average of the numbers would give you.</li>
       </ul>
 
