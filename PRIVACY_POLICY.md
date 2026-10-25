@@ -1,14 +1,14 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: October 10, 2026
+Last updated: October 18, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works on your
 device. There are two exceptions, both optional: you can create an account so your data
-survives a lost phone, and with an account you can ask Sagitta, the app's AI assistant, about
-your shooting. Without an account, the app sends none of your data anywhere. We show no ads, we
-use no analytics or tracking, and we do not sell or share your data.
+survives a lost phone, and with an account and a monthly plan you can ask Sagitta, the app's AI
+assistant, about your shooting. Without an account, the app sends none of your data anywhere. We
+show no ads, we use no analytics or tracking, and we do not sell or share your data.
 
 ## Information the app accesses
 
@@ -25,7 +25,8 @@ use the following device capabilities, processed on your device except where not
   with each saved load, are backed up with it to your own account (see **Cloud backup**), so a
   second phone or a restore can use them. If you ask Sagitta, the app's AI assistant, about
   your shots or a firing solution, the latitude and azimuth go with your question (see
-  **Sagitta** below). If your phone's own backup is on, Android also keeps a copy of them in
+  **Sagitta** below), and with cloud backup on they are kept in that conversation in your
+  backup. If your phone's own backup is on, Android also keeps a copy of them in
   your Google account, as it does for the rest of the app's data. They are sent nowhere else.
 - **Bluetooth and nearby devices.** Used only to connect to optional environmental
   sensors (such as anemometers and weather meters) so the app can read live wind,
@@ -62,7 +63,8 @@ use the following device capabilities, processed on your device except where not
 
 - **Cloud backup (optional, off by default).** You can create an account — with an email
   address and a password, or with Google if you prefer — to back up your rifles, loads, shot
-  log, measured groups, matches, load-development records, barrel and cleaning records and settings so they survive a lost or replaced phone, and to
+  log, measured groups, matches, load-development records, barrel and cleaning records, settings
+  and conversations with Sagitta so they survive a lost or replaced phone, and to
   keep two of your own devices in step. **You do not need a Google
   account**, and you do not need an account at all to use the app. It is off until you create
   one, and signing out stops it.
@@ -75,10 +77,15 @@ use the following device capabilities, processed on your device except where not
   Settings → Account and backup, or follow
   [these instructions](https://bullseyeballisticscalculator.com/delete-account/) if you no
   longer have the app installed. What is uploaded is the same data the app already stores locally — your
-  rifles, loads, shot log, measured groups, matches, load-development records, barrel and cleaning records and settings. That includes the latitude and
+  rifles, loads, shot log, measured groups, matches, load-development records, barrel and cleaning
+  records, settings and conversations with Sagitta. That includes the latitude and
   firing direction saved with each logged shot and each saved load: it is what makes a shot's
-  conditions complete on another phone. **Not** uploaded: audio, target photographs, your
-  longitude, today's weather and location on the Solution screen, paired Bluetooth devices, and
+  conditions complete on another phone. A conversation includes each question and answer, the
+  records Sagitta read to answer it, and whether you applied or dismissed each change it
+  suggested. Those records can include your latitude, firing direction and the Solution
+  screen's weather, when Sagitta used them. **Not** uploaded: audio, target photographs, photos
+  or files you sent to Sagitta, your longitude, today's weather and location on the Solution
+  screen (except where a conversation with Sagitta used them), paired Bluetooth devices, and
   anything about how you use the app. The backup is stored under your own account and no other
   user can read it. Deleting the account deletes all of it, location included.
 
@@ -95,18 +102,20 @@ The app does not access your contacts or your photo library at large.
 
 ## Data stored on your device
 
-Your profiles, shot logs, measured groups, matches, load-development records, barrel and cleaning records, settings, and sensor readings are stored
+Your profiles, shot logs, measured groups, matches, load-development records, barrel and cleaning
+records, settings, conversations with Sagitta, and sensor readings are stored
 locally on your device. Target photographs used by the Group Analyzer are stored in the app's
 private storage, which other apps cannot read. Uninstalling the app removes this data.
 
 Unless you create an account and switch on cloud backup, or ask Sagitta about it (below), the
-app uploads none of it. With backup on, a copy of your rifles, loads, shot log, groups, matches, load-development records, barrel and cleaning records and settings is stored under
-your own account, including the latitude and firing direction saved with each shot and load.
-Target photographs, audio and your longitude are never part of that copy. Your phone stays
-the original; the backup is only ever a copy of it.
+app uploads none of it. With backup on, a copy of your rifles, loads, shot log, groups, matches,
+load-development records, barrel and cleaning records, settings and conversations with Sagitta is
+stored under your own account, including the latitude and firing direction saved with each shot
+and load. Target photographs, audio and your longitude are never part of that copy. Your phone
+stays the original; the backup is only ever a copy of it.
 
 If your phone's own backup is on, Android also keeps a copy of this data in your Google
-account. Target photographs are not part of it.
+account. Target photographs and conversations with Sagitta are not part of it.
 
 ## Sharing features
 
@@ -130,8 +139,8 @@ do not receive, store, or process shared files.
 
 ## Sagitta, the AI assistant (optional)
 
-Sagitta answers questions about your rifles, loads and shooting. It needs an account, and only
-accounts with a plan can use it.
+Sagitta answers questions about your rifles, loads and shooting. It is for adults 18 and older.
+It needs an account and a monthly plan bought in Google Play (see **Purchases**).
 
 - **What is sent.** Each question you ask, with the earlier messages of that conversation,
   goes to our server and on to Google's Gemini model on Google Cloud, which writes the answer.
@@ -144,20 +153,39 @@ accounts with a plan can use it.
   never sent, because the app does not record it. Your device's identifiers are never sent
   either.
 - **Photos and files you attach**, such as a target, a chronograph screen or a match book, are
-  sent once, for that answer, and are not kept by us or in the chat. A photo's hidden details,
-  such as where it was taken, are removed before it is sent.
-- **What we keep.** Your plan, and how much of the month's allowance you have used. We do not
-  keep your questions, answers, the records Sagitta reads, your location, photos or files on
-  our server; your conversations stay on your phone. Our server's logs note that a question was
-  asked and what it cost, never what it said.
+  not kept in the chat. A photo is sent once, for that answer, and not kept by us. A photo's
+  hidden details, such as where it was taken, are removed before it is sent. A PDF is uploaded
+  to our storage on Google Cloud in the United States and kept only until Sagitta reads it. It
+  is deleted right after the read, and never kept more than a day, even if the read doesn't
+  finish. Deleting your account deletes it too.
+- **What we keep.** Your plan (see **Purchases**), how much of each period's allowance you have
+  used, and a record of the Terms of Use you acknowledged (below). We do not keep your
+  questions, answers, the records Sagitta reads, your location, photos or files on our server,
+  apart from an answer you report (below) and a PDF waiting to be read (above). Our server's
+  logs note that a question was asked and what it cost, never what it said.
+- **Your conversations** stay on your phone, and in your backup when cloud backup is on (see
+  **Cloud backup**), so a new phone can show them. The backup holds each question and answer, the
+  records Sagitta read for it, and whether you applied or dismissed each change it suggested.
+  Photos and files you attached are not in it. Deleting a conversation, all of them, or your
+  account deletes the backup's copy too.
 - **Google** processes this data on our behalf as our service provider, and its terms do not
   allow it to use the data to train its models. Google may keep what is sent, photos included,
   and the answer for up to 24 hours, to answer later questions faster. If its automated checks
   flag a question as possible misuse, Google may keep it, with what was sent with it, for up to
   90 days so its staff can review it. These copies expire on their own; we cannot delete them
   sooner.
-- **Deleting your account** also deletes your plan and usage on our server, keeping only a
-  note that the account was closed.
+- **Reports.** If you report an answer, the question, the answer, the reason you picked and any
+  comment you add go to our server with your account, so we can look into it. We keep a report
+  for 90 days, then it is deleted.
+- **The Terms of Use.** The first time you open Sagitta, you tick that you have read and
+  acknowledge the Terms of Use and confirm you are 18 or older. Our server records which
+  version of the Terms you acknowledged, when, that you confirmed you are 18 or older, the app's
+  version, and your account's email address. When the Terms change, you are asked again, and
+  each acknowledgement is recorded. We keep these records as proof that you accepted the Terms.
+- **Deleting your account** also deletes your plan, usage and reports on our server. We keep a
+  note that the account was closed and the records of the Terms you acknowledged, as proof that
+  you accepted them. Deleting your account stops a plan bought in Google Play from renewing,
+  without a refund for the period already paid.
 
 ## Data collection and third parties
 
@@ -165,20 +193,33 @@ We do not sell, rent, or trade your personal data, and we do not profile you. Th
 no advertising and no analytics or tracking SDKs — Google Analytics and Crashlytics were
 removed in August 2026 and are not coming back.
 
-We use two third-party services, and only if you create an account: **Google Firebase**, which
-handles sign-in and stores the backup, and, if you use Sagitta, **Google Cloud's Vertex AI**,
-which runs the model that writes its answers. Google processes that data on our behalf as our
-service provider. If you never create an account, none of your data is sent to them or to us.
+We use these third-party services, and only if you create an account: **Google Firebase**,
+which handles sign-in and stores the backup, and, if you use Sagitta, **Google Cloud's Vertex
+AI**, which runs the model that writes its answers. Google processes that data on our behalf as
+our service provider. If you buy a Sagitta plan, **Google Play** sells it and tells our server
+its state (see **Purchases**). If you never create an account, none of your data is sent to them
+or to us.
 
 ## Purchases
 
-Bullseye Ballistics is a one-time purchase on Google Play with every feature included.
-The app contains no subscriptions, no in-app purchases, and no advertising. Your
-payment is handled entirely by Google Play; we never see or store your payment details.
+Bullseye Ballistics is a one-time purchase on Google Play with every feature included. The one
+optional extra is Sagitta, the AI assistant, sold as a monthly plan in Google Play. The app shows
+no advertising. Our [terms](https://bullseyeballisticscalculator.com/terms/) say how the plans,
+the free trial, renewing and canceling work.
+
+Google Play handles every payment; we never see or store your payment details. When you buy a
+plan, the app sends our server Google Play's purchase token, and our server asks Google Play
+about it. We keep the token and what Google Play says about it: which plan, whether it is in
+its free trial, its state (such as canceled or on hold), when the current period started and
+when it renews or ends, and Google Play's order number. Google Play also tells our server when
+a plan renews, is canceled or ends. Each purchase carries a one-way code made from your
+account's id, so a plan stays with the Bullseye account that bought it. This record is deleted
+with your account.
 
 ## Children
 
-Bullseye is intended for an adult audience and is not directed to children.
+Bullseye is intended for an adult audience and is not directed to children. Sagitta is for
+adults 18 and older only, and asks you to confirm your age before you first use it.
 
 ## Changes to this policy
 
@@ -187,4 +228,4 @@ updated "Last updated" date.
 
 ## Contact
 
-If you have questions about this policy, contact us at appdevcorebridge@gmail.com.
+If you have questions about this policy, contact us at info@BullsEyeBallisticsCalculator.com.
