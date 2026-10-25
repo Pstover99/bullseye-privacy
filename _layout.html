@@ -46,7 +46,13 @@
           <a href="{{ROOT}}matches/"{{CURRENT_MATCHES}}><b>Matches</b><span>From match book to first shot</span></a>
         </div>
       </div>
-      <a href="{{ROOT}}under-the-hood/"{{CURRENT_HOOD}}>Under the Hood</a>
+      <div class="gn-group{{GROUP_HOOD}}">
+        <button type="button" aria-expanded="false" aria-controls="gn-hood">Under the Hood</button>
+        <div class="gn-panel" id="gn-hood">
+          <a href="{{ROOT}}truing/"{{CURRENT_TRUING}}><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
+          <a href="{{ROOT}}under-the-hood/"{{CURRENT_HOOD}}><b>Solver Technical Detail</b><span>How wind and elevation become a hold</span></a>
+        </div>
+      </div>
       <a href="{{ROOT}}comparison/"{{CURRENT_COMPARISON}}>Compare</a>
       <a class="gn-cta" href="{{ROOT}}get-the-app/"{{CURRENT_GET}}>Get the app</a>
     </nav>
