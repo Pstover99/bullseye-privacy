@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=986d90db82">
+<link rel="stylesheet" href="../assets/site.css?v=e70493b5b9">
 <script src="../assets/site.js?v=6014057b20" defer></script>
 </head>
 <body>
@@ -260,6 +260,70 @@
     <p class="bb-cap">Drift grows faster with distance because the bullet slows down and spends longer in the wind. At the target, Bullseye adds wind drift, spin drift and your zero offset, then divides by the range: <strong style="color:var(--bb-fg)">hold = (wind drift + spin drift + zero offset) ÷ range</strong>.</p>
     <div class="bb-note">Top-down view. Sideways scale exaggerated; components drawn in one direction for clarity.</div>
   </figure>
+    </article>
+
+    <hr>
+
+    <!-- ===== SECTION 3: ELEVATION ===== -->
+    <article aria-labelledby="bb-elev-title">
+      <div class="bb-eyebrow">Under the hood · Elevation</div>
+      <h2 id="bb-elev-title">How your elevation hold is worked out</h2>
+      <p class="bb-summary">You zero once. Bullseye works out the angle your rifle was zeroed at, then flies today's shot through today's air, one millisecond at a time. The hold keeps up as your rifle changes: the weather, the powder temperature, a cold or clean bore, and the barrel's round count.</p>
+
+      <h3><span class="bb-step">1</span>Zero once, shoot anywhere</h3>
+      <p>Zero at 1,000 ft, then hunt at 6,000 ft in different weather. You don't re-zero: Bullseye already knows what your zero means.</p>
+      <p>Your scope sits above the bore, so to meet the line of sight at your zero distance, the bore points slightly up. That angle is your zero, and once the scope is set the air can't change it. Bullseye finds it the way you would at the range: it fires a test shot, sees whether it lands high or low at your zero distance, and adjusts until it lands exactly on your zero.</p>
+      <p>That search runs in the conditions of the day you zeroed:</p>
+      <ul>
+        <li>the temperature, pressure and humidity you zeroed in</li>
+        <li>your muzzle velocity that day</li>
+        <li>no wind, no uphill or downhill angle, no Earth spin</li>
+        <li>your zero offset, if your rifle groups a little high or low at zero</li>
+      </ul>
+      <p>Then it flies that same angle through the air where you are now. Enter your zero-day weather once in your rifle's setup. When you arrive somewhere new, fire a check group to confirm the scope didn't move on the trip.</p>
+
+      <h3><span class="bb-step">2</span>Today's shot</h3>
+      <p>Bullseye launches the bullet at your zero angle and follows it to the target in 1-millisecond steps. At every step it adds up what acts on the bullet:</p>
+      <ul>
+        <li><strong>Gravity</strong> pulls it down.</li>
+        <li><strong>Drag</strong> slows it. Drag comes from today's air density (temperature, pressure and humidity), how fast the bullet is going compared with the speed of sound, and your bullet's G1 or G7 drag curve and BC.</li>
+        <li><strong>Shot angle:</strong> uphill or downhill, less of gravity acts across your line of sight, so the hold gets smaller. Bullseye works this out in the full flight, not with the rifleman's rule.</li>
+      </ul>
+      <p>No shortcut formula is used. Drag slows the bullet's fall as well as its forward speed, and only a full flight captures that.</p>
+
+      <h3><span class="bb-step">3</span>Velocity that follows your rifle</h3>
+      <p>At long range, muzzle velocity is one of the biggest drivers of your elevation. Bullseye picks the velocity for this shot, not a single number from the box:</p>
+      <ul>
+        <li><strong>Powder temperature.</strong> Enter your chronograph results at two or more temperatures, and the velocity follows the powder from a cold morning to a hot afternoon.</li>
+        <li><strong>Cold bore.</strong> Enter your cold-bore velocity, and your first shot of the day gets its own hold.</li>
+        <li><strong>Clean bore.</strong> After a cleaning, the first shots use your clean-bore velocity.</li>
+        <li><strong>Barrel wear.</strong> Log velocity checks as your barrel's round count climbs. Once three or more checks show a real trend and you turn on <span class="bb-path">Adjust MV for wear</span>, the velocity follows the count, and the solution says so: "MV −12 fps for barrel wear at 1,240 rounds." It doesn't stretch the trend far past your checks: once you've shot past them, it asks for a new one.</li>
+      </ul>
+
+      <h3><span class="bb-step">4</span>Truing that fixes the right number</h3>
+      <p>When your real dope doesn't match the solution, Bullseye trues it from two distances. Enter the elevation that actually hit at a middle distance and a far one, and it solves for a velocity correction and a drag correction together.</p>
+      <p>Why two: velocity and drag bend the curve in different ways. True from one distance and velocity has to absorb a BC error, so the hold is right at that distance and off at the others. With two, each correction takes the error it should, and the whole curve comes out right. Your bullet's published BC and your measured velocity stay saved as you entered them.</p>
+
+      <h3><span class="bb-step">5</span>The small effects, counted for you</h3>
+      <p>Two effects worth a few inches at 1,000 yd are in every solve. Bullseye works them out from your twist, your wind and your location.</p>
+      <p><strong>Aerodynamic jump.</strong> A crosswind moves your shot up or down as well as sideways. As the bullet leaves the muzzle, the crosswind pushes on its nose. A spinning bullet acts like a gyroscope, so instead of turning downwind, the nose tips straight up or straight down, and keeps that small angle all the way to the target.</p>
+      <div class="bb-scroll">
+        <table class="bb-table">
+          <thead><tr><th scope="col">Twist</th><th scope="col">Wind from</th><th scope="col">Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Right</td><td>3 o'clock</td><td>High</td></tr>
+            <tr><td>Right</td><td>9 o'clock</td><td>Low</td></tr>
+            <tr><td>Left</td><td>3 o'clock</td><td>Low</td></tr>
+            <tr><td>Left</td><td>9 o'clock</td><td>High</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Its size depends on your bullet's stability (Sg) and its length. A typical match bullet in a full 10 mph crosswind moves about 0.4 MOA, roughly 4 in at 1,000 yd.</p>
+      <p><strong>The Eötvös effect.</strong> The Earth turns under the bullet while it flies. Fire east and the bullet travels with the Earth's spin, so it falls a little less and hits high. Fire west and it hits low. Due north or south, there's no effect. At 40° N, a 1,000 yd shot due east lands about 3 in high, or 0.3 MOA. The sideways part of the Earth's spin, Coriolis, goes into your windage hold. Enter your latitude (GPS can fill it in) and your direction of fire, and both are counted.</p>
+
+      <h3><span class="bb-step">6</span>From drop to hold</h3>
+      <p>At the target distance, Bullseye measures how far below your line of sight the bullet is, aerodynamic jump and the Eötvös effect included. The hold is that drop as an angle, in mil or MOA. Spin drift moves the bullet sideways only, so it's in your windage hold, not here.</p>
+      <p>Bullseye also tells you what limits the shot. Your hit chance comes with an error budget: how much of the spread in your impacts comes from each source, with the largest given in mil or MOA. The sources are your wind read, velocity spread, range estimate, BC and your own group size. For elevation at long range, the biggest is usually your velocity spread or your range estimate, so you know what to work on next.</p>
     </article>
 
   </div>
