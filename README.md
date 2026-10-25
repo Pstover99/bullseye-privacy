@@ -15,7 +15,7 @@ redirect them.
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Under the Hood | https://bullseyeballisticscalculator.com/under-the-hood/ |
-| Truing (linked only from Under the Hood) | https://bullseyeballisticscalculator.com/truing/ |
+| Truing | https://bullseyeballisticscalculator.com/truing/ |
 | Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |

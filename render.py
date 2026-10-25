@@ -109,12 +109,13 @@ NAV = {
     "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
     "HUNTING": "hunting/", "MATCHES": "matches/",
-    "HOOD": "under-the-hood/", "COMPARISON": "comparison/", "GET": "get-the-app/",
+    "TRUING": "truing/", "HOOD": "under-the-hood/", "COMPARISON": "comparison/", "GET": "get-the-app/",
 }
 # The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
 NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
     "FIELD": ["HUNTING", "MATCHES"],
+    "HOOD": ["TRUING", "HOOD"],
 }
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
