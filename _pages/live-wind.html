@@ -1,0 +1,99 @@
+  <section class="hero lw-hero">
+    <div class="wrap">
+      <div>
+        <div class="label feature-label"><span class="lw-dot" aria-hidden="true"></span>New feature</div>
+        <h1>Live <span>Wind</span></h1>
+        <p class="lw-tagline">See the wind, not just a number.</p>
+        <p class="lead">Most ballistic apps give you one wind value and a hold. But wind doesn't hold still, and neither should your read of it. <strong>Live Wind</strong> streams readings from your Calypso wind meter straight into the Bullseye Ballistics solver. It shows exactly what the wind is doing, and what it means for your hold, as it happens.</p>
+        <div class="cta-row">
+          <a class="btn btn-outline" href="{{ROOT}}get-the-app/">Get the app</a>
+          <a class="btn btn-outline" href="#how">See how it works</a>
+        </div>
+        <p class="lw-compat">Works with the Calypso Ultrasonic Wind Meter.</p>
+      </div>
+      <div class="lw-media">
+        <div class="frame lw-phone">
+          <video id="lw-video" src="{{ROOT}}assets/video/live-wind.mp4" poster="{{ROOT}}assets/img/live-wind.webp" width="720" height="1612" autoplay muted loop playsinline controls preload="metadata" aria-label="Screen recording of Live Wind in the Bullseye Ballistics app: the wind clock, speed bar and holds updating as a light, switching headwind gusts from about 4 to 7.6 mph."></video>
+        </div>
+        <button class="lw-toggle" type="button" aria-controls="lw-video" hidden>
+          <svg class="lw-i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+          <svg class="lw-i-play" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M4 2.5v11l9-5.5z"/></svg>
+          <span>Pause video</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div id="how">
+  <section class="lw-row" aria-labelledby="lw-f1">
+    <div class="wrap">
+      <div class="copy">
+        <div class="lw-num">01</div>
+        <h2 id="lw-f1">Your dial, front and center.</h2>
+        <p>Elevation and wind hold sit at the top in big, clear numbers rounded to the click, with plain Up and Left arrows. <strong>Glance, dial, shoot.</strong></p>
+      </div>
+      <div class="frame">
+        <img src="{{ROOT}}assets/img/lw-holds.webp" width="720" height="259" loading="lazy" decoding="async" alt="Elevation 8.1 mil up and wind hold 0.6 mil left, shown in large numbers at the top of the Live Wind screen.">
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-row rev" aria-labelledby="lw-f2">
+    <div class="wrap">
+      <div class="copy">
+        <div class="lw-num">02</div>
+        <h2 id="lw-f2">A wind clock that shows the whole picture.</h2>
+        <p>Your target sits at 12 o'clock. The blue arrow shows where the wind is coming from right now. The shaded arc shows how far it has swung over the last two minutes. A quick label like <strong>"Switchy headwind"</strong> tells you what kind of wind you're dealing with before you read a single number.</p>
+      </div>
+      <div class="frame">
+        <img src="{{ROOT}}assets/img/lw-clock.webp" width="720" height="619" loading="lazy" decoding="async" alt="Wind clock with the target at 12 o'clock, a blue arrow showing wind from about 11 o'clock, a shaded arc showing the two-minute swing, and a Switchy headwind label.">
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-row" aria-labelledby="lw-f3">
+    <div class="wrap">
+      <div class="copy">
+        <div class="lw-num">03</div>
+        <h2 id="lw-f3">Wind speed you can read at a glance.</h2>
+        <p>A vertical speed bar shows the wind right now, along with the High, Average and Low over the last two minutes. Each reading has its own box with its speed and the exact hold it calls for, and the current and average winds show where they're coming from. The bar rescales on its own as conditions change, from a 3 mph breeze to a 20 mph blow, so the readings never pile up or run off the scale.</p>
+      </div>
+      <div class="frame">
+        <img src="{{ROOT}}assets/img/lw-speed-bar.webp" width="720" height="490" loading="lazy" decoding="async" alt="Vertical wind speed bar from 2 to 12 mph with marks for High 7.6, Current 6.3, Average 4.6 and Low 3.6 mph, each linked to a box showing its wind hold in mil.">
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-duo" aria-label="More about Live Wind">
+    <div class="wrap">
+      <article class="panel" aria-labelledby="lw-f4">
+        <div class="lw-num">04</div>
+        <h2 id="lw-f4">Holds for every condition, not just the average.</h2>
+        <p>When the wind is switching, the gust isn't always the one that pushes hardest. Live Wind solves a hold for the wind right now and for the High, the Low and the Average. You can see your range of holds before you break the shot, and pick your moment.</p>
+        <div class="lw-holds" aria-hidden="true">
+          <span class="lw-hi"><b>High</b>◀ 0.28</span>
+          <span class="lw-now"><b>Now</b>◀ 0.37</span>
+          <span><b>Avg</b>◀ 0.36</span>
+          <span><b>Low</b>◀ 0.26</span>
+        </div>
+      </article>
+      <article class="panel" aria-labelledby="lw-f5">
+        <div class="lw-num">05</div>
+        <h2 id="lw-f5">Matched to your bullet.</h2>
+        <p>The hold the solver gives you is worked out from wind smoothed over a window matched to your bullet's time of flight, so it reflects the wind your bullet will fly through, not just a split-second gust at the meter. <a href="{{ROOT}}truing/#wind-smoothing">How the smoothing works</a>.</p>
+        <div class="lw-tof" aria-hidden="true"><span>Muzzle</span><span class="lw-track"><span></span></span><span>Target</span></div>
+      </article>
+    </div>
+  </section>
+  </div>
+
+  <section class="lw-close" aria-labelledby="lw-close-h">
+    <div class="wrap">
+      <h2 id="lw-close-h">Bring Live Wind to your <span>next stage.</span></h2>
+      <div class="cta-row">
+        <a class="btn btn-outline" href="{{ROOT}}get-the-app/">Get the app</a>
+        <a class="btn btn-outline" href="{{ROOT}}sensors/">Sensors and setup</a>
+      </div>
+      <p class="lw-compat">Live Wind works with the Calypso Ultrasonic Wind Meter. Pair it in seconds and the solver updates in real time.</p>
+    </div>
+  </section>
