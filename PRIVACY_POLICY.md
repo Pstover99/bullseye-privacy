@@ -1,18 +1,19 @@
 # Privacy Policy for Bullseye Ballistics
 
-Last updated: October 18, 2026
+Last updated: October 26, 2026
 
 Bullseye Ballistics ("Bullseye," "the app") is a long-range shooting ballistics
 calculator developed by Core Bridge, LLC. ("we," "us"). This policy explains what the app
 accesses on your device and how that information is handled. In short: Bullseye works on your
-device. There are two exceptions, both optional: you can create an account so your data
-survives a lost phone, and with an account and a monthly plan you can ask Sagitta, the app's AI
+device. There are two exceptions, both optional: with an account and Premium you can back up
+your data so it survives a lost phone, and with an account and a monthly plan you can ask Sagitta, the app's AI
 assistant, about your shooting. Without an account, the app sends none of your data anywhere. We
 show no ads, we use no analytics or tracking, and we do not sell or share your data.
 
 ## Information the app accesses
 
-Bullseye does not require an account, and every feature but Sagitta works without one. If you
+Bullseye does not require an account, and every feature but Sagitta and cloud backup works
+without one, Premium included. If you
 choose to create one for cloud backup it asks for an email address and a password, or uses your
 Google account if you prefer that — see **Cloud backup** below. To provide its features, the app may
 use the following device capabilities, processed on your device except where noted below:
@@ -69,7 +70,9 @@ use the following device capabilities, processed on your device except where not
   account**, and you do not need an account at all to use the app. It is off until you create
   one, and signing out stops it.
 
-  Backup is switched on and off on the Cloud backup screen, and it is off until you turn it on.
+  Backup is part of Premium (see **Purchases**). It is switched on and off on the Cloud backup
+  screen, and it is off until you turn it on. If Premium ends, backup stops; what is already
+  backed up stays in your account until you delete it.
 
   If you sign up with an email address we ask you to confirm it, which is what lets you reset
   a forgotten password later. Your password is stored by our authentication provider in hashed
@@ -197,17 +200,29 @@ We use these third-party services, and only if you create an account: **Google F
 which handles sign-in and stores the backup, and, if you use Sagitta, **Google Cloud's Vertex
 AI**, which runs the model that writes its answers. Google processes that data on our behalf as
 our service provider. If you buy a Sagitta plan, **Google Play** sells it and tells our server
-its state (see **Purchases**). If you never create an account, none of your data is sent to them
-or to us.
+its state (see **Purchases**). Google Play also sells Premium. If you never create an account,
+none of your data is sent to them or to us.
 
 ## Purchases
 
-Bullseye Ballistics is a one-time purchase on Google Play with every feature included. The one
-optional extra is Sagitta, the AI assistant, sold as a monthly plan in Google Play. The app shows
-no advertising. Our [terms](https://bullseyeballisticscalculator.com/terms/) say how the plans,
-the free trial, renewing and canceling work.
+Bullseye Ballistics is free on Google Play. Two optional subscriptions are sold in Google Play,
+and either can be bought without the other: **Premium**, which adds features to the app, and
+**Sagitta**, the AI assistant, sold as a monthly plan. The app shows no advertising. Our
+[terms](https://bullseyeballisticscalculator.com/terms/) say how the plans, the free trial,
+renewing and canceling work.
 
-Google Play handles every payment; we never see or store your payment details. When you buy a
+Google Play handles every payment; we never see or store your payment details.
+
+**Premium** needs no account. Google Play keeps the purchase, and the app asks Google Play on
+your phone whether you have it; the app does not send it to us. So that Premium works offline,
+the app keeps a small note on your phone: when Google Play last confirmed Premium, and when a
+free trial or Premium given by hand (below) ends. That note is not part of Android's phone
+backup. Google Play tells our server when a Premium subscription changes, as it does for
+Sagitta's plans; our server keeps nothing about it. If we give an account Premium by hand, for a tester, our server keeps when it ends and a
+short note on who gave it, and the app checks for it about once a day while you are signed in.
+That record is deleted with your account.
+
+**Sagitta's plans** need an account. When you buy a
 plan, the app sends our server Google Play's purchase token, and our server asks Google Play
 about it. We keep the token and what Google Play says about it: which plan, whether it is in
 its free trial, its state (such as canceled or on hold), when the current period started and
