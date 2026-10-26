@@ -40,9 +40,9 @@ PAGES = [
     ("features/index.html", "_pages/features.html", "../",
      "Features · Bullseye Ballistics",
      "Every feature, screen by screen: Sagitta Ballistics AI, the solution card, live sensors, "
-     "the solver, rifles and loads, the shot log, groups, matches, voice calls, the external "
-     "HUD, the stability calculator, backup, the gun number, barrel care, load development, "
-     "Hunting Zero and Hunt Mode."),
+     "Live Wind, the solver, rifles and loads, the shot log, groups, matches, voice calls, the "
+     "external HUD, the stability calculator, backup, the gun number, barrel care, load "
+     "development, Hunting Zero and Hunt Mode."),
     ("comparison/index.html", "_pages/comparison.html", "../",
      "Comparison · Bullseye Ballistics",
      "Compare Bullseye Ballistics to other popular solver apps, feature by feature: firing "
@@ -67,6 +67,10 @@ PAGES = [
      "Upload a match book or photograph a stage card, and Sagitta sets up the match in Bullseye "
      "Ballistics: every stage, position, target, distance and size, with the Match Director's "
      "notes. Then step through every target at the line."),
+    ("live-wind/index.html", "_pages/live-wind.html", "../",
+     "Live Wind · Bullseye Ballistics",
+     "Live Wind streams your Calypso wind meter into the Bullseye Ballistics solver: a wind "
+     "clock, a 2-minute speed bar and a hold for every condition, updated in real time."),
     ("under-the-hood/index.html", "_pages/under-the-hood.html", "../",
      "Under the Hood · Bullseye Ballistics",
      "How Bullseye Ballistics turns live wind into a hold: smoothing matched to your target "
@@ -108,13 +112,13 @@ PAGES = [
 NAV = {
     "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
-    "HUNTING": "hunting/", "MATCHES": "matches/",
+    "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
     "TRUING": "truing/", "HOOD": "under-the-hood/", "COMPARISON": "comparison/", "GET": "get-the-app/",
 }
 # The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
 NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
-    "FIELD": ["HUNTING", "MATCHES"],
+    "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
     "HOOD": ["TRUING", "HOOD"],
 }
 

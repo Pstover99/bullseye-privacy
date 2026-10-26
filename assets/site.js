@@ -9,6 +9,7 @@
  *   .tour-links      the feature tour's bar marks the section on screen
  *   #bb-ema          Under the Hood: draws the wind charts and the drift diagram
  *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
+ *   #lw-video        Live Wind: swaps the video's own controls for one Pause/Play button
  */
 // Grouped site nav: dropdowns on wide screens, a full menu on phones. First, so that an error in
 // any page's own code below can't stop the nav from working.
@@ -76,6 +77,34 @@
     if (bar.classList.contains('gn-open')) { setMenu(false); toggle.focus(); }
   });
   window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
+})();
+
+// Live Wind video: one Pause/Play button in place of the browser's controls, and no autoplay
+// for visitors who ask for reduced motion. Without the script the video keeps its controls.
+(function () {
+  var v = document.getElementById('lw-video');
+  var b = document.querySelector('.lw-toggle');
+  if (!v || !b) return;
+  var label = b.querySelector('span');
+  var pauseIcon = b.querySelector('.lw-i-pause');
+  var playIcon = b.querySelector('.lw-i-play');
+  function sync() {
+    label.textContent = v.paused ? 'Play video' : 'Pause video';
+    pauseIcon.hidden = v.paused;
+    playIcon.hidden = !v.paused;
+  }
+  v.removeAttribute('controls');
+  b.hidden = false;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+  }
+  b.addEventListener('click', function () {
+    if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+  });
+  v.addEventListener('play', sync);
+  v.addEventListener('pause', sync);
+  sync();
 })();
 
 (() => {

@@ -14,6 +14,7 @@ redirect them.
 | Comparison | https://bullseyeballisticscalculator.com/comparison/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
+| Live Wind | https://bullseyeballisticscalculator.com/live-wind/ |
 | Under the Hood | https://bullseyeballisticscalculator.com/under-the-hood/ |
 | Truing | https://bullseyeballisticscalculator.com/truing/ |
 | Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
@@ -48,6 +49,7 @@ have drifted.
 | Comparison | `_pages/comparison.html` (the table is edited here; the old .md is retired) |
 | External Display and its simulator | `_pages/external-display.html` |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
+| Live Wind | `_pages/live-wind.html`; its video is `assets/video/live-wind.mp4`, with `assets/img/live-wind.webp` as the poster |
 | Under the Hood (solver technical detail) | `_pages/under-the-hood.html`; its charts are drawn in `assets/site.js` |
 | Truing, and adaptive wind smoothing | `_pages/truing.html`; its three charts are inline SVG in the page |
 | Account deletion | `_pages/delete-account.html` |
@@ -55,7 +57,7 @@ have drifted.
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
 | Look | `assets/site.css` |
-| Carousels, the home showcase, the full-size viewer, the External Display simulator, the nav's dropdowns and phone menu | `assets/site.js` |
+| Carousels, the home showcase, the full-size viewer, the External Display simulator, the nav's dropdowns and phone menu, the Live Wind video's Pause/Play button | `assets/site.js` |
 
 `PRIVACY_POLICY.md` is a copy of `docs/PRIVACY_POLICY.md` in the app repo, which is the source of
 truth. Copy it over, re-render, commit.

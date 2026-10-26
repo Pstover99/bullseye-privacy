@@ -37,10 +37,10 @@
 
   <nav class="tour-bar" aria-label="Sections">
     <div class="wrap">
-      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
+      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       <details class="tour-menu">
         <summary><span class="label">Sections</span></summary>
-        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
+        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       </details>
     </div>
   </nav>
@@ -227,7 +227,32 @@
     </div>
   </section>
 
-  <section class="tour rev" id="solver">
+  <section class="tour rev" id="live-wind">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label feature-label">New feature</div>
+        <h2>Live Wind</h2>
+        <p>See the wind, not just a number. Live Wind streams readings from your Calypso wind meter straight into the solver and shows what the wind is doing, and what it means for your hold, as it happens.</p>
+        <ul>
+          <li><strong>Your dial, front and center.</strong> Elevation and wind hold in big numbers, rounded to the click, with plain Up and Left arrows.</li>
+          <li><strong>A wind clock</strong> with your target at 12 o'clock, an arrow for where the wind is coming from right now, the arc it has swung through over the last two minutes, and a label like "Switchy headwind".</li>
+          <li><strong>A speed bar</strong> with the wind right now and the High, Average and Low over the last two minutes, each with the hold it calls for. It rescales on its own as the wind picks up or drops.</li>
+          <li><strong>Holds for every condition:</strong> the wind right now, the High, the Low and the Average, so you see your range of holds before you break the shot.</li>
+        </ul>
+        <p class="hint"><a href="{{ROOT}}live-wind/">See Live Wind in action&nbsp;&rarr;</a></p>
+      </div>
+      <div class="carousel single" data-carousel>
+        <div class="track">
+        <figure>
+          <div class="frame"><img src="{{ROOT}}assets/img/live-wind.webp" width="720" height="1612" loading="lazy" decoding="async" alt="Live Wind at 1,024 yards: elevation 8.1 mil up and wind hold 0.6 mil left, a wind clock showing a switchy headwind from about 11 o'clock with its two-minute swing, and a speed bar with High 4.9, Current 4.5, Average 4.1 and Low 3.4 mph, each with its hold."></div>
+          <figcaption><div class="label">Live Wind</div><p>The wind over the last two minutes, and the hold for each reading.</p></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour" id="solver">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Ballistic solver</div>
@@ -293,7 +318,7 @@
     </div>
   </section>
 
-  <section class="tour" id="earth">
+  <section class="tour rev" id="earth">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Coriolis, spin drift and jump</div>
@@ -318,7 +343,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="rifles">
+  <section class="tour" id="rifles">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Rifles and loads</div>
@@ -369,7 +394,7 @@
     </div>
   </section>
 
-  <section class="tour" id="log">
+  <section class="tour rev" id="log">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Shot log and analysis</div>
@@ -404,7 +429,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="groups">
+  <section class="tour" id="groups">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Groups and group analysis</div>
@@ -453,7 +478,7 @@
     </div>
   </section>
 
-  <section class="tour" id="matches">
+  <section class="tour rev" id="matches">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Matches</div>
@@ -478,7 +503,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="voice">
+  <section class="tour" id="voice">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Voice shot calls</div>
@@ -507,7 +532,7 @@
     </div>
   </section>
 
-  <section class="tour" id="hud">
+  <section class="tour rev" id="hud">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">External HUD display</div>
@@ -535,7 +560,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="stability">
+  <section class="tour" id="stability">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Stability Calculator</div>
@@ -615,7 +640,7 @@
     </div>
   </section>
 
-  <section class="tour" id="backup">
+  <section class="tour rev" id="backup">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Account and cloud backup</div>
@@ -644,7 +669,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="tools">
+  <section class="tour" id="tools">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Tools</div>
@@ -691,7 +716,7 @@
     </div>
   </section>
 
-  <section class="tour" id="gun-number">
+  <section class="tour rev" id="gun-number">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Gun number</div>
@@ -730,7 +755,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="settings">
+  <section class="tour" id="settings">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Settings and appearance</div>
@@ -762,7 +787,7 @@
     </div>
   </section>
 
-  <section class="tour" id="barrel">
+  <section class="tour rev" id="barrel">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Barrel life, cleaning logs and reminders</div>
@@ -793,7 +818,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="loaddev">
+  <section class="tour" id="loaddev">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Load development</div>
@@ -825,7 +850,7 @@
     </div>
   </section>
 
-  <section class="tour" id="hunting">
+  <section class="tour rev" id="hunting">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Hunting Zero</div>
@@ -865,7 +890,7 @@
     </div>
   </section>
 
-  <section class="tour rev" id="hunt-mode">
+  <section class="tour" id="hunt-mode">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Hunt Mode</div>
@@ -912,7 +937,7 @@
     </div>
   </section>
 
-  <section class="tour" id="platform">
+  <section class="tour rev" id="platform">
     <div class="wrap">
       <div class="copy">
         <div class="label feature-label">Platform and data</div>
