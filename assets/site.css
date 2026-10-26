@@ -334,6 +334,17 @@ details.more > summary:focus-visible { outline: 2px solid var(--accent); outline
 
 /* Footer: the copyright line, on every page (render.py checks it is there). */
 footer .legal { display: block; margin-top: 28px; }
+
+/* Footer: Facebook and Instagram, under the support line. The tile's cut corners are on ::before
+   so the clip doesn't hide the link's focus outline. */
+.social-wrap { margin-top: 22px; }
+.social { display: flex; gap: 10px; list-style: none; margin: 10px 0 0; padding: 0; }
+.social a { position: relative; isolation: isolate; display: grid; place-items: center; width: 44px; height: 44px; color: var(--fg); transition: color .15s, transform .15s; }
+.social a::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--panel); clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); transition: background .15s; }
+.social a:hover { color: var(--bg); transform: translateY(-2px); }
+.social a:hover::before { background: var(--accent); }
+.social svg { width: 20px; height: 20px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .social a, .social a::before { transition: none; } .social a:hover { transform: none; } }
 .copyright { margin: 0; padding-top: 18px; border-top: 1px solid var(--line); font: 400 0.78rem/1.5 var(--font-mono); color: var(--muted); }
 
 /* Notes-voice extras: a pull quote, and a hint line. */
