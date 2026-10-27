@@ -694,14 +694,15 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
 
 /* External Display page: scope mount. A photo hero, then the details. The hero stays dark in
    either theme and fades into the page at the bottom. Paths are relative to assets/site.css.
-   The display sits left of center in the photo, so the text goes on the right. */
+   The display sits left of center in the photo and the turret lower right, so the text goes
+   top right, over the grass. */
 .ext-mount-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border-top: 1px solid var(--line);
   scroll-margin-top: 16px;
-  min-height: clamp(780px, 54vw, 900px);   /* the turret's top is 46% down the photo; the text needs ~360px above it */
+  min-height: clamp(780px, 66.7vw, 1100px);   /* the photo's shape; the turret's top is 47% down it and the text needs ~360px */
   padding-top: 40px;   /* keeps the text clear of the turret */
   display: flex;
   align-items: flex-start;   /* text over the trees, the display and turret below it */
@@ -722,7 +723,7 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
     url("img/ext-mount-hero-bg-1500.jpg") type("image/jpeg"));
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;   /* treeline, display and turret in frame */
+  background-position: 50% 85%;   /* display and turret in frame when the hero is cut */
   filter: saturate(.9) contrast(1.05);
 }
 .ext-mount-hero::after {
