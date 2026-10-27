@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=0a9f43f9b2">
+<link rel="stylesheet" href="../assets/site.css?v=bbd7a32bfa">
 <script src="../assets/site.js?v=131a440204" defer></script>
 </head>
 <body>
@@ -47,6 +47,7 @@
           <a class="gn-sub" href="../hunting/#hunting-zero"><b>Hunting Zero Calculator</b></a>
           <a href="../matches/" aria-current="page"><b>Matches</b><span>From match book to first shot</span></a>
           <a class="gn-sub" href="../matches/#how"><b>Import Match Book</b></a>
+          <a class="gn-sub" href="../matches/#review"><b>Match Book Review</b></a>
           <a href="../live-wind/"><b>Live Wind</b><span>See the wind, not just a number</span></a>
         </div>
       </div>
@@ -98,6 +99,75 @@
         <article class="panel"><h3>Shoot it</h3><p>Start a stage and tap Next after each shot. The solver already has the next distance.</p></article>
       </div>
       <p class="mx-note">Sagitta AI points out when the math doesn't math and clarity is required from the MD (happens sometimes, no big deal). You should still walk the course either way, and while doing so, capture the DOF at the stages so the solver can bake in Coriolis to your solves (optional, but a little exercise won't kill you).</p>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="review">
+    <div class="wrap">
+      <div class="label">Before it builds</div>
+      <h2>Sagitta reads the match book first</h2>
+      <p class="mx-intro">Match books leave things out. A target listed as <strong>near</strong> with no distance. A round count that doesn't match the course of fire. Sagitta Ballistics AI catches these before it builds anything, so you know what to ask the MD.</p>
+
+      <div class="rv-beat mx-split">
+        <div class="mx-copy">
+          <span class="rv-num">01</span>
+          <h3>It reads every stage</h3>
+          <p>Upload the match book PDF, or a photo of one stage card. Sagitta reads the rules, the course of fire and the target list the way the MD wrote them.</p>
+        </div>
+        <figure>
+          <div class="frame"><img src="../assets/img/mx-review-stage-card.webp" width="720" height="364" loading="lazy" decoding="async" alt="Printed stage card for Stage 1, Unlock the KYL: unlimited gear, hit to move, 120 seconds, 10 rounds 10 points. The shooter alternates between a near target and the 500 m KYL rack, largest to smallest, with a mag change after every impact."></div>
+          <figcaption><div class="label">Stage 1, Unlock the KYL</div><p>10 rounds in 120 seconds. Hit the near target to unlock each KYL plate. The card gives no distance for the near target and no plate sizes.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="rv-beat mx-split rev">
+        <div class="mx-copy">
+          <span class="rv-num">02</span>
+          <h3>It tells you what's missing</h3>
+          <p>Before building the match, Sagitta lists what it couldn't find or what doesn't add up.</p>
+          <ul class="rv-flags">
+            <li><strong>Stage 1:</strong> the near target has no distance.</li>
+            <li><strong>Stage 4:</strong> four targets named near left, far left, near right and far right, with no distances.</li>
+            <li><strong>Stage 4:</strong> the header says 12 rounds, but the course of fire has 8 shots.</li>
+            <li><strong>Every stage:</strong> no target sizes.</li>
+          </ul>
+          <div class="rv-choices">
+            <div class="panel">
+              <div class="label">Know the answer?</div>
+              <h3>Tell Sagitta now</h3>
+              <p>Type the distances or round counts into the chat. Sagitta adds them before it builds the match.</p>
+            </div>
+            <div class="panel">
+              <div class="label">Still asking the MD?</div>
+              <h3>Proceed and track answers down</h3>
+              <p>Tell Sagitta to go ahead and it builds the match as read. Add what's missing when you know the answers.</p>
+            </div>
+          </div>
+        </div>
+        <figure class="mx-one">
+          <div class="frame"><img src="../assets/img/mx-review-sagitta.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Sagitta chat after reading GuyJmatch.pdf, 6 stages and 26 targets, titled Guy Match 2. It lists the missing near target distance on Stage 1, unnamed distances and a round count mismatch on Stage 4, and missing target sizes, then asks for the answers or a go-ahead. The shooter replies Proceed."></div>
+          <figcaption><div class="label">Sagitta's read</div><p>Guy Match 2: 6 stages, 26 targets, four things to check. Answer in the chat, or tell it to go ahead.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="rv-beat">
+        <div class="mx-copy">
+          <span class="rv-num">03</span>
+          <h3>The match is built for you</h3>
+          <p>Every stage gets its time limit, points, positions, targets and the course of fire in shooting order. Distances and sizes come through wherever the match book has them.</p>
+        </div>
+        <div class="mx-phones rv-pair" style="--n:2">
+          <figure>
+            <div class="frame"><img src="../assets/img/mx-review-stage-built.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Stage 1, Unlock the KYL, in Guy Match 2: 120 seconds, 10 points, 10 steps, 1 position. A Review flag says the KYL plate count of 5 was worked out from 10 points. The course of fire alternates near and KYL 1 through KYL 5."></div>
+            <figcaption><div class="label">Stage 1, built</div><p>Near, KYL 1, near, KYL 2, on down the rack. Sagitta worked out five plates from the 10 points and flags it for you to review.</p></figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="../assets/img/mx-review-stage-rules.webp" width="720" height="1600" loading="lazy" decoding="async" alt="Stage rules dialog for Stage 1: time limit 120 seconds, max points 10, an empty round limit, end rule set to Normal with First miss as the other choice, and an empty position rule."></div>
+            <figcaption><div class="label">Stage rules</div><p>Time limit, max points, round limit, end rule and position rule. Change any of them from the stage.</p></figcaption>
+          </figure>
+        </div>
+        <p class="mx-note"><strong>Got the answer later?</strong> Open the stage and add the distance, size or round count. Nothing needs rebuilding.</p>
+      </div>
     </div>
   </section>
 
