@@ -624,6 +624,87 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
 .ext-notes { margin-top: 14px; }
 .ext-notes .panel p strong { color: var(--fg); font-weight: 600; }
 
+/* External Display page: scope mount. A photo hero, then the details. The hero stays dark in
+   either theme and fades into the page at the bottom. Paths are relative to assets/site.css.
+   The display sits left of center in the photo, so the text goes on the right. */
+.ext-mount-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 16px;
+  min-height: clamp(780px, 54vw, 900px);   /* the turret's top is 46% down the photo; the text needs ~360px above it */
+  padding-top: 40px;   /* keeps the text clear of the turret */
+  display: flex;
+  align-items: flex-start;   /* text over the trees, the display and turret below it */
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  color: var(--fg);
+}
+.ext-mount-hero .wrap { width: 100%; display: flex; justify-content: flex-end; }
+.ext-mount-copy { max-width: 480px; }
+.ext-mount-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #101311;
+  background-image: url("img/ext-mount-hero-bg-1500.jpg");
+  background-image: image-set(
+    url("img/ext-mount-hero-bg-1500.webp") type("image/webp"),
+    url("img/ext-mount-hero-bg-1500.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;   /* treeline, display and turret in frame */
+  filter: saturate(.9) contrast(1.05);
+}
+.ext-mount-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(16, 19, 17, .35) 0%, transparent 18%, transparent 86%, var(--bg) 100%),
+    linear-gradient(235deg,
+      rgba(16, 19, 17, .92) 0%,
+      rgba(16, 19, 17, .78) 30%,
+      rgba(16, 19, 17, .30) 50%,
+      transparent 66%);
+}
+.ext-mount-hero h2,
+.ext-mount-hero p.lead { text-shadow: 0 2px 18px rgba(0, 0, 0, .45); }
+.ext-mount-hero p.lead { color: #DDE3D8; font-size: 1.1rem; }   /* the site sizes leads only under .hero */
+.ext-mount-hero + .ext-mount { padding-top: 24px; }   /* room for the fade above the cards */
+.ext-mount .grid { margin-top: 36px; }
+.ext-mount-hero + .ext-mount > .wrap > .grid:first-child { margin-top: 0; }
+.ext-mount h3.ext-sub { font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; margin: 56px 0 18px; }
+.ext-mount figure { margin: 0; min-width: 0; }
+.ext-mount figcaption { margin-top: 14px; color: var(--muted); font-size: 0.92rem; }
+.ext-mount figcaption b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 2px; }
+.ext-mount figcaption p { margin: 0; }
+.ext-mount .split figure { display: flex; flex-direction: column; }
+/* Phones and tablets: the photo on top, the text below it on the dark ground. */
+@media (max-width: 900px) {
+  .ext-mount-hero { min-height: 0; display: block; padding-top: calc(75vw - 40px); }
+  .ext-mount-hero .wrap { justify-content: flex-start; }
+  .ext-mount-copy { max-width: none; }
+  .ext-mount-hero::before {
+    background-image: url("img/ext-mount-hero-bg-900.jpg");
+    background-image: image-set(
+      url("img/ext-mount-hero-bg-900.webp") type("image/webp"),
+      url("img/ext-mount-hero-bg-900.jpg") type("image/jpeg"));
+    background-size: 100% auto;
+    background-position: 50% 0;
+  }
+  .ext-mount-hero::after {
+    background: linear-gradient(180deg,
+      transparent 0,
+      transparent calc(75vw - 150px),
+      rgba(16, 19, 17, .94) calc(75vw - 10px),
+      rgba(16, 19, 17, .94) calc(100% - 48px),
+      var(--bg) 100%);
+  }
+}
+
 /* External Display simulator. The device is drawn on a 616-unit grid (a 480 x 270 screen) and
    scales with the page: --u is one unit of the device's width. The colors are the device's own,
    so they do not follow the site theme. */
