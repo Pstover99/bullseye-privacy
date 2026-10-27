@@ -47,7 +47,7 @@ have drifted.
 | Sensors | `_pages/sensors.html` |
 | Get the app (store badges are `assets/img/badge-*`, unlinked until the app is in each store) | `_pages/get-the-app.html` |
 | Comparison | `_pages/comparison.html` (the table is edited here; the old .md is retired) |
-| External Display, its simulator and the scope mount | `_pages/external-display.html`; the scope mount's hero photo is set in `assets/site.css` (`ext-mount-hero-bg-*`) |
+| External Display, its simulator and the scope mount | `_pages/external-display.html`; the photos behind its two heroes are set in `assets/site.css` (`ext-hero-bg-*` at the top, `ext-mount-hero-bg-*` for the scope mount) |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Live Wind | `_pages/live-wind.html`; its video is `assets/video/live-wind.mp4`, with `assets/img/live-wind.webp` as the poster |
 | Under the Hood (solver technical detail) | `_pages/under-the-hood.html`; its charts are drawn in `assets/site.js` |

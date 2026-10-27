@@ -620,7 +620,75 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
 }
 
 /* External Display page */
-.ext-hero .frame { max-width: 380px; }
+/* The hero's photo: the display on the scope, with hills and trees behind. The text sits over
+   the trees, top left, and the display and turret along the bottom, so the hero is tall enough
+   for the display to clear the text. It stays dark in either theme and fades into the page at
+   the bottom. Paths are relative to assets/site.css. */
+.ext-hero--photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(820px, 70vw, 1000px);
+  display: flex;
+  align-items: flex-start;
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  --accent-soft: rgba(67, 34, 14, .85);
+  color: var(--fg);
+}
+.ext-hero--photo .wrap { width: 100%; grid-template-columns: minmax(0, 1fr); }
+.ext-hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #101311;
+  background-image: url("img/ext-hero-bg-1500.jpg");
+  background-image: image-set(
+    url("img/ext-hero-bg-1500.webp") type("image/webp"),
+    url("img/ext-hero-bg-1500.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 85%;   /* keeps the display and turret in frame when the top is cut */
+  filter: saturate(.9) contrast(1.05);
+}
+.ext-hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, transparent 88%, var(--bg) 100%),
+    linear-gradient(120deg,
+      rgba(16, 19, 17, .90) 0%,
+      rgba(16, 19, 17, .72) 28%,
+      rgba(16, 19, 17, .28) 46%,
+      transparent 60%);
+}
+.ext-hero--photo h1,
+.ext-hero--photo p.lead { text-shadow: 0 2px 18px rgba(0, 0, 0, .45); }
+.ext-hero--photo p.lead { color: #DDE3D8; }
+.ext-hero--photo + section.flush { padding-top: 24px; }   /* room for the fade above the cards */
+/* Phones and tablets: the photo on top, the text below it on the dark ground. */
+@media (max-width: 900px) {
+  .ext-hero--photo { min-height: 0; display: block; padding-top: calc(87.4vw - 40px); }
+  .ext-hero--photo .wrap { padding-top: 0; }
+  .ext-hero--photo::before {
+    background-image: url("img/ext-hero-bg-900.jpg");
+    background-image: image-set(
+      url("img/ext-hero-bg-900.webp") type("image/webp"),
+      url("img/ext-hero-bg-900.jpg") type("image/jpeg"));
+    background-size: 100% auto;
+    background-position: 50% 0;
+  }
+  .ext-hero--photo::after {
+    background: linear-gradient(180deg,
+      transparent 0,
+      transparent calc(87.4vw - 150px),
+      rgba(16, 19, 17, .94) calc(87.4vw - 10px),
+      rgba(16, 19, 17, .94) calc(100% - 48px),
+      var(--bg) 100%);
+  }
+}
 .ext-notes { margin-top: 14px; }
 .ext-notes .panel p strong { color: var(--fg); font-weight: 600; }
 
