@@ -1926,3 +1926,82 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .lw-why-cols { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .lw-row .wrap > .lw-why { padding: 24px 20px 26px; }
 }
+
+/* Hit Probability: Truing's page head with the shot-cloud figure beside it, then the Under the
+   Hood write-up styles. The shot cloud is drawn into the page, so it is the same on every visit. */
+.hp-head .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.hp-head .intro { margin-bottom: 0; }
+.hp-fig { margin: 0; min-width: 0; }
+.hp-fig svg { display: block; width: 100%; height: auto; }
+.hp-fig .hp-axis line { stroke: var(--line); }
+.hp-fig .hp-target { fill: var(--panel); stroke: var(--fg); stroke-width: 1.5; }
+.hp-fig .hp-ring { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.hp-fig .hp-ring--outer { stroke-width: 1; stroke-dasharray: 2 5; opacity: 0.7; }
+.hp-fig .hp-hit { fill: var(--accent); }
+.hp-fig .hp-miss { fill: none; stroke: var(--line-strong); stroke-width: 1.4; }
+.hp-fig .hp-aim line { stroke: var(--accent); stroke-width: 1.6; }
+.hp-fig text { font: 10px var(--font-mono); fill: var(--muted); }
+.hp-keys { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font: 400 0.75rem/1.4 var(--font-mono); color: var(--muted); }
+.hp-keys span { display: inline-flex; align-items: center; gap: 6px; }
+.hp-keys i { width: 9px; height: 9px; border-radius: 50%; }
+.hp-keys .hit { background: var(--accent); }
+.hp-keys .miss { border: 1.5px solid var(--line-strong); }
+.hp-keys .ring { width: 16px; height: 0; border-radius: 0; border-top: 1.5px dashed var(--muted); }
+.bb-tech .hp-inputs { list-style: none; padding: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; }
+.bb-tech .hp-inputs li { background: var(--bb-panel); border: 1px solid var(--bb-line); border-left: 3px solid var(--bb-line-strong); padding: 14px 16px; display: grid; gap: 4px; min-width: 0; }
+.bb-tech .hp-inputs b { font: 700 0.85rem/1.2 var(--bb-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--bb-muted); }
+.bb-tech .hp-costs { margin: 0; border-top: 1px solid var(--bb-line); max-width: 68ch; }
+.bb-tech .hp-costs div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--bb-line); align-items: baseline; }
+.bb-tech .hp-costs dt { font: 500 0.8rem/1.3 var(--bb-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--bb-accent-text); }
+.bb-tech .hp-costs dd { margin: 0; }
+.bb-tech .hp-table { width: 100%; min-width: 480px; }
+.bb-tech .hp-table tbody th {
+  font: 600 0.95rem/1.3 var(--bb-body); letter-spacing: 0; text-transform: none; color: var(--bb-fg);
+  padding: 11px 22px; border-bottom: 1px solid var(--bb-line); vertical-align: baseline;
+}
+.bb-tech .hp-table td { padding-block: 11px; vertical-align: baseline; }
+.bb-tech .hp-table tbody tr:last-child th { border-bottom: 0; }
+.bb-tech .hp-table td.v { font: 600 1.05rem/1.2 var(--bb-mono); font-variant-numeric: tabular-nums; color: var(--bb-fg); }
+.bb-tech .hp-table td:last-child { font-weight: 400; font-size: 0.9rem; color: var(--bb-muted); white-space: normal; }
+.bb-tech .hp-callout {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: start; max-width: none;
+  background: var(--bb-panel); border: 1px solid var(--bb-line); border-left: 3px solid var(--flag); padding: 14px 18px;
+}
+.bb-tech .hp-callout b { font: 500 0.75rem/2 var(--bb-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--flag); }
+.bb-tech .hp-tiers { list-style: none; padding: 0; gap: 14px; max-width: none; }
+.bb-tech .hp-tiers li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; }
+.bb-tech .hp-tiers .n { font: 700 2.1rem/1 var(--bb-display); color: var(--bb-accent-text); text-align: center; padding-top: 18px; border-right: 2px solid var(--bb-line); }
+.bb-tech .hp-tiers li > div {
+  background: var(--bb-panel); border: 1px solid var(--bb-line); padding: 18px 22px; display: grid; gap: 8px; min-width: 0;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.bb-tech .hp-tiers h3 { margin: 0; font-size: 1.25rem; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.bb-tech .hp-tiers .chip { font: 500 0.68rem/1 var(--bb-mono); letter-spacing: 0.08em; padding: 5px 8px; border: 1px solid var(--bb-line-strong); color: var(--bb-muted); }
+.bb-tech .hp-tiers .best .chip { border-color: var(--bb-accent); color: var(--bb-accent-text); }
+.bb-tech .hp-tiers p.m { color: var(--bb-muted); }
+.bb-tech .hp-rule { font-weight: 500; }
+.bb-tech .hp-cta {
+  background: var(--bb-accent); color: #1A0B02; padding: 22px 24px; display: grid; gap: 14px; margin-top: 8px;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.bb-tech .hp-cta p { font: 700 clamp(1.25rem, 3vw, 1.65rem)/1.15 var(--bb-display); letter-spacing: 0.04em; text-transform: uppercase; max-width: none; }
+.bb-tech .hp-cta ul { list-style: none; padding: 14px 0 0; display: flex; flex-wrap: wrap; gap: 8px 28px; border-top: 1px solid currentColor; font: 400 0.9rem/1.3 var(--bb-mono); max-width: none; }
+.bb-tech .hp-cta b { font-weight: 600; }
+@media (max-width: 760px) {
+  .hp-head .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .bb-tech .hp-inputs { grid-template-columns: minmax(0, 1fr); }
+  .bb-tech .hp-costs div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .bb-tech .hp-tiers li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .bb-tech .hp-tiers .n { font-size: 1.75rem; }
+}
+/* On a phone the error table stacks: each error over its value, the note below. */
+@media (max-width: 600px) {
+  .bb-tech .hp-table, .bb-tech .hp-table tbody { display: block; min-width: 0; }
+  .bb-tech .hp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .bb-tech .hp-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid var(--bb-line); }
+  .bb-tech .hp-table tr:last-child { border-bottom: 0; }
+  .bb-tech .hp-table tbody th, .bb-tech .hp-table td { display: block; padding: 0; border: 0; }
+  .bb-tech .hp-table td.v { text-align: right; }
+  .bb-tech .hp-table td:last-child { grid-column: 1 / -1; }
+  .bb-tech .hp-table td:empty { display: none; }
+}

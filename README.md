@@ -17,6 +17,7 @@ redirect them.
 | Live Wind | https://bullseyeballisticscalculator.com/live-wind/ |
 | Under the Hood | https://bullseyeballisticscalculator.com/under-the-hood/ |
 | Truing | https://bullseyeballisticscalculator.com/truing/ |
+| Hit Probability | https://bullseyeballisticscalculator.com/hit-probability/ |
 | Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
@@ -54,6 +55,7 @@ have drifted.
 | Live Wind | `_pages/live-wind.html`; its video is `assets/video/live-wind.mp4`, with `assets/img/live-wind.webp` as the poster |
 | Under the Hood (solver technical detail) | `_pages/under-the-hood.html`; its charts are drawn in `assets/site.js` |
 | Truing, and adaptive wind smoothing | `_pages/truing.html`; its three charts are inline SVG in the page |
+| Hit Probability | `_pages/hit-probability.html`; its shot-cloud figure is inline SVG in the page |
 | Account deletion | `_pages/delete-account.html` |
 | Data deletion, keeping the account | `_pages/delete-data.html` |
 | Terms of Use | `_pages/terms.html`, from "Bullseye Ballistics - Terms of Use.docx" |

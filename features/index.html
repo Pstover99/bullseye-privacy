@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=436de8ca4d">
+<link rel="stylesheet" href="../assets/site.css?v=0b663ada7c">
 <script src="../assets/site.js?v=907f896617" defer></script>
 </head>
 <body>
@@ -60,6 +60,7 @@
           <a href="../truing/"><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
           <a class="gn-sub" href="../truing/"><b>Velocity and Drag</b></a>
           <a class="gn-sub" href="../truing/#wind-smoothing"><b>Adaptive Wind Smoothing</b></a>
+          <a href="../hit-probability/"><b>Hit Probability</b><span>How your odds of a hit are worked out</span></a>
         </div>
       </div>
       <a href="../comparison/">Compare</a>
@@ -210,7 +211,7 @@
         <h2>Large, bright, clean</h2>
         <p>Elevation and windage in MOA or mil, with the linear value in inches or centimeters displayed underneath. One tap switches MOA and mil on every screen that dials.</p>
         <ul>
-          <li><strong>Hit probability</strong> against a chosen target, with a ranked error budget: wind read, muzzle velocity, range estimate, ballistic coefficient and group dispersion.</li>
+          <li><strong><a href="../hit-probability/">Hit probability</a></strong> against a chosen target, with a ranked error budget: wind read, muzzle velocity, range estimate, ballistic coefficient and group dispersion.</li>
           <li><strong>Display the things you care about.</strong> Velocity and energy on target, time of flight, stability factor, wind, aerodynamic jump and current conditions. Turn each on or off and set the order. Don't clutter up the display with things you don't care about.</li>
           <li><strong>Hit, miss and no-call logging</strong> right from the solution, with an optional 3×3 grid for tapping the miss location. Or use voice: stay in the rifle and say "hit" or "miss, .3 mil left". The app logs it with the exact firing solution and the conditions at the time of the shot.</li>
         </ul>
@@ -334,7 +335,7 @@
         <ul>
           <li><strong>G1 and G7 drag models.</strong></li>
           <li><strong>Drop, windage, velocity, energy, stability and time of flight</strong> at any range, with a full trajectory table. The solver tells you where your bullet goes transonic and subsonic, with its stability and energy on target at that distance.</li>
-          <li><strong>Aerodynamic jump, spin drift and stability factor</strong> are calculated and applied, and hit probability is worked out for you.</li>
+          <li><strong>Aerodynamic jump, spin drift and stability factor</strong> are calculated and applied, and <a href="../hit-probability/">hit probability</a> is worked out for you.</li>
         </ul>
         <details class="more">
           <summary><span class="label"><span class="closed">Show 8 more</span><span class="opened">Show fewer</span></span></summary>
@@ -516,7 +517,7 @@
         <details class="more">
           <summary><span class="label"><span class="closed">Show 5 more</span><span class="opened">Show fewer</span></span></summary>
           <ul>
-          <li><strong>Pooled per rifle and load.</strong> The pooled dispersion feeds the hit probability.</li>
+          <li><strong>Pooled per rifle and load.</strong> The pooled dispersion feeds the <a href="../hit-probability/">hit probability</a>.</li>
           <li><strong>Dispersion simulator:</strong> a saved group on any target preset at any distance, with the target drawn to shape and a shot cloud colored by hit or miss.</li>
           <li><strong>Movable point of aim</strong> on the simulator, read out as an offset in your angular unit and in inches. See figures for the rifle only, or with today's conditions.</li>
           <li><strong>Export</strong> an annotated target image with the group's statistics.</li>
