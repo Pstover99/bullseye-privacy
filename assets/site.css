@@ -1433,6 +1433,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
    Wind Corridor page: Calypso LoRa wind meters
    ========================================================================== */
 .wc-calypso { border-top: 1px solid var(--line); padding-block: 64px 72px; }
+.wc-next { border-top: 1px solid var(--line); padding-block: 28px 64px; }
 .wc-calypso-card {
   display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: center;
   padding: 40px; background: var(--panel-low); border: 1px solid var(--line);
@@ -1824,7 +1825,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 /* The pointer to Wind Corridor: under the hero's lead, and again at the close. */
 .lw-xlink { margin: 4px 0 26px; padding-left: 14px; border-left: 2px solid var(--accent); max-width: 34em; color: var(--muted); }
 .lw-xlink a { font-weight: 600; }
-.lw-close .lw-xlink { margin: 28px auto 0; padding: 14px 18px; border: 1px solid var(--line-strong); text-align: center; }
+.lw-close .lw-xlink, .wc-next .lw-xlink { margin: 28px auto 0; padding: 14px 18px; border: 1px solid var(--line-strong); text-align: center; }
 .lw-media { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .lw-phone { width: 100%; max-width: 320px; }
 .lw-phone video {
