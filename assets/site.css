@@ -1906,6 +1906,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .lw-home .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 48px; align-items: center; }
 .lw-home h2 span { color: var(--accent); }
 .lw-home .intro { margin-bottom: 18px; }
+.lw-home .intro strong { color: var(--fg); font-weight: 600; }
 .lw-home ul { margin: 0 0 26px; padding-left: 1.1rem; color: var(--muted); }
 .lw-home li { margin-bottom: 8px; }
 .lw-home li strong { color: var(--fg); font-weight: 500; }
