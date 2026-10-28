@@ -104,7 +104,7 @@ PAGES = [
      "Delete your account · Bullseye Ballistics",
      "How to delete your Bullseye Ballistics account and everything backed up to it."),
     ("delete-data/index.html", "_pages/delete-data.html", "../",
-     "Delete some of your data · Bullseye Ballistics",
+     "Delete data · Bullseye Ballistics",
      "How to delete data from Bullseye Ballistics without deleting your account."),
     ("404.html", "_pages/404.html", "/",
      "Page not found · Bullseye Ballistics",
