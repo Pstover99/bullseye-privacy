@@ -373,6 +373,27 @@ footer .legal { display: block; margin-top: 28px; }
 .carousel.wide .track > figure { flex-basis: 100%; }
 .carousel figcaption { margin-top: 10px; }
 .carousel figcaption p { margin: 4px 0 0; font-size: 0.88rem; color: var(--muted); }
+/* One screen with a longer caption: the caption sits beside the screen, level with the part it
+   explains (Live Wind's speed bar), and stacks under it on phones. */
+.carousel.side-note .track > figure {
+  flex-basis: 100%; display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 28px; align-items: end;
+}
+.carousel.side-note figcaption { margin: 0 0 84px; }
+.carousel figcaption p.why {
+  margin-top: 16px; padding: 14px 16px; background: var(--panel-low); border-left: 2px solid var(--accent);
+  font-size: 0.92rem; line-height: 1.6;
+}
+.carousel figcaption p.why strong { display: block; margin-bottom: 4px; color: var(--fg); font-weight: 500; }
+@media (min-width: 901px) and (max-width: 1080px) {
+  .carousel.side-note .track > figure { grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: 20px; }
+  .carousel.side-note figcaption { margin-bottom: 64px; }
+}
+@media (max-width: 560px) {
+  .carousel.side-note .track > figure { display: block; }
+  .carousel.side-note .frame { width: 78%; }
+  .carousel.side-note figcaption { margin: 10px 0 0; }
+}
 .car-bar { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
 .carousel.fits .car-bar { display: none; }
 .car-dots { display: flex; gap: 6px; flex: 1; min-width: 0; }
