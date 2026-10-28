@@ -1432,6 +1432,21 @@ section.hero--photo p.lead { color: #DDE3D8; }
 /* ==========================================================================
    Wind Corridor page: Calypso LoRa wind meters
    ========================================================================== */
+/* Wind Corridor, "Learn to read it": a faint binoculars watermark in the bottom-right corner.
+   Decorative only; the panel's cut-corner clip-path keeps it inside the card. It takes the
+   text color, so it shows faintly in both themes. */
+.read-wind-card { position: relative; overflow: hidden; }
+.read-wind-card::after {
+  content: ""; position: absolute; right: -10px; bottom: -30px; width: 260px; height: 185px;
+  background: var(--fg); opacity: 0.06;
+  -webkit-mask: url("img/binoculars.svg") center / contain no-repeat;
+          mask: url("img/binoculars.svg") center / contain no-repeat;
+  transform: rotate(-10deg); pointer-events: none; z-index: 0;
+}
+.read-wind-card > * { position: relative; z-index: 1; }
+@media (max-width: 600px) {
+  .read-wind-card::after { width: 170px; height: 120px; }
+}
 .wc-calypso { border-top: 1px solid var(--line); padding-block: 64px 72px; }
 .wc-next { border-top: 1px solid var(--line); padding-block: 28px 64px; }
 .wc-calypso-card {
