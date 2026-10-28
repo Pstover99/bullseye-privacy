@@ -99,6 +99,29 @@
       </article>
     </div>
   </section>
+
+  <section class="lw-legend" aria-labelledby="lw-legend-h">
+    <div class="wrap">
+      <h2 id="lw-legend-h">Reading the Live Wind display</h2>
+      <div class="lw-legend-body">
+        <div class="frame">
+          <img src="{{ROOT}}assets/img/lw-legend.webp" width="720" height="1440" loading="lazy" decoding="async" alt="The Live Wind screen with numbered markers 1 through 10 on the wind hold, the Live wind chip, the Switchy headwind warning, the red direction arc, the blue wind arrow, the speed bar, and the High, Current wind, Average and Low readings, explained in the list beside it.">
+        </div>
+        <ol class="lw-legend-list">
+          <li><span class="lw-key" aria-hidden="true">1</span><div><strong>Wind hold: your firing solution</strong> Uses everything: your bullet, muzzle velocity, range, spin drift, and the wind. Wind is smoothed over the last several seconds of speed and direction, longer at longer range, so the hold won't jump with every split-second flicker. That's why it can differ from the Current wind hold.</div></li>
+          <li><span class="lw-key" aria-hidden="true">2</span><div><strong>Live wind</strong> Green dot means the wind meter is connected and streaming.</div></li>
+          <li><span class="lw-key" aria-hidden="true">3</span><div><strong>Switchy headwind warning</strong> Over the last 2 minutes the wind has been swinging back and forth around 12 o'clock. A small shift from 11 to 1 flips the push from one side to the other, so watch the wind and time your shot.</div></li>
+          <li><span class="lw-key" aria-hidden="true">4</span><div><strong>Red arc: 2-minute direction spread</strong> The range of directions the wind has come from over the last 2 minutes. Here it straddles 12 o'clock, which triggers the Switchy headwind warning.</div></li>
+          <li><span class="lw-key" aria-hidden="true">5</span><div><strong>Blue arrow: wind direction now</strong> Points to where the wind is coming from this second (11 o'clock). The dashed blue line shows its path across the target line.</div></li>
+          <li><span class="lw-key" aria-hidden="true">6</span><div><strong>Speed bar: last 2 minutes</strong> The shaded band is the range of wind speeds over the rolling 2-minute window. Red = high, blue = current, dashed = average, white = low.</div></li>
+          <li><span class="lw-key" aria-hidden="true">7</span><div><strong>High</strong> Strongest wind in the rolling 2-minute window, and the hold it would need.</div></li>
+          <li><span class="lw-key" aria-hidden="true">8</span><div><strong>Current wind</strong> Right this second: live speed, direction (o'clock), and hold.</div></li>
+          <li><span class="lw-key" aria-hidden="true">9</span><div><strong>Average</strong> Rolling 2-minute average of speed and direction, and its hold.</div></li>
+          <li><span class="lw-key" aria-hidden="true">10</span><div><strong>Low</strong> Lightest wind in the rolling 2-minute window, and its hold.</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
   </div>
 
   <section class="lw-close" aria-labelledby="lw-close-h">
