@@ -18,8 +18,8 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=7312a07a28">
-<script src="assets/site.js?v=131a440204" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=436de8ca4d">
+<script src="assets/site.js?v=907f896617" defer></script>
 </head>
 <body>
 <header class="top gn-header">
@@ -71,6 +71,35 @@
 </header>
 
 <main>
+  <section class="hero hero--photo">
+    <div class="wrap">
+      <div>
+        <div class="label">Long-range ballistics solver</div>
+        <h1>The ballistics solver <span>that learns your rifle.</span></h1>
+        <p class="lead">Bullseye Ballistics is an integrated long-range shooting ecosystem that brings ballistic computation, shot logging, performance analysis and data from multiple simultaneous environmental sensors together in one app.</p>
+        <p class="lead">At its core is Sagitta Ballistics AI ©, a deeply integrated ballistics AI that interprets environmental conditions, calculates firing solutions, evaluates hit probability and analyzes every recorded shot in context. It turns extremely complex data into immediate, actionable insight that becomes increasingly personalized over time. Sagitta explains why you missed, how to correct it and what your shooting history reveals.</p>
+        <div class="cta-row">
+          <span class="btn btn-outline">Coming soon to Android and iOS</span>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="assets/img/solution-live.webp" width="720" height="1600" alt="The solution card at 1,024 yards: elevation 8.06 mil up and windage 1.48 mil left, with live wind at 6.5 mph. Wind, temperature, pressure and humidity are marked Live. A 47% hit probability, a note that it solved for a 0.7° downhill shot angle from the external display, a string of 19 of 30 hits, and Hit and Miss buttons at the bottom.">
+      </div>
+    </div>
+  </section>
+
+  <div class="readout" aria-label="Solver output at 1,024 yards">
+    <div class="wrap">
+      <div class="cells">
+        <div><div class="label">1,024 yd · Elevation</div><div class="v"><em>▲</em> 8.06 mil</div></div>
+        <div><div class="label">6.5 mph live · Windage</div><div class="v"><em>◀</em> 1.48 mil</div></div>
+        <div><div class="label">Density altitude</div><div class="v">1,752 ft</div></div>
+        <div><div class="label">Air temperature</div><div class="v">71.0 °F</div></div>
+      </div>
+      <p class="readout-note">6GT, 109 gr Berger, G7 .292, 96 yd zero. Wind from a Calypso Ultrasonic; temperature, pressure and humidity from a Calypso WeatherDot. Captured on the phone at the range, as on the card above.</p>
+    </div>
+  </div>
+
   <section class="sagitta">
     <div class="wrap">
       <div id="sagitta-hero" data-interval="8000" aria-roledescription="carousel" aria-label="Sagitta AI inside Bullseye Ballistics">
@@ -208,35 +237,6 @@
       </div>
     </div>
   </section>
-
-  <section class="hero hero--photo">
-    <div class="wrap">
-      <div>
-        <div class="label">Long-range ballistics solver</div>
-        <h1>The ballistics solver <span>that learns your rifle.</span></h1>
-        <p class="lead">Bullseye Ballistics is an integrated long-range shooting ecosystem that brings ballistic computation, shot logging, performance analysis and data from multiple simultaneous environmental sensors together in one app.</p>
-        <p class="lead">At its core is Sagitta Ballistics AI ©, a deeply integrated ballistics AI that interprets environmental conditions, calculates firing solutions, evaluates hit probability and analyzes every recorded shot in context. It turns extremely complex data into immediate, actionable insight that becomes increasingly personalized over time. Sagitta explains why you missed, how to correct it and what your shooting history reveals.</p>
-        <div class="cta-row">
-          <span class="btn btn-outline">Coming soon to Android and iOS</span>
-        </div>
-      </div>
-      <div class="frame">
-        <img src="assets/img/solution-live.webp" width="720" height="1600" alt="The solution card at 1,024 yards: elevation 8.06 mil up and windage 1.48 mil left, with live wind at 6.5 mph. Wind, temperature, pressure and humidity are marked Live. A 47% hit probability, a note that it solved for a 0.7° downhill shot angle from the external display, a string of 19 of 30 hits, and Hit and Miss buttons at the bottom.">
-      </div>
-    </div>
-  </section>
-
-  <div class="readout" aria-label="Solver output at 1,024 yards">
-    <div class="wrap">
-      <div class="cells">
-        <div><div class="label">1,024 yd · Elevation</div><div class="v"><em>▲</em> 8.06 mil</div></div>
-        <div><div class="label">6.5 mph live · Windage</div><div class="v"><em>◀</em> 1.48 mil</div></div>
-        <div><div class="label">Density altitude</div><div class="v">1,752 ft</div></div>
-        <div><div class="label">Air temperature</div><div class="v">71.0 °F</div></div>
-      </div>
-      <p class="readout-note">6GT, 109 gr Berger, G7 .292, 96 yd zero. Wind from a Calypso Ultrasonic; temperature, pressure and humidity from a Calypso WeatherDot. Captured on the phone at the range, as on the card above.</p>
-    </div>
-  </div>
 
   <section>
     <div class="wrap">
