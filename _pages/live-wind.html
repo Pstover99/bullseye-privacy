@@ -61,6 +61,20 @@
       <div class="frame">
         <img src="{{ROOT}}assets/img/lw-speed-bar.webp" width="720" height="490" loading="lazy" decoding="async" alt="Vertical wind speed bar from 2 to 12 mph with marks for High 7.6, Current 6.3, Average 4.6 and Low 3.6 mph, each linked to a box showing its wind hold in mil.">
       </div>
+      <div class="panel lw-why">
+        <h3 id="lw-why-h">Why doesn’t the strongest wind need the most hold?</h3>
+        <div class="lw-why-cols">
+          <div>
+            <p>In this example, the highest wind speed (7.6 mph) doesn’t produce the largest hold. That’s not a mistake. The solver accounts for wind direction, not just speed.</p>
+            <p>Only the part of the wind blowing across the bullet’s path moves it left or right. A wind straight from 12 o’clock (a pure headwind) pushes almost nothing sideways, while a wind from 3 or 9 o’clock is “full value” and pushes the most. Even a few degrees off dead-center makes a measurable difference at long range.</p>
+          </div>
+          <div>
+            <p>Here, the 7.6 mph gust came almost straight down the line, so it needed only <strong>0.28 mil</strong>. The lighter 6.3 mph current wind is also shown “from 12:00,” since directions are rounded to the nearest half hour on the clock, but it was angled slightly more across the bullet’s path, so it needs <strong>0.37 mil</strong>, the largest hold on the screen.</p>
+            <p>You might also wonder why a near-headwind needs any hold at all. That’s spin drift: the bullet’s rotation causes it to drift slightly to one side over a long flight, regardless of wind. The solver folds spin drift into every hold, so even a dead-on headwind shows a small correction.</p>
+          </div>
+        </div>
+        <p class="lw-why-take"><strong>The takeaway:</strong> wind speed alone doesn’t tell you your hold. Direction matters just as much, and the solver does that math for you on every reading, spin drift included - all while you're behind the rifle, in the scope, and NOT breaking position.</p>
+      </div>
     </div>
   </section>
 
