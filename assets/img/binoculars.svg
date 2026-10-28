@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170">
+  <defs>
+    <mask id="cut">
+      <rect width="240" height="170" fill="#fff"/>
+      <!-- lens rings -->
+      <ellipse cx="57" cy="118" rx="34" ry="34" fill="#000"/>
+      <ellipse cx="57" cy="118" rx="27" ry="27" fill="#fff"/>
+      <ellipse cx="183" cy="118" rx="34" ry="34" fill="#000"/>
+      <ellipse cx="183" cy="118" rx="27" ry="27" fill="#fff"/>
+      <!-- glints -->
+      <path d="M41 112 a18 18 0 0 1 10 -12" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M167 112 a18 18 0 0 1 10 -12" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- eyepiece seams -->
+      <rect x="34" y="34" width="46" height="4" fill="#000"/>
+      <rect x="160" y="34" width="46" height="4" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="currentColor" mask="url(#cut)">
+    <!-- left half -->
+    <rect x="38" y="8" width="38" height="28" rx="6"/>
+    <polygon points="34,30 80,30 104,100 10,100"/>
+    <circle cx="57" cy="118" r="47"/>
+    <!-- right half -->
+    <rect x="164" y="8" width="38" height="28" rx="6"/>
+    <polygon points="206,30 160,30 136,100 230,100"/>
+    <circle cx="183" cy="118" r="47"/>
+    <!-- hinge and focus wheel -->
+    <rect x="96" y="44" width="48" height="28" rx="8"/>
+    <circle cx="120" cy="30" r="12"/>
+    <rect x="116" y="40" width="8" height="6"/>
+  </g>
+</svg>
