@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=cbbef74959">
+<link rel="stylesheet" href="../assets/site.css?v=6d36b2b6f6">
 <script src="../assets/site.js?v=907f896617" defer></script>
 </head>
 <body>
@@ -103,6 +103,28 @@
 </section>
 <section class="bb-tech trg hp">
   <div class="bb-wrap">
+
+    <article id="display" aria-labelledby="hp-disp">
+      <div class="bb-eyebrow">Reading the card</div>
+      <h2 id="hp-disp">Hit probability display</h2>
+      <div class="hp-disp">
+        <div class="hp-disp-copy">
+          <ul class="hp-points">
+            <li><span><strong>The number.</strong> Your chance of a first-round hit on that target, from 1% to 99%. The app never rounds to a sure thing, or to no chance at all.</span></li>
+            <li><span><strong>The picture.</strong> The gray outline is your target. The blue ellipse is where most of your shots would land. When the ellipse spills past the sides, the miss will be left or right. When it spills past the top or bottom, it will be high or low.</span></li>
+            <li><span><strong>Where the miss comes from.</strong> Each source's share of the miss: wind read, range, muzzle velocity, BC, and you. The biggest one is named, with how far it can move the shot.</span></li>
+            <li><span><strong>Your own groups.</strong> The "You" share comes from the groups you've measured with this rifle and load. Until you've measured one, the app uses your called shots or an estimate, and says which.</span></li>
+          </ul>
+          <p class="hp-close">So you know what to work on: when wind is 91% of the miss, a better wind read pays off far more than a better rest. And you can decide before the shot whether to take it, wait for the wind to settle, or pick a bigger target.</p>
+        </div>
+        <figure class="hp-shot">
+          <div class="frame"><img src="../assets/img/hp-card.webp" width="1019" height="644" loading="lazy" decoding="async" alt="Hit probability card from Bullseye Ballistics showing 47%. A blue ellipse of likely impacts is wider than the gray outline of an 18×30 in silhouette target. A bar splits where the miss comes from: wind 91%, range 3%, muzzle velocity 3%, BC 2%, shooter 1%. Largest error source: wind read, 0.4 mil. Dispersion measured from 4 groups, 20 shots."></div>
+          <figcaption><span class="label">In this example</span> An 18×30 in silhouette at 1,024 yd in a 4.8 mph full-value wind: a 47% shot, and 91% of the miss is the wind call.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <hr>
 
     <article id="conditions" aria-labelledby="hp-cond">
       <div class="bb-eyebrow">Inputs</div>

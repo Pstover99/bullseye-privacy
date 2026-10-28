@@ -1994,6 +1994,22 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .bb-tech .hp-tiers li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
   .bb-tech .hp-tiers .n { font-size: 1.75rem; }
 }
+/* The hit probability card, read point by point: the points on the left, the screenshot on the
+   right staying in view beside them, and below the points on a phone. */
+.bb-tech .hp-disp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; align-items: start; }
+.bb-tech .hp-points { list-style: none; padding: 0; gap: 0; max-width: none; border-top: 1px solid var(--bb-line); }
+.bb-tech .hp-points li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--bb-line); color: var(--bb-muted); }
+.bb-tech .hp-points li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; background: var(--bb-accent); }
+.bb-tech .hp-points strong { color: var(--bb-fg); }
+.bb-tech .hp-close { margin-top: 20px; padding-left: 14px; border-left: 2px solid var(--bb-accent); }
+.bb-tech .hp-shot { position: sticky; top: 24px; background: none; border: 0; padding: 0; gap: 12px; }
+.bb-tech .hp-shot .frame img { display: block; width: 100%; height: auto; }
+.bb-tech .hp-shot figcaption { color: var(--bb-muted); font-size: 0.9rem; line-height: 1.5; }
+.bb-tech .hp-shot figcaption .label { color: var(--bb-accent-text); margin-right: 6px; }
+@media (max-width: 760px) {
+  .bb-tech .hp-disp { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .bb-tech .hp-shot { position: static; }
+}
 /* On a phone the error table stacks: each error over its value, the note below. */
 @media (max-width: 600px) {
   .bb-tech .hp-table, .bb-tech .hp-table tbody { display: block; min-width: 0; }
