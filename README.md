@@ -21,9 +21,11 @@ redirect them.
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
+| Data deletion, keeping the account | https://bullseyeballisticscalculator.com/delete-data/ |
 
 The privacy policy and account-deletion URLs are both entered in the Play Console listing (the
-deletion URL under Data safety). Play requires the deletion page for any app that allows account
+deletion URL under Data safety). The data-deletion URL goes under Data safety too, as the way to
+delete some or all data without deleting the account. Play requires the deletion page for any app that allows account
 creation. If either path ever changes, change it in the Play Console the same day.
 
 ## Editing
@@ -53,6 +55,7 @@ have drifted.
 | Under the Hood (solver technical detail) | `_pages/under-the-hood.html`; its charts are drawn in `assets/site.js` |
 | Truing, and adaptive wind smoothing | `_pages/truing.html`; its three charts are inline SVG in the page |
 | Account deletion | `_pages/delete-account.html` |
+| Data deletion, keeping the account | `_pages/delete-data.html` |
 | Terms of Use | `_pages/terms.html`, from "Bullseye Ballistics - Terms of Use.docx" |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
