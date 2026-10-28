@@ -4,7 +4,7 @@
  *
  *   [data-carousel]  a row of screens with arrows, dots and a counter
  *   [data-showcase]  the home page's feature tabs beside one phone frame
- *   #sagitta-hero    the Sagitta slides at the top of the home page
+ *   #sagitta-hero    the Sagitta slides on the home page, under the hero
  *   .frame img       tap any screenshot to see it full size; arrows step through its group
  *   .tour-links      the feature tour's bar marks the section on screen
  *   #bb-ema          Under the Hood: draws the wind charts and the drift diagram

@@ -511,10 +511,10 @@ html:not(.js) .sc-pane + .sc-pane { display: none; }
 /* Feature tour: the section on screen is marked in the bar. */
 .tour-links a[aria-current="true"] { color: var(--fg); box-shadow: inset 0 -2px 0 var(--accent); }
 
-/* Sagitta slides: the top of the home page. Slides, dots and the progress bar are driven by
+/* Sagitta slides: the home page, under the hero and its readout. Slides, dots and the progress bar are driven by
    site.js; without it, the slides are a row you can swipe. The --sg-* colors follow the site's
    dark and light schemes. */
-section.sagitta { padding-block: 24px 0; }
+section.sagitta { padding-block: 48px 0; }   /* under the hero's readout strip */
 #sagitta-hero {
   --sg-card: color-mix(in srgb, var(--fg) 5%, transparent);
   --sg-line: color-mix(in srgb, var(--fg) 11%, transparent);
@@ -623,7 +623,7 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
   #sagitta-hero .sg-grid.sg-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
-  section.sagitta { padding-top: 12px; }
+  section.sagitta { padding-top: 28px; }
   #sagitta-hero { border-radius: 16px; }
   #sagitta-hero .sg-grid { grid-template-columns: 1fr; gap: 9px; }
   #sagitta-hero .sg-grid.sg-four { grid-template-columns: 1fr 1fr; gap: 9px; }
@@ -1268,7 +1268,7 @@ section.hero--photo {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  margin-top: 32px;   /* gap below the slides, for the top fade */
+  margin-top: 0;   /* first on the page, straight under the header */
   --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
   --accent-soft: rgba(67, 34, 14, .85);
   --panel: #1E241D; --panel-low: #171B16; --line: #2C332A; --line-strong: #4B5546;
