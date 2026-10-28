@@ -1821,6 +1821,10 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .lw-tagline { margin: -6px 0 20px; font: 700 clamp(1.5rem, 3vw, 2rem)/1.15 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--accent); }
 .lw-hero p.lead strong { font-weight: 600; }
 .lw-compat { margin: 20px 0 0; font: 500 0.8rem/1.5 var(--font-mono); color: var(--muted); }
+/* The pointer to Wind Corridor: under the hero's lead, and again at the close. */
+.lw-xlink { margin: 4px 0 26px; padding-left: 14px; border-left: 2px solid var(--accent); max-width: 34em; color: var(--muted); }
+.lw-xlink a { font-weight: 600; }
+.lw-close .lw-xlink { margin: 28px auto 0; padding: 14px 18px; border: 1px solid var(--line-strong); text-align: center; }
 .lw-media { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .lw-phone { width: 100%; max-width: 320px; }
 .lw-phone video {
