@@ -81,6 +81,11 @@ PAGES = [
      "Truing in Bullseye Ballistics: enter what you dialed to hit at two distances, and it "
      "corrects your velocity and drag together so every other distance matches too. With a "
      "before-and-after example, and how adaptive wind smoothing keeps your hold steady in gusts."),
+    ("hit-probability/index.html", "_pages/hit-probability.html", "../",
+     "Hit Probability · Bullseye Ballistics",
+     "How Bullseye Ballistics works out your Hit Probability: today's conditions, the errors it "
+     "plans for in wind, range, BC and muzzle velocity, and your own accuracy from measured "
+     "groups, called shots or an estimate."),
     ("sagitta/index.html", "_pages/sagitta.html", "../",
      "Sagitta Ballistics AI · Bullseye Ballistics",
      "Sagitta Ballistics AI connects what the solver predicted, what the environment did, what "
@@ -116,13 +121,13 @@ NAV = {
     "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
     "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
-    "TRUING": "truing/", "HOOD": "under-the-hood/", "COMPARISON": "comparison/", "GET": "get-the-app/",
+    "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/", "GET": "get-the-app/",
 }
 # The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
 NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
     "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
-    "HOOD": ["TRUING", "HOOD"],
+    "HOOD": ["TRUING", "HOOD", "HITPROB"],
 }
 
 # Pages not linked from anywhere yet, kept out of search results until they are.

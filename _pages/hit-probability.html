@@ -1,0 +1,115 @@
+<section class="cmp-head trg-head hp-head">
+  <div class="wrap">
+    <div class="hp-head-text">
+      <div class="label">Solver technical detail</div>
+      <h1 class="hero-h1">How your Hit Probability <span>is worked out</span></h1>
+      <p class="intro">Your Hit Probability is the odds that a shot lands on the target. Bullseye estimates how far each source of error could move the bullet. It combines them into one pattern around your aim point and works out how much of that pattern lands on the target.</p>
+    </div>
+    <figure class="hp-fig">
+      <div class="frame">
+        <svg viewBox="0 0 320 220" role="img" aria-label="A round target with shots scattered in a wide oval around the aim point. Shots inside the target are highlighted.">
+          <g class="hp-axis"><line x1="0" y1="110" x2="320" y2="110"/><line x1="160" y1="0" x2="160" y2="220"/></g>
+          <circle class="hp-target" cx="160" cy="110" r="38"/>
+          <ellipse class="hp-ring" cx="160" cy="110" rx="62" ry="32"/>
+          <ellipse class="hp-ring hp-ring--outer" cx="160" cy="110" rx="124" ry="64"/>
+          <g><circle class="hp-hit" cx="168.8" cy="82.3" r="3.4"/><circle class="hp-miss" cx="97.6" cy="112.3" r="3"/><circle class="hp-hit" cx="150.0" cy="123.8" r="3.4"/><circle class="hp-miss" cx="55.3" cy="95.7" r="3"/><circle class="hp-miss" cx="109.6" cy="136.6" r="3"/><circle class="hp-hit" cx="193.6" cy="122.9" r="3.4"/><circle class="hp-hit" cx="150.9" cy="113.0" r="3.4"/><circle class="hp-hit" cx="180.8" cy="80.7" r="3.4"/><circle class="hp-miss" cx="251.5" cy="149.4" r="3"/><circle class="hp-miss" cx="272.6" cy="97.6" r="3"/><circle class="hp-miss" cx="224.7" cy="111.6" r="3"/><circle class="hp-miss" cx="106.7" cy="144.0" r="3"/><circle class="hp-miss" cx="123.5" cy="92.2" r="3"/><circle class="hp-miss" cx="182.7" cy="78.9" r="3"/><circle class="hp-miss" cx="132.8" cy="137.9" r="3"/><circle class="hp-miss" cx="242.9" cy="128.7" r="3"/><circle class="hp-miss" cx="239.3" cy="94.3" r="3"/><circle class="hp-miss" cx="229.5" cy="152.7" r="3"/><circle class="hp-miss" cx="241.1" cy="30.1" r="3"/><circle class="hp-miss" cx="274.5" cy="91.8" r="3"/><circle class="hp-miss" cx="65.3" cy="163.1" r="3"/><circle class="hp-miss" cx="195.1" cy="88.8" r="3"/><circle class="hp-miss" cx="63.8" cy="112.3" r="3"/><circle class="hp-miss" cx="168.4" cy="148.4" r="3"/><circle class="hp-miss" cx="247.1" cy="73.2" r="3"/><circle class="hp-miss" cx="258.4" cy="135.7" r="3"/><circle class="hp-hit" cx="190.4" cy="131.6" r="3.4"/><circle class="hp-miss" cx="193.9" cy="75.3" r="3"/><circle class="hp-hit" cx="130.8" cy="118.6" r="3.4"/><circle class="hp-miss" cx="149.1" cy="156.8" r="3"/><circle class="hp-miss" cx="152.8" cy="30.4" r="3"/><circle class="hp-miss" cx="121.3" cy="144.6" r="3"/><circle class="hp-miss" cx="122.1" cy="74.0" r="3"/><circle class="hp-hit" cx="159.8" cy="75.9" r="3.4"/><circle class="hp-miss" cx="197.9" cy="129.5" r="3"/><circle class="hp-miss" cx="181.1" cy="194.8" r="3"/><circle class="hp-hit" cx="128.2" cy="105.8" r="3.4"/><circle class="hp-miss" cx="122.1" cy="96.2" r="3"/><circle class="hp-miss" cx="50.7" cy="61.2" r="3"/><circle class="hp-hit" cx="138.9" cy="116.5" r="3.4"/><circle class="hp-hit" cx="159.7" cy="138.0" r="3.4"/><circle class="hp-miss" cx="63.2" cy="136.4" r="3"/><circle class="hp-hit" cx="129.6" cy="127.6" r="3.4"/><circle class="hp-miss" cx="222.3" cy="72.7" r="3"/><circle class="hp-miss" cx="105.1" cy="129.9" r="3"/><circle class="hp-miss" cx="240.5" cy="48.7" r="3"/><circle class="hp-miss" cx="138.5" cy="39.7" r="3"/><circle class="hp-miss" cx="207.5" cy="71.9" r="3"/><circle class="hp-miss" cx="212.6" cy="101.1" r="3"/><circle class="hp-miss" cx="149.0" cy="160.7" r="3"/><circle class="hp-hit" cx="156.7" cy="107.8" r="3.4"/><circle class="hp-miss" cx="190.2" cy="168.5" r="3"/><circle class="hp-miss" cx="204.0" cy="84.7" r="3"/><circle class="hp-miss" cx="146.0" cy="71.5" r="3"/><circle class="hp-miss" cx="88.0" cy="104.1" r="3"/><circle class="hp-miss" cx="43.6" cy="107.0" r="3"/><circle class="hp-miss" cx="95.6" cy="140.9" r="3"/><circle class="hp-miss" cx="247.5" cy="106.6" r="3"/><circle class="hp-miss" cx="101.0" cy="153.8" r="3"/><circle class="hp-miss" cx="223.8" cy="84.2" r="3"/><circle class="hp-miss" cx="96.5" cy="81.4" r="3"/><circle class="hp-miss" cx="293.5" cy="171.5" r="3"/><circle class="hp-hit" cx="160.6" cy="123.1" r="3.4"/><circle class="hp-hit" cx="141.8" cy="106.7" r="3.4"/><circle class="hp-hit" cx="139.1" cy="99.6" r="3.4"/><circle class="hp-miss" cx="310.2" cy="100.1" r="3"/><circle class="hp-miss" cx="120.6" cy="84.5" r="3"/><circle class="hp-miss" cx="130.8" cy="77.0" r="3"/><circle class="hp-hit" cx="165.2" cy="100.3" r="3.4"/><circle class="hp-miss" cx="274.1" cy="105.8" r="3"/></g>
+          <g class="hp-aim"><line x1="150" y1="110" x2="156" y2="110"/><line x1="164" y1="110" x2="170" y2="110"/><line x1="160" y1="100" x2="160" y2="106"/><line x1="160" y1="114" x2="160" y2="120"/></g>
+          <text x="200" y="64">likely pattern</text>
+          <text x="168" y="138">aim point</text>
+          <text x="8" y="16">target: 8 in plate</text>
+        </svg>
+      </div>
+      <figcaption class="hp-keys">
+        <span><i class="hit"></i>On target</span>
+        <span><i class="miss"></i>Off target</span>
+        <span><i class="ring"></i>Where most shots land</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="bb-tech trg hp">
+  <div class="bb-wrap">
+
+    <article id="conditions" aria-labelledby="hp-cond">
+      <div class="bb-eyebrow">Inputs</div>
+      <h2 id="hp-cond">Today's conditions</h2>
+      <p>Your Hit Probability uses the same inputs as your firing solution:</p>
+      <ul class="hp-inputs">
+        <li><b>Air</b><span>Today's temperature, pressure, humidity and altitude. It also uses the air on the day you zeroed, if you entered it.</span></li>
+        <li><b>Wind</b><span>The wind speed and direction.</span></li>
+        <li><b>Geometry</b><span>Shot angle, latitude and direction of fire.</span></li>
+        <li><b>Muzzle velocity</b><span>Adjusted for powder temperature, cold or clean bore, barrel wear and truing.</span></li>
+      </ul>
+      <p>Conditions don't raise or lower your Hit Probability by themselves, because the pattern is centered on your solution. What they change is how much each error costs.</p>
+      <dl class="hp-costs">
+        <div><dt>Thinner air</dt><dd>Thinner air means less drift per mph.</dd></div>
+        <div><dt>Stronger wind</dt><dd>A stronger wind makes a wrong direction call cost more.</dd></div>
+        <div><dt>Longer shot</dt><dd>A longer shot makes every error cost more.</dd></div>
+      </dl>
+    </article>
+
+    <hr>
+
+    <article id="errors" aria-labelledby="hp-err">
+      <div class="bb-eyebrow">Error budget</div>
+      <h2 id="hp-err">The errors it plans for</h2>
+      <div class="bb-scroll">
+        <table class="bb-table hp-table">
+          <thead><tr><th scope="col">Error</th><th scope="col">Planned for</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Wind speed misread</th><td class="v">3 mph</td><td>You can change this in Settings.</td></tr>
+            <tr><th scope="row">Wind direction misread</th><td class="v">½ clock hour</td><td></td></tr>
+            <tr><th scope="row">Range error</th><td class="v">0.5%</td><td>Of the distance.</td></tr>
+            <tr><th scope="row">BC error</th><td class="v">1%</td><td></td></tr>
+            <tr><th scope="row">Muzzle velocity spread</th><td class="v">15 fps</td><td>Or your load's measured spread, if you choose to use it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hp-callout"><b>Wind</b><span>The wind setting doesn't follow the weather. A gusty, switching wind gets the same 3 mph as a steady one unless you raise it.</span></p>
+    </article>
+
+    <hr>
+
+    <article id="accuracy" aria-labelledby="hp-acc">
+      <div class="bb-eyebrow">Your spread</div>
+      <h2 id="hp-acc">Your own accuracy</h2>
+      <p>Bullseye also needs to know how tightly you and your rifle group. It uses the best source you have, in this order:</p>
+      <ol class="hp-tiers">
+        <li class="best">
+          <span class="n" aria-hidden="true">1</span>
+          <div>
+            <h3>Your measured groups <span class="chip">Shown as: measured</span></h3>
+            <p>These are groups with this rifle and load, five shots or more each. One group is enough to start, and the result is marked provisional until you have three.</p>
+            <p class="m">Bullseye removes the part of the spread your velocity variation already explains, so it isn't counted twice. It uses how tight your groups are, not where they landed.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <div>
+            <h3>Your called shots <span class="chip">Shown as: from called shots</span></h3>
+            <p>With no measured group yet, Bullseye uses the misses in your shot log. It counts warm-bore shots only, and only misses where you said how far off the shot was. It needs at least five each way, up and down and left and right.</p>
+            <p class="m">A called miss already includes that shot's velocity and wind error, so those aren't added again.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <div>
+            <h3>An estimate <span class="chip">Shown as: estimated</span></h3>
+            <p>With neither, Bullseye assumes 1 MOA each way and marks the result "estimated."</p>
+          </div>
+        </li>
+      </ol>
+      <p class="hp-rule">Measured groups always win over called shots, and the two are never mixed. Once you have one five-shot group, your shot log no longer changes this number.</p>
+    </article>
+
+    <div class="hp-cta">
+      <p>Measure your groups so your Hit Probability uses your real accuracy.</p>
+      <ul>
+        <li><b>5-shot groups</b> minimum</li>
+        <li><b>10-shot groups</b> are better</li>
+        <li><b>20-shot groups</b> are honest</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
