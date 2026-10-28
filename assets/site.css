@@ -1509,6 +1509,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   padding: 16px 20px; font-size: 1.08rem;
 }
 .bb-tech .bb-path { font: 500 0.9em var(--bb-mono); white-space: nowrap; }
+.bb-tech .bb-aside { padding-left: 14px; border-left: 2px solid var(--bb-accent); color: var(--bb-muted); font-size: 0.95rem; }
 .bb-tech .bb-note { font: 0.74rem/1.4 var(--bb-mono); color: var(--bb-muted); }
 /* A small lookup table (aerodynamic jump direction): mono headers, ruled rows, the panel behind it. */
 .bb-tech .bb-table { border-collapse: collapse; background: var(--bb-panel); border: 1px solid var(--bb-line); font-size: 0.95rem; }
