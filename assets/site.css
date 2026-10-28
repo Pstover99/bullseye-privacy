@@ -552,6 +552,7 @@ section.sagitta { padding-block: 24px 0; }
   line-height: 1.08; font-weight: 700; color: var(--sg-text); letter-spacing: 0;
 }
 #sagitta-hero .sg-title sup { font-size: 0.45em; vertical-align: super; color: var(--sg-accent); font-weight: 700; }
+#sagitta-hero .sg-nowrap { white-space: nowrap; } /* "Meet Sagitta / Ballistics AI" breaks only between the two */
 #sagitta-hero .sg-lead { margin: 0 0 1.2rem; max-width: 62ch; font-size: clamp(0.95rem, 1.6vw, 1.12rem); color: var(--sg-muted); }
 #sagitta-hero .sg-lead strong { color: var(--sg-text); font-weight: 600; }
 #sagitta-hero .sg-grid { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
