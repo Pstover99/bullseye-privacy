@@ -493,7 +493,8 @@ html:not(.js) .sc-pane + .sc-pane { display: none; }
   .sc-tab .n { display: none; }
   .sc-tab .sc-title { font-size: 1rem; white-space: nowrap; }
   .sc-tab .sc-desc { display: none; }
-  .sc-stage { max-width: 340px; width: 100%; justify-self: center; }
+  /* Room under the phone for up to three stacked links (item 04), so they clear the next section. */
+  .sc-stage { max-width: 340px; width: 100%; justify-self: center; margin-bottom: 40px; }
   .js .sc-now { display: block; flex: 1; min-height: 4.8em; margin: 0; padding-inline: 12px; color: var(--muted); font-size: 0.95rem; text-align: center; }
   .js .sc-arrows { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
 }
