@@ -1877,12 +1877,34 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .sa-demo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .sa-phone { justify-self: center; }
 }
+/* Stage coaching: Sagitta's own prep plan, quoted, then the three traps it catches. */
+.sa-lead { max-width: 40em; margin: 0 0 28px; font-size: 1.15rem; }
+.sa-plan {
+  margin: 0; padding: 26px 28px 8px; background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+.sa-plan figcaption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 20px; }
+.sa-plan figcaption h3 { margin: 0; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; }
+.sa-plan figcaption .label { margin: 0; }
+.sa-plan blockquote { margin: 0; }
+.sa-plan-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
+.sa-plan-list li { border-top: 1px solid var(--line-strong); padding: 14px 0 20px; }
+.sa-plan-list h4 { margin: 8px 0 6px; font: 700 1.25rem/1.1 var(--font-display); text-transform: uppercase; color: var(--accent); }
+.sa-plan-list p { margin: 0; color: var(--muted); }
+.sa-why-h { margin: 40px 0 10px; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; }
+.sa-catches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.sa-catches li {
+  padding: 16px 20px; background: var(--panel-low); border-left: 3px solid var(--accent);
+  font: 700 1.3rem/1.15 var(--font-display); text-transform: uppercase;
+}
+.sa-pull { max-width: 40em; margin: 26px 0 0; font-size: 1.2rem; line-height: 1.55; color: var(--fg); }
 @media (max-width: 960px) {
   .sa-grid, .sa-asks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sa-voices, .sa-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .sa-grid, .sa-asks, .sa-voices, .sa-two, .sa-steps { grid-template-columns: minmax(0, 1fr); }
+  .sa-grid, .sa-asks, .sa-voices, .sa-two, .sa-steps, .sa-plan-list, .sa-catches { grid-template-columns: minmax(0, 1fr); }
+  .sa-plan { padding: 22px 20px 4px; }
   .sa-card { padding: 20px; }
 }
 
