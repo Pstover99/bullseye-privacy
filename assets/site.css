@@ -1825,6 +1825,44 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sa-num { font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.14em; color: var(--accent); }
 .sa-step h3 { font: 700 1.25rem/1.1 var(--font-display); text-transform: uppercase; margin: 8px 0 6px; }
 .sa-step p { margin: 0; color: var(--muted); }
+/* A real Sagitta answer in a phone. The header and input bar are fixed captures over the answer,
+   which scrolls; the Stage 1 table sits over the cut-off table in the answer capture and swipes
+   sideways. Every position is a share of the 1080 x 2400 phone screen (or the 1080 x 5012
+   answer), so they line up at any width. The phone is capped at 78% of the screen height so a
+   phone visitor always has page around it to scroll by. */
+.sa-demo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; }
+.sa-phone { margin: 0; width: min(100%, 340px, calc((78vh - 24px) * 0.45)); width: min(100%, 340px, calc((78svh - 24px) * 0.45)); }
+.sa-frame { position: relative; padding: 12px; background: var(--panel-low); }
+.sa-frame::before, .sa-frame::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--accent); }
+.sa-frame::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.sa-frame::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.sa-screen {
+  position: relative; aspect-ratio: 1080 / 2400; overflow: hidden; background: #000;
+  clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+}
+.sa-bar { position: absolute; left: 0; width: 100%; height: auto; display: block; z-index: 2; pointer-events: none; }
+.sa-bar--top { top: 0; }
+.sa-bar--bottom { bottom: 0; }
+.sa-scroll {
+  position: absolute; left: 0; right: 0; top: 14.25%; bottom: 10%;   /* 342 and 240 of 2400 */
+  overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; z-index: 1;
+}
+.sa-scroll::-webkit-scrollbar { display: none; }
+.sa-scroll:focus-visible, .sa-table:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.sa-page { position: relative; }
+.sa-page > img { display: block; width: 100%; height: auto; }
+.sa-table {
+  position: absolute; left: 3.7037%; width: 92.5926%; top: 48.7829%; height: 4.2298%;   /* x 40, y 2445, 1000 x 212 */
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; cursor: grab; scrollbar-width: none;
+}
+.sa-table::-webkit-scrollbar { display: none; }
+.sa-table.is-dragging { cursor: grabbing; }
+.sa-table img { display: block; width: 160.3%; max-width: none; height: auto; user-select: none; -webkit-user-drag: none; }
+.sa-phone .hint { text-align: center; }
+@media (max-width: 900px) {
+  .sa-demo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .sa-phone { justify-self: center; }
+}
 @media (max-width: 960px) {
   .sa-grid, .sa-asks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sa-voices, .sa-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
