@@ -1886,6 +1886,8 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sa-plan figcaption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 20px; }
 .sa-plan figcaption h3 { margin: 0; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; }
 .sa-plan figcaption .label { margin: 0; }
+.sa-plan-ask { flex-basis: 100%; margin: 0 0 14px; padding: 14px 18px; background: var(--panel-low); border-left: 3px solid var(--accent); font-size: 1.05rem; }
+.sa-plan-ask b { margin-right: 4px; font: 700 0.78rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .sa-plan blockquote { margin: 0; }
 .sa-plan-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
 .sa-plan-list li { border-top: 1px solid var(--line-strong); padding: 14px 0 20px; }
