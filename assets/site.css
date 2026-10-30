@@ -1891,12 +1891,31 @@ section.hero--photo p.lead { color: #DDE3D8; }
   margin: 0; padding: 26px 28px 8px; background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--accent);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
 }
-.sa-plan figcaption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 20px; }
-.sa-plan figcaption h3 { margin: 0; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; }
-.sa-plan figcaption .label { margin: 0; }
+.sa-plan figcaption, .sa-plan-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 20px; }
+.sa-plan figcaption h3, .sa-plan-head h3 { margin: 0; font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; }
+.sa-plan figcaption .label, .sa-plan-head .label { margin: 0; }
 .sa-plan-ask { flex-basis: 100%; margin: 0 0 14px; padding: 14px 18px; background: var(--panel-low); border-left: 3px solid var(--accent); font-size: 1.05rem; }
 .sa-plan-ask b { margin-right: 4px; font: 700 0.78rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .sa-plan blockquote { margin: 0; }
+/* Match page: the first half of the same answer, as text, between the question and the plan. */
+.sa-answer { margin: 0 0 28px; padding: 22px 24px 18px; background: var(--panel-low); border: 1px solid var(--line); }
+.sa-answer h4 { margin: 22px 0 8px; font: 700 1.3rem/1.15 var(--font-display); text-transform: uppercase; }
+.sa-answer .label + h4 { margin-top: 6px; }
+.sa-answer p, .sa-answer > ul { max-width: 52em; margin: 0 0 12px; }
+.sa-answer ul { padding-left: 1.2em; }
+.sa-answer li { margin-bottom: 8px; }
+.sa-answer li::marker { color: var(--accent); }
+.sa-answer strong { font-weight: 600; }
+.sa-odds { list-style: none; display: grid; gap: 6px; max-width: 34em; margin: 10px 0 4px; padding: 0 !important; }
+.sa-odds li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; margin: 0; padding: 8px 12px; background: var(--panel); border: 1px solid var(--line); }
+.sa-odds b { font: 500 0.9rem/1.3 var(--font-mono); font-variant-numeric: tabular-nums; color: var(--accent); white-space: nowrap; }
+.sa-ans-table { overflow-x: auto; margin: 0 0 4px; }
+.sa-ans-table:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sa-ans-table table { width: 100%; min-width: 620px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.sa-ans-table th { text-align: left; padding: 8px 10px; font: 600 0.82rem/1.2 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+.sa-ans-table td { padding: 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.sa-ans-table tbody tr:last-child td { border-bottom: 0; }
+.sa-ans-source { margin: 16px 0 0 !important; font-size: 0.85rem; color: var(--muted); }
 .sa-plan-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
 .sa-plan-list li { border-top: 1px solid var(--line-strong); padding: 14px 0 20px; }
 .sa-plan-list h4 { margin: 8px 0 6px; font: 700 1.25rem/1.1 var(--font-display); text-transform: uppercase; color: var(--accent); }
@@ -1916,6 +1935,8 @@ section.hero--photo p.lead { color: #DDE3D8; }
 @media (max-width: 640px) {
   .sa-grid, .sa-asks, .sa-voices, .sa-two, .sa-steps, .sa-plan-list, .sa-catches { grid-template-columns: minmax(0, 1fr); }
   .sa-plan { padding: 22px 20px 4px; }
+  .sa-answer { padding: 18px 16px 14px; }
+  .sa-odds li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .sa-card { padding: 20px; }
 }
 
