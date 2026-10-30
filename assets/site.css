@@ -1,7 +1,7 @@
 /* Bullseye Ballistics site. One stylesheet for every page.
  *
  * The look is the app's Field Instrument style (Bullseye-VC: ui/theme/Theme.kt): olive-charcoal
- * ground, signal-orange accent, chamfered panels, corner brackets, Rajdhani display type and IBM
+ * ground, steel-blue accent, chamfered panels, corner brackets, Rajdhani display type and IBM
  * Plex Mono labels. Colours are the app's own dark and light schemes. Dark is the default, as in
  * the app; light follows the system setting.
  *
@@ -23,8 +23,8 @@
   --line-strong: #4B5546;
   --fg: #ECF0E8;
   --muted: #9AA694;
-  --accent: #FF7A33;
-  --accent-soft: #43220E;
+  --accent: #5B9BD5;
+  --accent-soft: #132638;
   --flag: #E8B931;   /* the app's yellow Review flag */
   --font-display: "Rajdhani", "Arial Narrow", "Roboto Condensed", sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -35,7 +35,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bg: #EFF0EA; --panel: #FFFFFF; --panel-low: #F6F7F1; --line: #D3D7C8; --line-strong: #98A08C;
-    --fg: #161A12; --muted: #525B48; --accent: #E8611A; --accent-soft: #FFDBC7; --flag: #9A7400; color-scheme: light;
+    --fg: #161A12; --muted: #525B48; --accent: #2E6596; --accent-soft: #D6E4F1; --flag: #9A7400; color-scheme: light;
   }
 }
 
@@ -670,8 +670,8 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
   min-height: clamp(820px, 70vw, 1000px);
   display: flex;
   align-items: flex-start;
-  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
-  --accent-soft: rgba(67, 34, 14, .85);
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #5B9BD5;   /* --bg stays the page's, for the fade */
+  --accent-soft: rgba(19, 38, 56, .85);
   color: var(--fg);
 }
 .ext-hero--photo .wrap { width: 100%; grid-template-columns: minmax(0, 1fr); }
@@ -745,7 +745,7 @@ html:not(.js) #sagitta-hero .sg-slide { scroll-snap-align: start; padding-bottom
   padding-top: 40px;   /* keeps the text clear of the turret */
   display: flex;
   align-items: flex-start;   /* text over the trees, the display and turret below it */
-  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #5B9BD5;   /* --bg stays the page's, for the fade */
   color: var(--fg);
 }
 .ext-mount-hero .wrap { width: 100%; display: flex; justify-content: flex-end; }
@@ -1088,7 +1088,7 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   --bg: #101311; --panel: #1E241D; --panel-low: #171B16;
   --line: #2C332A; --line-strong: #4B5546;
   --fg: #ECF0E8; --muted: #9AA694;
-  --accent: #FF7A33; --accent-soft: #43220E;
+  --accent: #5B9BD5; --accent-soft: #132638;
   color: var(--fg);
   color-scheme: dark;
 }
@@ -1134,7 +1134,7 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   min-height: clamp(420px, 40vw, 600px);
   display: flex;
   align-items: center;
-  --fg: #ECF0E8; --muted: #9AA694; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
+  --fg: #ECF0E8; --muted: #9AA694; --accent: #5B9BD5;   /* --bg stays the page's, for the fade */
   color: var(--fg);
 }
 .hm-band::before {
@@ -1217,8 +1217,8 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
   min-height: clamp(520px, 50vw, 700px);
   display: flex;
   align-items: center;
-  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
-  --accent-soft: rgba(67, 34, 14, .85);
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #5B9BD5;   /* --bg stays the page's, for the fade */
+  --accent-soft: rgba(19, 38, 56, .85);
   color: var(--fg);
 }
 .wc-hero--photo .wrap { width: 100%; }
@@ -1285,8 +1285,8 @@ section.hero--photo {
   isolation: isolate;
   overflow: hidden;
   margin-top: 0;   /* first on the page, straight under the header */
-  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #FF7A33;   /* --bg stays the page's, for the fade */
-  --accent-soft: rgba(67, 34, 14, .85);
+  --fg: #ECF0E8; --muted: #B4BEAE; --accent: #5B9BD5;   /* --bg stays the page's, for the fade */
+  --accent-soft: rgba(19, 38, 56, .85);
   --panel: #1E241D; --panel-low: #171B16; --line: #2C332A; --line-strong: #4B5546;
   color: var(--fg);
 }
@@ -1495,7 +1495,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 
 /* Under the Hood: the solver write-up and its diagrams. Colors and fonts come from the site's
    tokens; --bb-air, --bb-near, --bb-raw and --bb-bad are the diagrams' own. --bb-accent-text is
-   a darker orange in light mode so small orange text stays readable on the pale panels. */
+   a darker blue in light mode so small accent text stays readable on the pale panels. */
 .bb-tech {
   --bb-bg: var(--bg); --bb-panel: var(--panel-low); --bb-fg: var(--fg); --bb-muted: var(--muted);
   --bb-line: var(--line); --bb-line-strong: var(--line-strong); --bb-accent: var(--accent);
@@ -1506,7 +1506,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   padding: 48px 16px 64px;
 }
 @media (prefers-color-scheme: light) {
-  .bb-tech { --bb-accent-text: #B84A10; --bb-air: 47, 120, 176; --bb-near: #2F78B0; --bb-raw: #A3AB98; --bb-bad: #B23A2E; }
+  .bb-tech { --bb-accent-text: #24557F; --bb-air: 47, 120, 176; --bb-near: #2F78B0; --bb-raw: #A3AB98; --bb-bad: #B23A2E; }
 }
 .bb-tech * { box-sizing: border-box; }
 /* Every grid column is minmax(0, 1fr), so a wide diagram scrolls inside its .bb-scroll on a phone
@@ -1551,7 +1551,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .bb-tech .trg-shots { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
 }
 /* Wind smoothing: four settings screens in a row (two by two on a phone), each caption led by
-   the numbered steps it shows, in the same orange discs as the callouts on the screenshots. */
+   the numbered steps it shows, in accent-colored discs on the screenshots. */
 .bb-tech .trg-shots--four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .bb-tech .trg-shots--four .frame { padding: 8px; }
 .bb-tech .trg-step {
@@ -2021,7 +2021,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .lw-key {
   width: 28px; height: 28px; border-radius: 50%; margin-top: 1px;
   display: flex; align-items: center; justify-content: center;
-  background: #E8611A; color: #fff; font: 700 0.85rem/1 var(--font-body);
+  background: #2E6596; color: #fff; font: 700 0.85rem/1 var(--font-body);
 }
 .lw-close { border-top: 1px solid var(--line); padding-block: 64px 72px; text-align: center; }
 .lw-close h2 span { color: var(--accent); }
