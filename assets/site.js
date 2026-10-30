@@ -384,7 +384,7 @@
       const h = hudSolve(angDeg);
       $("ev").textContent = h.elev.toFixed(2);
       $("wv").textContent = Math.abs(h.wind).toFixed(2);
-      $("wa").textContent = h.wind < 0 ? "◀" : "▶";
+      $("wa").textContent = h.wind < 0 ? "◀\uFE0E" : "▶\uFE0E";   // FE0E: text arrows, not iOS emoji
       $("fv").textContent = Math.round(h.vel) + " fps";
       $("ft").textContent = h.tof.toFixed(2) + " s";
       const d = h.elev - level.elev;
@@ -403,7 +403,7 @@
       mk.style.left = `calc(${50 + Math.max(-1, Math.min(1, v / 5)) * 44}% - 9 * var(--u))`;
       let c, t;
       if (state === "LEVEL_CONFIRM") { c = "#97C459"; t = "LEVEL"; }
-      else { c = a <= 1.5 ? "#EF9F27" : "#E24B4A"; t = v < 0 ? "◀ " + a.toFixed(1) + "°" : a.toFixed(1) + "° ▶"; }
+      else { c = a <= 1.5 ? "#EF9F27" : "#E24B4A"; t = v < 0 ? "◀\uFE0E " + a.toFixed(1) + "°" : a.toFixed(1) + "° ▶\uFE0E"; }
       mk.style.background = c;
       lb.style.color = c;
       lb.textContent = t;
