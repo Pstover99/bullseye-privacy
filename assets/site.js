@@ -10,6 +10,7 @@
  *   #bb-ema          Under the Hood: draws the wind charts and the drift diagram
  *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
  *   #lw-video        Live Wind: swaps the video's own controls for one Pause/Play button
+ *   [data-drag-x]    a sideways-scrolling strip a mouse can drag, like a finger swipe
  */
 // Grouped site nav: dropdowns on wide screens, a full menu on phones. First, so that an error in
 // any page's own code below can't stop the nav from working.
@@ -512,6 +513,20 @@
     const dx = e.changedTouches[0].clientX - lx;
     lx = null;
     if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+  });
+
+  /* Sideways strips (the Sagitta answer's table): a mouse drags them like a finger swipe. Touch
+     already scrolls them natively. */
+  document.querySelectorAll("[data-drag-x]").forEach((el) => {
+    let x0 = 0, left0 = 0, down = false;
+    el.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse") return;
+      down = true; x0 = e.clientX; left0 = el.scrollLeft;
+      el.classList.add("is-dragging");
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", (e) => { if (down) el.scrollLeft = left0 - (e.clientX - x0); });
+    ["pointerup", "pointercancel"].forEach((t) => el.addEventListener(t, () => { down = false; el.classList.remove("is-dragging"); }));
   });
 
   /* Feature tour: mark the section on screen in the sticky bar. */
