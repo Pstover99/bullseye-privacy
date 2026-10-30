@@ -96,7 +96,8 @@ PAGES = [
      "WeatherFlow Tempest, several at once."),
     ("get-the-app/index.html", "_pages/get-the-app.html", "../",
      "Get the app · Bullseye Ballistics",
-     "Bullseye Ballistics is coming soon to Google Play and the App Store."),
+     "Bullseye Ballistics is available now on Google Play for Android, and coming soon to the "
+     "App Store for iPhone."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "
