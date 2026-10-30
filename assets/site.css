@@ -1859,6 +1859,20 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sa-table.is-dragging { cursor: grabbing; }
 .sa-table img { display: block; width: 160.3%; max-width: none; height: auto; user-select: none; -webkit-user-drag: none; }
 .sa-phone .hint { text-align: center; }
+/* Says the answer scrolls: a fade over its foot, and (with the script) a badge that goes once the
+   visitor scrolls. The fade goes at the end of the answer. */
+.sa-fade { position: absolute; left: 0; right: 0; bottom: 10%; height: 14%; z-index: 1; pointer-events: none; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)); transition: opacity 0.3s ease; }
+.sa-cue { display: none; }
+.js .sa-cue {
+  display: flex; align-items: center; gap: 8px; position: absolute; left: 50%; bottom: calc(10% + 14px); z-index: 3;
+  translate: -50% 0; padding: 8px 13px; background: var(--accent); color: #fff; white-space: nowrap; pointer-events: none;
+  font: 500 0.72rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55); transition: opacity 0.3s ease;
+}
+.sa-cue::after { content: ""; width: 7px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0; rotate: 45deg; margin-top: -4px; animation: sa-bob 1.4s ease-in-out infinite; }
+@keyframes sa-bob { 50% { translate: 0 3px; } }
+.sa-screen.is-scrolled .sa-cue, .sa-screen.is-end .sa-fade { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .sa-cue::after { animation: none; } }
 @media (max-width: 900px) {
   .sa-demo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .sa-phone { justify-self: center; }

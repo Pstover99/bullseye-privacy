@@ -529,6 +529,32 @@
     ["pointerup", "pointercancel"].forEach((t) => el.addEventListener(t, () => { down = false; el.classList.remove("is-dragging"); }));
   });
 
+  /* Sagitta page phone: the answer nudges down and back once when it first comes into view, so
+     it reads as something to scroll. The badge goes once the visitor scrolls it themselves. */
+  document.querySelectorAll(".sa-scroll").forEach((sc) => {
+    const screen = sc.closest(".sa-screen");
+    let nudging = false;
+    const update = () => {
+      if (nudging) return;
+      screen.classList.toggle("is-scrolled", sc.scrollTop > 40);
+      screen.classList.toggle("is-end", sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 4);
+    };
+    sc.addEventListener("scroll", update, { passive: true });
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      setTimeout(() => {
+        if (sc.scrollTop > 0) return;
+        nudging = true;
+        sc.scrollTo({ top: sc.clientHeight * 0.3, behavior: "smooth" });
+        setTimeout(() => sc.scrollTo({ top: 0, behavior: "smooth" }), 900);
+        setTimeout(() => { nudging = false; update(); }, 1800);
+      }, 500);
+    }, { threshold: 0.6 });
+    io.observe(sc);
+  });
+
   /* Feature tour: mark the section on screen in the sticky bar. */
   const links = [...document.querySelectorAll(".tour-links a")];
   if (links.length) {
