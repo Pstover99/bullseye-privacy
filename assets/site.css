@@ -356,6 +356,21 @@ footer .legal { display: block; margin-top: 28px; }
 .hint { margin: 22px 0 0; font: 500 0.8rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 .tour .copy .pull { margin: 18px 0 0; font-size: 1.2rem; color: var(--fg); }
 
+/* Back to top: added by site.js on long pages. Faint until pointed at. Sits under the site nav
+   (z-index 50) and hides while the phone menu is open. */
+.to-top {
+  position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 40;
+  width: 44px; height: 44px; display: grid; place-items: center; padding: 0; cursor: pointer;
+  background: var(--panel); color: var(--accent); border: 1px solid var(--line-strong);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.to-top.is-shown { opacity: 0.55; visibility: visible; transition: opacity 0.25s ease; }
+.to-top.is-shown:hover, .to-top.is-shown:focus-visible { opacity: 1; }
+.to-top:focus-visible { outline: none; border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html.gn-lock .to-top { opacity: 0; visibility: hidden; }
+@media print { .to-top { display: none; } }
+
 /* Any screenshot opens full size. */
 .js .frame img, .js .sc-stage img { cursor: zoom-in; }
 .frame { transition: transform 0.25s ease; }

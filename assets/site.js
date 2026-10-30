@@ -11,6 +11,7 @@
  *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
  *   #lw-video        Live Wind: swaps the video's own controls for one Pause/Play button
  *   [data-drag-x]    a sideways-scrolling strip a mouse can drag, like a finger swipe
+ *   .to-top          a faint back-to-top arrow, on long pages once you're well down them
  */
 // Grouped site nav: dropdowns on wide screens, a full menu on phones. First, so that an error in
 // any page's own code below can't stop the nav from working.
@@ -513,6 +514,29 @@
     const dx = e.changedTouches[0].clientX - lx;
     lx = null;
     if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+  });
+
+  /* Back to top: a faint arrow in the corner. Only on long pages (over four screens tall), and
+     only once the visitor is a screen and a half down. Focus goes back to the top with them. */
+  const up = document.createElement("button");
+  up.type = "button";
+  up.className = "to-top";
+  up.setAttribute("aria-label", "Back to top");
+  up.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>';
+  document.body.append(up);
+  let upQueued = false;
+  const upCheck = () => {
+    upQueued = false;
+    const h = innerHeight;
+    up.classList.toggle("is-shown", document.documentElement.scrollHeight > 4 * h && scrollY > 1.5 * h);
+  };
+  addEventListener("scroll", () => { if (!upQueued) { upQueued = true; requestAnimationFrame(upCheck); } }, { passive: true });
+  addEventListener("resize", upCheck);
+  upCheck();
+  up.addEventListener("click", () => {
+    scrollTo({ top: 0, behavior: reduced.matches ? "auto" : "smooth" });
+    const brand = document.querySelector(".brand");
+    if (brand) brand.focus({ preventScroll: true });
   });
 
   /* Sideways strips (the Sagitta answer's table): a mouse drags them like a finger swipe. Touch
