@@ -1792,6 +1792,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sn-card a.sn-more + a.sn-more { margin-top: 0; padding-top: 0; }
 .sn-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .sn-tag { font: 500 0.68rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 6px 8px; }
+.sn-tag--soon { color: var(--flag); background: rgba(240, 180, 41, 0.14); }   /* amber, like Wind Corridor's Coming soon */
 .sn-how { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 40px; }
 .sn-how div { border-top: 1px solid var(--line-strong); padding-top: 14px; }
 .sn-how h3 { font: 700 1.2rem/1.1 var(--font-display); text-transform: uppercase; margin: 0 0 6px; }
