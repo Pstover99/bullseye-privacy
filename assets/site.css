@@ -875,6 +875,7 @@ html:not(.js) .hud-controls, html:not(.js) .hud-zero, html:not(.js) .hud-cmp { d
    a phone-shaped stage on wide screens, the whole frame on phones. */
 .wc-hero .wrap { grid-template-columns: minmax(0, 1fr); }
 .wc-hero p.lead { max-width: 40em; }
+.wc-hero p.wc-soon { max-width: 40em; margin-top: 18px; padding: 10px 14px; border-left: 3px solid #F0B429; background: rgba(240, 180, 41, 0.1); color: var(--fg); font-weight: 600; }
 .wc-demo-section { border-top: 1px solid var(--line); scroll-margin-top: 16px; }
 .wc-demo { background: #04070A; }
 .wc-demo iframe { display: block; width: 100%; height: clamp(600px, 88vh, 920px); border: 0; }
@@ -1958,6 +1959,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 /* Live Wind page */
 .lw-hero .wrap { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
 .lw-dot { display: inline-block; width: 8px; height: 8px; margin-right: 10px; vertical-align: 1px; border-radius: 50%; background: #3DCB7A; box-shadow: 0 0 0 3px rgba(61, 203, 122, 0.2); }
+.lw-dot--soon { background: #F0B429; box-shadow: 0 0 0 3px rgba(240, 180, 41, 0.2); }
 .lw-tagline { margin: -6px 0 20px; font: 700 clamp(1.5rem, 3vw, 2rem)/1.15 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--accent); }
 .lw-hero p.lead strong { font-weight: 600; }
 .lw-compat { margin: 20px 0 0; font: 500 0.8rem/1.5 var(--font-mono); color: var(--muted); }
