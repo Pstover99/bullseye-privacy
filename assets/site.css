@@ -1768,6 +1768,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .gta-badge--play { height: 80px; margin: -13px 0 -13px -12px; }
 .gta-card h2 { font: 700 1.6rem/1.05 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; margin: 4px 0 0; }
 .gta-card p { margin: 0; color: var(--muted); }
+.gta-guide { margin: 28px 0 0; text-align: center; }
 .gta-soon {
   font: 500 0.72rem/1 var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent); background: var(--accent-soft); padding: 7px 10px;
