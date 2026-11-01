@@ -48,6 +48,10 @@ PAGES = [
      "Compare Bullseye Ballistics to other popular solver apps, feature by feature: firing "
      "solutions, sensors, the External Display, shot logging and analysis, truing, groups, "
      "matches, load development, barrel care and Sagitta AI."),
+    ("choosing-a-solver/index.html", "_pages/choosing-a-solver.html", "../",
+     "Choosing a Solver · Bullseye Ballistics",
+     "Most ballistic solvers give an accurate hold. Six questions to ask before you pick one: who "
+     "makes it, what else it does, what gear it ties you to, and whether it works offline."),
     ("external-display/index.html", "_pages/external-display.html", "../",
      "Bullseye Ballistics External Display",
      "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "
@@ -122,13 +126,15 @@ NAV = {
     "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
     "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
-    "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/", "GET": "get-the-app/",
+    "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/",
+    "SOLVER": "choosing-a-solver/", "GET": "get-the-app/",
 }
 # The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
 NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
     "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
     "HOOD": ["TRUING", "HOOD", "HITPROB"],
+    "COMPARE": ["SOLVER", "COMPARISON"],
 }
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
