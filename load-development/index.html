@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Load Development · Bullseye Ballistics</title>
+<meta name="description" content="Charge ladders and seating depth tests in Bullseye Ballistics: velocity readings and the actual groups you shot kept with every rung, a chart to compare them, one tap to turn a rung into a load, and velocity checks that follow your barrel&#x27;s wear.">
+<link rel="canonical" href="https://bullseyeballisticscalculator.com/load-development/">
+<meta name="theme-color" content="#101311">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bullseye Ballistics">
+<meta property="og:title" content="Load Development · Bullseye Ballistics">
+<meta property="og:description" content="Charge ladders and seating depth tests in Bullseye Ballistics: velocity readings and the actual groups you shot kept with every rung, a chart to compare them, one tap to turn a rung into a load, and velocity checks that follow your barrel&#x27;s wear.">
+<meta property="og:url" content="https://bullseyeballisticscalculator.com/load-development/">
+<meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=194980063a">
+<script src="../assets/site.js?v=9e923d2d16" defer></script>
+</head>
+<body>
+<header class="top gn-header">
+  <div class="wrap gn">
+    <a class="brand" href="../" aria-label="Bullseye Ballistics home">
+      <img class="logo" src="../assets/img/logo.svg" width="34" height="34" alt="">
+      <b>Bullseye</b>
+    </a>
+    <nav class="gn-menu" id="gn-menu" aria-label="Site">
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-features">Features</button>
+        <div class="gn-panel" id="gn-features">
+          <a href="../features/"><b>All features</b><span>Everything the app does</span></a>
+          <a href="../sagitta/"><b>Sagitta Ballistics AI</b><span>The ballistics AI at the core</span></a>
+          <a href="../wind-corridor/"><b>Wind Corridor</b><span>See the wind downrange</span></a>
+          <a href="../external-display/"><b>External display</b><span>Your solution on the rifle</span></a>
+          <a href="../sensors/"><b>Sensors</b><span>Live wind and weather</span></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-field">In the field</button>
+        <div class="gn-panel" id="gn-field">
+          <a href="../hunting/"><b>Hunting</b><span>Hunting Zero and Hunt Mode</span></a>
+          <a class="gn-sub" href="../hunting/#hunt-mode"><b>Hunt Mode</b></a>
+          <a class="gn-sub" href="../hunting/#hunting-zero"><b>Hunting Zero Calculator</b></a>
+          <a href="../matches/"><b>Matches</b><span>From match book to first shot</span></a>
+          <a class="gn-sub" href="../matches/#how"><b>Import Match Book</b></a>
+          <a class="gn-sub" href="../matches/#review"><b>Match Book Review</b></a>
+          <a class="gn-sub" href="../matches/#coach"><b>Stage Coach</b></a>
+          <a href="../live-wind/"><b>Wind</b><span>Live wind, the corridor and smoothing</span></a>
+          <a class="gn-sub" href="../live-wind/"><b>Live Wind</b></a>
+          <a class="gn-sub" href="../wind-corridor/"><b>Wind Corridor</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Wind Smoothing</b></a>
+        </div>
+      </div>
+      <div class="gn-group gn-current">
+        <button type="button" aria-expanded="false" aria-controls="gn-hood">Under the Hood</button>
+        <div class="gn-panel" id="gn-hood">
+          <a href="../under-the-hood/"><b>Solver Technical Detail</b><span>How wind and elevation become a hold</span></a>
+          <a class="gn-sub" href="../under-the-hood/#wind"><b>Wind Hold Calculation</b></a>
+          <a class="gn-sub" href="../under-the-hood/#elevation"><b>Elevation Hold Calculation</b></a>
+          <a href="../truing/"><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
+          <a class="gn-sub" href="../truing/"><b>Velocity and Drag</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Adaptive Wind Smoothing</b></a>
+          <a href="../hit-probability/"><b>Hit Probability</b><span>How your odds of a hit are worked out</span></a>
+          <a href="../load-development/" aria-current="page"><b>Load Development</b><span>Every rung and group, kept</span></a>
+        </div>
+      </div>
+      <div class="gn-group gn-group--end">
+        <button type="button" aria-expanded="false" aria-controls="gn-compare">Compare</button>
+        <div class="gn-panel" id="gn-compare">
+          <a href="../choosing-a-solver/"><b>Choosing a Solver</b><span>Six questions to ask of any solver</span></a>
+          <a href="../comparison/"><b>Side by side</b><span>Every feature, next to other apps</span></a>
+        </div>
+      </div>
+      <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    </nav>
+    <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    <button class="gn-toggle" type="button" aria-expanded="false" aria-controls="gn-menu">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero mx-hero">
+    <div class="wrap">
+      <div>
+        <div class="label feature-label">Load development</div>
+        <h1>Every ladder rung. Every group.<br><span>Every result, kept.</span></h1>
+        <p class="lead">Run charge ladders and seating depth tests in Bullseye Ballistics. Each rung keeps its chronograph readings and the actual groups you shot with it, from a photo of the target or the group's dimensions, filed under the rifle that fired them.</p>
+        <p class="lead">Compare the rungs on one chart. Turn the winner into a load with one tap. Months from now, the whole test is still there for the next decision.</p>
+        <div class="hz-chips"><span class="hz-chip on">Charge ladders</span><span class="hz-chip">Seating depth tests</span><span class="hz-chip">Velocity per rung</span><span class="hz-chip">Groups per rung</span><span class="hz-chip">Velocity checks</span></div>
+      </div>
+      <div class="mx-hero-phones">
+        <figure><div class="frame"><img src="../assets/img/ld-workup.webp" width="720" height="1457" decoding="async" alt="Charge Test N140 - Berger 120's, a charge ladder on the 6GT shot Oct 8, 2026. The Rungs compared card plots mean velocity with bars of plus or minus 1 SD for five charges from 32.4 to 33.9 grains, and the mean group size of each rung below it."></div></figure>
+        <figure><div class="frame"><img src="../assets/img/ld-rungs.webp" width="720" height="1457" decoding="async" alt="The rungs list for the same workup: each charge with its average velocity, SD and range, ES, 10 readings and 1 group with its mean group size in mil."></div></figure>
+        <figure><div class="frame"><img src="../assets/img/ld-rung.webp" width="720" height="1457" decoding="async" alt="Rung 1 of 5, 32.4 grains: average 2,772 fps, SD 5.8 with a range of 4.0 to 10.5, ES 20 fps from 10 readings, a Use this step button and the ten readings as chips."></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="why">
+    <div class="wrap">
+      <h2>Three ways to keep a load log</h2>
+      <p class="mx-intro">Load development is only as good as the notes you can find later. Here's how the usual ways hold up when you need last spring's ladder.</p>
+      <div class="ld-compare">
+        <article class="panel">
+          <div class="label">The notebook</div>
+          <h3>Handwritten logs</h3>
+          <ul>
+            <li><strong>Hard to find.</strong> Which notebook, which page, which rifle? Was that before or after the new barrel?</li>
+            <li><strong>Math by hand.</strong> Averages, SD and ES on a calculator at the bench, or not at all.</li>
+            <li><strong>Groups live somewhere else.</strong> The targets are in a box, if you kept them, and nothing ties a target to its rung.</li>
+            <li><strong>One copy.</strong> Rain, a coffee spill or a lost range bag, and the test is gone.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <div class="label">The spreadsheet</div>
+          <h3>Better, still annoying</h3>
+          <ul>
+            <li><strong>Searchable,</strong> once you're home. At the range you're still writing on the box and typing it up later.</li>
+            <li><strong>Formulas break.</strong> Add a reading and the SD cell doesn't reach it. Every ladder needs its own copy of the sheet.</li>
+            <li><strong>Groups are just numbers.</strong> A size in a cell, without the shots, the distance or the load it came from.</li>
+            <li><strong>Two places for one answer.</strong> The sheet holds the result, but your solver doesn't use it. Pick a winner and you still type the charge and velocity into your ballistics app by hand, and do it again every time you update one of them.</li>
+          </ul>
+        </article>
+        <article class="panel ld-pick">
+          <div class="label">Bullseye Ballistics</div>
+          <h3>Built for the bench and the range</h3>
+          <ul>
+            <li><strong>Filed by rifle,</strong> with the test type, the charges or depths and the rungs fired on every row.</li>
+            <li><strong>No math by hand.</strong> Copy the velocities from your chronograph's app and paste them into the rung. The app works out the average, SD and ES for you.</li>
+            <li><strong>Real groups on every rung:</strong> a photo of the target measured in the app, or the group's dimensions typed in. Saved for later analysis.</li>
+            <li><strong>Brass firings kept with every test,</strong> so you know how many times the brass had been fired when you shot it.</li>
+            <li><strong>One tap to a load.</strong> Use this step writes the charge, seating and velocity into your load and the solver.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="how">
+    <div class="wrap">
+      <div class="label">How it works</div>
+      <h2>From first rung to finished load</h2>
+      <div class="mx-steps ld-nonum">
+        <article class="panel"><h3>Set up</h3><p>Pick the test type and rifle, enter starting point, ending point and desired step size, and let the app build the rungs.</p></article>
+        <article class="panel"><h3>Shoot</h3><p>Paste each rung's chronograph readings and add the groups you shot with it: a target photo or the dimensions.</p></article>
+        <article class="panel"><h3>Compare</h3><p>Velocity and group size for every rung, side by side on one chart.</p></article>
+        <article class="panel"><h3>Use it</h3><p>Turn the rung you choose into a new load, or update one you have.</p></article>
+      </div>
+      <p class="mx-note">Load Dev is on the Home screen. You can also start a workup from any rifle: open it in Profiles and tap <strong>New workup</strong> under Workups.</p>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="create">
+    <div class="wrap">
+      <div class="label">Walkthrough</div>
+      <h2>Start a workup in three steps</h2>
+      <p class="mx-intro">A workup is one ladder test. Setting one up takes under a minute, and the X at the top closes it without saving.</p>
+
+      <div class="rv-beat mx-split">
+        <div class="mx-copy">
+          <h3>What you're testing</h3>
+          <ul>
+            <li><strong>Charge ladder:</strong> the same components, a different powder charge on each rung. Shot over a chronograph, it's your velocity ladder too.</li>
+            <li><strong>Seating depth:</strong> the same charge, a different seating length on each rung, measured as CBTO or COAL.</li>
+            <li><strong>Pick the rifle</strong> and give the test a name, or leave the name blank.</li>
+          </ul>
+        </div>
+        <figure class="mx-one">
+          <div class="frame"><img src="../assets/img/ld-new-type.webp" width="720" height="1457" loading="lazy" decoding="async" alt="New workup, step 1 of 3, What you are testing: Charge ladder or Seating depth, rifle chips for 6GT, Kyle's Sako and Sample Rifle, and an optional name."></div>
+          <figcaption><div class="label">Step 1 of 3</div><p>Charge ladder or seating depth, and the rifle.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="rv-beat mx-split rev">
+        <div class="mx-copy">
+          <h3>What stays the same</h3>
+          <p>Enter the parts of the recipe that don't change from rung to rung: powder, bullet, primer, brass and how many times it's been fired, case prep, seating length and distance to target. Leave out anything you don't track.</p>
+          <p><strong>Brass firings:</strong> the Firings box next to Brass records how many times that brass has been fired. The test shows it with the brass, such as <em>Alpha ×4</em> for Alpha brass on its fourth firing, so you can compare results on new brass and well-used brass.</p>
+          <p>These stay with the test, so a year from now you know exactly what was in the case.</p>
+        </div>
+        <figure class="mx-one">
+          <div class="frame"><img src="../assets/img/ld-new-components.webp" width="720" height="1457" loading="lazy" decoding="async" alt="New workup, step 2 of 3, Components: powder Varget, bullet 175 SMK, and empty fields for primer, brass, firings, case prep, seating length and distance to target."></div>
+          <figcaption><div class="label">Step 2 of 3</div><p>Components, seating and distance.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="rv-beat mx-split">
+        <div class="mx-copy">
+          <h3>Let the app do the math</h3>
+          <ul>
+            <li><strong>Fill between:</strong> type the first charge, the last and the step. 42.0 to 43.2 gr in 0.3 gr steps gives five rungs: 42.0, 42.3, 42.6, 42.9 and 43.2.</li>
+            <li><strong>Add one</strong> adds a single rung anywhere in the list. Tap the X on a chip to drop one.</li>
+            <li><strong>Create workup</strong> and the rungs are ready for readings. You can add more rungs later.</li>
+          </ul>
+        </div>
+        <div class="mx-phones" style="--n:2">
+          <figure>
+            <div class="frame"><img src="../assets/img/ld-new-rungs.webp" width="720" height="1457" loading="lazy" decoding="async" alt="New workup, step 3 of 3, Rungs: five chips from 42.0 to 43.2 grains, an Add one field, and Fill between with First 42.0, Last 43.2 and Step 0.3."></div>
+            <figcaption><div class="label">Step 3 of 3</div><p>Fill between builds the ladder.</p></figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="../assets/img/ld-new-created.webp" width="720" height="1457" loading="lazy" decoding="async" alt="The new workup: name, components summary Varget and 175 SMK, When it was shot, Ask Sagitta, and five rungs from 42.0 to 43.2 grains, each showing No readings yet."></div>
+            <figcaption><div class="label">Ready to shoot</div><p>Five rungs, waiting for readings.</p></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="record">
+    <div class="wrap mx-split">
+      <div class="mx-copy">
+        <div class="label">Walkthrough</div>
+        <h2>Record each rung at the range</h2>
+        <p class="mx-intro">Tap a rung to open it.</p>
+        <ul>
+          <li><strong>Paste readings</strong> straight from your chronograph app. Spaces, commas or new lines all work. Or type them one at a time.</li>
+          <li><strong>The stats fill in:</strong> average velocity, SD, ES and the number of shots. Remove a reading and they update.</li>
+          <li><strong>SD with a range.</strong> Under the SD you see how far the true SD could be, at 95% confidence. Ten shots at SD 5.8 could really be anywhere from 4.0 to 10.5. More shots narrow it, so you know when a rung's numbers are solid and when they're luck.</li>
+          <li><strong>When it was shot</strong> keeps the date and the ammo and air temperature with the test.</li>
+        </ul>
+      </div>
+      <div class="mx-phones mx-one" style="--n:1">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-rung.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Rung 1 of 5, 32.4 grains: average 2,772 fps, SD 5.8 with a range of 4.0 to 10.5, ES 20 fps, 10 readings shown as removable chips, and a Paste readings box."></div>
+          <figcaption><div class="label">One rung</div><p>32.4 gr: 2,772 fps, SD 5.8 (4.0 to 10.5), ES 20, 10 shots.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="groups">
+    <div class="wrap">
+      <div class="label">Walkthrough</div>
+      <h2>The groups you actually shot, on every rung</h2>
+      <p class="mx-intro">Velocity is half the story. Bullseye Ballistics stores the <strong>actual groups</strong> you fired with each rung, not just a number you wrote in the margin. Take a <strong>photo of the target</strong> and measure the group in the app, or enter its <strong>dimensions</strong>. Either way it's saved with the rung, so they're there to compare now and to analyze later.</p>
+      <div class="cols ld-cols3">
+        <article class="panel">
+          <div class="label">On the rung</div>
+          <h3>New group or Link a group</h3>
+          <p>At the bottom of a rung, <strong>New group</strong> records a group for it. <strong>Link a group</strong> attaches one you've already saved in Groups. Two ways to record it:</p><ul><li><strong>Photo:</strong> photograph the target and mark the impacts. The app measures the group.</li><li><strong>Dimensions:</strong> enter each impact by hand, or type in the group size and mean radius from another tool.</li></ul>
+        </article>
+        <article class="panel">
+          <div class="label">Fair comparison</div>
+          <h3>The mean, not the best</h3>
+          <p>Shoot two or three groups per rung and the rung shows the <strong>mean group size</strong>, so one lucky group doesn't stand for the whole rung. A linked group stops counting toward a load's spread while it belongs to the test.</p>
+        </article>
+        <article class="panel">
+          <div class="label">For later</div>
+          <h3>Kept for analysis</h3>
+          <p>Each group keeps its shots, size and mean radius, and its target photo stays on your phone. Sagitta reads every rung's readings and groups when you ask about a workup, and the measurements are in your backup and data export.</p>
+        </article>
+      </div>
+      <div class="mx-phones" style="--n:2">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-rungs.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Five rungs from 32.4 to 33.9 grains, each with its velocity stats and its group: 0.19, 0.14, 0.09, 0.13 and 0.18 mil mean group."></div>
+          <figcaption><div class="label">Groups in the rungs list</div><p>33.3 gr: 0.09 mil mean group, the tightest of the five.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-workup.webp" width="720" height="1457" loading="lazy" decoding="async" alt="The Rungs compared card: velocity with plus or minus 1 SD bars above, and group size in mil as the mean of each rung's groups below."></div>
+          <figcaption><div class="label">Group size, charted</div><p>Each bar is the mean of that rung's groups.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="compare">
+    <div class="wrap mx-split rev">
+      <div class="mx-copy">
+        <div class="label">Walkthrough</div>
+        <h2>Compare the rungs at a glance</h2>
+        <p class="mx-intro">Open the workup and the <strong>Rungs compared</strong> card puts the whole ladder on one axis.</p>
+        <ul>
+          <li><strong>Velocity:</strong> each rung's average, with bars of plus or minus 1 SD. Look for rungs where the velocity barely moves as the charge goes up.</li>
+          <li><strong>Group size:</strong> each rung's mean group in mil, right under its velocity.</li>
+          <li><strong>The rungs list</strong> gives the numbers behind each point: charge, velocity, SD and its range, ES, shot count and group size.</li>
+          <li><strong>Your call.</strong> The points aren't joined by a trend line and the app doesn't announce a node. You see the data as it is and decide, or ask Sagitta for a second opinion.</li>
+        </ul>
+      </div>
+      <div class="mx-phones mx-one" style="--n:1">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-workup.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Charge Test N140 - Berger 120's: velocity climbs from about 2,772 fps at 32.4 grains to about 2,860 at 33.9, with 32.4 and 32.8 grains nearly level, and group size bars below."></div>
+          <figcaption><div class="label">Charge Test N140</div><p>32.4 and 32.8 gr sit level at about 2,772 fps.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="sagitta">
+    <div class="wrap">
+      <div class="label">Ask Sagitta</div>
+      <h2>A second opinion on your ladder</h2>
+      <p class="mx-intro">Tap <strong>Ask Sagitta</strong> on a workup and Sagitta Ballistics AI opens with the test already in view. It reads every rung's readings, stats and groups from your records, not from a summary you type in.</p>
+      <div class="mx-steps ld-asks ld-nonum">
+        <article class="panel"><h3>Which rung looks best?</h3><p>Weighs velocity spread and group size together, rung by rung.</p></article>
+        <article class="panel"><h3>Is there a flat spot?</h3><p>Looks for charges where velocity holds steady.</p></article>
+        <article class="panel"><h3>What should I test next?</h3><p>Can offer a card that adds up to five rungs, or a note to the workup.</p></article>
+        <article class="panel"><h3>Stays inside your data</h3><p>Suggested charges stay within the range you've already fired. Never above your top rung.</p></article>
+      </div>
+      <p class="mx-note">The first time you use Sagitta with load development, it asks you to read and accept a short safety notice. Always follow published load data and work up carefully. <a href="../sagitta/">More about Sagitta →</a></p>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="use">
+    <div class="wrap mx-split">
+      <div class="mx-copy">
+        <div class="label">Walkthrough</div>
+        <h2>Use this step: from rung to load</h2>
+        <p class="mx-intro">Found your rung? Open it and tap <strong>Use this step</strong>. Choose <strong>New load</strong>, named after the workup and the rung, or <strong>Update a load</strong> you already have.</p>
+        <ul>
+          <li><strong>The recipe:</strong> a charge ladder writes the rung's charge (and the seating length, if you recorded one). A seating test writes the seating length and its measure, plus the charge.</li>
+          <li><strong>The velocity:</strong> the rung's average becomes the load's muzzle velocity, so the solver uses what you measured.</li>
+          <li><strong>The temperature table</strong> moves to the new velocity and keeps its slope.</li>
+          <li><strong>A fresh start where it matters:</strong> truing starts over, and cold-bore and clean-bore velocities are cleared when the recipe changes, because the old numbers belonged to a different load.</li>
+          <li><strong>A velocity check</strong> is saved from the rung's readings, and the rung remembers which load it became.</li>
+        </ul>
+      </div>
+      <div class="mx-phones" style="--n:2">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-rung.webp" width="720" height="1457" loading="lazy" decoding="async" alt="A rung with the Use this step button under its stats."></div>
+          <figcaption><div class="label">Use this step</div><p>Right under the rung's stats.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-handload.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Rifle Setup for a load, with the Bullet, Shot, Handload and Velocity checks sections. Handload holds the charge and seating."></div>
+          <figcaption><div class="label">In your load</div><p>The charge and seating land in Handload, the velocity in Shot.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="velocity">
+    <div class="wrap">
+      <div class="label">After the workup</div>
+      <h2>Keep checking velocity as the barrel wears</h2>
+      <p class="mx-intro">A load isn't finished when the ladder is. Barrels speed up or slow down over their life. <strong>Velocity checks</strong> on each load keep a running record, and every check made on the day it's shot is stamped with the barrel and its round count.</p>
+      <div class="mx-phones" style="--n:3">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-vc-paste.webp" width="720" height="1457" loading="lazy" decoding="async" alt="A new velocity check for Sample 109 on Oct 16, 2026, with ten readings pasted in and an Add 10 readings button."></div>
+          <figcaption><div class="label">Paste</div><p>Paste a chronograph session. The button counts the readings it found.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-vc-result.webp" width="720" height="1457" loading="lazy" decoding="async" alt="The saved check: average 2,905 fps, SD 4.6 with a range of 3.2 to 8.5, ES 14, 10 readings."></div>
+          <figcaption><div class="label">Saved</div><p>2,905 fps, SD 4.6 (3.2 to 8.5), ES 14.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-vc-list.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Velocity checks on the load: the Oct 16 check, Add velocity check, and the switches Use measured MV spread and Adjust MV for wear, which needs 3 velocity checks on this barrel."></div>
+          <figcaption><div class="label">On the load</div><p>Every check, plus two switches that put them to work.</p></figcaption>
+        </figure>
+      </div>
+      <div class="cols">
+        <article class="panel">
+          <div class="label">Use measured MV spread</div>
+          <h3>Your real velocity spread</h3>
+          <p>With 10 readings across your checks, hit probability uses your load's measured SD instead of the general setting.</p>
+        </article>
+        <article class="panel">
+          <div class="label">Adjust MV for wear</div>
+          <h3>Velocity that follows the barrel</h3>
+          <p>With three or more checks on the current barrel, the app fits velocity against round count, allowing for temperature. When the change is real, not noise, it adjusts your MV for today's count, for example: <em>-2.1 fps per 100 rounds from 3 checks. Adjusting your MV by -12 fps now.</em> Past your last check it holds steady and tells you it's time for another velocity check.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-sec" id="history">
+    <div class="wrap mx-split rev">
+      <div class="mx-copy">
+        <div class="label">Your load history</div>
+        <h2>Find it in seconds, years later</h2>
+        <p class="mx-intro">The point of keeping records is using them. Every workup stays filed under its rifle, with everything that went into it.</p>
+        <ul>
+          <li><strong>Load Dev</strong> lists every workup by rifle: the test type, the range of charges or depths, and how many rungs were fired.</li>
+          <li><strong>Each rifle</strong> shows its workups next to its barrel and cleaning card, with the rounds on the barrel and life left.</li>
+          <li><strong>Open any test</strong> and it's all there: components, date, temperatures, every reading, every group, and which loads came from it.</li>
+          <li><strong>Velocity drifting?</strong> Your old ladders are one tap away, with their readings and groups, ready to plan the next test from. Or ask Sagitta to compare them.</li>
+          <li><strong>Backed up.</strong> Workups and velocity checks are in the free data export, and sync to your account with cloud backup.</li>
+        </ul>
+      </div>
+      <div class="mx-phones" style="--n:2">
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-list.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Load Development: a New workup button and the 6GT's three workups: Charge Test N140 - Berger 120's, 5 of 5 rungs fired; 109 LRHT seating test, 2.043 to 2.053 in CBTO; and 32.4 N140 - 120's Alpha."></div>
+          <figcaption><div class="label">Load Dev</div><p>Every test, filed by rifle.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="../assets/img/ld-barrel.webp" width="720" height="1457" loading="lazy" decoding="async" alt="Maintenance for the 6GT: the Bartlein MTU barrel at 38 percent left, 1,540 of 2,500 rounds, cleaning intervals and reminders, with the rifle's workups further down."></div>
+          <figcaption><div class="label">The barrel</div><p>1,540 of 2,500 rounds, with the rifle's workups below.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="hz-smart">
+    <div class="wrap">
+      <div class="label">Good to know</div>
+      <h2>The details</h2>
+      <div class="cols hz-grid ld-cols3">
+        <article class="panel"><h3>Big ladders</h3><p>Fill between builds up to 25 rungs at a time. Need more? Use a larger step, or add rungs to the workup later.</p></article>
+        <article class="panel"><h3>Works offline</h3><p>Record readings and groups with no signal. Sagitta and cloud backup catch up when you're connected.</p></article>
+        <article class="panel"><h3>Safety first</h3><p>The app records your tests. It doesn't suggest maximum charges. Always start from published load data and watch for pressure signs.</p></article>
+      </div>
+    </div>
+  </section>
+<nav class="next-page" aria-label="Next page">
+  <div class="wrap">
+    <a class="next-link" href="../choosing-a-solver/"><span class="label">Next</span><b>Choosing a Solver</b><span>Six questions to ask of any solver</span></a>
+  </div>
+</nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="label">Bullseye Ballistics is made by Core Bridge, LLC.</div>
+      <p>Questions or support: <a class="mail" href="mailto:info@BullsEyeBallisticsCalculator.com">info@BullsEyeBallisticsCalculator.com</a></p>
+      <div class="social-wrap">
+        <div class="label">Follow us</div>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/profile.php?id=61595733878721" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/bullseyeballistics/" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 5.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1-1 0-1.7.2-2.3.5-.6.2-1.2.6-1.7 1.1-.5.5-.9 1.1-1.1 1.7-.3.6-.4 1.3-.5 2.3 0 1-.1 1.3-.1 3.9s0 2.9.1 3.9c0 1 .2 1.7.5 2.3.2.6.6 1.2 1.1 1.7.5.5 1.1.9 1.7 1.1.6.3 1.3.4 2.3.5 1 0 1.3.1 3.9.1s2.9 0 3.9-.1c1 0 1.7-.2 2.3-.5.6-.2 1.2-.6 1.7-1.1.5-.5.9-1.1 1.1-1.7.3-.6.4-1.3.5-2.3 0-1 .1-1.3.1-3.9s0-2.9-.1-3.9c0-1-.2-1.7-.5-2.3-.2-.6-.6-1.2-1.1-1.7-.5-.5-1.1-.9-1.7-1.1-.6-.3-1.3-.4-2.3-.5-1 0-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1.9 0 1.4.2 1.8.3.4.2.7.4 1.1.7.3.3.6.7.7 1.1.1.3.3.8.3 1.8 0 1 .1 1.3.1 3.8s0 2.8-.1 3.8c0 .9-.2 1.4-.3 1.8-.2.4-.4.7-.7 1.1-.3.3-.7.6-1.1.7-.3.1-.8.3-1.8.3-1 0-1.3.1-3.8.1s-2.8 0-3.8-.1c-.9 0-1.4-.2-1.8-.3-.4-.2-.7-.4-1.1-.7-.3-.3-.6-.7-.7-1.1-.1-.3-.3-.8-.3-1.8 0-1-.1-1.3-.1-3.8s0-2.8.1-3.8c0-.9.2-1.4.3-1.8.2-.4.4-.7.7-1.1.3-.3.7-.6 1.1-.7.3-.1.8-.3 1.8-.3 1 0 1.3-.1 3.8-.1z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="links" aria-label="Legal">
+      <a href="../terms/">Terms of Use</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../delete-account/">Delete your account</a>
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <p class="copyright">&copy; 2026 Core Bridge, LLC. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

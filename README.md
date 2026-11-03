@@ -11,6 +11,7 @@ redirect them.
 | Features | https://bullseyeballisticscalculator.com/features/ |
 | Sagitta AI | https://bullseyeballisticscalculator.com/sagitta/ |
 | Sensors | https://bullseyeballisticscalculator.com/sensors/ |
+| Load Development | https://bullseyeballisticscalculator.com/load-development/ |
 | Comparison | https://bullseyeballisticscalculator.com/comparison/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |

@@ -2222,3 +2222,23 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .bb-tech .hp-table td:last-child { grid-column: 1 / -1; }
   .bb-tech .hp-table td:empty { display: none; }
 }
+/* Load Development page: the notebook, the spreadsheet and the app side by side, and three
+   panels in a row for the groups section. Both stack on a phone. */
+.ld-compare { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
+.ld-compare .panel h3 { margin-top: 6px; }
+.ld-compare .panel.ld-pick { background: var(--accent-soft); }
+.ld-compare .panel.ld-pick > .label { color: var(--accent); }
+.ld-compare .panel.ld-pick li { color: var(--fg); }
+.cols.ld-cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
+.cols.ld-cols3 .panel h3 { margin-top: 6px; }
+#velocity .cols, #groups .mx-phones { margin-top: 32px; }
+#groups .mx-phones { max-width: 720px; }
+@media (max-width: 900px) {
+  .ld-compare, .cols.ld-cols3 { grid-template-columns: minmax(0, 1fr); }
+}
+#create .rv-beat { margin-top: 56px; }
+#create .rv-num { display: block; font: 700 2.2rem/1 var(--font-display); color: var(--accent); margin-bottom: 10px; }
+#create .mx-copy h3 { margin: 0 0 8px; }
+#create .mx-copy p { color: var(--muted); }
+#create .mx-one, #use .mx-phones figure { max-width: 300px; }
+.mx-steps.ld-nonum .panel::before { content: none; }
