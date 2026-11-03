@@ -137,6 +137,41 @@ NAV_GROUPS = {
     "COMPARE": ["SOLVER", "COMPARISON"],
 }
 
+# The pages in the order the header lists them, left to right and top to bottom, after the home
+# page. Each one ends with a button to the next, titled as in the header.
+READING_ORDER = [
+    ("", "Home", ""),
+    ("features/", "All features", "Everything the app does"),
+    ("sagitta/", "Sagitta Ballistics AI", "The ballistics AI at the core"),
+    ("wind-corridor/", "Wind Corridor", "See the wind downrange"),
+    ("external-display/", "External display", "Your solution on the rifle"),
+    ("sensors/", "Sensors", "Live wind and weather"),
+    ("hunting/", "Hunting", "Hunting Zero and Hunt Mode"),
+    ("matches/", "Matches", "From match book to first shot"),
+    ("live-wind/", "Live Wind", "Your wind meter, live in the solver"),
+    ("under-the-hood/", "Solver Technical Detail", "How wind and elevation become a hold"),
+    ("truing/", "Truing the Solver", "Match the solver to your rifle"),
+    ("hit-probability/", "Hit Probability", "How your odds of a hit are worked out"),
+    ("choosing-a-solver/", "Choosing a Solver", "Six questions to ask of any solver"),
+    ("comparison/", "Side by side", "Every feature, next to other apps"),
+    ("get-the-app/", "Get the app", "Now on Android, iPhone coming soon"),
+]
+# Pages whose own closing already links to the next one.
+OWN_NEXT = {"choosing-a-solver/"}
+
+
+def next_button(path: str) -> str:
+    order = [p for p, *_ in READING_ORDER]
+    if path in OWN_NEXT or path not in order[:-1]:
+        return ""
+    folder, title, blurb = READING_ORDER[order.index(path) + 1]
+    return (
+        '\n<nav class="next-page" aria-label="Next page">\n  <div class="wrap">\n'
+        f'    <a class="next-link" href="{{{{ROOT}}}}{folder}"><span class="label">Next</span>'
+        f"<b>{title}</b><span>{blurb}</span></a>\n  </div>\n</nav>"
+    )
+
+
 # Pages not linked from anywhere yet, kept out of search results until they are.
 NOINDEX = set()
 
@@ -296,7 +331,7 @@ def build(output: str, source: str, root: str, title: str, description: str) -> 
     path = "" if output == "index.html" else output.removesuffix("index.html")
     page = LAYOUT.read_text()
     fields = {
-        "{{BODY}}": body_for(source).rstrip("\n"),
+        "{{BODY}}": body_for(source).rstrip("\n") + next_button(path),
         "{{TITLE}}": html.escape(title),
         "{{DESCRIPTION}}": html.escape(description),
         "{{ROBOTS}}": '\n<meta name="robots" content="noindex">' if output in NOINDEX else "",
