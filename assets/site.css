@@ -1757,6 +1757,22 @@ section.hero--photo p.lead { color: #DDE3D8; }
   .gn-toggle { margin-left: auto; }
 }
 
+/* The button at the end of a page to the next one in the header's order. */
+.next-page { border-top: 1px solid var(--line); padding-block: 32px 56px; }
+.next-page .wrap { display: flex; justify-content: flex-end; }
+.next-link {
+  position: relative; display: grid; gap: 4px; width: min(100%, 380px); padding: 18px 60px 18px 22px;
+  background: var(--panel); border: 1px solid var(--line-strong); color: var(--fg); text-decoration: none;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.next-link .label { color: var(--accent); }
+.next-link b { font: 700 1.5rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; }
+.next-link span:last-child { font-size: 0.92rem; color: var(--muted); }
+.next-link::after { content: "\2192"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; line-height: 1; color: var(--accent); transition: transform .15s; }
+.next-link:hover { border-color: var(--accent); }
+.next-link:hover b { color: var(--accent); }
+.next-link:hover::after { transform: translate(4px, -50%); }
+
 /* Get the app: one card per store, each badge unlinked under "Coming soon" until the app is live. */
 .gta-stores { padding-block: 8px 56px; }
 .gta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
