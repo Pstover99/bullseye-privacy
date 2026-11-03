@@ -157,7 +157,7 @@ READING_ORDER = [
     ("under-the-hood/", "Solver Technical Detail", "How wind and elevation become a hold"),
     ("truing/", "Truing the Solver", "Match the solver to your rifle"),
     ("hit-probability/", "Hit Probability", "How your odds of a hit are worked out"),
-    ("load-development/", "Load Development", "Every rung and group, kept"),
+    ("load-development/", "Load Development", "Better Records. Better Loads."),
     ("choosing-a-solver/", "Choosing a Solver", "Six questions to ask of any solver"),
     ("comparison/", "Side by side", "Every feature, next to other apps"),
     ("get-the-app/", "Get the app", "Now on Android, iPhone coming soon"),
