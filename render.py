@@ -66,6 +66,11 @@ PAGES = [
      "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
      "zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold "
      "center or gives the exact hold, and checks every shot is ethical."),
+    ("load-development/index.html", "_pages/load-development.html", "../",
+     "Load Development · Bullseye Ballistics",
+     "Charge ladders and seating depth tests in Bullseye Ballistics: velocity readings and the "
+     "actual groups you shot kept with every rung, a chart to compare them, one tap to turn a "
+     "rung into a load, and velocity checks that follow your barrel's wear."),
     ("matches/index.html", "_pages/matches.html", "../",
      "Matches · Bullseye Ballistics",
      "Upload a match book or photograph a stage card, and Sagitta sets up the match in Bullseye "
@@ -123,7 +128,7 @@ PAGES = [
 
 # The header's links, by the {{CURRENT_...}} key in _layout.html, and the folder each opens.
 NAV = {
-    "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/",
+    "FEATURES": "features/", "SAGITTA": "sagitta/", "SENSORS": "sensors/", "LOADDEV": "load-development/",
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
     "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
     "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/",
@@ -133,7 +138,7 @@ NAV = {
 NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
     "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
-    "HOOD": ["TRUING", "HOOD", "HITPROB"],
+    "HOOD": ["TRUING", "HOOD", "HITPROB", "LOADDEV"],
     "COMPARE": ["SOLVER", "COMPARISON"],
 }
 
@@ -152,6 +157,7 @@ READING_ORDER = [
     ("under-the-hood/", "Solver Technical Detail", "How wind and elevation become a hold"),
     ("truing/", "Truing the Solver", "Match the solver to your rifle"),
     ("hit-probability/", "Hit Probability", "How your odds of a hit are worked out"),
+    ("load-development/", "Load Development", "Every rung and group, kept"),
     ("choosing-a-solver/", "Choosing a Solver", "Six questions to ask of any solver"),
     ("comparison/", "Side by side", "Every feature, next to other apps"),
     ("get-the-app/", "Get the app", "Now on Android, iPhone coming soon"),
