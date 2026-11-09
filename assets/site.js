@@ -753,3 +753,33 @@
     })();
   }
 })();
+
+// Chrono page: the curved lines from each source box to its band in the shot log diagram. They are
+// measured from the boxes on load, resize and font load. Below 900px the CSS hides them.
+(function () {
+  var flow = document.getElementById('ch-flow'), svg = document.getElementById('ch-flines');
+  if (!flow || !svg) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  function draw() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    if (getComputedStyle(svg).display === 'none') return;
+    var fr = flow.getBoundingClientRect();
+    flow.querySelectorAll('.ch-fsrc').forEach(function (src) {
+      var g = src.getAttribute('data-g'), band = flow.querySelector('.ch-band[data-g="' + g + '"]');
+      if (!band) return;
+      var a = src.getBoundingClientRect(), b = band.getBoundingClientRect();
+      var x1 = a.right - fr.left, y1 = a.top + a.height / 2 - fr.top, x2 = b.left - fr.left - 1, y2 = b.top + b.height / 2 - fr.top;
+      var mx = (x1 + x2) / 2, path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + ' C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', getComputedStyle(src).getPropertyValue('--gc').trim() || '#888');
+      if (g === 'c1') path.setAttribute('class', 'ch-live ch-main');
+      else if (g === 'c2' || g === 'c3' || g === 'c4') path.setAttribute('class', 'ch-live');
+      if (g === 'c7') path.setAttribute('class', 'ch-later');
+      svg.appendChild(path);
+    });
+  }
+  window.addEventListener('resize', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  window.addEventListener('load', draw);
+  draw();
+})();
