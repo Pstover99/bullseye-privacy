@@ -2269,3 +2269,238 @@ section.hero--photo p.lead { color: #DDE3D8; }
 #create .mx-copy p { color: var(--muted); }
 #create .mx-one, #use .mx-phones figure { max-width: 300px; }
 .mx-steps.ld-nonum .panel::before { content: none; }
+
+/* Chrono (/chrono/): the Athlon Rangecraft Velocity Pro chronograph page, ported from the chrono
+   handoff mockup. Every class is ch- prefixed and scoped under .chrono, so none of the site's own
+   rules for .hero, .cards, .split or .btn reach it. The mockup's colors map onto the site tokens,
+   with darker green, amber and orange in light mode. Headings follow the site: uppercase display. */
+.chrono {
+  --ch-bg2: var(--panel-low); --ch-line2: var(--line-strong); --ch-text: var(--fg); --ch-text2: #CFD2C8;
+  --ch-dim: #6E746A; --ch-blue: var(--accent); --ch-green: #3DDC84; --ch-green-text: #DFF7E8;
+  --ch-amber: #F0C04A; --ch-orange: #FF7A33;
+  font-size: 1.0625rem; line-height: 1.6;
+}
+@media (prefers-color-scheme: light) {
+  .chrono { --ch-text2: #3A4136; --ch-dim: #858B7E; --ch-green: #1B7F45; --ch-green-text: #14532E; --ch-amber: #9A7400; --ch-orange: #C2520F; }
+}
+.chrono a { color: var(--ch-blue); }
+.chrono img { height: auto; }
+.chrono h1 { font: 700 58px/1.02 var(--font-display); letter-spacing: .01em; text-transform: uppercase; margin: 14px 0 18px; text-wrap: balance; }
+.chrono h1 em { font-style: normal; color: var(--ch-blue); }
+.chrono h2 { font-size: 42px; letter-spacing: .01em; }
+.chrono h3 { text-transform: uppercase; letter-spacing: .02em; }
+.chrono .ch-jump { display: flex; flex-wrap: wrap; gap: 6px 26px; padding-block: 18px; border-bottom: 1px solid var(--line); font: 500 0.78rem/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.chrono .ch-jump a { text-decoration: none; padding-block: 6px; }
+.chrono .ch-jump a:hover { color: var(--fg); }
+.chrono .ch-tm { margin-top: 36px; font-size: 13px; color: var(--ch-dim); }
+@media (max-width: 900px) { .chrono h1 { font-size: 42px; } .chrono h2 { font-size: 34px; } }
+.chrono .ch-cut { clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px)) }
+.chrono .ch-cs { clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px) }
+.chrono .ch-btn { white-space:nowrap; display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body); font-weight:600; font-size:15px; padding:12px 20px; border:none; cursor:pointer; text-decoration:none!important }
+.chrono .ch-btn.ch-primary { background:var(--ch-blue); color:var(--bg) }
+.chrono .ch-btn.ch-ghost { background:transparent; color:var(--ch-blue); box-shadow:inset 0 0 0 1.5px var(--ch-line2) }
+.chrono .ch-hero { padding:72px 0 56px; border-bottom:1px solid var(--line); background:
+  linear-gradient(var(--ch-bg2) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,var(--ch-bg2) 1px,transparent 1px) 0 0/24px 24px, var(--bg) }
+.chrono .ch-hero .wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center }
+.chrono .ch-eyebrow { font-family:var(--font-mono); font-size:13px; letter-spacing:3px; color:var(--muted); text-transform:uppercase }
+.chrono .ch-lead { font-size:20px; color:var(--ch-text2); max-width:560px }
+.chrono .ch-hero .ch-ctas { display:flex; gap:12px; margin-top:28px; flex-wrap:wrap }
+.chrono .ch-works { margin-top:28px; font-family:var(--font-mono); font-size:13px; color:var(--muted); letter-spacing:1px }
+.chrono .ch-works b { color:var(--ch-text); font-weight:500 }
+.chrono .ch-works a b { text-decoration:underline; text-decoration-color:var(--ch-line2); text-underline-offset:3px }
+.chrono .ch-works a:hover b { color:var(--ch-blue); text-decoration-color:var(--ch-blue) }
+.chrono .ch-phone { justify-self:center; width:300px; border-radius:34px; padding:10px; background:#050605; box-shadow:0 0 0 1px var(--ch-line2),0 30px 80px rgba(0,0,0,.6) }
+.chrono .ch-phone img { display:block; width:100%; border-radius:26px }
+.chrono .ch-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-bottom:1px solid var(--line) }
+.chrono .ch-strip>div { padding:26px 24px; border-right:1px solid var(--line) }
+.chrono .ch-strip>div:last-child { border-right:none }
+.chrono .ch-strip .ch-k { font-family:var(--font-mono); font-size:12px; letter-spacing:2.5px; color:var(--muted) }
+.chrono .ch-strip .ch-v { font-family:var(--font-display); font-weight:700; font-size:34px; line-height:1.1; margin-top:4px }
+.chrono .ch-strip .ch-s { font-size:14px; color:var(--muted) }
+.chrono section { padding:88px 0; border-bottom:1px solid var(--line) }
+.chrono h2 { font-family:var(--font-display); font-weight:700; font-size:42px; line-height:1.08; margin:10px 0 16px }
+.chrono h3 { font-family:var(--font-display); font-weight:700; font-size:25px; line-height:1.2; margin:0 0 8px }
+.chrono p { margin:0 0 14px }
+.chrono .ch-muted { color:var(--muted) }
+.chrono .ch-intro { max-width:760px }
+.chrono .ch-split { display:grid; grid-template-columns:1fr 340px; gap:56px; align-items:start; margin-top:40px }
+.chrono .ch-split.ch-rev { grid-template-columns:340px 1fr }
+.chrono .ch-shots { display:flex; gap:14px; flex-wrap:wrap }
+.chrono figure { margin:0 }
+.chrono figure img { display:block; width:100%; border:1px solid var(--ch-line2); border-radius:14px; background:#0B0C0B }
+.chrono figcaption { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.45 }
+.chrono .ch-gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:36px }
+.chrono .ch-gallery.ch-three { grid-template-columns:repeat(3,1fr) }
+.chrono ul.ch-points { list-style:none; padding:0; margin:18px 0 0 }
+.chrono ul.ch-points li { position:relative; padding:0 0 14px 26px }
+.chrono ul.ch-points li::before { content:""; position:absolute; left:2px; top:10px; width:10px; height:10px; background:var(--ch-blue); clip-path:polygon(0 0,100% 50%,0 100%) }
+.chrono ul.ch-points b { color:var(--ch-text) }
+.chrono .ch-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px }
+.chrono .ch-card { background:var(--ch-line2); padding:1px }
+.chrono .ch-card>div { background:var(--panel); padding:22px 22px 18px; height:100% }
+.chrono .ch-card .ch-n { font-family:var(--font-mono); font-size:12px; letter-spacing:2.5px; color:var(--muted); margin-bottom:10px }
+.chrono .ch-card p { font-size:15px; color:var(--ch-text2); margin:0 }
+.chrono .ch-steps { counter-reset:s; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:32px }
+.chrono .ch-steps div { counter-increment:s; border-top:2px solid var(--ch-blue); padding-top:14px; font-size:15px; color:var(--ch-text2) }
+.chrono .ch-steps div::before { content:counter(s,decimal-leading-zero); display:block; font-family:var(--font-mono); font-size:13px; color:var(--ch-blue); letter-spacing:2px; margin-bottom:6px }
+.chrono .ch-steps b { display:block; color:var(--ch-text); font-family:var(--font-display); font-size:20px; margin-bottom:4px }
+.chrono .ch-callout { margin-top:28px; background:var(--panel); border-left:3px solid var(--ch-amber); padding:16px 20px; font-size:15px; color:var(--ch-text2) }
+.chrono .ch-callout b { color:var(--ch-amber) }
+.chrono .ch-algo { display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:34px; border:1px solid var(--ch-line2) }
+.chrono .ch-algo>div { padding:18px 16px; border-right:1px solid var(--ch-line2); font-size:14px; color:var(--ch-text2) }
+.chrono .ch-algo>div:last-child { border-right:none }
+.chrono .ch-algo .ch-k { font-family:var(--font-mono); font-size:12px; letter-spacing:2px; color:var(--ch-orange); margin-bottom:6px }
+.chrono .ch-algo b { display:block; font-family:var(--font-display); font-size:19px; color:var(--ch-text); margin-bottom:4px }
+.chrono .ch-chips { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 }
+.chrono .ch-chip { background:var(--ch-line2); padding:1px }
+.chrono .ch-chip>span { display:flex; align-items:baseline; gap:7px; background:var(--panel-low); padding:8px 11px; font-family:var(--font-mono); font-size:15px }
+.chrono .ch-chip .ch-l { font-size:12px; color:var(--muted) }
+.chrono .ch-chip.ch-or { background:var(--ch-orange) }
+.chrono .ch-chip.ch-am { background:var(--ch-amber) }
+.chrono table.ch-cmp { width:100%; border-collapse:collapse; margin-top:30px; font-size:15px }
+.chrono table.ch-cmp th, .chrono table.ch-cmp td { padding:14px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top }
+.chrono table.ch-cmp th { font-family:var(--font-mono); font-size:12px; letter-spacing:2px; color:var(--muted); font-weight:500 }
+.chrono table.ch-cmp td:nth-child(2), .chrono table.ch-cmp td:nth-child(3), .chrono table.ch-cmp th:nth-child(2), .chrono table.ch-cmp th:nth-child(3) { text-align:center; width:120px }
+.chrono .ch-yes { color:var(--ch-green); font-weight:700 }
+.chrono .ch-no { color:var(--ch-dim) }
+.chrono .ch-faq { margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:12px 32px }
+.chrono details { border-bottom:1px solid var(--line); padding:14px 0 }
+.chrono summary { cursor:pointer; font-weight:600; list-style:none; display:flex; gap:10px }
+.chrono summary::-webkit-details-marker { display:none }
+.chrono summary::before { content:"+"; font-family:var(--font-mono); color:var(--ch-blue); width:14px }
+.chrono details[open] summary::before { content:"–" }
+.chrono details p { margin:10px 0 0 24px; font-size:15px; color:var(--ch-text2) }
+.chrono .ch-cta { padding:90px 0; text-align:center }
+.chrono .ch-cta h2 { font-size:48px }
+@media (max-width:900px) {
+  .chrono .ch-hero .wrap, .chrono .ch-split, .chrono .ch-split.ch-rev { grid-template-columns:1fr }
+  .chrono .ch-split.ch-rev figure, .chrono .ch-split.ch-rev .ch-shots { order:2 }
+  .chrono h2 { font-size:34px }
+  .chrono .ch-strip { grid-template-columns:repeat(2,minmax(0,1fr)) }
+  .chrono .ch-strip>div { padding:18px 16px }
+  .chrono .ch-strip .ch-v { font-size:26px }
+  .chrono .ch-strip>div:nth-child(2) { border-right:none }
+  .chrono .ch-cards, .chrono .ch-steps, .chrono .ch-algo, .chrono .ch-faq { grid-template-columns:1fr }
+  .chrono .ch-algo>div { border-right:none; border-bottom:1px solid var(--ch-line2) }
+  .chrono .ch-gallery, .chrono .ch-gallery.ch-three { grid-template-columns:1fr 1fr }
+  .chrono .ch-phone { width:260px }
+}
+@media (max-width:520px) {
+  .chrono .ch-gallery, .chrono .ch-gallery.ch-three { grid-template-columns:1fr }
+}
+.chrono .ch-cost { display:flex; gap:22px; align-items:center; margin-top:30px; padding:20px 22px; border:1px solid var(--ch-line2); background:var(--panel) }
+.chrono .ch-cost-n { flex:none; font-family:var(--font-display); font-weight:700; font-size:46px; line-height:1; color:var(--ch-orange); white-space:nowrap }
+.chrono .ch-cost p, .chrono .ch-cost div { min-width:0 }
+.chrono .ch-cards.ch-four { grid-template-columns:repeat(2,1fr); margin-top:18px }
+.chrono .ch-math { margin-top:18px; border:1px solid var(--ch-line2); background:var(--panel); padding:24px }
+.chrono .ch-math .ch-eq { font-family:var(--font-mono); font-size:15px; line-height:2; color:var(--ch-text); padding:14px 18px; background:var(--bg); border:1px solid var(--line); overflow-x:auto }
+.chrono .ch-math .ch-eq .ch-v { color:var(--ch-orange) }
+.chrono .ch-math .ch-eq sup { font-size:11px }
+.chrono ol.ch-steps { margin:0; padding-left:22px; display:flex; flex-direction:column; gap:12px }
+.chrono ol.ch-steps li { padding-left:6px }
+.chrono .ch-tscroll { overflow-x:auto; margin-top:12px }
+.chrono table.ch-wtab { border-collapse:collapse; width:100%; max-width:640px; font-variant-numeric:tabular-nums }
+.chrono table.ch-wtab th { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--muted); text-align:right; padding:8px 12px; border-bottom:1px solid var(--ch-line2); font-weight:500 }
+.chrono table.ch-wtab th:first-child, .chrono table.ch-wtab td:first-child { text-align:left }
+.chrono table.ch-wtab td { font-family:var(--font-mono); font-size:14px; text-align:right; padding:7px 12px; border-bottom:1px solid var(--line) }
+.chrono table.ch-wtab tr.ch-out td { color:var(--ch-dim); text-decoration:line-through }
+.chrono table.ch-wtab tr.ch-out td:last-child { text-decoration:none; font-family:var(--font-body); font-size:13px }
+.chrono .ch-verdict { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; max-width:760px }
+.chrono .ch-verdict>div { border:1px solid var(--ch-line2); padding:14px 16px; background:var(--panel) }
+.chrono .ch-verdict .ch-k { font-family:var(--font-mono); font-size:10.5px; letter-spacing:1.8px; color:var(--muted) }
+.chrono .ch-verdict .ch-v { font-family:var(--font-display); font-weight:700; font-size:30px; line-height:1.2; margin-top:4px }
+.chrono .ch-verdict .ch-s { font-size:13px; color:var(--muted) }
+.chrono .ch-verdict .ch-hl { border-color:var(--ch-orange) }
+.chrono .ch-verdict .ch-hl .ch-v { color:var(--ch-orange) }
+@media (max-width:760px) {
+  .chrono .ch-cards.ch-four, .chrono .ch-verdict { grid-template-columns:1fr }
+  .chrono .ch-cost { flex-direction:column; align-items:flex-start }
+}
+.chrono .ch-flow { --c1:var(--ch-green); --c2:var(--ch-blue); --c3:#7FD6C8; --c4:#F2A0C4; --c5:var(--ch-orange); --c6:#C8A8F0; --c7:var(--ch-amber); position:relative; display:grid; grid-template-columns:minmax(0,1.5fr) 96px minmax(0,.8fr); align-items:center }
+.chrono .ch-fsrcs { display:flex; flex-direction:column; gap:12px; position:relative; z-index:1 }
+.chrono .ch-fsrc { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--gc); padding:12px 14px 13px }
+.chrono .ch-fsrc.ch-c1 { background:linear-gradient(90deg,rgba(61,220,132,.10),var(--panel) 60%); border-color:rgba(61,220,132,.45); border-left-color:var(--gc) }
+.chrono .ch-c1 { --gc:var(--c1) }
+.chrono .ch-c2 { --gc:var(--c2) }
+.chrono .ch-c3 { --gc:var(--c3) }
+.chrono .ch-c4 { --gc:var(--c4) }
+.chrono .ch-c5 { --gc:var(--c5) }
+.chrono .ch-c6 { --gc:var(--c6) }
+.chrono .ch-c7 { --gc:var(--c7) }
+.chrono .ch-fh { display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:19px; line-height:1.2 }
+.chrono .ch-fh b { font-weight:700 }
+.chrono .ch-fdot { width:9px; height:9px; border-radius:50%; background:var(--gc); flex:none }
+.chrono .ch-fn { margin-left:auto; font-family:var(--font-mono); font-size:12px; color:var(--muted) }
+.chrono .ch-fsub { font-size:13px; color:var(--muted); margin:2px 0 8px 17px }
+.chrono .ch-fchips { display:flex; flex-wrap:wrap; gap:6px; margin-left:17px }
+.chrono .ch-fchip { font-family:var(--font-mono); font-size:11.5px; line-height:1.3; padding:4px 8px; border:1px solid var(--ch-line2); color:var(--ch-text2); background:rgba(255,255,255,.02) }
+.chrono .ch-fchip.ch-s { border-style:dashed; color:var(--muted) }
+.chrono .ch-c1 .ch-fchip { border-color:rgba(61,220,132,.5); color:var(--ch-green-text) }
+.chrono .ch-livetag { display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; color:var(--ch-green); border:1px solid rgba(61,220,132,.5); padding:1px 6px; border-radius:10px; line-height:1.4 }
+.chrono .ch-livetag i { width:6px; height:6px; border-radius:50%; background:var(--ch-green); animation:ch-pulse 1.6s infinite }
+@keyframes ch-pulse { 0%,100%{opacity:1}50%{opacity:.25} }
+.chrono .ch-flines { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none }
+.chrono .ch-flines path { fill:none; stroke-width:1.6; opacity:.75 }
+.chrono .ch-flines path.ch-live { stroke-dasharray:6 6; animation:ch-flowdash 1s linear infinite }
+.chrono .ch-flines path.ch-main { stroke-width:2.4; opacity:1 }
+.chrono .ch-flines path.ch-later { stroke-dasharray:3 5 }
+@keyframes ch-flowdash { to{stroke-dashoffset:-12} }
+.chrono .ch-fdown { display:none }
+.chrono .ch-flog { grid-column:3; background:var(--ch-line2); padding:1px; position:relative; z-index:1 }
+.chrono .ch-flog>.ch-cut { background:var(--ch-bg2); padding:18px 18px 16px }
+.chrono .ch-flk { font-family:var(--font-mono); font-size:11px; letter-spacing:2.5px; color:var(--muted) }
+.chrono .ch-flt { font-family:var(--font-display); font-weight:700; font-size:22px; margin-top:2px }
+.chrono .ch-fls { font-size:13px; color:var(--muted); margin-bottom:12px }
+.chrono .ch-fls b { color:var(--ch-text) }
+.chrono .ch-bands { display:flex; flex-direction:column; gap:6px }
+.chrono .ch-band { display:flex; align-items:center; gap:8px; font-size:13.5px; padding:7px 10px; background:var(--panel); border-left:3px solid var(--gc) }
+.chrono .ch-band.ch-c1 { background:rgba(61,220,132,.12) }
+.chrono .ch-flnote { font-size:12.5px; color:var(--muted); margin:12px 0 10px; line-height:1.5 }
+.chrono .ch-fluse { display:flex; flex-wrap:wrap; gap:6px }
+.chrono .ch-fluse span { font-family:var(--font-mono); font-size:10.5px; letter-spacing:.5px; color:var(--ch-blue); border:1px solid rgba(168,199,234,.35); padding:2px 7px }
+@media (max-width:900px) {
+  .chrono .ch-flow { grid-template-columns:1fr }
+  .chrono .ch-flines { display:none }
+  .chrono .ch-fdown { display:block; text-align:center; font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--ch-green); padding:14px 0 }
+  .chrono .ch-flog { grid-column:1 }
+}
+@media (prefers-reduced-motion:reduce) {
+  .chrono .ch-livetag i, .chrono .ch-flines path.ch-live { animation:none }
+}
+.chrono .ch-anat-g { display:grid; grid-template-columns:340px minmax(0,1fr); gap:40px; align-items:start }
+.chrono .ch-anat-fig { margin:0 }
+.chrono .ch-anat-ph { position:relative; border-radius:30px; padding:9px; background:#050605; box-shadow:0 0 0 1px var(--ch-line2),0 24px 60px rgba(0,0,0,.5) }
+.chrono .ch-anat-in { position:relative }
+.chrono .ch-anat-ph img { display:block; width:100%; border-radius:22px }
+.chrono .ch-anat-in .ch-amk { position:absolute; transform:translate(-50%,-50%); margin:0; box-shadow:0 0 0 3px #050605 }
+.chrono .ch-amk { display:inline-flex; align-items:center; justify-content:center; flex:none; width:24px; height:24px; border-radius:50%; background:var(--ch-blue); color:var(--bg); font-family:var(--font-mono); font-weight:700; font-size:12px; line-height:1 }
+.chrono .ch-amk.ch-or { background:var(--ch-orange); color:var(--bg) }
+.chrono .ch-amk.ch-sp { background:var(--ch-green); color:var(--bg) }
+.chrono .ch-amk.ch-nomk { background:var(--ch-line2); color:var(--ch-text); font-size:13px }
+.chrono .ch-aspace.ch-hl1 { background:rgba(61,220,132,.10); border-radius:8px; padding:0 }
+.chrono .ch-anat-fig figcaption { text-align:center; font-size:13px; color:var(--muted); margin-top:10px }
+.chrono .ch-aspace { position:absolute; border:2px dashed var(--ch-green); border-radius:10px; background:rgba(61,220,132,.07); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center; padding:8px }
+.chrono .ch-aspace .ch-amk { position:absolute; left:0; top:0 }
+.chrono .ch-asp-t { font-family:var(--font-mono); font-size:12px; letter-spacing:2.5px; color:var(--ch-green); font-weight:700 }
+.chrono .ch-asp-s { font-size:11.5px; color:var(--ch-green-text) }
+.chrono .ch-anat-l { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px }
+.chrono .ch-anat-l li { display:flex; gap:14px; align-items:flex-start; padding:14px 16px; background:var(--panel); border:1px solid var(--line) }
+.chrono .ch-anat-l li.ch-sp { border:1.5px dashed rgba(61,220,132,.6); background:rgba(61,220,132,.06) }
+.chrono .ch-anat-l li.ch-or { border-color:rgba(255,122,51,.45) }
+.chrono .ch-anat-l li .ch-amk { margin-top:2px }
+.chrono .ch-anat-l b { font-family:var(--font-display); font-size:19px; font-weight:700; line-height:1.2 }
+.chrono .ch-anat-l p { margin:4px 0 0; font-size:15px; color:var(--ch-text2); line-height:1.55 }
+@media (max-width:900px) {
+  .chrono .ch-anat-g { grid-template-columns:1fr }
+  .chrono .ch-anat-fig { max-width:340px; margin:0 auto; width:100% }
+}
+.chrono .ch-ph { aspect-ratio:1080/2400; max-width:100%; border:1.5px dashed var(--ch-line2); border-radius:14px; display:flex; flex-direction:column; justify-content:center; gap:10px; padding:22px; box-sizing:border-box; background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(127,127,127,.06) 14px 28px) }
+.chrono .ch-ph-k { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--muted) }
+.chrono .ch-ph-t { font-size:15px; line-height:1.4; font-weight:600 }
+.chrono .ch-ph-s { font-size:12px; color:var(--muted) }
+.chrono .ch-split > figure, .chrono .ch-gallery figure { min-width:0 }
+.chrono .ch-gallery.ch-two { grid-template-columns:repeat(2,minmax(0,300px)); justify-content:center }
+@media (max-width:520px) {
+  .chrono .ch-gallery.ch-two { grid-template-columns:1fr }
+}

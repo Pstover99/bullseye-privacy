@@ -20,6 +20,7 @@ redirect them.
 | Truing | https://bullseyeballisticscalculator.com/truing/ |
 | Hit Probability | https://bullseyeballisticscalculator.com/hit-probability/ |
 | Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
+| Chronograph (unlisted, noindex) | https://bullseyeballisticscalculator.com/chrono/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |

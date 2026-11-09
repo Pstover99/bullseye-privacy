@@ -66,6 +66,11 @@ PAGES = [
      "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
      "zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold "
      "center or gives the exact hold, and checks every shot is ethical."),
+    ("chrono/index.html", "_pages/chrono.html", "../",
+     "Chronograph integration · Bullseye Ballistics",
+     "Pair your Doppler chronograph with Bullseye Ballistics. Live strings, one-tap velocity "
+     "checks, imports from the chrono's memory and your shot log, auto-logged shots, and "
+     "Adaptive MV."),
     ("load-development/index.html", "_pages/load-development.html", "../",
      "Load Development · Bullseye Ballistics",
      "Charge ladders and seating depth tests in Bullseye Ballistics: velocity readings and the "
@@ -179,7 +184,7 @@ def next_button(path: str) -> str:
 
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = set()
+NOINDEX = {"chrono/index.html"}
 
 
 def inline(text: str) -> str:

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chronograph integration · Bullseye Ballistics</title>
+<meta name="description" content="Pair your Doppler chronograph with Bullseye Ballistics. Live strings, one-tap velocity checks, imports from the chrono&#x27;s memory and your shot log, auto-logged shots, and Adaptive MV.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://bullseyeballisticscalculator.com/chrono/">
+<meta name="theme-color" content="#101311">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bullseye Ballistics">
+<meta property="og:title" content="Chronograph integration · Bullseye Ballistics">
+<meta property="og:description" content="Pair your Doppler chronograph with Bullseye Ballistics. Live strings, one-tap velocity checks, imports from the chrono&#x27;s memory and your shot log, auto-logged shots, and Adaptive MV.">
+<meta property="og:url" content="https://bullseyeballisticscalculator.com/chrono/">
+<meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=03e498ad35">
+<script src="../assets/site.js?v=dc172efee2" defer></script>
+</head>
+<body>
+<header class="top gn-header">
+  <div class="wrap gn">
+    <a class="brand" href="../" aria-label="Bullseye Ballistics home">
+      <img class="logo" src="../assets/img/logo.svg" width="34" height="34" alt="">
+      <b>Bullseye</b>
+    </a>
+    <nav class="gn-menu" id="gn-menu" aria-label="Site">
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-features">Features</button>
+        <div class="gn-panel" id="gn-features">
+          <a href="../features/"><b>All features</b><span>Everything the app does</span></a>
+          <a href="../sagitta/"><b>Sagitta Ballistics AI</b><span>The ballistics AI at the core</span></a>
+          <a href="../wind-corridor/"><b>Wind Corridor</b><span>See the wind downrange</span></a>
+          <a href="../external-display/"><b>External display</b><span>Your solution on the rifle</span></a>
+          <a href="../sensors/"><b>Sensors</b><span>Live wind and weather</span></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-field">In the field</button>
+        <div class="gn-panel" id="gn-field">
+          <a href="../hunting/"><b>Hunting</b><span>Hunting Zero and Hunt Mode</span></a>
+          <a class="gn-sub" href="../hunting/#hunt-mode"><b>Hunt Mode</b></a>
+          <a class="gn-sub" href="../hunting/#hunting-zero"><b>Hunting Zero Calculator</b></a>
+          <a href="../matches/"><b>Matches</b><span>From match book to first shot</span></a>
+          <a class="gn-sub" href="../matches/#how"><b>Import Match Book</b></a>
+          <a class="gn-sub" href="../matches/#review"><b>Match Book Review</b></a>
+          <a class="gn-sub" href="../matches/#coach"><b>Stage Coach</b></a>
+          <a href="../live-wind/"><b>Wind</b><span>Live wind, the corridor and smoothing</span></a>
+          <a class="gn-sub" href="../live-wind/"><b>Live Wind</b></a>
+          <a class="gn-sub" href="../wind-corridor/"><b>Wind Corridor</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Wind Smoothing</b></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-hood">Under the Hood</button>
+        <div class="gn-panel" id="gn-hood">
+          <a href="../under-the-hood/"><b>Solver Technical Detail</b><span>How wind and elevation become a hold</span></a>
+          <a class="gn-sub" href="../under-the-hood/#wind"><b>Wind Hold Calculation</b></a>
+          <a class="gn-sub" href="../under-the-hood/#elevation"><b>Elevation Hold Calculation</b></a>
+          <a href="../truing/"><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
+          <a class="gn-sub" href="../truing/"><b>Velocity and Drag</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Adaptive Wind Smoothing</b></a>
+          <a href="../hit-probability/"><b>Hit Probability</b><span>How your odds of a hit are worked out</span></a>
+          <a href="../load-development/"><b>Load Development</b><span>Better Records. Better Loads.</span></a>
+        </div>
+      </div>
+      <div class="gn-group gn-group--end">
+        <button type="button" aria-expanded="false" aria-controls="gn-compare">Compare</button>
+        <div class="gn-panel" id="gn-compare">
+          <a href="../choosing-a-solver/"><b>Choosing a Solver</b><span>Six questions to ask of any solver</span></a>
+          <a href="../comparison/"><b>Side by side</b><span>Every feature, next to other apps</span></a>
+        </div>
+      </div>
+      <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    </nav>
+    <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    <button class="gn-toggle" type="button" aria-expanded="false" aria-controls="gn-menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<div class="chrono">
+<header class="ch-hero"><div class="wrap">
+  <div>
+    <div class="ch-eyebrow">Real-time · Chronograph feed</div>
+    <h1>A live feed from your chrono, <em>wired into your dope.</em></h1>
+    <p class="ch-lead">Pair your chrono with Bullseye Ballistics and every shot streams in live over Bluetooth, landing where it's useful: in a velocity check, a load workup, your shot log, or the solution you're about to dial. No retyping numbers off a tiny screen. No spreadsheets.</p>
+    <div class="ch-ctas"><a class="ch-btn ch-primary ch-cs" href="https://play.google.com/store/apps/details?id=com.bullseyeballistics.app" target="_blank" rel="noopener">Get Bullseye Ballistics&nbsp;&#x2197;&#xFE0E;</a><a class="ch-btn ch-ghost ch-cs" href="#overview">See how it works</a></div>
+    <div class="ch-works">WORKS WITH · <a href="https://athlonoptics.com/product/rangecraft-velocity-pro-radar-chronograph/" target="_blank" rel="noopener"><b>Athlon Rangecraft Velocity Pro</b></a></div>
+  </div>
+  <div class="ch-phone"><img src="../assets/img/chrono-solution-live.webp" width="540" height="1200" alt="Bullseye Solution screen at 1024 yd: elevation and windage, live wind, the MV chip waiting 0 of 10 for chrono readings, and Hit and Miss buttons"></div>
+</div></header>
+
+<div class="ch-strip wrap" style="padding:0">
+  <div><div class="ch-k">PAIR ONCE</div><div class="ch-v">Auto-reconnect</div><div class="ch-s">Missed shots catch up on their own</div></div>
+  <div><div class="ch-k">EVERY SHOT</div><div class="ch-v">Auto-logging</div><div class="ch-s">Logged with its velocity and conditions</div></div>
+  <div><div class="ch-k">ADAPTIVE MV (OPTIONAL)</div><div class="ch-v">Rolling avg</div><div class="ch-s">Weighted to recent shots, so it follows the trend, not one reading</div></div>
+  <div><div class="ch-k">SHOT LOG</div><div class="ch-v">Imports too</div><div class="ch-s">Range days you logged, or up to 50 strings read straight off the chrono</div></div>
+</div>
+
+<nav class="ch-jump wrap" aria-label="On this page"><a href="#adaptive">Adaptive MV</a><a href="#solver">On the solver</a><a href="#imports">Imports</a><a href="#subsonic">Subsonic</a><a href="#chrono-mode">Chrono mode</a><a href="#faq">FAQ</a></nav>
+
+<!-- Overview -->
+<section id="overview"><div class="wrap">
+  <div class="ch-intro">
+    <div class="ch-eyebrow">What you get</div>
+    <h2>Six ways Bullseye uses your chronograph</h2>
+    <p class="ch-muted">Every feature uses the readings you already shoot. Nothing new to carry, nothing to set up after the first pairing. <b style="color:var(--ch-text)">All six lead to more accurate hold calculations, particularly Adaptive MV.</b></p>
+  </div>
+  <div class="ch-cards">
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">01</div><h3>Auto-logging</h3><p>On the Solution screen, every reading logs a shot with its measured velocity and the conditions at that moment. Call it by tap or <a href="../features/#voice">by voice</a>.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">02</div><h3>Adaptive muzzle velocity (optional)</h3><p>A recency-weighted rolling average of today's readings, each measured against what your load should do at that temperature and round count. Strays are rejected, the trend is kept, and the solver dials the speed your rifle is really shooting.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">03</div><h3>Chrono mode</h3><p>A live string screen. Watch each reading, the shot count, low, high, average, SD and ES as you shoot, with a table listing every shot. Then save the string as a velocity check, a workup rung, or a brand new load.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">04</div><h3>Import from chrono</h3><p>Reads any string stored on the chronograph directly over Bluetooth. No exporting, no files, no cables. It lands in a velocity check with its date, after you untick the strays.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">05</div><h3>Import from shot log</h3><p>Turn a range day's logged shots into a velocity check, with the date, temperatures and barrel count filled in for you.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">06</div><h3>Load development imports</h3><p>Fill charge and seating-depth rungs from the chrono or the shot log. One ladder string, split rung by rung.</p></div></div>
+  </div>
+</div></section>
+
+<!-- Pairing -->
+<section id="pairing"><div class="wrap">
+  <div class="ch-intro">
+    <div class="ch-eyebrow">Getting connected</div>
+    <h2>Pair it once. Then forget about it.</h2>
+    <p>The chronograph pairs on the <b>Sensors</b> screen, the same place as your wind meter, weather meter and other devices such as the <a href="../external-display/">external display HUD</a>. You confirm a code on the phone the first time, and from then on Bullseye reconnects by itself whenever the chrono is on and nearby. <b>Every time it connects, Bullseye syncs the chrono's date and time to your phone</b>, so every reading, string and import carries the right timestamp, everywhere it shows up.</p>
+  </div>
+  <div class="ch-steps">
+    <div><b>Turn on the chrono</b>Set it up on the bench as usual. Bullseye looks for it in the background.</div>
+    <div><b>Pair on Sensors</b>Tap it in the list and confirm the code. That's the only setup step, ever.</div>
+    <div><b>Start a session</b>Start your string on the chrono itself. Bullseye follows along and shows each reading as it lands.</div>
+    <div><b>Lose signal? No problem</b>If the phone drops the connection mid-string, the readings it missed come back as soon as it reconnects. No gaps, no duplicates.</div>
+  </div>
+  <div class="ch-callout"><b>Apart from the clock, your chrono's settings stay on the chrono.</b> Start and stop sessions, change units and set it up on the device as you do today. Bullseye reads what it measures and converts to your preferred units. Velocities are always shown the way shooters write them: 2812 fps.</div>
+</div></section>
+
+<!-- Adaptive -->
+<section id="adaptive"><div class="wrap">
+  <div class="ch-eyebrow">Adaptive MV (optional)</div>
+  <h2>Dial with the speed you're actually shooting</h2>
+  <p class="ch-intro">Every firing solution starts from one number: muzzle velocity. If it's off by 15 fps, every elevation the solver gives you is off too, and the error grows with distance. Your load's MV was measured on another day, in other weather, at another round count, maybe on another chronograph. Adaptive MV fixes that while you shoot. It's optional: one switch in Solver settings turns it on or off. Once 10 readings are in, the solver dials with the speed your rifle is producing right now.</p>
+
+  <div class="ch-cost"><div class="ch-cost-n">~4–5″</div><div><b>What 10 fps costs.</b> At 1000 yd, a typical 6.5 Creedmoor lands roughly 4 to 5 inches high or low for every 10 fps it's off from what the solver thinks. That's half a 10-inch plate, from a number you can't see by looking at the rifle. <span class="ch-muted">Rough figure; it varies with bullet, BC and conditions.</span></div></div>
+
+  <h3 style="margin-top:44px">Where it pays off</h3>
+  <div class="ch-cards ch-four">
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MORNING TO AFTERNOON</div><h3>Ammo that warms up</h3><p>Your temperature table predicts how the load should change as it heats up in the sun. Adaptive MV checks that prediction against the chrono and corrects what the table misses, shot by shot.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">NEW LOT</div><h3>Same recipe, new components</h3><p>A new lot of powder or primers can move a load's speed. Instead of a separate chrono session before you trust your dope again, your first 10 rounds of the day put the solver back on.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">BARREL LIFE</div><h3>A barrel that's slowing down</h3><p>Velocity falls as a barrel wears. Each reading is compared with what the load should do at that barrel's round count, so today's real speed takes over wherever the trend runs out.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MATCH DAY</div><h3>Stage one to the last stage</h3><p>Shoot your warm-up and first stage over the chrono. From then on you're dialing today's speed, not last month's, without stopping to true your dope.</p></div></div>
+  </div>
+
+  <h3 style="margin-top:56px">The math, in plain terms</h3>
+  <p class="ch-intro" style="margin-top:8px">It isn't a simple average of your last 10 shots. Three things make it trustworthy.</p>
+  <div class="ch-math">
+    <ol class="ch-steps">
+      <li><b>It works in gaps, not raw speeds.</b> For every reading, Bullseye works out what your load should have done for that shot's air and ammo temperature and that barrel round count. The gap is the difference. A string that warms up through the afternoon doesn't look like a change in speed, because the prediction moves with it.</li>
+      <li><b>Newest counts most.</b> Weights halve every 4 shots (age 0 is the newest shot). The shot 4 back counts half as much as the newest, the shot 8 back a quarter. With a full window of 10, the newest 4 shots carry about 60% of the result and the oldest about 4%, so it follows a barrel that's heating or a load that's drifting.</li>
+      <li><b>Strays are left out.</b> Bullseye takes the median gap and drops any reading farther from it than 3 times the typical spread (the median absolute deviation), or 15 fps if that's larger. A neighbor's shot or a misread doesn't drag your dial.</li>
+    </ol>
+    <p class="ch-muted" style="margin:14px 0 0">Only warm-bore readings on this rifle and load from today's string count, so cold and clean-bore shots don't skew it. Nothing reaches your dial until 10 readings are in.</p>
+  </div>
+
+  <h3 style="margin-top:44px">A worked example</h3>
+  <p style="max-width:68ch">Your load predicts 2812 fps for today's conditions. Ten readings come in. Shot 5 is a slower rifle on the next bench that the chrono picked up.</p>
+  <div class="ch-tscroll"><table class="ch-wtab">
+    <tr><th>SHOT</th><th>MEASURED</th><th>GAP</th><th>WEIGHT</th><th>SHARE</th></tr>
+    <tr><td>1 (oldest)</td><td>2816</td><td>+4</td><td>0.21</td><td>4%</td></tr>
+    <tr><td>2</td><td>2819</td><td>+7</td><td>0.25</td><td>5%</td></tr>
+    <tr><td>3</td><td>2818</td><td>+6</td><td>0.30</td><td>6%</td></tr>
+    <tr><td>4</td><td>2821</td><td>+9</td><td>0.35</td><td>7%</td></tr>
+    <tr class="ch-out"><td>5</td><td>2774</td><td>−38</td><td>–</td><td>stray, left out</td></tr>
+    <tr><td>6</td><td>2822</td><td>+10</td><td>0.50</td><td>11%</td></tr>
+    <tr><td>7</td><td>2824</td><td>+12</td><td>0.59</td><td>13%</td></tr>
+    <tr><td>8</td><td>2823</td><td>+11</td><td>0.71</td><td>15%</td></tr>
+    <tr><td>9</td><td>2826</td><td>+14</td><td>0.84</td><td>18%</td></tr>
+    <tr><td>10 (newest)</td><td>2825</td><td>+13</td><td>1.00</td><td>21%</td></tr>
+  </table></div>
+  <div class="ch-verdict">
+    <div><div class="ch-k">PLAIN AVERAGE, ALL 10</div><div class="ch-v">+4.8 fps</div><div class="ch-s">Fooled by the stray</div></div>
+    <div><div class="ch-k">PLAIN AVERAGE, NO STRAY</div><div class="ch-v">+9.6 fps</div><div class="ch-s">Lags behind the trend</div></div>
+    <div class="ch-hl"><div class="ch-k">ADAPTIVE MV</div><div class="ch-v">+11.0 fps</div><div class="ch-s">Dials 2823 fps</div></div>
+  </div>
+  <p style="max-width:68ch;margin-top:16px">The rifle is speeding up as the string goes on, as most do once the barrel, chamber and ammo heat up. A plain average of all 10 would have you dialing about 6 fps too slow, because one stray shot drags it down. Take the stray out and a plain average still trails behind, since it gives shot 1 as much say as shot 10. Adaptive MV drops the stray and leans on the newest shots, so the next shot is dialed for the speed the rifle is producing now.</p>
+  <div class="ch-algo">
+    <div><div class="ch-k">STEP 1</div><b>Wait for 10</b>Nothing changes your dial until 10 readings are in. The MV chip counts them: Waiting 6/10.</div>
+    <div><div class="ch-k">STEP 2</div><b>Compare fairly</b>Each reading is compared with what your load predicts for that shot's temperature and barrel count, so a warming afternoon doesn't fool it.</div>
+    <div><div class="ch-k">STEP 3</div><b>Ignore strays</b>A reading far from the rest, like a neighbor's shot or a misread, is left out.</div>
+    <div><div class="ch-k">STEP 4</div><b>Newest counts most</b>A weighted average: the latest shots count most, so it follows a warming barrel.</div>
+    <div><div class="ch-k">STEP 5</div><b>Dial it</b>The solver uses the result for your next shot, adjusted to the current temperature.</div>
+  </div>
+  <div class="ch-split" style="margin-top:44px">
+    <div>
+      <h3>Always know what you're dialing</h3>
+      <p>The MV chip makes the state impossible to miss: plain when it's off, amber while it collects, orange when the adaptive value is in your solution, and dimmed and marked <i>held</i> if the chrono disconnects, so it keeps the last result rather than jumping back mid-string. A new string starts fresh.</p>
+      <p>Tap the chip to see every reading behind the number, which ones were left out and why, and how far today's speed is from your load's MV. If today's number looks right, save it as the load's MV or as a velocity check in one tap.</p>
+    </div>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: Target Solution after the 10th chrono shot: the orange Adaptive MV chip, ±N vs MV"><span class="ch-ph-k">SCREEN TO CAPTURE · P2</span><span class="ch-ph-t">Target Solution after the 10th chrono shot: the orange Adaptive MV chip, ±N vs MV</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Orange means the adaptive MV is in your solution.</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- Solver -->
+<section id="solver"><div class="wrap">
+  <div class="ch-eyebrow">On the Solution screen</div>
+  <h2>Every shot logged the moment it's fired</h2>
+  <div class="ch-split">
+    <div>
+      <p>With the chrono running while you shoot from the Solution screen, each reading <b>logs the shot straight away</b>: rifle, load, range, wind, weather, angle and the measured velocity, captured at the instant of the shot. A gust that arrives while you're spotting your impact doesn't change what was recorded.</p>
+      <ul class="ch-points">
+        <li><b>Call it when you're ready.</b> The string line shows <span style="color:var(--ch-amber)">Shot 6 · call it</span>. Tap Hit or Miss, or <a href="../features/#voice">just say it</a>, and the call is added to that shot instead of logging a new one. A slow call still lands on the right shot, right up until the next reading arrives.</li>
+        <li><b>Didn't call it?</b> It stays in your log as a no-call, with its velocity, and doesn't count against your hit rate.</li>
+        <li><b>Deleted it on the chrono?</b> Bullseye follows along: an uncalled shot is removed, and a called shot keeps your call but drops the velocity.</li>
+      </ul>
+      <h3 style="margin-top:28px">Two chips, your choice of numbers</h3>
+      <p>The <b>MV chip</b> always shows the muzzle velocity the solver is dialing with, and whether Adaptive MV is in charge. The <b>Chrono chip</b> shows up to three numbers you choose in Settings:</p>
+      <div class="ch-chips">
+        <div class="ch-chip ch-or ch-cs"><span class="ch-cs"><span class="ch-l">MV</span>2818 fps<span class="ch-l" style="color:var(--ch-orange)">Adaptive</span></span></div>
+        <div class="ch-chip ch-cs"><span class="ch-cs"><span class="ch-l">Chrono</span>2812 fps <span class="ch-l">·</span> −6 <span class="ch-l">vs MV · SD</span> 8.1</span></div>
+      </div>
+      <table class="ch-cmp" style="margin-top:6px">
+        <tr><th>CHRONO CHIP FIELD</th><th colspan="2" style="text-align:left;width:auto">WHAT IT SHOWS</th></tr>
+        <tr><td>Velocity</td><td colspan="2" style="text-align:left;width:auto">Your last shot's speed</td></tr>
+        <tr><td>±N</td><td colspan="2" style="text-align:left;width:auto">Last shot against the MV you're dialing (with Adaptive MV), or against the string average</td></tr>
+        <tr><td>Avg · SD · ES</td><td colspan="2" style="text-align:left;width:auto">The current string's average, standard deviation and extreme spread</td></tr>
+      </table>
+      <p class="ch-muted" style="margin-top:12px">Tap the chip for all five numbers and the string's readings.</p>
+    </div>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: Target Solution mid-string: amber Waiting MV chip, the Chrono chip, and Shot N · call it on the string line"><span class="ch-ph-k">SCREEN TO CAPTURE · P1</span><span class="ch-ph-t">Target Solution mid-string: amber Waiting MV chip, the Chrono chip, and Shot N · call it on the string line</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>The Solution screen with Adaptive MV on.</figcaption></figure>
+  </div>
+
+
+
+  <div class="ch-anat">
+    <h3 style="margin:56px 0 6px">Reading the Solution screen</h3>
+    <p class="ch-muted" style="margin:0 0 24px;max-width:720px">A real screen from a Tikka T1x at 1024 yd, chrono paired and Adaptive MV on, just before the first shot of the string.</p>
+    <div class="ch-anat-g">
+      <figure class="ch-anat-fig"><div class="ch-anat-ph"><div class="ch-anat-in"><img src="../assets/img/chrono-solution-marked.webp" width="640" height="1422" loading="lazy" decoding="async" alt="Bullseye Solution screen at 1024 yd with numbered callouts: holds, live wind, the MV chip waiting 0 of 10, the open space for your own chips, the chrono string line, and Hit and Miss"><span class="ch-amk" style="left:62.22%;top:10.25%">1</span><span class="ch-amk" style="left:56.11%;top:28.60%">2</span><span class="ch-amk ch-or" style="left:74.67%;top:46.80%">3</span><span class="ch-amk" style="left:78.00%;top:51.35%">2</span><span class="ch-amk" style="left:59.44%;top:81.85%">5</span><span class="ch-amk" style="left:50.00%;top:88.30%">6</span><div class="ch-aspace" style="left:4.7%;top:54.6%;width:90.6%;height:22.2%"><span class="ch-amk ch-sp">4</span><span class="ch-asp-t">YOUR SPACE</span><span class="ch-asp-s">Avg · SD · ES · Hit probability · …</span></div></div></div></figure>
+      <ol class="ch-anat-l"><li ><span class="ch-amk">1</span><div><b>Elevation and windage</b><p>Dialed with the muzzle velocity on the MV chip. Once Adaptive MV is live, that's the speed your rifle is shooting today, not the load's book number.</p></div></li><li ><span class="ch-amk">2</span><div><b>Live wind</b><p>The wind meter is streaming. Windage follows it, and every logged shot stamps the wind at that instant.</p></div></li><li class="ch-or"><span class="ch-amk ch-or">3</span><div><b>MV chip · Adaptive MV (optional)</b><p>It's on and counting. Amber <span style="color:var(--ch-amber)">Waiting 0/10</span> means it's collecting warm-bore readings. At 10 it turns orange, <span style="color:var(--ch-orange)">Adaptive</span>, and the solver dials today's speed. Tap the chip to see every reading behind the number.</p></div></li><li class="ch-sp"><span class="ch-amk ch-sp">4</span><div><b>Your space</b><p>Free room for whatever you want on screen while you shoot. Pick and arrange it in Solver settings: the Chrono chip (last velocity, ±N, Avg, SD, ES), hit probability, Mach and more.</p></div></li><li ><span class="ch-amk">5</span><div><b>Chrono string line</b><p>The chrono is connected and waiting on you. Start a session on the chrono and every reading logs a shot to today's string, <i>Rangeday Nov 9</i>. The line then reads <span style="color:var(--ch-amber)">Shot 1 · call it</span>.</p></div></li><li ><span class="ch-amk">6</span><div><b>Hit and Miss</b><p>Call it by tap or <a href="../features/#voice">by voice</a>. The call lands on the chrono's shot instead of logging a new one.</p></div></li></ol>
+    </div>
+  </div>
+
+  <div class="ch-flow-wrap">
+    <h3 style="margin:56px 0 6px">What goes into every logged shot</h3>
+    <p class="ch-muted" style="margin:0 0 22px;max-width:720px">The chrono's reading is joined with everything else Bullseye knows at that instant, from your sensors, your phone, the solver and your profile, and written to the shot log as one entry. 44 fields per shot. Dashed fields record where a value came from (sensor, phone or typed).</p>
+    <div class="ch-flow" id="ch-flow">
+      <div class="ch-fsrcs">
+<div class="ch-fsrc ch-c1" data-g="c1"><div class="ch-fh"><span class="ch-fdot"></span><b>Chronograph</b><span class="ch-livetag"><i></i>LIVE</span><span class="ch-fn">3</span></div><div class="ch-fsub">Live over Bluetooth, the instant it reads</div><div class="ch-fchips"><span class="ch-fchip">Measured velocity</span><span class="ch-fchip">Logged by the chrono</span><span class="ch-fchip">Chrono timestamp</span></div></div>
+<div class="ch-fsrc ch-c2" data-g="c2"><div class="ch-fh"><span class="ch-fdot"></span><b>Wind meter</b><span class="ch-livetag"><i></i>LIVE</span><span class="ch-fn">4</span></div><div class="ch-fsub">Bluetooth wind meter, or typed</div><div class="ch-fchips"><span class="ch-fchip">Wind speed</span><span class="ch-fchip">Wind direction</span><span class="ch-fchip">True-north correction</span><span class="ch-fchip ch-s">Wind source</span></div></div>
+<div class="ch-fsrc ch-c3" data-g="c3"><div class="ch-fh"><span class="ch-fdot"></span><b>Weather meter</b><span class="ch-livetag"><i></i>LIVE</span><span class="ch-fn">9</span></div><div class="ch-fsub">Bluetooth weather meter, or typed</div><div class="ch-fchips"><span class="ch-fchip">Air temperature</span><span class="ch-fchip">Pressure</span><span class="ch-fchip">Station pressure</span><span class="ch-fchip">Humidity</span><span class="ch-fchip">Altitude</span><span class="ch-fchip ch-s">Temperature source</span><span class="ch-fchip ch-s">Pressure source</span><span class="ch-fchip ch-s">Humidity source</span><span class="ch-fchip ch-s">Altitude source</span></div></div>
+<div class="ch-fsrc ch-c4" data-g="c4"><div class="ch-fh"><span class="ch-fdot"></span><b>Phone sensors</b><span class="ch-livetag"><i></i>LIVE</span><span class="ch-fn">7</span></div><div class="ch-fsub">Clock, GPS, compass and tilt (or an angle device)</div><div class="ch-fchips"><span class="ch-fchip">Time of shot</span><span class="ch-fchip">Latitude</span><span class="ch-fchip">Shot direction (azimuth)</span><span class="ch-fchip">Shot angle</span><span class="ch-fchip ch-s">Latitude source</span><span class="ch-fchip ch-s">Direction source</span><span class="ch-fchip ch-s">Angle source</span></div></div>
+<div class="ch-fsrc ch-c5" data-g="c5"><div class="ch-fh"><span class="ch-fdot"></span><b>Firing solution</b><span class="ch-fn">6</span></div><div class="ch-fsub">What the solver dialed for this shot</div><div class="ch-fchips"><span class="ch-fchip">Target range</span><span class="ch-fchip">Predicted drop</span><span class="ch-fchip">Predicted windage</span><span class="ch-fchip">Predicted velocity</span><span class="ch-fchip">Predicted energy</span><span class="ch-fchip">Time of flight</span></div></div>
+<div class="ch-fsrc ch-c6" data-g="c6"><div class="ch-fh"><span class="ch-fdot"></span><b>Rifle, load and barrel</b><span class="ch-fn">8</span></div><div class="ch-fsub">From the profile you're shooting</div><div class="ch-fchips"><span class="ch-fchip">Profile</span><span class="ch-fchip">Rifle</span><span class="ch-fchip">Load</span><span class="ch-fchip">Ammo temperature</span><span class="ch-fchip">Barrel</span><span class="ch-fchip">Barrel round count</span><span class="ch-fchip">Phone that counted it</span><span class="ch-fchip">Match stage</span></div></div>
+<div class="ch-fsrc ch-c7" data-g="c7"><div class="ch-fh"><span class="ch-fdot"></span><b>Your call</b><span class="ch-fn">7</span></div><div class="ch-fsub">Tap or <a href="../features/#voice">voice</a>, added when you call it: "Hit", "Miss, .3 left" or "Miss, .3 low, .2 left"</div><div class="ch-fchips"><span class="ch-fchip">Hit or miss</span><span class="ch-fchip">No-call</span><span class="ch-fchip">Miss location</span><span class="ch-fchip">Miss vertical</span><span class="ch-fchip">Miss horizontal</span><span class="ch-fchip">Cold bore</span><span class="ch-fchip">Note</span></div></div>
+      </div>
+      <svg class="ch-flines" id="ch-flines" aria-hidden="true"></svg>
+      <div class="ch-fdown" aria-hidden="true">↓ all into one shot log entry</div>
+      <div class="ch-flog ch-cut"><div class="ch-cut">
+        <div class="ch-flk">SHOT LOG ENTRY</div>
+        <div class="ch-flt">String Nov 9 #2 · Shot 6</div>
+        <div class="ch-fls"><b>44</b> fields, stamped once at the reading</div>
+        <div class="ch-bands"><div class="ch-band ch-c1" data-g="c1"><span class="ch-fdot"></span>Chronograph<span class="ch-fn">3</span></div><div class="ch-band ch-c2" data-g="c2"><span class="ch-fdot"></span>Wind meter<span class="ch-fn">4</span></div><div class="ch-band ch-c3" data-g="c3"><span class="ch-fdot"></span>Weather meter<span class="ch-fn">9</span></div><div class="ch-band ch-c4" data-g="c4"><span class="ch-fdot"></span>Phone sensors<span class="ch-fn">7</span></div><div class="ch-band ch-c5" data-g="c5"><span class="ch-fdot"></span>Firing solution<span class="ch-fn">6</span></div><div class="ch-band ch-c6" data-g="c6"><span class="ch-fdot"></span>Rifle, load and barrel<span class="ch-fn">8</span></div><div class="ch-band ch-c7" data-g="c7"><span class="ch-fdot"></span>Your call<span class="ch-fn">7</span></div></div>
+        <p class="ch-flnote">Conditions are captured when the chrono reads. Your call is added afterwards and never re-stamps them.</p>
+        <div class="ch-fluse"><span>Velocity checks</span><span>Workups</span><span>Adaptive MV</span><span>Truing</span><span>Barrel life</span></div>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- Imports -->
+<section id="imports"><div class="wrap">
+  <div class="ch-eyebrow">Imports</div>
+  <h2>Already shot it? Bring it in.</h2>
+  <p class="ch-intro">The <b>Add velocity check</b> screen has two buttons, right above the box you already paste readings into: <b>Import from chrono</b> and <b>Import from shot log</b>. Both fill that same box, and nothing is added until you tap <b>Add</b>, exactly like pasting. You always see the numbers before they count.</p>
+
+  <div class="ch-split ch-rev">
+    <figure><img src="../assets/img/chrono-velocity-check.webp" width="540" height="1200" loading="lazy" decoding="async" alt="A velocity check on Norma Tac-22: 1026 fps average, SD 16.2, ES 51, 13 readings, with Import from chrono and Import from shot log buttons"><figcaption>Two buttons on the screen you already know.</figcaption></figure>
+    <div>
+      <h3>Import from chrono</h3>
+      <p>This isn't a file import. There's nothing to export, email or copy off the chrono. Bullseye talks to the chronograph over Bluetooth and reads the strings straight out of its memory: up to 50 complete strings, with every shot in each. It lists them newest first, with the date, time, shot count and average, and marks any you've already brought in.</p>
+      <ul class="ch-points">
+        <li><b>Untick the strays.</b> Open a string and every shot is ticked. Untick a flyer, a fouler or a neighbor's shot the chrono picked up, and watch the average, SD and ES update before you commit.</li>
+        <li><b>Dated for you.</b> The check takes the string's date and time from the chrono, so a string shot last Tuesday is filed as last Tuesday.</li>
+        <li><b>Your temperatures, your call.</b> The chrono doesn't record temperature, so Bullseye asks you to add it if you know it rather than guessing.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ch-gallery">
+    <figure><img src="../assets/img/chrono-import-list.webp" width="540" height="590" loading="lazy" decoding="async" alt="Import from chrono listing the strings stored on the chrono, marked Imported and Part imported"><figcaption>Strings on the chrono, newest first, marked once you've used them.</figcaption></figure>
+    <figure><img src="../assets/img/chrono-import-string.webp" width="540" height="1200" loading="lazy" decoding="async" alt="One chrono string with 10 shots ticked, average and SD, and a Use 10 readings button"><figcaption>Untick strays; stats update live.</figcaption></figure>
+    <figure><img src="../assets/img/chrono-check-paste.webp" width="540" height="1200" loading="lazy" decoding="async" alt="The velocity check with 10 readings from the chrono in the paste box, ready to add"><figcaption>Back on the check, ready to add.</figcaption></figure>
+    <figure><img src="../assets/img/chrono-already-imported.webp" width="540" height="1200" loading="lazy" decoding="async" alt="Already imported dialog: 8 of these readings are already in this check, with Skip duplicates, Add anyway and Cancel"><figcaption>Already in this check? Bullseye asks before counting a shot twice.</figcaption></figure>
+  </div>
+
+  <div class="ch-split" style="margin-top:72px">
+    <div>
+      <h3>Import from shot log</h3>
+      <p>If you log shots with Bullseye, your range days already hold measured velocities, along with the date, air temperature, powder temperature and the barrel's round count for every shot. Import from shot log puts all of that to work.</p>
+      <ul class="ch-points">
+        <li><b>Just this load.</b> A range day with two loads? Only the shots on the load you're adding a check to are listed and imported.</li>
+        <li><b>Cold and clean-bore shots start unticked,</b> so they don't drag down a warm-bore check. Tick them back in if you want them.</li>
+        <li><b>Conditions filled in.</b> The date, the average air temperature, the average ammo temperature you entered, and the barrel's round count come straight from the log. Bullseye never invents an ammo temperature you didn't enter.</li>
+        <li><b>See the spread.</b> The string screen shows the air and powder temperature range and the barrel count range for the shots you've ticked.</li>
+        <li><b>Split by temperature.</b> When the shots span 15 °F or more, Bullseye offers to split them into two checks, cooler and warmer, so your MV vs temperature table gets two real points instead of one blurred one. You review both before anything is saved.</li>
+      </ul>
+    </div>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: Import from shot log: today's string with its chrono shots ticked and the air temp and barrel count spread"><span class="ch-ph-k">SCREEN TO CAPTURE · P7</span><span class="ch-ph-t">Import from shot log: today's string with its chrono shots ticked and the air temp and barrel count spread</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>The shots you've ticked, with their temperature and round count spread.</figcaption></figure>
+  </div>
+  <div class="ch-gallery ch-two">
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: Import from shot log: the list of strings, with today's range day on top"><span class="ch-ph-k">SCREEN TO CAPTURE · P6</span><span class="ch-ph-t">Import from shot log: the list of strings, with today's range day on top</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Range days with measured velocities on this load.</figcaption></figure>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: The velocity check filled from the shot log, with date and temperatures"><span class="ch-ph-k">SCREEN TO CAPTURE · P8</span><span class="ch-ph-t">The velocity check filled from the shot log, with date and temperatures</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Date, ammo and air temperature filled in.</figcaption></figure>
+    
+  </div>
+
+  <div class="ch-split ch-rev" style="margin-top:72px">
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: A workup rung with the two import buttons (any rifle with a workup)"><span class="ch-ph-k">SCREEN TO CAPTURE · P9</span><span class="ch-ph-t">A workup rung with the two import buttons (any rifle with a workup)</span><span class="ch-ph-s">Any time, no shooting needed</span></div><figcaption>The same two buttons on every workup rung.</figcaption></figure>
+    <div>
+      <h3>Load development, rung by rung</h3>
+      <p>Charge ladders and seating-depth tests get the same buttons on every rung. Most ladders are shot as one string on the chrono, so on a rung the shots start unticked: tick the ones that belong to this rung, and the shots you've already used on another rung are tagged so the next rung picks up where the last one left off.</p>
+      <h3 style="margin-top:28px">Never counted twice</h3>
+      <p>Every imported reading remembers exactly which shot it came from. Whether a shot reaches you from the chrono's memory, from Chrono mode or from your shot log, Bullseye recognizes it. Shots already in another check of the load start unticked and say where they are, strings you've used are marked Imported or Part imported, and if a duplicate does make it into the box, Bullseye asks before adding it.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- Subsonic -->
+<section id="subsonic"><div class="wrap">
+  <div class="ch-intro">
+    <div class="ch-eyebrow">Subsonic too</div>
+    <h2>Just as good below Mach 1</h2>
+    <p class="ch-muted">Rimfire, or subsonic .300 BLK, 8.6 Blackout or 338 ARC: the chrono reads it and Bullseye solves it, the same way it handles a 3100 fps PRC. Nothing to switch, no special mode. The solver predicts when a shot is going to be subsonic and reacts accordingly.</p>
+  </div>
+  <div class="ch-anat-g" style="margin-top:28px">
+    <figure class="ch-anat-fig"><div class="ch-anat-ph"><div class="ch-anat-in"><img src="../assets/img/chrono-solution-subsonic.webp" width="640" height="1422" loading="lazy" decoding="async" alt="Solution screen for a .22 at 40 yd with the Mach chip reading 0.91, subsonic, highlighted">
+      <div class="ch-aspace ch-hl1" style="left:3.6%;top:53.7%;width:51.8%;height:4.5%"></div><span class="ch-amk ch-sp" style="left:59.26%;top:55.92%">1</span>
+      <span class="ch-amk" style="left:73.15%;top:46.83%">2</span>
+    </div></div><figcaption>A .22 at 40 yd: Mach 0.91 at the target.</figcaption></figure>
+    <ol class="ch-anat-l">
+      <li class="ch-sp"><span class="ch-amk ch-sp">1</span><div><b>The Mach chip</b><p>The solver shows the bullet's speed at the target as a Mach number, so you can see at a glance that this shot stays below the speed of sound: <span style="color:var(--ch-green)">0.91 · subsonic</span>. Add it to the Solution screen in Solver settings.</p></div></li>
+      <li><span class="ch-amk">2</span><div><b>The MV chip</b><p>1100 fps is the load's muzzle velocity, with Adaptive MV waiting on the chrono. After 10 readings it dials today's measured speed, subsonic or not.</p></div></li>
+      <li><span class="ch-amk ch-nomk">◎</span><div><b>The chrono: 65 to 5000 fps</b><p>The Athlon Rangecraft Velocity Pro is a Doppler radar, rated by Athlon from 65 to 5000 fps. No sky screens to shoot through, and slow rounds read as cleanly as fast ones.</p></div></li>
+      <li><span class="ch-amk ch-nomk">✓</span><div><b>Tested at 1026 fps</b><p>We ran the full live-fire test on a Tikka T1x with Norma Tac-22. Live strings, velocity checks, imports, auto-logging and Adaptive MV all passed, exactly as on a centerfire rifle.</p></div></li>
+    </ol>
+  </div>
+  <p style="max-width:68ch;margin-top:24px">Velocity matters even more down here. A subsonic bullet spends longer in the air and drops faster, so a few fps of difference shows up on target sooner. That's exactly what Adaptive MV is built to catch.</p>
+</div></section>
+
+<!-- Better data -->
+<section id="better"><div class="wrap">
+  <div class="ch-intro">
+    <div class="ch-eyebrow">Why it matters</div>
+    <h2>Better data in, better hits out</h2>
+    <p>Every reading that arrives through the chrono feeds features you already rely on, with real numbers instead of book values.</p>
+  </div>
+  <div class="ch-cards">
+    <div class="ch-card ch-cut"><div class="ch-cut"><h3>Measured SD</h3><p>Your load's real velocity spread goes into hit probability, so the odds you see reflect your ammo, not a guess.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><h3>MV vs temperature</h3><p>Dated, temperature-stamped velocity checks build your temperature table. Split checks give it two points from one range day.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><h3>Barrel wear trend</h3><p>Every check carries the barrel's round count, so you can watch velocity fall off as the barrel wears.</p></div></div>
+  </div>
+</div></section>
+
+
+<!-- Chrono mode -->
+<section id="chrono-mode"><div class="wrap">
+  <div class="ch-eyebrow">Chrono mode</div>
+  <h2>A live string screen built for the bench</h2>
+  <div class="ch-split">
+    <div>
+      <p>Open <b>Chrono mode</b> from the Home screen. It starts on your current rifle and load, so there's nothing to pick before your first shot. Each reading appears the moment the chrono measures it, with the running average, SD and ES for the string. Bullseye works them out from the raw speeds itself, so they're always in your units and always consistent with the rest of the app.</p>
+      <p>Shooting something new and haven't decided where it belongs? Leave it as <b>Not saved yet</b> and choose when you're done.</p>
+      <h3 style="margin-top:28px">End the string, choose where it goes</h3>
+      <ul class="ch-points">
+        <li><b>Velocity check on a load.</b> Saved with the date, ammo and air temperature and the barrel's round count. It feeds your measured SD, your MV vs temperature table and your barrel wear trend. You land back on an empty Chrono mode with a "Saved to 6GT · Berger 109's" note and a link to the load, ready for the next string.</li>
+        <li><b>Workup rung.</b> Pick a workup on the rifle, then the rung, or add a new rung. Bullseye opens that rung with the readings in place.</li>
+        <li><b>New load.</b> Pick the rifle and type a name. The load is created with its MV set to the string's average, the measured SD, and this string as its first velocity check. Its editor opens so you can add the bullet and BC.</li>
+      </ul>
+      <p class="ch-muted" style="margin-top:10px">The shots you fire are added to the barrel's round count when you save. Discard asks whether to count them anyway.</p>
+    </div>
+    <div class="ch-shots" style="display:grid;gap:16px">
+      <figure><div class="ch-ph" role="img" aria-label="Placeholder: Chrono mode mid-string: 5 or more shots, with the shot count, low, high, Avg, SD, ES and the shot table"><span class="ch-ph-k">SCREEN TO CAPTURE · P4</span><span class="ch-ph-t">Chrono mode mid-string: 5 or more shots, with the shot count, low, high, Avg, SD, ES and the shot table</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Chrono mode on the current rifle and load.</figcaption></figure>
+    </div>
+  </div>
+  <div class="ch-gallery ch-three">
+    <figure><img src="../assets/img/chrono-mode-waiting.webp" width="540" height="1200" loading="lazy" decoding="async" alt="Chrono mode on the Tikka T1x with Norma Tac-22, waiting for the first shot"><figcaption>Starts on your current rifle and load. Pair right from here if the chrono isn't connected.</figcaption></figure>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: The End string sheet with its save choices"><span class="ch-ph-k">SCREEN TO CAPTURE · P5</span><span class="ch-ph-t">The End string sheet with its save choices</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>One sheet to save it as a velocity check, a workup rung or a new load.</figcaption></figure>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: The MV chip's sheet while Adaptive MV is adapting (10 readings in)"><span class="ch-ph-k">SCREEN TO CAPTURE · P3</span><span class="ch-ph-t">The MV chip's sheet while Adaptive MV is adapting (10 readings in)</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Every number traces back to the readings behind it.</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="ch-intro"><div class="ch-eyebrow">Questions</div><h2>Good to know</h2></div>
+  <div class="ch-faq">
+    <details><summary>Which chronographs work?</summary><p>The Athlon Rangecraft Velocity Pro. You can still type or paste readings from any other chronograph, as you can today.</p></details>
+    <details><summary>Do I have to export a file from the chrono?</summary><p>No. Import from chrono reads the strings directly from the chronograph over Bluetooth. There's no export, no file to move and no cable.</p></details>
+    <details><summary>Do I need the chrono connected to import?</summary><p>For Import from chrono, yes: turn it on near your phone and Bullseye reconnects. Import from shot log works any time, with or without the chrono.</p></details>
+    <details><summary>What if my phone loses the connection mid-string?</summary><p>When it reconnects, Bullseye reads the chrono's current string again and adds any shots it missed, in order. Very recent ones are logged as usual; older ones still count toward your string's stats and Adaptive MV.</p></details>
+    <details><summary>Will Adaptive MV change my dial without telling me?</summary><p>No. It waits for 10 readings, and the MV chip always shows whether the adaptive value is in use. Turn it off in Solver settings at any time.</p></details>
+    <details><summary>Can Bullseye start a session or change my chrono's units?</summary><p>No. Sessions, units and device settings stay on the chrono. Bullseye reads the velocities and converts them to your units.</p></details>
+    <details><summary>My chrono shows a different SD. Why?</summary><p>Bullseye works out average, SD and ES from the raw readings in your chosen units, so the numbers match everywhere in the app. Small differences from the chrono's own screen come from rounding and unit conversion.</p></details>
+    <details><summary>What if I import the same string twice?</summary><p>Bullseye recognizes each shot, unticks the ones already in your checks, and asks before adding a duplicate.</p></details>
+  </div>
+</div></section>
+
+<div class="ch-cta" id="get"><div class="wrap">
+  <div class="ch-eyebrow">Bullseye Ballistics</div>
+  <h2>Shoot it once. Use it everywhere.</h2>
+  <p class="ch-muted">Open Bullseye Ballistics, pair your chronograph on the Sensors screen, and your next string does the rest.</p>
+  <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="ch-btn ch-primary ch-cs" href="https://play.google.com/store/apps/details?id=com.bullseyeballistics.app" target="_blank" rel="noopener">Get it on Google Play&nbsp;&#x2197;&#xFE0E;</a><a class="ch-btn ch-ghost ch-cs" href="#overview">Back to features</a></div>
+  <p class="ch-tm">Athlon and Rangecraft are trademarks of their owner.</p>
+</div></div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="label">Bullseye Ballistics is made by Core Bridge, LLC.</div>
+      <p>Questions or support: <a class="mail" href="mailto:info@BullsEyeBallisticsCalculator.com">info@BullsEyeBallisticsCalculator.com</a></p>
+      <div class="social-wrap">
+        <div class="label">Follow us</div>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/profile.php?id=61595733878721" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/bullseyeballistics/" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 5.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1-1 0-1.7.2-2.3.5-.6.2-1.2.6-1.7 1.1-.5.5-.9 1.1-1.1 1.7-.3.6-.4 1.3-.5 2.3 0 1-.1 1.3-.1 3.9s0 2.9.1 3.9c0 1 .2 1.7.5 2.3.2.6.6 1.2 1.1 1.7.5.5 1.1.9 1.7 1.1.6.3 1.3.4 2.3.5 1 0 1.3.1 3.9.1s2.9 0 3.9-.1c1 0 1.7-.2 2.3-.5.6-.2 1.2-.6 1.7-1.1.5-.5.9-1.1 1.1-1.7.3-.6.4-1.3.5-2.3 0-1 .1-1.3.1-3.9s0-2.9-.1-3.9c0-1-.2-1.7-.5-2.3-.2-.6-.6-1.2-1.1-1.7-.5-.5-1.1-.9-1.7-1.1-.6-.3-1.3-.4-2.3-.5-1 0-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1.9 0 1.4.2 1.8.3.4.2.7.4 1.1.7.3.3.6.7.7 1.1.1.3.3.8.3 1.8 0 1 .1 1.3.1 3.8s0 2.8-.1 3.8c0 .9-.2 1.4-.3 1.8-.2.4-.4.7-.7 1.1-.3.3-.7.6-1.1.7-.3.1-.8.3-1.8.3-1 0-1.3.1-3.8.1s-2.8 0-3.8-.1c-.9 0-1.4-.2-1.8-.3-.4-.2-.7-.4-1.1-.7-.3-.3-.6-.7-.7-1.1-.1-.3-.3-.8-.3-1.8 0-1-.1-1.3-.1-3.8s0-2.8.1-3.8c0-.9.2-1.4.3-1.8.2-.4.4-.7.7-1.1.3-.3.7-.6 1.1-.7.3-.1.8-.3 1.8-.3 1 0 1.3-.1 3.8-.1z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="links" aria-label="Legal">
+      <a href="../terms/">Terms of Use</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../delete-account/">Delete your account</a>
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <p class="copyright">&copy; 2026 Core Bridge, LLC. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
