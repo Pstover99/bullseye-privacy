@@ -414,6 +414,17 @@ footer .links a { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; te
 .tour .cols .panel h3 { margin-top: 0; }
 .cols .panel ul + p { margin-top: 10px; }
 .tour .copy li > ul { margin-top: 8px; }
+/* Features: the line under the intro, and the chrono section: three small cards, each with a link to its page. */
+.tour-dp { margin: -20px 0 0; color: var(--muted); }
+.tour-dp strong { color: var(--fg); font-weight: 600; }
+.tour.tour-trio .wrap { display: block; }
+.tour-trio .copy { max-width: 46em; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
+.trio .panel { display: flex; flex-direction: column; scroll-margin-top: 72px; }
+.trio .panel h3 { margin-top: 10px; }
+.trio .panel li { font-size: 0.95rem; }
+.trio .panel .trio-more { margin-top: auto; padding-top: 16px; font-weight: 500; }
+@media (max-width: 900px) { .trio { grid-template-columns: minmax(0, 1fr); } }
 
 /* Stability: how to read Sg, with dots in the app's gauge colors. */
 .sg-table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 0.95rem; }

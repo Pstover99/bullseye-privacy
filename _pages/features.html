@@ -3,6 +3,7 @@
       <div class="label">Feature tour</div>
       <h1 class="hero-h1">Every screen, <span>in order</span></h1>
       <p class="intro">Bullseye Ballistics goes beyond a traditional ballistic calculator. Here is everything it does, section by section, with the screens as they look on the phone. Swipe through each section's screens, or tap one to see it full size.</p>
+      <p class="tour-dp"><strong><a href="{{ROOT}}Ballistic-Data-Capture/">44 data points</a> captured with every shot.</strong></p>
     </div>
   </section>
 
@@ -40,10 +41,10 @@
 
   <nav class="tour-bar" aria-label="Sections">
     <div class="wrap">
-      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
+      <ul class="tour-links"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#chrono">Chrono</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       <details class="tour-menu">
         <summary><span class="label">Sections</span></summary>
-        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
+        <ul onclick="this.parentNode.removeAttribute('open')"><li><a href="#sagitta">Sagitta</a></li><li><a href="#solution">Solution</a></li><li><a href="#sensors">Sensors</a></li><li><a href="#live-wind">Live Wind</a></li><li><a href="#chrono">Chrono</a></li><li><a href="#solver">Solver</a></li><li><a href="#earth">Coriolis</a></li><li><a href="#rifles">Rifles and loads</a></li><li><a href="#log">Shot log</a></li><li><a href="#groups">Groups</a></li><li><a href="#matches">Matches</a></li><li><a href="#voice">Voice</a></li><li><a href="#hud">External HUD</a></li><li><a href="#stability">Stability</a></li><li><a href="#backup">Backup</a></li><li><a href="#tools">Tools</a></li><li><a href="#gun-number">Gun number</a></li><li><a href="#settings">Settings</a></li><li><a href="#barrel">Barrel care</a></li><li><a href="#loaddev">Load development</a></li><li><a href="#hunting">Hunting Zero</a></li><li><a href="#hunt-mode">Hunt Mode</a></li><li><a href="#platform">Platform</a></li></ul>
       </details>
     </div>
   </nav>
@@ -251,6 +252,50 @@
           <figcaption><div class="label">Live Wind</div><p>The wind over the last two minutes, and the hold for each reading.</p><p class="why"><strong>Notice the strongest wind (4.9 mph) isn’t the biggest hold.</strong> It came nearly straight on as a headwind, so little of it pushes the bullet sideways. The lighter 4.5 mph wind from 11 o’clock is more of a crosswind and needs more hold. The solver accounts for direction, not just speed.</p></figcaption>
         </figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour tour-trio" id="chrono">
+    <div class="wrap">
+      <div class="copy">
+        <div class="label feature-label">Chronograph</div>
+        <h2>Your chrono, wired into your dope</h2>
+        <p>Pair a chronograph and every shot's velocity streams into Bullseye live. Three features are built on that feed.</p>
+      </div>
+      <div class="trio">
+        <article class="panel" id="chrono-live-feed">
+          <div class="label">Live velocity</div>
+          <h3>Chrono Live Feed <span class="sn-tag sn-tag--soon">Coming soon</span></h3>
+          <p>Pair your chrono and every shot streams in live over Bluetooth, landing where it's useful: in a velocity check, a load workup, your shot log, or the solution you're about to dial. No retyping numbers off a tiny screen. No spreadsheets.</p>
+          <ul>
+            <li><strong>Works with</strong> the Athlon Rangecraft Velocity Pro.</li>
+            <li><strong>Import a string</strong> straight from the chrono, with no export, file or cable.</li>
+          </ul>
+          <p class="trio-more"><a href="{{ROOT}}chrono/">Read more about Chrono Live Feed&nbsp;&rarr;</a></p>
+        </article>
+        <article class="panel" id="adaptive-mv">
+          <div class="label">Adapt</div>
+          <h3>Adaptive MV</h3>
+          <p>Bullseye compares each reading to your load's MV. After ten readings it starts solving with the speed your rifle is actually shooting today, and keeps adjusting as necessary.</p>
+          <ul>
+            <li><strong>The newest reading counts most.</strong> A shot far from the rest is left out.</li>
+            <li><strong>Cold bore and clean bore shots</strong> keep their own MV.</li>
+            <li><strong>The MV chip</strong> always shows whether the adaptive value is in use. Turn it off any time.</li>
+          </ul>
+          <p class="trio-more"><a href="{{ROOT}}adaptive-mv/">Read more about Adaptive MV&nbsp;&rarr;</a></p>
+        </article>
+        <article class="panel" id="auto-logging">
+          <div class="label">Record</div>
+          <h3>Auto Logging</h3>
+          <p>Every shot logged the moment it's fired. Each reading logs the shot with its measured velocity, the wind and weather at that instant, what the solver dialed, and the rifle, load and barrel round count.</p>
+          <ul>
+            <li><strong><a href="{{ROOT}}Ballistic-Data-Capture/">44 data points</a></strong> per shot.</li>
+            <li><strong>Call it when you're ready,</strong> by tap or voice, right up until the next reading.</li>
+            <li><strong>Conditions are stamped at the reading.</strong> Your call never re-stamps them.</li>
+          </ul>
+          <p class="trio-more"><a href="{{ROOT}}auto-logging/">Read more about Auto Logging&nbsp;&rarr;</a></p>
+        </article>
       </div>
     </div>
   </section>
