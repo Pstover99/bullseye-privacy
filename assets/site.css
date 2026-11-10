@@ -207,6 +207,57 @@ h2 {
 .paper li { position: relative; padding-left: 22px; }
 .paper li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 9px; height: 1.5px; background: var(--accent); }
 
+/* Adaptive MV (/adaptive-mv/): the .paper page with the handoff's chart, chips and two explainers on
+   top, and the chrono page's Adaptive MV section below it (wrapped in .chrono, unchanged). The chart
+   is drawn by site.js; its colors are these tokens, so it follows the theme. */
+.amv {
+  --amv-grid: #222920; --amv-blue-soft: #3F6795; --amv-blue-wash: #17232F; --amv-load: #80877C;
+  --amv-amber: #E0A84A; --amv-amber-wash: #2A2416;
+  padding-bottom: 24px;
+}
+@media (prefers-color-scheme: light) {
+  .amv { --amv-grid: #E0E3D8; --amv-blue-soft: #A8C7EA; --amv-blue-wash: #DCE7F3; --amv-load: #858C7F; --amv-amber: #8F6210; --amv-amber-wash: #F4EAD5; }
+}
+.paper.amv .wrap { max-width: 900px; }
+.amv .amv-sub { font-size: 1.3rem; font-weight: 500; line-height: 1.5; color: var(--accent); max-width: 62ch; margin: 0 0 14px; text-wrap: balance; }
+.amv .amv-lede { font-size: 1.125rem; max-width: 62ch; margin: 0 0 36px; }
+.amv p { max-width: 66ch; }
+.amv .amv-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.amv .amv-figure { border-block: 1px solid var(--line); padding-block: 20px 16px; margin-bottom: 12px; }
+.amv .amv-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.amv .amv-scroll svg { display: block; width: 100%; min-width: 600px; height: auto; }
+.amv svg text { font-family: var(--font-body); }
+.amv svg text.m { font-family: var(--font-mono); }
+.amv .amv-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+.amv .amv-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.amv .amv-sw { display: inline-block; width: 22px; height: 0; border-top: 2px solid; }
+.amv .amv-sw-load { border-top: 2px dashed var(--amv-load); }
+.amv .amv-sw-solver { border-color: var(--accent); border-top-width: 3px; }
+.amv .amv-sw-dot { width: 9px; height: 9px; border: 0; border-radius: 50%; background: var(--fg); }
+.amv .amv-sw-stray { width: 9px; height: 9px; border: 1.5px solid var(--muted); border-radius: 50%; }
+.amv .amv-sw-gap { width: 16px; height: 10px; border: 0; background: var(--amv-blue-wash); outline: 1px solid var(--amv-blue-soft); }
+.amv .amv-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 40px; }
+.amv .amv-chip { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px; font: 400 0.85rem/1.4 var(--font-mono); padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; }
+.amv .amv-tag { font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; letter-spacing: .02em; }
+.amv .amv-tag-wait { background: var(--amv-amber-wash); color: var(--amv-amber); }
+.amv .amv-tag-ad { background: var(--accent); color: var(--bg); }
+.amv .amv-when { font-family: var(--font-body); font-size: 0.8rem; color: var(--muted); }
+.amv .amv-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 8px; }
+.amv .amv-pair > section { padding: 0; min-width: 0; }
+.paper.amv h2 { font-size: 1.25rem; margin: 0 0 6px; }
+.amv .amv-pair p { font-size: 1rem; line-height: 1.65; margin-bottom: 14px; }
+.amv .amv-panel-svg { display: block; width: 100%; height: auto; margin-top: 10px; }
+.amv .amv-holds { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin-top: 12px; }
+.amv .amv-holds th, .amv .amv-holds td { text-align: right; padding: 7px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.amv .amv-holds th:first-child, .amv .amv-holds td:first-child { text-align: left; }
+.amv .amv-holds th { font-weight: 500; color: var(--muted); font-size: 0.8rem; }
+.amv .amv-holds td.amv-ad { color: var(--accent); font-weight: 600; }
+.amv .amv-holds td.amv-d { color: var(--muted); font-family: var(--font-mono); font-size: 0.8rem; }
+.amv .amv-pair .amv-note { font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
+.amv .amv-foot { margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 720px) { .amv .amv-pair { grid-template-columns: 1fr; gap: 36px; } }
+.amv-more > section:first-child { border-top: 1px solid var(--line); }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding-block: 36px 48px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; }

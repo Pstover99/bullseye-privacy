@@ -22,6 +22,7 @@ redirect them.
 | Get the app | https://bullseyeballisticscalculator.com/get-the-app/ |
 | Chronograph (unlisted, noindex) | https://bullseyeballisticscalculator.com/chrono/ |
 | Ballistic Data Capture (unlisted, noindex) | https://bullseyeballisticscalculator.com/Ballistic-Data-Capture/ |
+| Adaptive MV (unlisted, noindex) | https://bullseyeballisticscalculator.com/adaptive-mv/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
