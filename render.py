@@ -190,13 +190,16 @@ READING_ORDER = [
 ]
 # Pages whose own closing already links to the next one.
 OWN_NEXT = {"choosing-a-solver/"}
+# Pages whose Next button skips the header order: these two point at each other.
+NEXT_OVERRIDE = {"auto-logging/": "Ballistic-Data-Capture/", "Ballistic-Data-Capture/": "auto-logging/"}
 
 
 def next_button(path: str) -> str:
     order = [p for p, *_ in READING_ORDER]
-    if path in OWN_NEXT or path not in order[:-1]:
+    if path in OWN_NEXT or (path not in order[:-1] and path not in NEXT_OVERRIDE):
         return ""
-    folder, title, blurb = READING_ORDER[order.index(path) + 1]
+    i = order.index(NEXT_OVERRIDE[path]) if path in NEXT_OVERRIDE else order.index(path) + 1
+    folder, title, blurb = READING_ORDER[i]
     return (
         '\n<nav class="next-page" aria-label="Next page">\n  <div class="wrap">\n'
         f'    <a class="next-link" href="{{{{ROOT}}}}{folder}"><span class="label">Next</span>'
