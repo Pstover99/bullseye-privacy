@@ -1,0 +1,116 @@
+<article class="paper amv">
+  <div class="wrap">
+    <p class="label paper-eyebrow">Bullseye Ballistics · Adaptive MV</p>
+    <h1>Every shot teaches the solver your rifle</h1>
+    <p class="amv-sub">Bullseye Ballistics responds to what is actually happening.</p>
+    <p class="amv-lede">With a chronograph connected, Bullseye compares each reading to your load's MV. After ten readings it starts solving with the speed your rifle is actually shooting today, and keeps adjusting as necessary.</p>
+
+    <div class="amv-figure">
+      <div class="amv-scroll"><svg id="amv-chart" viewBox="0 0 760 400" role="img" aria-label="Chart of muzzle velocity over 20 shots as powder temperature rises from 52 to 71 degrees F. The solver stays on the load's MV of 2806 fps while the first ten counted readings come in, then steps up and follows the readings, ending 13 fps above the load's MV. The cold bore shot and one stray shot are not counted."></svg></div>
+      <div class="amv-legend">
+        <span><i class="amv-sw amv-sw-dot"></i>Chrono reading</span>
+        <span><i class="amv-sw amv-sw-stray"></i>Cold bore or stray, not counted</span>
+        <span><i class="amv-sw amv-sw-load"></i>Load's MV</span>
+        <span><i class="amv-sw amv-sw-solver"></i>MV the solver dials with</span>
+        <span><i class="amv-sw amv-sw-gap"></i>Today's gap</span>
+      </div>
+    </div>
+
+    <div class="amv-chips" aria-label="What the MV chip shows">
+      <span class="amv-chip">MV <span id="amv-chip-wait">2806</span> fps <span class="amv-tag amv-tag-wait">Waiting 6/10</span><span class="amv-when">shots 1 to 11</span></span>
+      <span class="amv-chip">MV <span id="amv-chip-mv">2819</span> fps <span class="amv-tag amv-tag-ad">Adaptive</span><span class="amv-when">shot 12 on</span></span>
+    </div>
+
+    <div class="amv-pair">
+      <section>
+        <h2>How the last ten readings count</h2>
+        <p>Each reading is turned into a gap: measured minus the load's MV (or the temperature table's MV, if the load has one). The newest gap counts most and the weight halves every four shots. A shot far from the rest is left out.</p>
+        <svg id="amv-weights" class="amv-panel-svg" viewBox="0 0 380 190" role="img" aria-label="Bar chart of weights for the last ten readings, newest at 1.0 halving every four shots, with one stray reading struck out."></svg>
+      </section>
+      <section>
+        <h2>What it changes on the dial</h2>
+        <p>At shot 20, the load's MV is <span class="amv-mono" id="amv-pred-now">2806</span> fps. The rifle is running <span class="amv-mono" id="amv-ad-now">2819</span> fps. Inside 600 yd it barely shows. Past that it moves the hold.</p>
+        <table class="amv-holds">
+          <thead><tr><th>Range</th><th>Load's MV</th><th>Adaptive MV</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td>300 yd</td><td>1.1</td><td class="amv-ad">1.1</td><td class="amv-d">0.0</td></tr>
+            <tr><td>600 yd</td><td>3.9</td><td class="amv-ad">3.9</td><td class="amv-d">0.0</td></tr>
+            <tr><td>800 yd</td><td>6.0</td><td class="amv-ad">5.9</td><td class="amv-d">−0.1</td></tr>
+            <tr><td>1000 yd</td><td>8.5</td><td class="amv-ad">8.4</td><td class="amv-d">−0.1</td></tr>
+          </tbody>
+        </table>
+        <p class="amv-note">Elevation in mils. Illustrative: 6.5 Creedmoor 140 gr, 100 yd zero, standard air.</p>
+      </section>
+    </div>
+
+    <p class="amv-foot">Example data. Adaptive MV uses only today's readings on the load you're shooting. Cold bore and clean bore shots keep their own MV. Turn it off and the solver goes back to the load's MV.</p>
+  </div>
+</article>
+
+<!-- The Adaptive MV section of the chrono page, kept the same on both pages -->
+<div class="chrono amv-more">
+<!-- Adaptive -->
+<section id="adaptive"><div class="wrap">
+  <div class="ch-eyebrow">Adaptive MV (optional)</div>
+  <h2>Dial with the speed you're actually shooting</h2>
+  <p class="ch-intro">Every firing solution starts from one number: muzzle velocity. If it's off by 15 fps, every elevation the solver gives you is off too, and the error grows with distance. Your load's MV was measured on another day, in other weather, at another round count, maybe on another chronograph. Adaptive MV fixes that while you shoot. It's optional: one switch in Solver settings turns it on or off. Once 10 readings are in, the solver dials with the speed your rifle is producing right now.</p>
+
+  <div class="ch-cost"><div class="ch-cost-n">~4–5″</div><div><b>What 10 fps costs.</b> At 1000 yd, a typical 6.5 Creedmoor lands roughly 4 to 5 inches high or low for every 10 fps it's off from what the solver thinks. That's half a 10-inch plate, from a number you can't see by looking at the rifle. <span class="ch-muted">Rough figure; it varies with bullet, BC and conditions.</span></div></div>
+
+  <h3 style="margin-top:44px">Where it pays off</h3>
+  <div class="ch-cards ch-four">
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MORNING TO AFTERNOON</div><h3>Ammo that warms up</h3><p>Your temperature table predicts how the load should change as it heats up in the sun. Adaptive MV checks that prediction against the chrono and corrects what the table misses, shot by shot.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">NEW LOT</div><h3>Same recipe, new components</h3><p>A new lot of powder or primers can move a load's speed. Instead of a separate chrono session before you trust your dope again, your first 10 rounds of the day put the solver back on.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">BARREL LIFE</div><h3>A barrel that's slowing down</h3><p>Velocity falls as a barrel wears. Each reading is compared with what the load should do at that barrel's round count, so today's real speed takes over wherever the trend runs out.</p></div></div>
+    <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MATCH DAY</div><h3>Stage one to the last stage</h3><p>Shoot your warm-up and first stage over the chrono. From then on you're dialing today's speed, not last month's, without stopping to true your dope.</p></div></div>
+  </div>
+
+  <h3 style="margin-top:56px">The math, in plain terms</h3>
+  <p class="ch-intro" style="margin-top:8px">It isn't a simple average of your last 10 shots. Three things make it trustworthy.</p>
+  <div class="ch-math">
+    <ol class="ch-steps">
+      <li><b>It works in gaps, not raw speeds.</b> For every reading, Bullseye works out what your load should have done for that shot's air and ammo temperature and that barrel round count. The gap is the difference. A string that warms up through the afternoon doesn't look like a change in speed, because the prediction moves with it.</li>
+      <li><b>Newest counts most.</b> Weights halve every 4 shots (age 0 is the newest shot). The shot 4 back counts half as much as the newest, the shot 8 back a quarter. With a full window of 10, the newest 4 shots carry about 60% of the result and the oldest about 4%, so it follows a barrel that's heating or a load that's drifting.</li>
+      <li><b>Strays are left out.</b> Bullseye takes the median gap and drops any reading farther from it than 3 times the typical spread (the median absolute deviation), or 15 fps if that's larger. A neighbor's shot or a misread doesn't drag your dial.</li>
+    </ol>
+    <p class="ch-muted" style="margin:14px 0 0">Only warm-bore readings on this rifle and load from today's string count, so cold and clean-bore shots don't skew it. Nothing reaches your dial until 10 readings are in.</p>
+  </div>
+
+  <h3 style="margin-top:44px">A worked example</h3>
+  <p style="max-width:68ch">Your load predicts 2812 fps for today's conditions. Ten readings come in. Shot 5 is a slower rifle on the next bench that the chrono picked up.</p>
+  <div class="ch-tscroll"><table class="ch-wtab">
+    <tr><th>SHOT</th><th>MEASURED</th><th>GAP</th><th>WEIGHT</th><th>SHARE</th></tr>
+    <tr><td>1 (oldest)</td><td>2816</td><td>+4</td><td>0.21</td><td>4%</td></tr>
+    <tr><td>2</td><td>2819</td><td>+7</td><td>0.25</td><td>5%</td></tr>
+    <tr><td>3</td><td>2818</td><td>+6</td><td>0.30</td><td>6%</td></tr>
+    <tr><td>4</td><td>2821</td><td>+9</td><td>0.35</td><td>7%</td></tr>
+    <tr class="ch-out"><td>5</td><td>2774</td><td>−38</td><td>–</td><td>stray, left out</td></tr>
+    <tr><td>6</td><td>2822</td><td>+10</td><td>0.50</td><td>11%</td></tr>
+    <tr><td>7</td><td>2824</td><td>+12</td><td>0.59</td><td>13%</td></tr>
+    <tr><td>8</td><td>2823</td><td>+11</td><td>0.71</td><td>15%</td></tr>
+    <tr><td>9</td><td>2826</td><td>+14</td><td>0.84</td><td>18%</td></tr>
+    <tr><td>10 (newest)</td><td>2825</td><td>+13</td><td>1.00</td><td>21%</td></tr>
+  </table></div>
+  <div class="ch-verdict">
+    <div><div class="ch-k">PLAIN AVERAGE, ALL 10</div><div class="ch-v">+4.8 fps</div><div class="ch-s">Fooled by the stray</div></div>
+    <div><div class="ch-k">PLAIN AVERAGE, NO STRAY</div><div class="ch-v">+9.6 fps</div><div class="ch-s">Lags behind the trend</div></div>
+    <div class="ch-hl"><div class="ch-k">ADAPTIVE MV</div><div class="ch-v">+11.0 fps</div><div class="ch-s">Dials 2823 fps</div></div>
+  </div>
+  <p style="max-width:68ch;margin-top:16px">The rifle is speeding up as the string goes on, as most do once the barrel, chamber and ammo heat up. A plain average of all 10 would have you dialing about 6 fps too slow, because one stray shot drags it down. Take the stray out and a plain average still trails behind, since it gives shot 1 as much say as shot 10. Adaptive MV drops the stray and leans on the newest shots, so the next shot is dialed for the speed the rifle is producing now.</p>
+  <div class="ch-algo">
+    <div><div class="ch-k">STEP 1</div><b>Wait for 10</b>Nothing changes your dial until 10 readings are in. The MV chip counts them: Waiting 6/10.</div>
+    <div><div class="ch-k">STEP 2</div><b>Compare fairly</b>Each reading is compared with what your load predicts for that shot's temperature and barrel count, so a warming afternoon doesn't fool it.</div>
+    <div><div class="ch-k">STEP 3</div><b>Ignore strays</b>A reading far from the rest, like a neighbor's shot or a misread, is left out.</div>
+    <div><div class="ch-k">STEP 4</div><b>Newest counts most</b>A weighted average: the latest shots count most, so it follows a warming barrel.</div>
+    <div><div class="ch-k">STEP 5</div><b>Dial it</b>The solver uses the result for your next shot, adjusted to the current temperature.</div>
+  </div>
+  <div class="ch-split" style="margin-top:44px">
+    <div>
+      <h3>Always know what you're dialing</h3>
+      <p>The MV chip makes the state impossible to miss: plain when it's off, amber while it collects, orange when the adaptive value is in your solution, and dimmed and marked <i>held</i> if the chrono disconnects, so it keeps the last result rather than jumping back mid-string. A new string starts fresh.</p>
+      <p>Tap the chip to see every reading behind the number, which ones were left out and why, and how far today's speed is from your load's MV. If today's number looks right, save it as the load's MV or as a velocity check in one tap.</p>
+    </div>
+    <figure><div class="ch-ph" role="img" aria-label="Placeholder: Target Solution after the 10th chrono shot: the orange Adaptive MV chip, ±N vs MV"><span class="ch-ph-k">SCREEN TO CAPTURE · P2</span><span class="ch-ph-t">Target Solution after the 10th chrono shot: the orange Adaptive MV chip, ±N vs MV</span><span class="ch-ph-s">Next live-fire test</span></div><figcaption>Orange means the adaptive MV is in your solution.</figcaption></figure>
+  </div>
+</div></section>
+</div>

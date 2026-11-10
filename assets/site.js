@@ -783,3 +783,144 @@
   window.addEventListener('load', draw);
   draw();
 })();
+
+// Adaptive MV page: the MV-over-20-shots chart and the weights panel, drawn from example data
+// with the app's method (last 10 readings, cold bore excluded, strays beyond 3 MAD or 15 fps from
+// the median dropped, weights halving every 4 shots). Colors are CSS tokens, set as styles so the
+// chart follows the theme.
+(function () {
+  var svg = document.getElementById('amv-chart'), w = document.getElementById('amv-weights');
+  if (!svg || !w) return;
+  var N = 20, LOAD_REF = 2806, REF_T = 59;
+  function temp(i) { return 52 + 19 * (i - 1) / (N - 1); }   // °F, shot 1..20
+  function pred() { return LOAD_REF; }                         // load's MV (no temperature table on this load)
+  var noise = [0, 0, 0, 3, -4, 2, -24, 4, -2, 1, 5, -3, 1, -5, 3, -1, 5, -2, 0, 3];
+  var meas = [];
+  for (var i = 1; i <= N; i++) meas[i] = LOAD_REF + 5 + 1.0 * (temp(i) - REF_T) + noise[i - 1];
+  meas[1] = LOAD_REF - 20; meas[2] = LOAD_REF - 7;             // cold bore slow, shot 2 closer
+
+  function med(a) {
+    var s = a.slice().sort(function (x, y) { return x - y; }), m = s.length >> 1;
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  }
+  function adaptive(upTo) {   // readings 1..upTo, newest first; shot 1 is cold bore and not counted
+    var idx = [];
+    for (var k = upTo; k >= 2 && idx.length < 10; k--) idx.push(k);
+    if (idx.length < 10) return null;
+    var g = idx.map(function (k) { return meas[k] - pred(k); });
+    var m = med(g), mad = med(g.map(function (x) { return Math.abs(x - m); })), lim = Math.max(3 * mad, 15);
+    var sw = 0, sg = 0, rows = [];
+    g.forEach(function (x, pos) {
+      var wt = Math.pow(0.5, pos / 4), keep = Math.abs(x - m) <= lim;
+      rows.push({ shot: idx[pos], gap: x, w: wt, keep: keep });
+      if (keep) { sw += wt; sg += wt * x; }
+    });
+    return { gap: sg / sw, rows: rows };
+  }
+  var solver = [];
+  for (i = 1; i <= N; i++) { var a = adaptive(i - 1); solver[i] = a ? pred(i) + a.gap : pred(i); }
+  function setText(id, n) { var e = document.getElementById(id); if (e) e.textContent = Math.round(n); }
+  setText('amv-chip-wait', pred(6)); setText('amv-chip-mv', solver[N]);
+  setText('amv-pred-now', pred(N)); setText('amv-ad-now', solver[N]);
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var COLORS = { blue: '--accent', text: '--fg', copy: '--fg', muted: '--muted', line: '--line', bg: '--bg', dot: '--fg',
+    grid: '--amv-grid', 'blue-soft': '--amv-blue-soft', 'blue-wash': '--amv-blue-wash', load: '--amv-load',
+    amber: '--amv-amber', 'amber-wash': '--amv-amber-wash' };
+  function v(n) { return 'var(' + COLORS[n] + ')'; }
+  function el(p, t, at, txt) {
+    var e = document.createElementNS(NS, t);
+    for (var k in at) {
+      if ((k === 'fill' || k === 'stroke') && at[k].indexOf('var(') === 0) e.style[k] = at[k];
+      else e.setAttribute(k, at[k]);
+    }
+    if (txt != null) e.textContent = txt;
+    p.appendChild(e);
+    return e;
+  }
+
+  // main chart
+  var L = 64, R = 744, T = 46, B = 338, Y0 = 2760, Y1 = 2850;
+  function x(i) { return L + (i - 0.5) * (R - L) / N; }
+  function y(mv) { return B - (mv - Y0) * (B - T) / (Y1 - Y0); }
+
+  el(svg, 'rect', { x: L, y: T, width: x(11.5) - L, height: B - T, fill: v('amber-wash') });
+  el(svg, 'text', { x: L + 10, y: T + 18, fill: v('amber'), 'class': 'm', 'font-size': 11.5 }, 'WAITING 1/10 … 10/10');
+  el(svg, 'text', { x: L + 10, y: T + 34, fill: v('muted'), 'font-size': 12 }, 'Solver keeps the load’s MV');
+  el(svg, 'text', { x: x(11.5) + 10, y: T + 18, fill: v('blue'), 'class': 'm', 'font-size': 11.5 }, 'ADAPTIVE');
+  el(svg, 'text', { x: x(11.5) + 10, y: T + 34, fill: v('muted'), 'font-size': 12 }, 'Solver uses current MV + today’s gap');
+
+  for (var mv = 2770; mv <= 2850; mv += 20) {
+    el(svg, 'line', { x1: L, x2: R, y1: y(mv), y2: y(mv), stroke: v('grid'), 'stroke-width': 1 });
+    el(svg, 'text', { x: L - 8, y: y(mv) + 4, 'text-anchor': 'end', fill: v('muted'), 'class': 'm', 'font-size': 11 }, mv);
+  }
+  el(svg, 'text', { x: 14, y: (T + B) / 2, transform: 'rotate(-90 14 ' + (T + B) / 2 + ')', 'text-anchor': 'middle', fill: v('muted'), 'font-size': 12 }, 'Muzzle velocity (fps)');
+  el(svg, 'line', { x1: L, x2: R, y1: B, y2: B, stroke: v('line'), 'stroke-width': 1 });
+
+  [1, 5, 10, 15, 20].forEach(function (i) {
+    el(svg, 'text', { x: x(i), y: B + 18, 'text-anchor': 'middle', fill: v('text'), 'class': 'm', 'font-size': 11 }, i);
+    el(svg, 'text', { x: x(i), y: B + 34, 'text-anchor': 'middle', fill: v('muted'), 'class': 'm', 'font-size': 10.5 }, Math.round(temp(i)) + '°F');
+  });
+  el(svg, 'text', { x: R, y: B + 54, 'text-anchor': 'end', fill: v('muted'), 'font-size': 12 }, 'Shot · powder temperature');
+
+  // thermometer
+  var tx = R - 118, ty = 14;
+  el(svg, 'rect', { x: tx, y: ty, width: 7, height: 22, rx: 3.5, fill: 'none', stroke: v('muted'), 'stroke-width': 1.2 });
+  el(svg, 'circle', { cx: tx + 3.5, cy: ty + 25, r: 5, fill: v('amber') });
+  el(svg, 'rect', { x: tx + 2, y: ty + 8, width: 3, height: 16, fill: v('amber') });
+  el(svg, 'text', { x: tx + 16, y: ty + 20, fill: v('copy'), 'class': 'm', 'font-size': 11.5 }, '52°F → 71°F');
+
+  // today's gap: shots 11..20 between the load's MV and the solver's MV
+  var band = 'M' + x(11.5) + ',' + y(pred(11.5));
+  for (i = 12; i <= N; i++) band += ' L' + x(i) + ',' + y(solver[i]);
+  band += ' L' + x(N + 0.4) + ',' + y(solver[N]) + ' L' + x(N + 0.4) + ',' + y(pred(N + 0.4));
+  for (i = N; i >= 12; i--) band += ' L' + x(i) + ',' + y(pred(i));
+  el(svg, 'path', { d: band + ' Z', fill: v('blue-wash'), stroke: 'none' });
+
+  el(svg, 'line', { x1: x(0.5), y1: y(pred(0.5)), x2: x(N + 0.4), y2: y(pred(N + 0.4)), stroke: v('load'), 'stroke-width': 1.6, 'stroke-dasharray': '5 4' });
+
+  var sp = 'M' + x(0.5) + ',' + y(pred(0.5));
+  for (i = 1; i <= 11; i++) sp += ' L' + x(i) + ',' + y(solver[i]);
+  sp += ' L' + x(11.5) + ',' + y(pred(11.5)) + ' L' + x(11.5) + ',' + y(pred(11.5) + adaptive(11).gap);
+  for (i = 12; i <= N; i++) sp += ' L' + x(i) + ',' + y(solver[i]);
+  sp += ' L' + x(N + 0.4) + ',' + y(solver[N]);
+  el(svg, 'path', { d: sp, fill: 'none', stroke: v('blue'), 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+
+  for (i = 1; i <= N; i++) {
+    if (i === 1) {
+      el(svg, 'circle', { cx: x(i), cy: y(meas[i]), r: 4.5, fill: v('bg'), stroke: v('dot'), 'stroke-width': 1.6 });
+    } else if (i === 7) {
+      el(svg, 'circle', { cx: x(i), cy: y(meas[i]), r: 4.5, fill: v('bg'), stroke: v('muted'), 'stroke-width': 1.5 });
+      el(svg, 'line', { x1: x(i) - 6, y1: y(meas[i]) + 6, x2: x(i) + 6, y2: y(meas[i]) - 6, stroke: v('muted'), 'stroke-width': 1.3 });
+    } else el(svg, 'circle', { cx: x(i), cy: y(meas[i]), r: 4.2, fill: v('dot') });
+  }
+  el(svg, 'text', { x: x(1) + 10, y: y(meas[1]) + 16, fill: v('muted'), 'font-size': 12 }, 'Cold bore, not counted');
+  el(svg, 'text', { x: x(7) + 12, y: y(meas[7]) + 4, fill: v('muted'), 'font-size': 12 }, 'Stray shot, left out');
+  el(svg, 'text', { x: x(N) - 4, y: y(pred(N)) + 22, 'text-anchor': 'end', fill: v('load'), 'font-size': 12 }, 'Load’s MV, ' + LOAD_REF + ' fps');
+  el(svg, 'line', { x1: x(13.5), y1: y((pred(13.5) + solver[13]) / 2), x2: x(13.5), y2: y(2793), stroke: v('blue'), 'stroke-width': 1 });
+  el(svg, 'circle', { cx: x(13.5), cy: y((pred(13.5) + solver[13]) / 2), r: 2.5, fill: v('blue') });
+  el(svg, 'text', { x: x(13.5) + 8, y: y(2790), fill: v('blue'), 'font-size': 12.5, 'font-weight': 600 }, 'Gap now +' + Math.round(solver[N] - LOAD_REF) + ' fps');
+  el(svg, 'text', { x: x(13.5) + 8, y: y(2790) + 16, fill: v('muted'), 'font-size': 12 }, 'and it follows the warming');
+
+  // weights panel: the window of 10 that still held the stray (readings 2..11, newest first)
+  var wl = 34, wr = 372, wt = 14, wb = 150, bw = (wr - wl) / 10;
+  [0, 0.5, 1].forEach(function (t) {
+    var yy = wb - t * (wb - wt);
+    el(w, 'line', { x1: wl, x2: wr, y1: yy, y2: yy, stroke: v('grid') });
+    el(w, 'text', { x: wl - 6, y: yy + 4, 'text-anchor': 'end', fill: v('muted'), 'class': 'm', 'font-size': 10.5 }, t.toFixed(1));
+  });
+  var win = adaptive(11).rows, sIdx = -1;
+  win.forEach(function (r, pos) {
+    if (!r.keep && sIdx < 0) sIdx = pos;
+    var bx = wl + pos * bw + 5, bh = r.w * (wb - wt), by = wb - bh;
+    if (r.keep) el(w, 'rect', { x: bx, y: by, width: bw - 10, height: bh, fill: v('blue'), rx: 2 });
+    else {
+      el(w, 'rect', { x: bx, y: by, width: bw - 10, height: bh, fill: 'none', stroke: v('muted'), 'stroke-dasharray': '3 3', rx: 2 });
+      el(w, 'line', { x1: bx - 2, y1: by - 2, x2: bx + bw - 8, y2: wb + 2, stroke: v('muted'), 'stroke-width': 1.2 });
+    }
+    el(w, 'text', { x: bx + (bw - 10) / 2, y: wb + 16, 'text-anchor': 'middle', fill: r.keep ? v('text') : v('muted'), 'class': 'm', 'font-size': 10.5 }, '#' + r.shot);
+  });
+  el(w, 'text', { x: wl, y: wb + 36, fill: v('muted'), 'font-size': 11.5 }, 'Newest');
+  el(w, 'text', { x: wr, y: wb + 36, 'text-anchor': 'end', fill: v('muted'), 'font-size': 11.5 }, '10 readings back');
+  if (sIdx >= 0) el(w, 'text', { x: wl + sIdx * bw + bw / 2, y: wb - win[sIdx].w * (wb - wt) - 8, 'text-anchor': 'middle', fill: v('muted'), 'font-size': 11.5 }, 'stray');
+})();
