@@ -66,6 +66,11 @@ PAGES = [
      "Hunting Zero works out exactly how high to sight in for your load, the animal's vital "
      "zone, your group size and the conditions where you hunt. Hunt Mode then tells you to hold "
      "center or gives the exact hold, and checks every shot is ethical."),
+    ("Ballistic-Data-Capture/index.html", "_pages/ballistic-data-capture.html", "../",
+     "44 data points per shot · Bullseye Ballistics",
+     "Every shot in the Bullseye Ballistics shot log carries up to 44 data points: the call, "
+     "the predicted solution, the conditions and where each came from, the equipment, and the "
+     "measured velocity. Why that depth of record matters for finding the cause of a miss."),
     ("chrono/index.html", "_pages/chrono.html", "../",
      "Chronograph integration · Bullseye Ballistics",
      "Pair your Doppler chronograph with Bullseye Ballistics. Live strings, one-tap velocity "
@@ -184,7 +189,7 @@ def next_button(path: str) -> str:
 
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = {"chrono/index.html"}
+NOINDEX = {"chrono/index.html", "Ballistic-Data-Capture/index.html"}
 
 
 def inline(text: str) -> str:
