@@ -273,15 +273,14 @@ h2 {
     --al-line2: #C2C7B6; --al-blue-soft: #A8C7EA; --al-blue-wash: #DCE7F3; --al-amber: #8F6210; --al-amber-wash: #F4EAD5;
   }
 }
-.paper.al .wrap { max-width: 900px; }
+.paper.al .wrap { max-width: 1080px; }   /* the diagram's width, so the header lines up with it */
 .al .al-sub { font-size: 1.3rem; font-weight: 500; line-height: 1.5; color: var(--accent); max-width: 62ch; margin: 0 0 14px; text-wrap: balance; }
 .al .al-lede { font-size: 1.125rem; max-width: 62ch; margin: 0 0 36px; }
 .al p { max-width: 66ch; }
 .al .al-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .al .al-amber { color: var(--al-amber); }
 .paper.al h2 { font-size: 1.25rem; margin: 0 0 6px; text-wrap: balance; }
-.al .al-figure { border-block: 1px solid var(--line); padding-block: 24px 22px; margin-bottom: 40px;
-  width: min(1040px, calc(100vw - 32px)); margin-left: calc(50% - min(520px, calc(50vw - 16px))); }
+.al .al-figure { border-block: 1px solid var(--line); padding-block: 24px 22px; margin-bottom: 40px; }
 .al .al-fig-p { font-size: 0.95rem; color: var(--muted); margin: 0 0 22px; max-width: 70ch; }
 .al .al-flow { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) 64px minmax(0, 1fr); align-items: center; }
 .al .al-c1 { --gc: var(--al-g1); } .al .al-c2 { --gc: var(--al-g2); } .al .al-c3 { --gc: var(--al-g3); } .al .al-c4 { --gc: var(--al-g4); }
@@ -2075,7 +2074,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .pp-badge { margin: 0 0 14px; }
 .pp-badge .sn-tag { display: inline-block; }
 /* The same tag beside a feature's name: a home page card title, a features glance item, a comparison row. */
-h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag { display: inline-block; margin: 0 0 0 8px; vertical-align: 2px; font-size: 0.68rem; letter-spacing: 0.12em; }
+h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag { display: inline-block; margin: 0 0 0 8px; vertical-align: 2px; font-size: 0.68rem; letter-spacing: 0.12em; }
 .cmp-table tbody th strong .sn-tag { color: var(--flag); }
 /* Chrono page: the Coming soon badge over the hero eyebrow, a size up. */
 .chrono .ch-soon { margin: 0 0 16px; }
