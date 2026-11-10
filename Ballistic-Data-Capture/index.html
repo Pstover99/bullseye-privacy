@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>44 data points per shot · Bullseye Ballistics</title>
+<meta name="description" content="Every shot in the Bullseye Ballistics shot log carries up to 44 data points: the call, the predicted solution, the conditions and where each came from, the equipment, and the measured velocity. Why that depth of record matters for finding the cause of a miss.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://bullseyeballisticscalculator.com/Ballistic-Data-Capture/">
+<meta name="theme-color" content="#101311">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bullseye Ballistics">
+<meta property="og:title" content="44 data points per shot · Bullseye Ballistics">
+<meta property="og:description" content="Every shot in the Bullseye Ballistics shot log carries up to 44 data points: the call, the predicted solution, the conditions and where each came from, the equipment, and the measured velocity. Why that depth of record matters for finding the cause of a miss.">
+<meta property="og:url" content="https://bullseyeballisticscalculator.com/Ballistic-Data-Capture/">
+<meta property="og:image" content="https://bullseyeballisticscalculator.com/assets/img/og.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=61bf72df80">
+<script src="../assets/site.js?v=dc172efee2" defer></script>
+</head>
+<body>
+<header class="top gn-header">
+  <div class="wrap gn">
+    <a class="brand" href="../" aria-label="Bullseye Ballistics home">
+      <img class="logo" src="../assets/img/logo.svg" width="34" height="34" alt="">
+      <b>Bullseye</b>
+    </a>
+    <nav class="gn-menu" id="gn-menu" aria-label="Site">
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-features">Features</button>
+        <div class="gn-panel" id="gn-features">
+          <a href="../features/"><b>All features</b><span>Everything the app does</span></a>
+          <a href="../sagitta/"><b>Sagitta Ballistics AI</b><span>The ballistics AI at the core</span></a>
+          <a href="../wind-corridor/"><b>Wind Corridor</b><span>See the wind downrange</span></a>
+          <a href="../external-display/"><b>External display</b><span>Your solution on the rifle</span></a>
+          <a href="../sensors/"><b>Sensors</b><span>Live wind and weather</span></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-field">In the field</button>
+        <div class="gn-panel" id="gn-field">
+          <a href="../hunting/"><b>Hunting</b><span>Hunting Zero and Hunt Mode</span></a>
+          <a class="gn-sub" href="../hunting/#hunt-mode"><b>Hunt Mode</b></a>
+          <a class="gn-sub" href="../hunting/#hunting-zero"><b>Hunting Zero Calculator</b></a>
+          <a href="../matches/"><b>Matches</b><span>From match book to first shot</span></a>
+          <a class="gn-sub" href="../matches/#how"><b>Import Match Book</b></a>
+          <a class="gn-sub" href="../matches/#review"><b>Match Book Review</b></a>
+          <a class="gn-sub" href="../matches/#coach"><b>Stage Coach</b></a>
+          <a href="../live-wind/"><b>Wind</b><span>Live wind, the corridor and smoothing</span></a>
+          <a class="gn-sub" href="../live-wind/"><b>Live Wind</b></a>
+          <a class="gn-sub" href="../wind-corridor/"><b>Wind Corridor</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Wind Smoothing</b></a>
+        </div>
+      </div>
+      <div class="gn-group">
+        <button type="button" aria-expanded="false" aria-controls="gn-hood">Under the Hood</button>
+        <div class="gn-panel" id="gn-hood">
+          <a href="../under-the-hood/"><b>Solver Technical Detail</b><span>How wind and elevation become a hold</span></a>
+          <a class="gn-sub" href="../under-the-hood/#wind"><b>Wind Hold Calculation</b></a>
+          <a class="gn-sub" href="../under-the-hood/#elevation"><b>Elevation Hold Calculation</b></a>
+          <a href="../truing/"><b>Truing the Solver</b><span>Match the solver to your rifle</span></a>
+          <a class="gn-sub" href="../truing/"><b>Velocity and Drag</b></a>
+          <a class="gn-sub" href="../truing/#wind-smoothing"><b>Adaptive Wind Smoothing</b></a>
+          <a href="../hit-probability/"><b>Hit Probability</b><span>How your odds of a hit are worked out</span></a>
+          <a href="../load-development/"><b>Load Development</b><span>Better Records. Better Loads.</span></a>
+        </div>
+      </div>
+      <div class="gn-group gn-group--end">
+        <button type="button" aria-expanded="false" aria-controls="gn-compare">Compare</button>
+        <div class="gn-panel" id="gn-compare">
+          <a href="../choosing-a-solver/"><b>Choosing a Solver</b><span>Six questions to ask of any solver</span></a>
+          <a href="../comparison/"><b>Side by side</b><span>Every feature, next to other apps</span></a>
+        </div>
+      </div>
+      <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    </nav>
+    <a class="gn-cta" href="../get-the-app/">Get the app</a>
+    <button class="gn-toggle" type="button" aria-expanded="false" aria-controls="gn-menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<article class="paper">
+  <div class="wrap">
+    <p class="label paper-eyebrow">Bullseye Ballistics · Advanced Data Capture</p>
+    <h1>44 data points per shot</h1>
+    <p class="paper-lede">Precision shooting has always been empirical. The best shooters have kept data books for generations because a shot that is not recorded cannot be learned from. Bullseye keeps that data book for you at a resolution no handwritten book or spreadsheet can match: 44 data points per shot, captured the instant you fire, attributed to its source, and available for analysis the moment the string ends. The more completely a shot is described, the more precisely its error can be explained, and the more confidently the next one can be predicted.</p>
+    <h2>Why the record of a single shot matters</h2>
+    <p>Long-range accuracy is an exercise in error budgeting. Every shot that lands is the sum of a firing solution and a set of departures from it: a muzzle velocity a few feet per second off its average, a wind call that missed a value by half a mile per hour, a density altitude that drifted with the afternoon, a barrel that is 400 rounds further along its life than when the load was developed. Each departure is small. Their sum is the miss.</p>
+    <p>The difficulty is that these departures cannot be separated after the fact unless they were recorded at the moment of the shot. A hit rate tells you how often you were right. It cannot tell you why you were wrong. That requires a record rich enough to attribute the error, and to our knowledge no other ballistic tool keeps one as complete as Bullseye's.</p>
+    <h2>What Bullseye records</h2>
+    <p>Every shot in the Bullseye shot log carries up to 44 data points, written at the instant of the shot rather than reconstructed later:</p>
+    <ul>
+    <li><strong>The outcome and the call.</strong> Hit or miss, where the miss went, its vertical and horizontal offset, whether it was a called shot or a no-call, whether it was a cold-bore shot, and the shooter's note.</li>
+    <li><strong>The firing solution the app predicted.</strong> Drop, windage, velocity at the target, energy at the target and time of flight, exactly as computed for that shot.</li>
+    <li><strong>The target geometry.</strong> Range, shot angle, latitude and firing direction, which together fix the slant-range and Coriolis terms of the solution.</li>
+    <li><strong>The atmosphere.</strong> Air temperature, pressure, station pressure, relative humidity, altitude and ammunition temperature.</li>
+    <li><strong>The wind.</strong> Speed, clock direction and whether the direction was corrected to true north.</li>
+    <li><strong>The provenance of every input.</strong> Whether each condition was typed by the shooter, read from the phone's own sensors, or streamed from a connected Bluetooth instrument. A wind value read from a Bluetooth wind meter and a wind value estimated by eye are not the same measurement, and the log never treats them as if they were.</li>
+    <li><strong>The equipment and context.</strong> The rifle, the load, the barrel, the barrel's round count at that shot, and the match stage if one was running.</li>
+    <li><strong>The measured velocity.</strong> With a connected Doppler chronograph, the actual muzzle velocity of that specific round, tied to the shot by the chronograph's own timestamp.</li>
+    </ul>
+    <p>That last data point changes the nature of the record. Most shooters know their load's velocity as an average and a standard deviation. Bullseye knows the velocity of the shot that missed low.</p>
+    <h2>Depth of data matters</h2>
+    <h3>Separating the error sources</h3>
+    <p>With prediction, conditions and outcome stored together, a miss stops being a single number and becomes a residual: the difference between where the solution said the bullet would go and where it went, with every input to that solution held alongside it. Residuals can be grouped and compared. Vertical misses that track measured velocity point to the ammunition. Vertical misses that track temperature point to powder sensitivity. Horizontal misses that grow with time of flight and disappear when the wind came from a meter point to the wind call. None of these distinctions is possible from a hit rate alone.</p>
+    <p>Velocity matters for the horizontal as well as the vertical. Wind drift is governed by lag time: the difference between the bullet's actual time of flight and the time it would take in a vacuum. The vacuum is the reference because a vacuum has no air, and so no drag: a bullet fired in one would cross the whole distance at its muzzle velocity, never slowing. Wind pushes a bullet through the same drag that slows it. The bullet turns to face the air flowing past it, and when that air is moving sideways, part of the drag force points sideways too. A bullet that never lost speed would therefore never be pushed off line, however hard the wind blew. The drift comes entirely from the bullet slowing down, and the lag time measures exactly how much it slowed: the extra time it spent in flight compared with a bullet that kept its muzzle velocity all the way. This is why a bullet that holds its speed better drifts less, even when it spends nearly as long in the air. Because lag time is computed from muzzle velocity and the bullet's deceleration, <strong>a velocity that departs from the prediction carries directly into the wind hold</strong>. The effect is smaller than its effect on elevation, but it grows with distance and with wind speed, and at extended range it becomes a material share of the horizontal error. With measured velocity stored on every shot, a horizontal miss can be divided into what the wind did and what the velocity did, a separation that cannot be made when velocity is known only as a load average.</p>
+    <h3>Truing from all shots rather than a single session</h3>
+    <p>A ballistic model is only as good as the muzzle velocity and drag it is given. Conventional truing adjusts those inputs from one session at one or two distances. A log of fully specified shots allows the same correction to be estimated across many sessions, many distances and many atmospheres, where a correction that only holds in one set of conditions shows up as exactly that.</p>
+    <h3>Velocity as a variable, not a constant</h3>
+    <p>Pairing each shot's measured velocity with its ammunition temperature and its barrel round count turns two slow processes into observable trends: the load's temperature sensitivity, and the gradual loss of velocity as the throat erodes. Both are normally inferred from occasional dedicated chronograph sessions. Here they accumulate as a byproduct of ordinary shooting.</p>
+    <h3>Equipment and barrel life</h3>
+    <p>Because each shot is attributed to a rifle, a load and a barrel at a known round count, performance can be followed over the life of the barrel rather than assessed at a single point. Changes in dispersion, velocity or first-round behavior can be placed against the round count at which they appeared.</p>
+    <h3>Honest statistics</h3>
+    <p>Recording the source of every input matters as much as recording the input. Shots fired on estimated conditions and shots fired on measured conditions can be analyzed separately, so that a conclusion is never quietly weakened by data of uneven quality.</p>
+    <h2>Analysis built on the record</h2>
+    <p>Bullseye Ballistics AI (Sagitta) works directly on this record. A shooter can ask how much of their horizontal dispersion at 1000 yards is really velocity rather than wind, which wind directions they consistently misread at a given range, whether their cold-bore shot still lands where it did 500 rounds ago, or whether their load's temperature sensitivity is changing as the barrel wears, and the answer is built from their own shots rather than from general advice.</p>
+    <p>The depth of the record is what makes that analysis possible:</p>
+    <ul>
+    <li><strong>Diagnostic.</strong> Attributing a miss, or a pattern of misses, to the likeliest error source given the conditions, the call and the prediction for each shot.</li>
+    <li><strong>Predictive.</strong> Estimating hit probability at a given distance from the shooter's own measured dispersion, and proposing truing corrections from the residuals in the log.</li>
+    <li><strong>Performance.</strong> Following hit rate, velocity and dispersion across distances, conditions, loads and barrel life, and showing which of those the shooter's results actually depend on.</li>
+    <li><strong>Insight.</strong> Surfacing relationships the shooter did not think to ask about, such as a cold-bore offset that repeats, or a wind direction that is consistently misread at one range.</li>
+    </ul>
+    <p>Every number Sagitta gives comes from Bullseye's own deterministic solver and statistics, run on the shooter's data.</p>
+  </div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="label">Bullseye Ballistics is made by Core Bridge, LLC.</div>
+      <p>Questions or support: <a class="mail" href="mailto:info@BullsEyeBallisticsCalculator.com">info@BullsEyeBallisticsCalculator.com</a></p>
+      <div class="social-wrap">
+        <div class="label">Follow us</div>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/profile.php?id=61595733878721" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/bullseyeballistics/" target="_blank" rel="noopener" aria-label="Bullseye Ballistics on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 5.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1-1 0-1.7.2-2.3.5-.6.2-1.2.6-1.7 1.1-.5.5-.9 1.1-1.1 1.7-.3.6-.4 1.3-.5 2.3 0 1-.1 1.3-.1 3.9s0 2.9.1 3.9c0 1 .2 1.7.5 2.3.2.6.6 1.2 1.1 1.7.5.5 1.1.9 1.7 1.1.6.3 1.3.4 2.3.5 1 0 1.3.1 3.9.1s2.9 0 3.9-.1c1 0 1.7-.2 2.3-.5.6-.2 1.2-.6 1.7-1.1.5-.5.9-1.1 1.1-1.7.3-.6.4-1.3.5-2.3 0-1 .1-1.3.1-3.9s0-2.9-.1-3.9c0-1-.2-1.7-.5-2.3-.2-.6-.6-1.2-1.1-1.7-.5-.5-1.1-.9-1.7-1.1-.6-.3-1.3-.4-2.3-.5-1 0-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1.9 0 1.4.2 1.8.3.4.2.7.4 1.1.7.3.3.6.7.7 1.1.1.3.3.8.3 1.8 0 1 .1 1.3.1 3.8s0 2.8-.1 3.8c0 .9-.2 1.4-.3 1.8-.2.4-.4.7-.7 1.1-.3.3-.7.6-1.1.7-.3.1-.8.3-1.8.3-1 0-1.3.1-3.8.1s-2.8 0-3.8-.1c-.9 0-1.4-.2-1.8-.3-.4-.2-.7-.4-1.1-.7-.3-.3-.6-.7-.7-1.1-.1-.3-.3-.8-.3-1.8 0-1-.1-1.3-.1-3.8s0-2.8.1-3.8c0-.9.2-1.4.3-1.8.2-.4.4-.7.7-1.1.3-.3.7-.6 1.1-.7.3-.1.8-.3 1.8-.3 1 0 1.3-.1 3.8-.1z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="links" aria-label="Legal">
+      <a href="../terms/">Terms of Use</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../delete-account/">Delete your account</a>
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <p class="copyright">&copy; 2026 Core Bridge, LLC. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

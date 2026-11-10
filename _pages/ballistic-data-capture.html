@@ -1,0 +1,45 @@
+<article class="paper">
+  <div class="wrap">
+    <p class="label paper-eyebrow">Bullseye Ballistics · Advanced Data Capture</p>
+    <h1>44 data points per shot</h1>
+    <p class="paper-lede">Precision shooting has always been empirical. The best shooters have kept data books for generations because a shot that is not recorded cannot be learned from. Bullseye keeps that data book for you at a resolution no handwritten book or spreadsheet can match: 44 data points per shot, captured the instant you fire, attributed to its source, and available for analysis the moment the string ends. The more completely a shot is described, the more precisely its error can be explained, and the more confidently the next one can be predicted.</p>
+    <h2>Why the record of a single shot matters</h2>
+    <p>Long-range accuracy is an exercise in error budgeting. Every shot that lands is the sum of a firing solution and a set of departures from it: a muzzle velocity a few feet per second off its average, a wind call that missed a value by half a mile per hour, a density altitude that drifted with the afternoon, a barrel that is 400 rounds further along its life than when the load was developed. Each departure is small. Their sum is the miss.</p>
+    <p>The difficulty is that these departures cannot be separated after the fact unless they were recorded at the moment of the shot. A hit rate tells you how often you were right. It cannot tell you why you were wrong. That requires a record rich enough to attribute the error, and to our knowledge no other ballistic tool keeps one as complete as Bullseye's.</p>
+    <h2>What Bullseye records</h2>
+    <p>Every shot in the Bullseye shot log carries up to 44 data points, written at the instant of the shot rather than reconstructed later:</p>
+    <ul>
+    <li><strong>The outcome and the call.</strong> Hit or miss, where the miss went, its vertical and horizontal offset, whether it was a called shot or a no-call, whether it was a cold-bore shot, and the shooter's note.</li>
+    <li><strong>The firing solution the app predicted.</strong> Drop, windage, velocity at the target, energy at the target and time of flight, exactly as computed for that shot.</li>
+    <li><strong>The target geometry.</strong> Range, shot angle, latitude and firing direction, which together fix the slant-range and Coriolis terms of the solution.</li>
+    <li><strong>The atmosphere.</strong> Air temperature, pressure, station pressure, relative humidity, altitude and ammunition temperature.</li>
+    <li><strong>The wind.</strong> Speed, clock direction and whether the direction was corrected to true north.</li>
+    <li><strong>The provenance of every input.</strong> Whether each condition was typed by the shooter, read from the phone's own sensors, or streamed from a connected Bluetooth instrument. A wind value read from a Bluetooth wind meter and a wind value estimated by eye are not the same measurement, and the log never treats them as if they were.</li>
+    <li><strong>The equipment and context.</strong> The rifle, the load, the barrel, the barrel's round count at that shot, and the match stage if one was running.</li>
+    <li><strong>The measured velocity.</strong> With a connected Doppler chronograph, the actual muzzle velocity of that specific round, tied to the shot by the chronograph's own timestamp.</li>
+    </ul>
+    <p>That last data point changes the nature of the record. Most shooters know their load's velocity as an average and a standard deviation. Bullseye knows the velocity of the shot that missed low.</p>
+    <h2>Depth of data matters</h2>
+    <h3>Separating the error sources</h3>
+    <p>With prediction, conditions and outcome stored together, a miss stops being a single number and becomes a residual: the difference between where the solution said the bullet would go and where it went, with every input to that solution held alongside it. Residuals can be grouped and compared. Vertical misses that track measured velocity point to the ammunition. Vertical misses that track temperature point to powder sensitivity. Horizontal misses that grow with time of flight and disappear when the wind came from a meter point to the wind call. None of these distinctions is possible from a hit rate alone.</p>
+    <p>Velocity matters for the horizontal as well as the vertical. Wind drift is governed by lag time: the difference between the bullet's actual time of flight and the time it would take in a vacuum. The vacuum is the reference because a vacuum has no air, and so no drag: a bullet fired in one would cross the whole distance at its muzzle velocity, never slowing. Wind pushes a bullet through the same drag that slows it. The bullet turns to face the air flowing past it, and when that air is moving sideways, part of the drag force points sideways too. A bullet that never lost speed would therefore never be pushed off line, however hard the wind blew. The drift comes entirely from the bullet slowing down, and the lag time measures exactly how much it slowed: the extra time it spent in flight compared with a bullet that kept its muzzle velocity all the way. This is why a bullet that holds its speed better drifts less, even when it spends nearly as long in the air. Because lag time is computed from muzzle velocity and the bullet's deceleration, <strong>a velocity that departs from the prediction carries directly into the wind hold</strong>. The effect is smaller than its effect on elevation, but it grows with distance and with wind speed, and at extended range it becomes a material share of the horizontal error. With measured velocity stored on every shot, a horizontal miss can be divided into what the wind did and what the velocity did, a separation that cannot be made when velocity is known only as a load average.</p>
+    <h3>Truing from all shots rather than a single session</h3>
+    <p>A ballistic model is only as good as the muzzle velocity and drag it is given. Conventional truing adjusts those inputs from one session at one or two distances. A log of fully specified shots allows the same correction to be estimated across many sessions, many distances and many atmospheres, where a correction that only holds in one set of conditions shows up as exactly that.</p>
+    <h3>Velocity as a variable, not a constant</h3>
+    <p>Pairing each shot's measured velocity with its ammunition temperature and its barrel round count turns two slow processes into observable trends: the load's temperature sensitivity, and the gradual loss of velocity as the throat erodes. Both are normally inferred from occasional dedicated chronograph sessions. Here they accumulate as a byproduct of ordinary shooting.</p>
+    <h3>Equipment and barrel life</h3>
+    <p>Because each shot is attributed to a rifle, a load and a barrel at a known round count, performance can be followed over the life of the barrel rather than assessed at a single point. Changes in dispersion, velocity or first-round behavior can be placed against the round count at which they appeared.</p>
+    <h3>Honest statistics</h3>
+    <p>Recording the source of every input matters as much as recording the input. Shots fired on estimated conditions and shots fired on measured conditions can be analyzed separately, so that a conclusion is never quietly weakened by data of uneven quality.</p>
+    <h2>Analysis built on the record</h2>
+    <p>Bullseye Ballistics AI (Sagitta) works directly on this record. A shooter can ask how much of their horizontal dispersion at 1000 yards is really velocity rather than wind, which wind directions they consistently misread at a given range, whether their cold-bore shot still lands where it did 500 rounds ago, or whether their load's temperature sensitivity is changing as the barrel wears, and the answer is built from their own shots rather than from general advice.</p>
+    <p>The depth of the record is what makes that analysis possible:</p>
+    <ul>
+    <li><strong>Diagnostic.</strong> Attributing a miss, or a pattern of misses, to the likeliest error source given the conditions, the call and the prediction for each shot.</li>
+    <li><strong>Predictive.</strong> Estimating hit probability at a given distance from the shooter's own measured dispersion, and proposing truing corrections from the residuals in the log.</li>
+    <li><strong>Performance.</strong> Following hit rate, velocity and dispersion across distances, conditions, loads and barrel life, and showing which of those the shooter's results actually depend on.</li>
+    <li><strong>Insight.</strong> Surfacing relationships the shooter did not think to ask about, such as a cold-bore offset that repeats, or a wind direction that is consistently misread at one range.</li>
+    </ul>
+    <p>Every number Sagitta gives comes from Bullseye's own deterministic solver and statistics, run on the shooter's data.</p>
+  </div>
+</article>
