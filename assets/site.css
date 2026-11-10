@@ -2071,6 +2071,9 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .sn-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .sn-tag { font: 500 0.68rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 6px 8px; }
 .sn-tag--soon { color: var(--flag); background: rgba(240, 180, 41, 0.14); }   /* amber, like Wind Corridor's Coming soon */
+/* "Patent pending" over the heading of Adaptive MV, Auto Logging, Sagitta and Wind Corridor. */
+.pp-badge { margin: 0 0 14px; }
+.pp-badge .sn-tag { display: inline-block; }
 /* The same tag beside a feature's name: a home page card title, a features glance item, a comparison row. */
 h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag { display: inline-block; margin: 0 0 0 8px; vertical-align: 2px; font-size: 0.68rem; letter-spacing: 0.12em; }
 .cmp-table tbody th strong .sn-tag { color: var(--flag); }
