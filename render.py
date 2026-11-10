@@ -76,6 +76,11 @@ PAGES = [
      "With a chronograph connected, Bullseye Ballistics compares each reading to your load's MV. "
      "After ten readings it solves with the speed your rifle is actually shooting today, and keeps "
      "adjusting as the day goes on."),
+    ("auto-logging/index.html", "_pages/auto-logging.html", "../",
+     "Auto Logging · Bullseye Ballistics",
+     "With a chronograph and meters connected, Bullseye Ballistics logs every shot the moment "
+     "it's fired: its measured velocity, the wind and weather at that instant, what the solver "
+     "dialed, the rifle, load and barrel round count, and your call."),
     ("chrono/index.html", "_pages/chrono.html", "../",
      "Chronograph integration · Bullseye Ballistics",
      "Pair your Doppler chronograph with Bullseye Ballistics. Live strings, one-tap velocity "
@@ -194,7 +199,8 @@ def next_button(path: str) -> str:
 
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = {"chrono/index.html", "Ballistic-Data-Capture/index.html", "adaptive-mv/index.html"}
+NOINDEX = {"chrono/index.html", "Ballistic-Data-Capture/index.html", "adaptive-mv/index.html",
+           "auto-logging/index.html"}
 
 
 def inline(text: str) -> str:

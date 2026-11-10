@@ -258,6 +258,104 @@ h2 {
 @media (max-width: 720px) { .amv .amv-pair { grid-template-columns: 1fr; gap: 36px; } }
 .amv-more > section:first-child { border-top: 1px solid var(--line); }
 
+/* Auto Logging (/auto-logging/): the .paper page with the handoff's shot log diagram, two explainers
+   and the "why" sections. The diagram's connector lines are drawn by site.js between each source
+   card and its band in the log entry, so they follow the cards at any width; below 760px the
+   diagram stacks and a down arrow replaces them. Source colors are these tokens. */
+.al {
+  --al-g1: var(--accent); --al-g2: #5FB8C4; --al-g3: #7FC4A0; --al-g4: #E393B6; --al-g5: #E8955A; --al-g6: #A898DE; --al-g7: #E0A84A;
+  --al-line2: #3A4237; --al-blue-soft: #3F6795; --al-blue-wash: #17232F; --al-amber: #E0A84A; --al-amber-wash: #2A2416;
+  padding-bottom: 24px;
+}
+@media (prefers-color-scheme: light) {
+  .al {
+    --al-g2: #2E8C9A; --al-g3: #5A9E7C; --al-g4: #C2668F; --al-g5: #C96F2E; --al-g6: #7E6BB8; --al-g7: #B7791F;
+    --al-line2: #C2C7B6; --al-blue-soft: #A8C7EA; --al-blue-wash: #DCE7F3; --al-amber: #8F6210; --al-amber-wash: #F4EAD5;
+  }
+}
+.paper.al .wrap { max-width: 900px; }
+.al .al-sub { font-size: 1.3rem; font-weight: 500; line-height: 1.5; color: var(--accent); max-width: 62ch; margin: 0 0 14px; text-wrap: balance; }
+.al .al-lede { font-size: 1.125rem; max-width: 62ch; margin: 0 0 36px; }
+.al p { max-width: 66ch; }
+.al .al-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.al .al-amber { color: var(--al-amber); }
+.paper.al h2 { font-size: 1.25rem; margin: 0 0 6px; text-wrap: balance; }
+.al .al-figure { border-block: 1px solid var(--line); padding-block: 24px 22px; margin-bottom: 40px;
+  width: min(1040px, calc(100vw - 32px)); margin-left: calc(50% - min(520px, calc(50vw - 16px))); }
+.al .al-fig-p { font-size: 0.95rem; color: var(--muted); margin: 0 0 22px; max-width: 70ch; }
+.al .al-flow { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) 64px minmax(0, 1fr); align-items: center; }
+.al .al-c1 { --gc: var(--al-g1); } .al .al-c2 { --gc: var(--al-g2); } .al .al-c3 { --gc: var(--al-g3); } .al .al-c4 { --gc: var(--al-g4); }
+.al .al-c5 { --gc: var(--al-g5); } .al .al-c6 { --gc: var(--al-g6); } .al .al-c7 { --gc: var(--al-g7); }
+.al .al-srcs { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; min-width: 0; }
+.al .al-src { background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--gc); border-radius: 6px; padding: 11px 13px 12px; }
+.al .al-src.al-c1, .al .al-band.al-c1 { background: var(--al-blue-wash); border-color: var(--al-blue-soft); border-left-color: var(--gc); }
+.al .al-fh { display: flex; align-items: center; gap: 8px; font-size: 0.97rem; line-height: 1.3; }
+.al .al-fh b { font-weight: 600; }
+.al .al-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gc); flex: none; }
+.al .al-n { margin-left: auto; font: 400 0.75rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.al .al-fsub { font-size: 0.82rem; color: var(--muted); margin: 1px 0 8px 16px; line-height: 1.45; }
+.al .al-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-left: 16px; }
+.al .al-chip { font: 400 0.72rem/1.3 var(--font-mono); padding: 3px 7px; border: 1px solid var(--al-line2); border-radius: 4px; color: var(--fg); background: var(--bg); }
+.al .al-chip.al-s { border-style: dashed; color: var(--muted); }
+.al .al-c1 .al-chip { border-color: var(--al-blue-soft); }
+.al .al-live { display: inline-flex; align-items: center; gap: 5px; font: 400 0.625rem/1.6 var(--font-mono); letter-spacing: .12em; color: var(--accent); border: 1px solid var(--al-blue-soft); padding: 0 6px; border-radius: 10px; }
+.al .al-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: al-pulse 1.6s infinite; }
+@keyframes al-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+.al .al-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.al .al-lines path { fill: none; stroke-width: 1.5; opacity: .8; }
+.al .al-lines path.live { stroke-dasharray: 5 5; animation: al-flowdash 1s linear infinite; }
+.al .al-lines path.main { stroke-width: 2.2; opacity: 1; }
+.al .al-lines path.later { stroke-dasharray: 2 5; }
+@keyframes al-flowdash { to { stroke-dashoffset: -10; } }
+.al .al-down { display: none; }
+.al .al-log { grid-column: 3; background: var(--panel-low); border: 1px solid var(--al-line2); border-radius: 8px; padding: 16px 14px 14px; position: relative; z-index: 1; min-width: 0; }
+.al .al-log-k { font: 400 0.7rem var(--font-mono); letter-spacing: .14em; color: var(--accent); }
+.al .al-log-t { font-weight: 600; font-size: 1.06rem; margin-top: 4px; line-height: 1.3; }
+.al .al-log-s { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; }
+.al .al-log-s b { color: var(--fg); font-weight: 600; }
+.al .al-bands { display: flex; flex-direction: column; gap: 5px; }
+.al .al-band { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; padding: 6px 9px; background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--gc); border-radius: 4px; }
+.al p.al-log-note { font-size: 0.78rem; line-height: 1.5; color: var(--muted); margin: 12px 0 10px; }
+.al .al-use-k { font: 400 0.66rem var(--font-mono); letter-spacing: .12em; color: var(--muted); margin-bottom: 6px; }
+.al .al-use { display: flex; flex-wrap: wrap; gap: 5px; }
+.al .al-use span { font: 400 0.7rem var(--font-mono); color: var(--accent); border: 1px solid var(--al-blue-soft); border-radius: 4px; padding: 1px 7px; }
+@media (max-width: 760px) {
+  .al .al-flow { grid-template-columns: minmax(0, 1fr); }
+  .al .al-lines { display: none; }
+  .al .al-down { display: block; text-align: center; font: 400 0.75rem var(--font-mono); letter-spacing: .06em; color: var(--accent); padding: 14px 0; }
+  .al .al-log { grid-column: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .al .al-live i, .al .al-lines path.live { animation: none; } }
+.al .al-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 8px; }
+.al .al-pair > section { padding: 0; min-width: 0; }
+.al .al-pair p { font-size: 1rem; line-height: 1.65; margin-bottom: 14px; }
+@media (max-width: 720px) { .al .al-pair { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.al .al-panel-svg { display: block; width: 100%; height: auto; margin-top: 10px; }
+.al .al-panel-svg text { font-family: var(--font-body); }
+.al .al-panel-svg text.m { font-family: var(--font-mono); }
+.al .al-tl-axis { stroke: var(--al-line2); stroke-width: 1.5; }
+.al .al-tl-win { fill: var(--al-amber-wash); }
+.al .al-tl-shot { fill: var(--accent); }
+.al .al-tl-txt { fill: var(--fg); font-size: 12px; font-weight: 600; }
+.al .al-tl-sub { fill: var(--muted); font-size: 11.5px; }
+.al .al-tl-call { fill: none; stroke: var(--al-amber); stroke-width: 1.6; }
+.al .al-tl-calldot { fill: var(--al-amber); }
+.al .al-tl-gust { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-linecap: round; }
+.al .al-tl-amb { fill: var(--al-amber); font-size: 11px; }
+.al .al-table { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin-top: 12px; }
+.al .al-table th, .al .al-table td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.al .al-table th { font-weight: 500; color: var(--muted); font-size: 0.8rem; }
+.al .al-table td:first-child { padding-right: 14px; width: 44%; }
+.al .al-table td + td { color: var(--muted); }
+.al .al-more { margin-top: 56px; padding: 8px 0 0; }
+.paper.al h2.al-sec-h { font-size: 1.5rem; margin: 40px 0 10px; }
+.al .al-uses { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 40px; margin-top: 6px; }
+.al .al-uses > div { min-width: 0; border-top: 1px solid var(--line); padding-top: 14px; }
+.paper.al .al-uses h3 { font-size: 1rem; margin: 0 0 4px; }
+.al .al-uses p { font-size: 0.95rem; line-height: 1.65; }
+@media (max-width: 720px) { .al .al-uses { grid-template-columns: minmax(0, 1fr); } }
+.al .al-foot { margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding-block: 36px 48px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; }

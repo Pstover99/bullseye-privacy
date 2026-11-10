@@ -924,3 +924,36 @@
   el(w, 'text', { x: wr, y: wb + 36, 'text-anchor': 'end', fill: v('muted'), 'font-size': 11.5 }, '10 readings back');
   if (sIdx >= 0) el(w, 'text', { x: wl + sIdx * bw + bw / 2, y: wb - win[sIdx].w * (wb - wt) - 8, 'text-anchor': 'middle', fill: v('muted'), 'font-size': 11.5 }, 'stray');
 })();
+
+// Auto Logging (/auto-logging/): connector lines from each source card to its band in the shot log
+// entry. Drawn from the laid-out boxes, so redrawn on resize, theme change and font load; hidden
+// (display:none) when the diagram stacks on a phone.
+(function () {
+  var flow = document.getElementById('al-flow'), svg = document.getElementById('al-lines');
+  if (!flow || !svg) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  function draw() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    if (getComputedStyle(svg).display === 'none') return;
+    var fr = flow.getBoundingClientRect();
+    Array.prototype.forEach.call(flow.querySelectorAll('.al-src'), function (src) {
+      var g = src.getAttribute('data-g'), band = flow.querySelector('.al-band[data-g="' + g + '"]');
+      if (!band) return;
+      var a = src.getBoundingClientRect(), b = band.getBoundingClientRect();
+      var x1 = a.right - fr.left, y1 = a.top + a.height / 2 - fr.top, x2 = b.left - fr.left - 1, y2 = b.top + b.height / 2 - fr.top;
+      var mx = (x1 + x2) / 2, path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + ' C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', getComputedStyle(src).getPropertyValue('--gc').trim() || '#888');
+      if (g === 'al-c1') path.setAttribute('class', 'live main');
+      else if (g === 'al-c2' || g === 'al-c3' || g === 'al-c4') path.setAttribute('class', 'live');
+      else if (g === 'al-c7') path.setAttribute('class', 'later');
+      svg.appendChild(path);
+    });
+  }
+  window.addEventListener('resize', draw);
+  var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
+  if (mq) { if (mq.addEventListener) mq.addEventListener('change', draw); else if (mq.addListener) mq.addListener(draw); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  window.addEventListener('load', draw);
+  draw();
+})();
