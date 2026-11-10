@@ -2312,6 +2312,9 @@ section.hero--photo p.lead { color: #DDE3D8; }
 .chrono .ch-works a:hover b { color:var(--ch-blue); text-decoration-color:var(--ch-blue) }
 .chrono .ch-phone { justify-self:center; width:300px; border-radius:34px; padding:10px; background:#050605; box-shadow:0 0 0 1px var(--ch-line2),0 30px 80px rgba(0,0,0,.6) }
 .chrono .ch-phone img { display:block; width:100%; border-radius:26px }
+/* screenshots with the phone frame and markup baked in (transparent around the phone) */
+.chrono .ch-phone.ch-shot { padding:0; background:none; border-radius:0; box-shadow:none }
+.chrono .ch-shot img { display:block; width:100%; border:0; border-radius:0; background:none; filter:drop-shadow(0 24px 40px rgba(0,0,0,.45)) }
 .chrono .ch-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-bottom:1px solid var(--line) }
 .chrono .ch-strip>div { padding:26px 24px; border-right:1px solid var(--line) }
 .chrono .ch-strip>div:last-child { border-right:none }
