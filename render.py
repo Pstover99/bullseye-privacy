@@ -153,12 +153,14 @@ NAV = {
     "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
     "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/",
     "SOLVER": "choosing-a-solver/", "GET": "get-the-app/",
+    "CHRONO": "chrono/", "ADAPTIVEMV": "adaptive-mv/", "AUTOLOG": "auto-logging/",
+    "DATACAPTURE": "Ballistic-Data-Capture/",
 }
 # The dropdowns, by the {{GROUP_...}} key: the group of the page you're on is marked too.
 NAV_GROUPS = {
-    "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL"],
+    "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL", "CHRONO", "ADAPTIVEMV", "AUTOLOG"],
     "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
-    "HOOD": ["TRUING", "HOOD", "HITPROB", "LOADDEV"],
+    "HOOD": ["TRUING", "HOOD", "HITPROB", "LOADDEV", "DATACAPTURE"],
     "COMPARE": ["SOLVER", "COMPARISON"],
 }
 
@@ -170,7 +172,10 @@ READING_ORDER = [
     ("sagitta/", "Sagitta Ballistics AI", "The ballistics AI at the core"),
     ("wind-corridor/", "Wind Corridor", "See the wind downrange"),
     ("external-display/", "External display", "Your solution on the rifle"),
-    ("sensors/", "Sensors", "Live wind and weather"),
+    ("sensors/", "Sensors", "Live velocity, wind and weather"),
+    ("chrono/", "Chrono Live Feed", "Every shot's velocity, live"),
+    ("adaptive-mv/", "Adaptive MV", "Solve with today's real velocity"),
+    ("auto-logging/", "Auto Logging", "Every shot logged the moment it's fired"),
     ("hunting/", "Hunting", "Hunting Zero and Hunt Mode"),
     ("matches/", "Matches", "From match book to first shot"),
     ("live-wind/", "Live Wind", "Your wind meter, live in the solver"),
@@ -178,6 +183,7 @@ READING_ORDER = [
     ("truing/", "Truing the Solver", "Match the solver to your rifle"),
     ("hit-probability/", "Hit Probability", "How your odds of a hit are worked out"),
     ("load-development/", "Load Development", "Better Records. Better Loads."),
+    ("Ballistic-Data-Capture/", "44 data points per shot", "What every logged shot records"),
     ("choosing-a-solver/", "Choosing a Solver", "Six questions to ask of any solver"),
     ("comparison/", "Side by side", "Every feature, next to other apps"),
     ("get-the-app/", "Get the app", "Now on Android, iPhone coming soon"),
@@ -199,8 +205,7 @@ def next_button(path: str) -> str:
 
 
 # Pages not linked from anywhere yet, kept out of search results until they are.
-NOINDEX = {"chrono/index.html", "Ballistic-Data-Capture/index.html", "adaptive-mv/index.html",
-           "auto-logging/index.html"}
+NOINDEX = set()
 
 
 def inline(text: str) -> str:
