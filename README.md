@@ -23,6 +23,7 @@ redirect them.
 | Chronograph (unlisted, noindex) | https://bullseyeballisticscalculator.com/chrono/ |
 | Ballistic Data Capture (unlisted, noindex) | https://bullseyeballisticscalculator.com/Ballistic-Data-Capture/ |
 | Adaptive MV (unlisted, noindex) | https://bullseyeballisticscalculator.com/adaptive-mv/ |
+| Auto Logging (unlisted, noindex) | https://bullseyeballisticscalculator.com/auto-logging/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |

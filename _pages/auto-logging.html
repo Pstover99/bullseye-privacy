@@ -1,0 +1,110 @@
+<article class="paper al">
+  <div class="wrap">
+    <p class="label paper-eyebrow">Bullseye Ballistics · Auto Logging</p>
+    <h1>Every shot logged the moment it's fired</h1>
+    <p class="al-sub">The chronograph's reading starts the record. Bullseye fills in the rest.</p>
+    <p class="al-lede">With a chronograph and meters connected, each reading logs the shot instantly: its measured velocity, the wind and weather at the precise moment of the shot, what the solver dialed, the rifle, load, round count on the barrel, and more.</p>
+
+    <div class="al-figure">
+      <h2>What goes into every logged shot</h2>
+      <p class="al-fig-p">The chrono's reading is joined with everything else Bullseye knows at that instant, from your sensors, your phone, the solver and your profile, and written to the shot log as one entry. <a href="{{ROOT}}Ballistic-Data-Capture/">44 data points per shot</a>. Dashed fields record where a value came from (sensor, phone or typed).</p>
+      <div class="al-flow" id="al-flow">
+        <div class="al-srcs">
+          <div class="al-src al-c1" data-g="al-c1"><div class="al-fh"><span class="al-dot"></span><b>Chronograph</b><span class="al-live"><i></i>LIVE</span><span class="al-n">3</span></div><div class="al-fsub">Live over Bluetooth, the instant it reads</div><div class="al-chips"><span class="al-chip">Measured velocity</span><span class="al-chip">Logged by the chrono</span><span class="al-chip">Chrono timestamp</span></div></div>
+          <div class="al-src al-c2" data-g="al-c2"><div class="al-fh"><span class="al-dot"></span><b>Wind meter</b><span class="al-live"><i></i>LIVE</span><span class="al-n">4</span></div><div class="al-fsub">Bluetooth wind meter, or typed</div><div class="al-chips"><span class="al-chip">Wind speed</span><span class="al-chip">Wind direction</span><span class="al-chip">True-north correction</span><span class="al-chip al-s">Wind source</span></div></div>
+          <div class="al-src al-c3" data-g="al-c3"><div class="al-fh"><span class="al-dot"></span><b>Weather meter</b><span class="al-live"><i></i>LIVE</span><span class="al-n">9</span></div><div class="al-fsub">Bluetooth weather meter, or typed</div><div class="al-chips"><span class="al-chip">Air temperature</span><span class="al-chip">Pressure</span><span class="al-chip">Station pressure</span><span class="al-chip">Humidity</span><span class="al-chip">Altitude</span><span class="al-chip al-s">Temperature source</span><span class="al-chip al-s">Pressure source</span><span class="al-chip al-s">Humidity source</span><span class="al-chip al-s">Altitude source</span></div></div>
+          <div class="al-src al-c4" data-g="al-c4"><div class="al-fh"><span class="al-dot"></span><b>Phone sensors</b><span class="al-live"><i></i>LIVE</span><span class="al-n">7</span></div><div class="al-fsub">Clock, GPS, compass and tilt (or an angle device)</div><div class="al-chips"><span class="al-chip">Time of shot</span><span class="al-chip">Latitude</span><span class="al-chip">Shot direction (azimuth)</span><span class="al-chip">Shot angle</span><span class="al-chip al-s">Latitude source</span><span class="al-chip al-s">Direction source</span><span class="al-chip al-s">Angle source</span></div></div>
+          <div class="al-src al-c5" data-g="al-c5"><div class="al-fh"><span class="al-dot"></span><b>Firing solution</b><span class="al-n">6</span></div><div class="al-fsub">What the solver dialed for this shot</div><div class="al-chips"><span class="al-chip">Target range</span><span class="al-chip">Predicted drop</span><span class="al-chip">Predicted windage</span><span class="al-chip">Predicted velocity</span><span class="al-chip">Predicted energy</span><span class="al-chip">Time of flight</span></div></div>
+          <div class="al-src al-c6" data-g="al-c6"><div class="al-fh"><span class="al-dot"></span><b>Rifle, load and barrel</b><span class="al-n">8</span></div><div class="al-fsub">From the profile you're shooting</div><div class="al-chips"><span class="al-chip">Profile</span><span class="al-chip">Rifle</span><span class="al-chip">Load</span><span class="al-chip">Ammo temperature</span><span class="al-chip">Barrel</span><span class="al-chip">Barrel round count</span><span class="al-chip">Phone that counted it</span><span class="al-chip">Match stage</span></div></div>
+          <div class="al-src al-c7" data-g="al-c7"><div class="al-fh"><span class="al-dot"></span><b>Your call</b><span class="al-n">7</span></div><div class="al-fsub">Tap or voice, added when you call it: "Hit", "Miss, .3 left" or "Miss, .3 low, .2 left"</div><div class="al-chips"><span class="al-chip">Hit or miss</span><span class="al-chip">No-call</span><span class="al-chip">Miss location</span><span class="al-chip">Miss vertical</span><span class="al-chip">Miss horizontal</span><span class="al-chip">Cold bore</span><span class="al-chip">Note</span></div></div>
+        </div>
+        <svg class="al-lines" id="al-lines" aria-hidden="true"></svg>
+        <div class="al-down" aria-hidden="true">↓ all into one shot log entry</div>
+        <div class="al-log">
+          <div class="al-log-k">SHOT LOG ENTRY</div>
+          <div class="al-log-t">String Nov 9 #2 · Shot 6</div>
+          <div class="al-log-s"><b>44</b> fields, stamped once at the reading</div>
+          <div class="al-bands">
+            <div class="al-band al-c1" data-g="al-c1"><span class="al-dot"></span>Chronograph<span class="al-n">3</span></div>
+            <div class="al-band al-c2" data-g="al-c2"><span class="al-dot"></span>Wind meter<span class="al-n">4</span></div>
+            <div class="al-band al-c3" data-g="al-c3"><span class="al-dot"></span>Weather meter<span class="al-n">9</span></div>
+            <div class="al-band al-c4" data-g="al-c4"><span class="al-dot"></span>Phone sensors<span class="al-n">7</span></div>
+            <div class="al-band al-c5" data-g="al-c5"><span class="al-dot"></span>Firing solution<span class="al-n">6</span></div>
+            <div class="al-band al-c6" data-g="al-c6"><span class="al-dot"></span>Rifle, load and barrel<span class="al-n">8</span></div>
+            <div class="al-band al-c7" data-g="al-c7"><span class="al-dot"></span>Your call<span class="al-n">7</span></div>
+          </div>
+          <p class="al-log-note">Conditions are captured when the chrono reads. Your call is added afterwards and never re-stamps them.</p>
+          <div class="al-use-k">USED BY</div>
+          <div class="al-use"><span>Velocity checks</span><span>Workups</span><span>Adaptive MV</span><span>Truing</span><span>Barrel life</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="al-pair">
+      <section>
+        <h2>Call it when you're ready</h2>
+        <p>The string line on the Solution screen shows <span class="al-mono al-amber">Shot 6 · call it</span>. Tap Hit or Miss, or say it, and the call is added to shot 6. A slow call still lands on the right shot, right up until the next reading arrives.</p>
+        <svg class="al-panel-svg" viewBox="0 0 420 168" role="img" aria-label="Timeline: reading 6 logs shot 6 and stamps the conditions. A gust arrives while you spot the impact and is not recorded. You call Hit, and the call is added to shot 6. Reading 7 then logs shot 7, and calls go to shot 7 from there.">
+          <rect class="al-tl-win" x="24" y="78" width="356" height="22" rx="3"/>
+          <text class="al-tl-amb m" x="150" y="93" text-anchor="middle">calls go to shot 6</text>
+          <line class="al-tl-axis" x1="8" y1="100" x2="412" y2="100"/>
+          <!-- call arc -->
+          <path class="al-tl-call" d="M280 94 C 260 18, 56 18, 28 90"/>
+          <path class="al-tl-call" d="M28 91 l-3 -9 M28 91 l7 -6" stroke-linecap="round"/>
+          <!-- reading 6 -->
+          <circle class="al-tl-shot" cx="24" cy="100" r="6"/>
+          <text class="al-tl-txt" x="14" y="124">Reading</text>
+          <text class="al-tl-sub" x="14" y="140">shot 6 logged,</text>
+          <text class="al-tl-sub" x="14" y="155">conditions stamped</text>
+          <!-- gust -->
+          <path class="al-tl-gust" d="M170 110 h18 a5 5 0 1 0 -5 -5 M164 117 h30 a5 5 0 1 1 -5 5"/>
+          <text class="al-tl-sub" x="180" y="140" text-anchor="middle">gust while you spot,</text>
+          <text class="al-tl-sub" x="180" y="155" text-anchor="middle">not recorded</text>
+          <!-- call -->
+          <circle class="al-tl-calldot" cx="280" cy="100" r="5"/>
+          <text class="al-tl-txt" x="280" y="124" text-anchor="middle">"Hit"</text>
+          <text class="al-tl-sub" x="280" y="140" text-anchor="middle">added to shot 6</text>
+          <!-- reading 7 -->
+          <circle class="al-tl-shot" cx="380" cy="100" r="6"/>
+          <text class="al-tl-txt" x="380" y="124" text-anchor="middle">Reading</text>
+          <text class="al-tl-sub" x="380" y="140" text-anchor="middle">shot 7 logged</text>
+        </svg>
+      </section>
+      <section>
+        <h2>Your log follows the chrono</h2>
+        <p>The shot log stays in step with what the chronograph recorded, without you tidying it up afterwards.</p>
+        <table class="al-table">
+          <thead><tr><th>If you…</th><th>The logged shot…</th></tr></thead>
+          <tbody>
+            <tr><td>Call it Hit or Miss</td><td>Gets your call, with the miss size if you give one</td></tr>
+            <tr><td>Don't call it</td><td>Stays as a no-call with its velocity, and doesn't count against your hit rate</td></tr>
+            <tr><td>Delete an uncalled shot on the chrono</td><td>Is removed</td></tr>
+            <tr><td>Delete a called shot on the chrono</td><td>Keeps your call and drops the velocity</td></tr>
+            <tr><td>Lose the connection mid-string</td><td>Recent missed shots are logged when the phone reconnects. Older ones still count toward the string's stats</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="al-more">
+      <h2 class="al-sec-h">Why the record of a single shot matters</h2>
+      <p>Long-range accuracy is an exercise in error budgeting. Every shot that lands is the sum of a firing solution and a set of departures from it: a muzzle velocity a few feet per second off its average, a wind call that missed by half a mile per hour, a density altitude that drifted with the afternoon, a barrel that is 400 rounds further along its life than when the load was developed. Each departure is small. Their sum is the miss.</p>
+      <p>These departures can't be separated after the fact unless they were recorded at the moment of the shot. A hit rate tells you how often you were right. It can't tell you why you were wrong. That takes a record rich enough to attribute the error, and with measured velocity on every shot, Bullseye knows the velocity of the shot that missed low.</p>
+
+      <h2 class="al-sec-h">What the record makes possible</h2>
+      <div class="al-uses">
+        <div><h3>Separating the error sources</h3><p>With prediction, conditions and outcome stored together, a miss becomes a residual. Vertical misses that track measured velocity point to the ammunition. Vertical misses that track temperature point to powder sensitivity. Horizontal misses that grow with time of flight and disappear when the wind came from a meter point to the wind call.</p></div>
+        <div><h3>Wind or velocity</h3><p>Wind drift depends on how much the bullet slows down, so a velocity that departs from the prediction carries into the wind hold too. With measured velocity on every shot, a horizontal miss can be divided into what the wind did and what the velocity did.</p></div>
+        <div><h3>Truing from all your shots</h3><p>Conventional truing adjusts MV and drag from one session at one or two distances. A log of fully described shots lets the same correction be estimated across many sessions, distances and atmospheres.</p></div>
+        <div><h3>Velocity as a variable</h3><p>Each shot's measured velocity sits next to its ammo temperature and barrel round count, so temperature sensitivity and the slow loss of speed as the throat erodes build up as a byproduct of ordinary shooting.</p></div>
+        <div><h3>Barrel life</h3><p>Every shot belongs to a rifle, a load and a barrel at a known round count. Changes in dispersion, velocity or first-round behavior can be placed against the round count where they appeared.</p></div>
+        <div><h3>Honest statistics</h3><p>Every input records where it came from. Shots fired on estimated conditions and shots fired on measured conditions can be analyzed separately, so data of uneven quality never quietly weakens a conclusion.</p></div>
+      </div>
+
+      <h2 class="al-sec-h">Analysis built on the record</h2>
+      <p>Bullseye Ballistics AI (Sagitta) works directly on your shot log. Ask how much of your horizontal dispersion at 1000 yards is really velocity rather than wind, which wind directions you consistently misread at a given range, or whether your cold-bore shot still lands where it did 500 rounds ago. The answer is built from your own shots, and every number comes from Bullseye's own deterministic solver and statistics.</p>
+    </section>
+
+    <p class="al-foot">Auto Logging runs on the Solution screen. Chrono mode strings are saved as velocity checks or workup rungs, not as logged shots. Patent pending.</p>
+  </div>
+</article>
