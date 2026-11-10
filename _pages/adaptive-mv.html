@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="pp-badge"><span class="sn-tag">Patent pending</span></div>
     <p class="label paper-eyebrow">Bullseye Ballistics · Adaptive MV</p>
-    <h1>Every shot teaches the solver your rifle</h1>
+    <h1>Every shot teaches the solver <span>your rifle</span></h1>
     <p class="amv-sub">Bullseye Ballistics responds to what is actually happening.</p>
     <p class="amv-lede">With a chronograph connected, Bullseye compares each reading to your load's MV. After ten readings it starts solving with the speed your rifle is actually shooting today, and keeps adjusting as necessary.</p>
 
@@ -24,11 +24,13 @@
 
     <div class="amv-pair">
       <section>
+        <div class="lw-num">01</div>
         <h2>How the last ten readings count</h2>
         <p>Each reading is turned into a gap: measured minus the load's MV (or the temperature table's MV, if the load has one). The newest gap counts most and the weight halves every four shots. A shot far from the rest is left out.</p>
         <svg id="amv-weights" class="amv-panel-svg" viewBox="0 0 380 190" role="img" aria-label="Bar chart of weights for the last ten readings, newest at 1.0 halving every four shots, with one stray reading struck out."></svg>
       </section>
       <section>
+        <div class="lw-num">02</div>
         <h2>What it changes on the dial</h2>
         <p>At shot 20, the load's MV is <span class="amv-mono" id="amv-pred-now">2806</span> fps. The rifle is running <span class="amv-mono" id="amv-ad-now">2819</span> fps. Inside 600 yd it barely shows. Past that it moves the hold.</p>
         <table class="amv-holds">
@@ -52,13 +54,14 @@
 <div class="chrono amv-more">
 <!-- Adaptive -->
 <section id="adaptive"><div class="wrap">
-  <div class="ch-eyebrow">Adaptive MV (optional)</div>
+  <div class="lw-num">03</div>
   <h2>Dial with the speed you're actually shooting</h2>
   <p class="ch-intro">Every firing solution starts from one number: muzzle velocity. If it's off by 15 fps, every elevation the solver gives you is off too, and the error grows with distance. Your load's MV was measured on another day, in other weather, at another round count, maybe on another chronograph. Adaptive MV fixes that while you shoot. It's optional: one switch in Solver settings turns it on or off. Once 10 readings are in, the solver dials with the speed your rifle is producing right now.</p>
 
   <div class="ch-cost"><div class="ch-cost-n">~4–5″</div><div><b>What 10 fps costs.</b> At 1000 yd, a typical 6.5 Creedmoor lands roughly 4 to 5 inches high or low for every 10 fps it's off from what the solver thinks. That's half a 10-inch plate, from a number you can't see by looking at the rifle. <span class="ch-muted">Rough figure; it varies with bullet, BC and conditions.</span></div></div>
 
-  <h3 style="margin-top:44px">Where it pays off</h3>
+  <div class="lw-num amv-num">04</div>
+  <h3 class="amv-h">Where it pays off</h3>
   <div class="ch-cards ch-four">
     <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MORNING TO AFTERNOON</div><h3>Ammo that warms up</h3><p>Your temperature table predicts how the load should change as it heats up in the sun. Adaptive MV checks that prediction against the chrono and corrects what the table misses, shot by shot.</p></div></div>
     <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">NEW LOT</div><h3>Same recipe, new components</h3><p>A new lot of powder or primers can move a load's speed. Instead of a separate chrono session before you trust your dope again, your first 10 rounds of the day put the solver back on.</p></div></div>
@@ -66,8 +69,9 @@
     <div class="ch-card ch-cut"><div class="ch-cut"><div class="ch-n">MATCH DAY</div><h3>Stage one to the last stage</h3><p>Shoot your warm-up and first stage over the chrono. From then on you're dialing today's speed, not last month's, without stopping to true your dope.</p></div></div>
   </div>
 
-  <h3 style="margin-top:56px">The math, in plain terms</h3>
-  <p class="ch-intro" style="margin-top:8px">It isn't a simple average of your last 10 shots. Three things make it trustworthy.</p>
+  <div class="lw-num amv-num">05</div>
+  <h3 class="amv-h">The math, in plain terms</h3>
+  <p class="ch-intro" style="margin-top:8px">It isn't a simple average of your last 10 shots.</p>
   <div class="ch-math">
     <ol class="ch-steps">
       <li><b>It works in gaps, not raw speeds.</b> For every reading, Bullseye works out what your load should have done for that shot's air and ammo temperature and that barrel round count. The gap is the difference. A string that warms up through the afternoon doesn't look like a change in speed, because the prediction moves with it.</li>
@@ -77,7 +81,8 @@
     <p class="ch-muted" style="margin:14px 0 0">Only warm-bore readings on this rifle and load from today's string count, so cold and clean-bore shots don't skew it. Nothing reaches your dial until 10 readings are in.</p>
   </div>
 
-  <h3 style="margin-top:44px">A worked example</h3>
+  <div class="lw-num amv-num">06</div>
+  <h3 class="amv-h">A worked example</h3>
   <p style="max-width:68ch">Your load predicts 2812 fps for today's conditions. Ten readings come in. Shot 5 is a slower rifle on the next bench that the chrono picked up.</p>
   <div class="ch-tscroll"><table class="ch-wtab">
     <tr><th>SHOT</th><th>MEASURED</th><th>GAP</th><th>WEIGHT</th><th>SHARE</th></tr>
@@ -107,7 +112,8 @@
   </div>
   <div style="margin-top:44px;max-width:68ch">
     <div>
-      <h3>Always know what you're dialing</h3>
+      <div class="lw-num">07</div>
+      <h3 class="amv-h">Always know what you're dialing</h3>
       <p>The MV chip makes the state impossible to miss: plain when it's off, amber while it collects, orange when the adaptive value is in your solution, and dimmed and marked <i>held</i> if the chrono disconnects, so it keeps the last result rather than jumping back mid-string. A new string starts fresh.</p>
       <p>Tap the chip to see every reading behind the number, which ones were left out and why, and how far today's speed is from your load's MV. If today's number looks right, save it as the load's MV or as a velocity check in one tap.</p>
     </div>

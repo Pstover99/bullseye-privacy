@@ -218,8 +218,11 @@ h2 {
 @media (prefers-color-scheme: light) {
   .amv { --amv-grid: #E0E3D8; --amv-blue-soft: #A8C7EA; --amv-blue-wash: #DCE7F3; --amv-load: #858C7F; --amv-amber: #8F6210; --amv-amber-wash: #F4EAD5; }
 }
-.paper.amv .wrap { max-width: 900px; }
-.amv .amv-sub { font-size: 1.3rem; font-weight: 500; line-height: 1.5; color: var(--accent); max-width: 62ch; margin: 0 0 14px; text-wrap: balance; }
+.paper.amv .wrap { max-width: 1080px; }   /* the same column as the chrono section below, so both line up */
+/* Titles in Live Wind's style: a display-font page title with its end in blue, a blue tagline, and numbered section titles. */
+.paper.amv h1 { font: 700 clamp(2.6rem, 6.4vw, 4.6rem)/0.95 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; margin: 14px 0 20px; }
+.paper.amv h1 span { color: var(--accent); }
+.amv .amv-sub { font: 700 clamp(1.5rem, 3vw, 2rem)/1.15 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; color: var(--accent); max-width: 30em; margin: 0 0 20px; text-wrap: balance; }
 .amv .amv-lede { font-size: 1.125rem; max-width: 62ch; margin: 0 0 36px; }
 .amv p { max-width: 66ch; }
 .amv .amv-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -244,7 +247,9 @@ h2 {
 .amv .amv-when { font-family: var(--font-body); font-size: 0.8rem; color: var(--muted); }
 .amv .amv-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 8px; }
 .amv .amv-pair > section { padding: 0; min-width: 0; }
-.paper.amv h2 { font-size: 1.25rem; margin: 0 0 6px; }
+.paper.amv h2 { font: 700 clamp(1.5rem, 2.6vw, 1.9rem)/1.05 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; margin: 10px 0 12px; }
+.amv-more .amv-num { margin-top: 56px; }
+.amv-more h3.amv-h { font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.05; margin: 10px 0 12px; }
 .amv .amv-pair p { font-size: 1rem; line-height: 1.65; margin-bottom: 14px; }
 .amv .amv-panel-svg { display: block; width: 100%; height: auto; margin-top: 10px; }
 .amv .amv-holds { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin-top: 12px; }
@@ -2687,6 +2692,12 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .chrono .ch-ph-s { font-size:12px; color:var(--muted) }
 .chrono .ch-split > figure, .chrono .ch-gallery figure { min-width:0 }
 .chrono .ch-gallery.ch-two { grid-template-columns:repeat(2,minmax(0,300px)); justify-content:center }
+/* Screens still to capture: each placeholder stays in the source as a to-do, hidden until its screenshot
+   replaces it. A gallery or shot column left with nothing to show is hidden, and a split left with only
+   its text becomes one readable column. */
+.chrono figure:has(> .ch-ph) { display:none }
+.chrono .ch-shots:not(:has(img)), .chrono .ch-gallery:not(:has(img)) { display:none }
+.chrono .ch-split:has(> figure > .ch-ph, > .ch-shots > figure > .ch-ph):not(:has(> figure img, > .ch-shots img)) { grid-template-columns:minmax(0, 68ch) }
 @media (max-width:520px) {
   .chrono .ch-gallery.ch-two { grid-template-columns:1fr }
 }
