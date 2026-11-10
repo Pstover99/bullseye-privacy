@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=582f46a8be">
+<link rel="stylesheet" href="../assets/site.css?v=5e701671cb">
 <script src="../assets/site.js?v=ab7d421fcd" defer></script>
 </head>
 <body>
@@ -36,7 +36,10 @@
           <a href="../sagitta/"><b>Sagitta Ballistics AI</b><span>The ballistics AI at the core</span></a>
           <a href="../wind-corridor/"><b>Wind Corridor</b><span>See the wind downrange</span></a>
           <a href="../external-display/"><b>External display</b><span>Your solution on the rifle</span></a>
-          <a href="../sensors/"><b>Sensors</b><span>Live wind and weather</span></a>
+          <a href="../sensors/"><b>Sensors</b><span>Live velocity, wind and weather</span></a>
+          <a href="../chrono/"><b>Chrono Live Feed</b><span>Every shot's velocity, live</span></a>
+          <a href="../adaptive-mv/"><b>Adaptive MV</b><span>Solve with today's real velocity</span></a>
+          <a href="../auto-logging/"><b>Auto Logging</b><span>Every shot logged the moment it's fired</span></a>
         </div>
       </div>
       <div class="gn-group">
@@ -66,6 +69,7 @@
           <a class="gn-sub" href="../truing/#wind-smoothing"><b>Adaptive Wind Smoothing</b></a>
           <a href="../hit-probability/"><b>Hit Probability</b><span>How your odds of a hit are worked out</span></a>
           <a href="../load-development/"><b>Load Development</b><span>Better Records. Better Loads.</span></a>
+          <a href="../Ballistic-Data-Capture/"><b>44 data points per shot</b><span>What every logged shot records</span></a>
         </div>
       </div>
       <div class="gn-group gn-group--end">
@@ -103,18 +107,21 @@
         <li><a href="#solution"><span class="gl-n" aria-hidden="true">02</span><span class="gl-t"><b>Hit probability</b> on your target, with what is costing you hits</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
         <li><a href="#voice"><span class="gl-n" aria-hidden="true">03</span><span class="gl-t"><b>Voice shot calls:</b> say "miss, three tenths left" and stay in the rifle</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
         <li><a href="#sensors"><span class="gl-n" aria-hidden="true">04</span><span class="gl-t"><b>Live wind and weather</b> from several Bluetooth sensors at once</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#log"><span class="gl-n" aria-hidden="true">05</span><span class="gl-t"><b>Shot log</b> that trues the solver in one tap</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#groups"><span class="gl-n" aria-hidden="true">06</span><span class="gl-t"><b>Group analysis</b> from a photo of the target</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#matches"><span class="gl-n" aria-hidden="true">07</span><span class="gl-t"><b>Matches</b> set up from the match book, nothing to type</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#solution"><span class="gl-n" aria-hidden="true">08</span><span class="gl-t"><b>Wind bracket</b> that tells you when the live wind fits</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#solver"><span class="gl-n" aria-hidden="true">09</span><span class="gl-t"><b>Full point-mass solver</b> with spin drift, aero jump and Coriolis</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#hunting"><span class="gl-n" aria-hidden="true">10</span><span class="gl-t"><b>Hunting Zero and Hunt Mode:</b> hold center or the exact hold</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#hud"><span class="gl-n" aria-hidden="true">11</span><span class="gl-t"><b>External HUD</b> puts the solution on your rifle</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#loaddev"><span class="gl-n" aria-hidden="true">12</span><span class="gl-t"><b>Load development</b> ladders that keep every result</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#stability"><span class="gl-n" aria-hidden="true">13</span><span class="gl-t"><b>Stability calculator</b> with the twist you need</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#gun-number"><span class="gl-n" aria-hidden="true">14</span><span class="gl-t"><b>Gun number</b> for fast wind holds in your head</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#barrel"><span class="gl-n" aria-hidden="true">15</span><span class="gl-t"><b>Barrel life</b> and cleaning reminders</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="#platform"><span class="gl-n" aria-hidden="true">16</span><span class="gl-t"><b>Works offline.</b> No ads, no tracking, no data sold</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="../chrono/"><span class="gl-n" aria-hidden="true">05</span><span class="gl-t"><b>Chrono Live Feed:</b> every shot's velocity streams in live over Bluetooth <span class="sn-tag sn-tag--soon">Coming soon</span></span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="../adaptive-mv/"><span class="gl-n" aria-hidden="true">06</span><span class="gl-t"><b>Adaptive MV:</b> solves with the speed your rifle is actually shooting today</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="../auto-logging/"><span class="gl-n" aria-hidden="true">07</span><span class="gl-t"><b>Auto Logging:</b> every shot logged the moment it's fired, 44 data points each</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#log"><span class="gl-n" aria-hidden="true">08</span><span class="gl-t"><b>Shot log</b> that trues the solver in one tap</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#groups"><span class="gl-n" aria-hidden="true">09</span><span class="gl-t"><b>Group analysis</b> from a photo of the target</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#matches"><span class="gl-n" aria-hidden="true">10</span><span class="gl-t"><b>Matches</b> set up from the match book, nothing to type</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#solution"><span class="gl-n" aria-hidden="true">11</span><span class="gl-t"><b>Wind bracket</b> that tells you when the live wind fits</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#solver"><span class="gl-n" aria-hidden="true">12</span><span class="gl-t"><b>Full point-mass solver</b> with spin drift, aero jump and Coriolis</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#hunting"><span class="gl-n" aria-hidden="true">13</span><span class="gl-t"><b>Hunting Zero and Hunt Mode:</b> hold center or the exact hold</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#hud"><span class="gl-n" aria-hidden="true">14</span><span class="gl-t"><b>External HUD</b> puts the solution on your rifle</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#loaddev"><span class="gl-n" aria-hidden="true">15</span><span class="gl-t"><b>Load development</b> ladders that keep every result</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#stability"><span class="gl-n" aria-hidden="true">16</span><span class="gl-t"><b>Stability calculator</b> with the twist you need</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#gun-number"><span class="gl-n" aria-hidden="true">17</span><span class="gl-t"><b>Gun number</b> for fast wind holds in your head</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#barrel"><span class="gl-n" aria-hidden="true">18</span><span class="gl-t"><b>Barrel life</b> and cleaning reminders</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#platform"><span class="gl-n" aria-hidden="true">19</span><span class="gl-t"><b>Works offline.</b> No ads, no tracking, no data sold</span><span class="gl-go" aria-hidden="true">&rarr;</span></a></li>
       </ol>
       </div>
     </div>
