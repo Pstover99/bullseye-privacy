@@ -2493,7 +2493,6 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .chrono .ch-hero .wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center }
 .chrono .ch-eyebrow { font-family:var(--font-mono); font-size:13px; letter-spacing:3px; color:var(--muted); text-transform:uppercase }
 .chrono .ch-lead { font-size:20px; color:var(--ch-text2); max-width:560px }
-.chrono .ch-hero .ch-ctas { display:flex; gap:12px; margin-top:28px; flex-wrap:wrap }
 .chrono .ch-works { margin-top:28px; font-family:var(--font-mono); font-size:13px; color:var(--muted); letter-spacing:1px }
 .chrono .ch-works b { color:var(--ch-text); font-weight:500 }
 .chrono .ch-works a b { text-decoration:underline; text-decoration-color:var(--ch-line2); text-underline-offset:3px }
