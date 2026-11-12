@@ -1529,6 +1529,14 @@ section.hero--photo::after {
 section.hero--photo h1,
 section.hero--photo p.lead { text-shadow: 0 2px 18px rgba(0, 0, 0, .45); }
 section.hero--photo p.lead { color: #DDE3D8; }
+/* The open-platform note above the hero's label, linking to Open vs. Closed. */
+.open-note {
+  display: inline-block; margin: 0 0 18px; padding: 8px 14px; font-size: 0.95rem; line-height: 1.4;
+  color: #DDE3D8; background: rgba(16, 19, 17, .72); border: 1px solid var(--line-strong); border-left: 3px solid var(--accent);
+}
+.open-note a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+.open-note a:hover { color: var(--fg); }
+.open-note b { color: var(--fg); font-weight: 600; white-space: nowrap; }
 
 /* Phones and tablets ------------------------------------------------------ */
 @media (max-width: 900px) {
@@ -2056,6 +2064,78 @@ section.hero--photo p.lead { color: #DDE3D8; }
 @media (max-width: 760px) {
   .cs-card { padding: 22px 20px; }
   .cs-close-panel { padding: 32px 22px; }
+}
+
+/* Open ecosystems: Choosing a Solver's hero and closing panel, with no photo; two definition
+   cards with diagrams, then essay sections in one reading column. */
+.oe-hero {
+  background-image:
+    linear-gradient(90deg, rgba(16,19,17,.96) 0%, rgba(16,19,17,.80) 60%, rgba(16,19,17,.70) 100%),
+    repeating-linear-gradient(0deg, rgba(91,155,213,.07) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(91,155,213,.07) 0 1px, transparent 1px 48px);
+}
+.oe-lead-turn { color: #ECF0E8; font-weight: 600; white-space: nowrap; }
+.oe-hero .wrap { min-height: 0; padding-block: 56px 44px; gap: 14px; }
+@media (max-width: 760px) { .oe-hero .wrap { padding-block: 40px 32px; } }
+@media (max-width: 760px) {
+  .oe-hero { background-image: linear-gradient(180deg, rgba(16,19,17,.9), rgba(16,19,17,.96)), repeating-linear-gradient(0deg, rgba(91,155,213,.07) 0 1px, transparent 1px 48px), repeating-linear-gradient(90deg, rgba(91,155,213,.07) 0 1px, transparent 1px 48px); }
+}
+.oe-define { padding-block: 48px 24px; }
+.oe-define-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px; }
+.oe-kind > p { margin: 0; color: var(--muted); }
+.oe-kind > .label { color: var(--accent); }
+.oe-fig { width: 100%; height: auto; display: block; margin-block: 4px 6px; font-family: var(--font-mono); }
+.oe-fig rect { stroke-width: 1.5; }
+.oe-fig text { font-size: 11px; text-anchor: middle; fill: var(--fg); }
+.oe-fig .oe-maker { font-size: 9.5px; fill: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.oe-fig .oe-tag { font-size: 9.5px; text-anchor: start; fill: var(--muted); letter-spacing: .14em; text-transform: uppercase; }
+.oe-fig .oe-tag--bus { text-anchor: middle; fill: var(--bg); font-weight: 500; }
+.oe-wall { fill: none; stroke: var(--line-strong); stroke-width: 3 !important; }
+.oe-lock rect, .oe-lock path { fill: var(--panel); stroke: var(--muted); stroke-width: 2; }
+.oe-box rect { fill: var(--panel-low); stroke: var(--line-strong); }
+.oe-box--same rect { fill: var(--line); }
+.oe-box--out rect { stroke: var(--accent); stroke-dasharray: 4 3; }
+.oe-fig .oe-box--list text { font-size: 10px; }
+.oe-box--old rect { stroke-dasharray: 3 3; }
+.oe-box--old text { fill: var(--muted); }
+.oe-box--new rect { stroke: var(--accent); fill: var(--accent-soft); }
+.oe-blocked { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 3; fill: none; }
+.oe-x { stroke: #D9534F; stroke-width: 3; stroke-linecap: round; fill: none; }
+.oe-bus { fill: var(--accent); stroke: none; }
+.oe-link { stroke: var(--accent); stroke-width: 2; fill: none; }
+.oe-swap { stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+.oe-section { padding-block: 56px 8px; }
+.oe-prose { max-width: 760px; display: flex; flex-direction: column; gap: 16px; }
+.oe-prose > p { margin: 0; color: var(--muted); }
+.oe-prose h2 { margin: 0 0 4px; padding-top: 22px; border-top: 1px solid var(--line); font: 700 clamp(1.75rem, 4vw, 2.375rem)/1.08 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; }
+.oe-prose h2 span { color: var(--accent); }
+.oe-prose .oe-turn { color: var(--fg); font-weight: 600; }
+.oe-quote { margin: 4px 0; padding: 6px 0 6px 20px; border-left: 3px solid var(--line-strong); font: 600 clamp(1.25rem, 3vw, 1.5rem)/1.25 var(--font-display); color: var(--fg); }
+.oe-checks { list-style: none; margin: 4px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 10px; }
+.oe-checks li { position: relative; padding: 14px 16px 14px 44px; background: var(--panel); border: 1px solid var(--line); }
+.oe-checks li::before { content: ""; position: absolute; left: 17px; top: 18px; width: 12px; height: 7px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.oe-aside { margin: 8px 0; padding: 16px 18px; background: var(--panel-low); border-top: 2px solid var(--accent); display: flex; flex-direction: column; gap: 10px; }
+.oe-aside .label { color: var(--accent); }
+.oe-aside p { margin: 0; }
+.oe-aside q { font-weight: 600; }
+.oe-ceiling { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); border: 1px solid var(--line-strong); }
+.oe-ceiling-col { padding: 26px 28px; display: flex; flex-direction: column; gap: 10px; }
+.oe-ceiling-col p { margin: 0; font: 700 clamp(1.5rem, 3.4vw, 2rem)/1.1 var(--font-display); text-transform: uppercase; }
+.oe-ceiling-col .label { color: var(--muted); }
+.oe-ceiling-col--open { background: var(--accent-soft); border-left: 1px solid var(--line-strong); }
+.oe-ceiling-col--open .label, .oe-ceiling-col--open p { color: var(--accent); }
+@media (max-width: 640px) { .oe-ceiling-col--open { border-left: 0; border-top: 1px solid var(--line-strong); } }
+.oe-costs { list-style: none; counter-reset: oe; margin: 20px 0 28px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.oe-costs li {
+  counter-increment: oe; padding: 22px 22px 24px; background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.oe-costs li::before { content: "0" counter(oe); display: block; margin-bottom: 10px; font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.14em; color: var(--accent); }
+.oe-costs b { display: block; margin-bottom: 6px; font: 700 1.25rem/1.15 var(--font-display); text-transform: uppercase; color: var(--fg); }
+.oe-section + .cs-close { padding-top: 64px; }
+@media (max-width: 760px) {
+  .oe-ceiling-col { padding: 22px 20px; }
 }
 
 /* Sensors: what works with Bullseye, then how live readings reach the solution. */

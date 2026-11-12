@@ -1,0 +1,130 @@
+  <section class="cs-hero oe-hero" aria-labelledby="oe-title">
+    <div class="wrap">
+      <div class="label">Open ecosystems</div>
+      <h1 id="oe-title">Open vs. closed <span>ecosystems</span></h1>
+      <p class="cs-lead">Bullseye Ballistics was built from the ground up on a modern, open architecture that welcomes any manufacturer ready to integrate. <b class="oe-lead-turn">Your gear, your choice.</b></p>
+    </div>
+  </section>
+
+  <section class="oe-define" aria-label="What each one means">
+    <div class="wrap oe-define-grid">
+      <article class="cs-card oe-kind">
+        <div class="label">Closed</div>
+        <svg class="oe-fig" viewBox="0 0 400 200" role="img" aria-label="Four devices from one vendor inside a locked wall. A better wind meter, chrono, weather sensor or other device outside can't connect.">
+          <rect class="oe-wall" x="8" y="20" width="250" height="160"/>
+          <text class="oe-tag" x="20" y="14">One vendor</text>
+          <g class="oe-lock" transform="translate(246 8)"><rect x="0" y="9" width="24" height="18"/><path d="M5 9 V4 a7 7 0 0 1 14 0 V9"/></g>
+          <g class="oe-box oe-box--same"><rect x="26" y="40" width="100" height="56"/><text x="76" y="73">Rangefinder</text></g>
+          <g class="oe-box oe-box--same"><rect x="140" y="40" width="100" height="56"/><text x="190" y="73">Weather</text></g>
+          <g class="oe-box oe-box--same"><rect x="26" y="108" width="100" height="56"/><text x="76" y="141">Display</text></g>
+          <g class="oe-box oe-box--same"><rect x="140" y="108" width="100" height="56"/><text x="190" y="141">Solver</text></g>
+          <g class="oe-box oe-box--out oe-box--list"><rect x="294" y="68" width="102" height="68"/><text x="345" y="87">Better wind</text><text x="345" y="100">meter, chrono,</text><text x="345" y="113">weather sensor,</text><text x="345" y="126">or device</text></g>
+          <path class="oe-blocked" d="M292 102 H262"/>
+          <path class="oe-x" d="M272 94 l12 16 M284 94 l-12 16"/>
+        </svg>
+        <p>A closed ecosystem is one where the company controls every link in the chain. Its software only talks to its own hardware, its data formats are proprietary, and any third-party product either has to pay to get in or can’t get in at all.</p>
+        <p>If you want the full experience, you buy everything from one vendor. If you want to swap one piece for something better, you can’t, or you lose features when you do.</p>
+      </article>
+
+      <article class="cs-card oe-kind">
+        <div class="label">Open</div>
+        <svg class="oe-fig" viewBox="0 0 400 200" role="img" aria-label="Devices from different makers all plug into one ballistics solver, with room for future devices. A newer device swaps in for an old one.">
+          <rect class="oe-bus" x="8" y="92" width="384" height="16"/>
+          <text class="oe-tag oe-tag--bus" x="200" y="104">Ballistics Solver</text>
+          <g class="oe-box"><rect x="8" y="20" width="88" height="50"/><text x="52" y="44">Rangefinder</text><text class="oe-maker" x="52" y="60">Maker A</text></g>
+          <path class="oe-link" d="M52 70 V92"/>
+          <g class="oe-box"><rect x="112" y="20" width="88" height="50"/><text x="156" y="44">Weather</text><text class="oe-maker" x="156" y="60">Maker B</text></g>
+          <path class="oe-link" d="M156 70 V92"/>
+          <g class="oe-box"><rect x="8" y="130" width="88" height="50"/><text x="52" y="154">Display</text><text class="oe-maker" x="52" y="170">Maker C</text></g>
+          <path class="oe-link" d="M52 108 V130"/>
+          <g class="oe-box oe-box--old"><rect x="112" y="130" width="88" height="50"/><text x="156" y="152">Future</text><text x="156" y="167">Device</text></g>
+          <path class="oe-link" d="M156 108 V130"/>
+          <g class="oe-box oe-box--old"><rect x="216" y="20" width="80" height="50"/><text x="256" y="44">Wind meter</text><text class="oe-maker" x="256" y="60">Last year</text></g>
+          <g class="oe-box oe-box--new"><rect x="312" y="20" width="80" height="50"/><text x="352" y="44">Wind meter</text><text class="oe-maker" x="352" y="60">Next year</text></g>
+          <path class="oe-link oe-link--new" d="M352 70 V92"/>
+          <path class="oe-swap" d="M298 45 H308"/><path class="oe-swap" d="M303 40 l6 5 l-6 5"/>
+        </svg>
+        <p>An open ecosystem supports common standards and invites compatibility so other products can plug in. Your rangefinder, weather meter, display and solver don’t all have to come from the same company.</p>
+        <p>Each piece has to earn its spot on merit. If something better comes out next year, you replace that one piece and keep everything else.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="oe-section" aria-labelledby="oe-qc">
+    <div class="wrap oe-prose">
+      <h2 id="oe-qc">The “quality control” argument <span>doesn’t hold up</span></h2>
+      <p>The usual defense of a closed system sounds reasonable at first:</p>
+      <blockquote class="oe-quote">“We control every part so we can guarantee accuracy and a seamless experience.”</blockquote>
+      <p>The problem is that opening the door to integrations doesn’t mean giving up control of your own products. A company can still:</p>
+      <ul class="oe-checks">
+        <li>Hold its own solver, sensors and firmware to the same strict standard</li>
+        <li>Validate and certify specific third-party devices if it wants to</li>
+        <li>Publish a spec for how data has to be formatted and reject anything that doesn’t meet it</li>
+        <li>Clearly label what’s first-party and what isn’t, so nobody confuses one with the other</li>
+      </ul>
+      <p>Quality control applies to what you build. It doesn’t require stopping other people from building alongside you. Every major open platform in tech works this way: the owner keeps tight control of its core product and lets the market compete on everything around it.</p>
+      <p class="oe-turn">So “quality control” is really a reason to test integrations, not a reason to ban them.</p>
+      <aside class="oe-aside">
+        <div class="label">The quieter version</div>
+        <p><q>We can’t be responsible for other people’s equipment.</q> That’s true, and nobody is asking them to be. A clear support boundary (“we support our products; third-party devices are supported by their makers”) handles it. It’s how almost every other industry works.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="oe-section" aria-labelledby="oe-speed">
+    <div class="wrap oe-prose">
+      <h2 id="oe-speed">Speed of <span>innovation</span></h2>
+      <p>This is where the gap is widest right now. Sensors, displays, connectivity and software are all moving fast. When a closed ecosystem wants to add a capability, it has to design, build, test and release it itself, on its own schedule and budget. Users wait for whatever the company decides to prioritize.</p>
+      <p>An open ecosystem gets better through many companies working in parallel. When a new rangefinder, wind meter or display hits the market, it can be useful right away. Nobody has to wait for one company to get around to supporting it or build its own version. The best ideas win because they get adopted, not because one company’s roadmap allowed them.</p>
+    </div>
+    <div class="wrap">
+      <div class="oe-ceiling" role="group" aria-label="The ceiling of each">
+        <div class="oe-ceiling-col">
+          <div class="label">Closed ecosystem’s ceiling</div>
+          <p>One company’s engineering capacity.</p>
+        </div>
+        <div class="oe-ceiling-col oe-ceiling-col--open">
+          <div class="label">Open ecosystem’s ceiling</div>
+          <p>The whole industry’s.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oe-section" aria-labelledby="oe-who">
+    <div class="wrap oe-prose">
+      <h2 id="oe-who">Who actually <span>benefits?</span></h2>
+      <p>Look at what a closed ecosystem does in practice:</p>
+    </div>
+    <div class="wrap">
+      <ol class="oe-costs">
+        <li><b>Locks you in</b> Once you’ve bought into one piece, the next purchase is effectively decided for you.</li>
+        <li><b>Removes price competition</b> With no alternatives that plug in, there’s no pressure to keep prices fair.</li>
+        <li><b>Raises switching costs</b> Your gear, data and habits are all tied to one vendor, so leaving is expensive and painful.</li>
+        <li><b>Controls the pace</b> You get new features when the company decides to ship them, not when the technology is ready.</li>
+      </ol>
+    </div>
+    <div class="wrap oe-prose">
+      <p>Each of those is a benefit to the company. Recurring revenue, protected margins and a captive customer base are real business advantages, and that’s the real reason most closed ecosystems stay closed.</p>
+      <aside class="oe-aside">
+        <div class="label">To be fair</div>
+        <p>The consumer does get something: a single point of support and a setup that’s known to work together out of the box. But an open ecosystem can offer that too, through certified-compatible devices or a recommended bundle, without forcing the choice.</p>
+      </aside>
+      <p class="oe-turn">The open approach keeps that convenience and adds freedom to choose. The closed approach trades the consumer’s freedom for the company’s security.</p>
+    </div>
+  </section>
+
+  <section class="cs-close" aria-labelledby="oe-close-title">
+    <div class="wrap">
+      <div class="cs-close-panel">
+        <h2 id="oe-close-title">Bottom <span>line</span></h2>
+        <p>A closed ecosystem asks customers to trust that one company will always build the best version of every piece. An open ecosystem lets the best piece win, whoever made it.</p>
+        <p>Companies that are confident in their products don’t need to lock competitors out. They let the products compete.</p>
+        <div class="cs-links">
+          <a href="{{ROOT}}sensors/">Sensors that work with Bullseye&nbsp;&rarr;</a>
+          <a href="{{ROOT}}choosing-a-solver/">Six questions to ask of any solver&nbsp;&rarr;</a>
+          <a href="{{ROOT}}comparison/">Compare solvers side by side&nbsp;&rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
