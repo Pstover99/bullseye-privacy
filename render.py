@@ -52,6 +52,10 @@ PAGES = [
      "Choosing a Solver · Bullseye Ballistics",
      "Most ballistic solvers give an accurate hold. Six questions to ask before you pick one: who "
      "makes it, what else it does, what gear it ties you to, and whether it works offline."),
+    ("open-ecosystem/index.html", "_pages/open-ecosystem.html", "../",
+     "Open vs. Closed Ecosystems · Bullseye Ballistics",
+     "What open and closed ecosystems mean for shooting gear, why the quality-control case for a "
+     "closed one falls short, how open ones improve faster, and who a closed one really serves."),
     ("external-display/index.html", "_pages/external-display.html", "../",
      "Bullseye Ballistics External Display",
      "The optional Bullseye Ballistics External Display mounts to your rifle or scope and shows "
@@ -152,7 +156,7 @@ NAV = {
     "WIND": "wind-corridor/", "EXTERNAL": "external-display/",
     "HUNTING": "hunting/", "MATCHES": "matches/", "LIVEWIND": "live-wind/",
     "TRUING": "truing/", "HOOD": "under-the-hood/", "HITPROB": "hit-probability/", "COMPARISON": "comparison/",
-    "SOLVER": "choosing-a-solver/", "GET": "get-the-app/",
+    "SOLVER": "choosing-a-solver/", "OPEN": "open-ecosystem/", "GET": "get-the-app/",
     "CHRONO": "chrono/", "ADAPTIVEMV": "adaptive-mv/", "AUTOLOG": "auto-logging/",
     "DATACAPTURE": "Ballistic-Data-Capture/",
 }
@@ -161,7 +165,7 @@ NAV_GROUPS = {
     "FEATURES": ["FEATURES", "SAGITTA", "SENSORS", "WIND", "EXTERNAL", "CHRONO", "ADAPTIVEMV", "AUTOLOG"],
     "FIELD": ["HUNTING", "MATCHES", "LIVEWIND"],
     "HOOD": ["TRUING", "HOOD", "HITPROB", "LOADDEV", "DATACAPTURE"],
-    "COMPARE": ["SOLVER", "COMPARISON"],
+    "COMPARE": ["SOLVER", "OPEN", "COMPARISON"],
 }
 
 # The pages in the order the header lists them, left to right and top to bottom, after the home
@@ -185,11 +189,12 @@ READING_ORDER = [
     ("load-development/", "Load Development", "Better Records. Better Loads."),
     ("Ballistic-Data-Capture/", "44 data points per shot", "What every logged shot records"),
     ("choosing-a-solver/", "Choosing a Solver", "Six questions to ask of any solver"),
+    ("open-ecosystem/", "Open vs. Closed", "Who a closed ecosystem really serves"),
     ("comparison/", "Side by side", "Every feature, next to other apps"),
     ("get-the-app/", "Get the app", "Now on Android, iPhone coming soon"),
 ]
 # Pages whose own closing already links to the next one.
-OWN_NEXT = {"choosing-a-solver/"}
+OWN_NEXT = {"choosing-a-solver/", "open-ecosystem/"}
 # Pages whose Next button skips the header order: these two point at each other.
 NEXT_OVERRIDE = {"auto-logging/": "Ballistic-Data-Capture/", "Ballistic-Data-Capture/": "auto-logging/"}
 

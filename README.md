@@ -13,6 +13,7 @@ redirect them.
 | Sensors | https://bullseyeballisticscalculator.com/sensors/ |
 | Load Development | https://bullseyeballisticscalculator.com/load-development/ |
 | Comparison | https://bullseyeballisticscalculator.com/comparison/ |
+| Open vs. Closed | https://bullseyeballisticscalculator.com/open-ecosystem/ |
 | External Display | https://bullseyeballisticscalculator.com/external-display/ |
 | Wind Corridor | https://bullseyeballisticscalculator.com/wind-corridor/ |
 | Live Wind | https://bullseyeballisticscalculator.com/live-wind/ |
@@ -55,6 +56,7 @@ have drifted.
 | Sensors | `_pages/sensors.html` |
 | Get the app (store badges are `assets/img/badge-*`, unlinked until the app is in each store) | `_pages/get-the-app.html` |
 | Comparison | `_pages/comparison.html` (the table is edited here; the old .md is retired) |
+| Open vs. Closed (open ecosystems; the home page's open-platform note links here) | `_pages/open-ecosystem.html`; its two diagrams are inline SVG in the page |
 | External Display, its simulator and the scope mount | `_pages/external-display.html`; the photos behind its two heroes are set in `assets/site.css` (`ext-hero-bg-*` at the top, `ext-mount-hero-bg-*` for the scope mount) |
 | Wind Corridor | `_pages/wind-corridor.html`; its demo is `assets/wind-corridor-demo.html` |
 | Live Wind | `_pages/live-wind.html`; its video is `assets/video/live-wind.mp4`, with `assets/img/live-wind.webp` as the poster |
