@@ -2528,7 +2528,8 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .bb-tech .hp-tiers p.m { color: var(--bb-muted); }
 .bb-tech .hp-rule { font-weight: 500; }
 .bb-tech .hp-cta {
-  background: var(--bb-accent); color: #1A0B02; padding: 22px 24px; display: grid; gap: 14px; margin-top: 8px;
+  background: #2E6596; color: #FFFFFF; padding: 22px 24px;   /* the light theme's blue in both themes, so white text keeps its contrast */
+  display: grid; gap: 14px; margin-top: 8px;
   clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
 }
 .bb-tech .hp-cta p { font: 700 clamp(1.25rem, 3vw, 1.65rem)/1.15 var(--bb-display); letter-spacing: 0.04em; text-transform: uppercase; max-width: none; }
