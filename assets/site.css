@@ -2147,6 +2147,7 @@ section.hero--photo p.lead { color: #DDE3D8; }
   display: flex; flex-direction: column; gap: 12px;
   clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
 }
+.sn-card .sn-img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--panel-low); }   /* device photo; 3:2 crops the square and wide shots to match */
 .sn-card h3 { font: 700 1.35rem/1.05 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; margin: 0; }
 .sn-card p { margin: 0; color: var(--muted); }
 .sn-card a.sn-more { margin-top: auto; padding-top: 4px; color: var(--accent); font-weight: 600; text-decoration: none; }
