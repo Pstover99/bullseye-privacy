@@ -2607,12 +2607,13 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 /* Hero: the chrono stands at the phone's lower right, over the Miss button, clear of the handwritten notes. */
 .chrono .ch-hero { overflow-x:clip }
 .chrono .ch-stage { justify-self:center; position:relative; padding-right:140px }
-.chrono .ch-stage .ch-device { position:absolute; right:-80px; bottom:34px; width:330px; height:auto; filter:drop-shadow(0 18px 28px rgba(0,0,0,.35)) }
-@media (max-width:1180px) { .chrono .ch-stage .ch-device { right:-20px; width:290px } }
+.chrono .ch-stage .ch-device { position:absolute; right:-80px; bottom:98px; width:330px; height:auto; filter:drop-shadow(0 18px 28px rgba(0,0,0,.35)) }
+@media (max-width:1180px) { .chrono .ch-stage .ch-device { right:-20px; width:290px; bottom:112px } }
+@media (max-width:900px) { .chrono .ch-stage .ch-device { bottom:83px } }   /* the front foot points between the two handwritten notes */
 @media (max-width:520px) {
   .chrono .ch-stage { padding-right:100px }
   .chrono .ch-stage .ch-phone { width:220px }
-  .chrono .ch-stage .ch-device { width:190px; right:-24px; bottom:22px }
+  .chrono .ch-stage .ch-device { width:190px; right:-24px; bottom:90px }
 }
 .chrono .ch-phone.ch-shot { padding:0; background:none; border-radius:0; box-shadow:none }
 .chrono .ch-shot img { display:block; width:100%; border:0; border-radius:0; background:none; filter:drop-shadow(0 24px 40px rgba(0,0,0,.45)) }
