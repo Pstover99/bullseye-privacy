@@ -193,6 +193,7 @@ h2 {
 .panel.tall .bt-callout { margin: 16px 0 26px; padding: 18px 22px; background: var(--panel-low); border-left: 3px solid var(--accent); }
 .panel.tall .bt-callout h3 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.1; letter-spacing: 0.02em; color: var(--accent); }
 .panel.tall .bt-callout p { color: var(--fg); }
+.panel.tall .bt-all { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }   /* the link to the Sensors page, ruled off like the Grey Line heading */
 .panel.tall .bt-subhead { margin: 26px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 1.3rem; }
 .panel.tall li .sn-tag { display: inline-block; margin: 0 2px; vertical-align: 2px; }   /* the Sensors page's tag, inline in a list */
 
