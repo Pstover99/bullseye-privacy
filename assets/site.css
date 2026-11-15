@@ -168,6 +168,27 @@ h2 {
 .panel ul { margin: 14px 0 0; padding-left: 1.1rem; color: var(--muted); }
 .panel li { margin-bottom: 8px; }
 .panel li strong { color: var(--fg); font-weight: 500; }
+/* Home: "Your data stays yours" sits on a rifle photo, dark in both themes; the scrim keeps the text at the top readable. */
+.panel.hm-private {
+  --fg: #ECF0E8; --muted: #D6DCD0; --accent: #7FB2E5;
+  color: var(--fg); background-color: #101311; background-size: cover; background-position: 64% 50%;
+  background-image:
+    linear-gradient(180deg, rgba(16,19,17,.92) 0%, rgba(16,19,17,.86) 40%, rgba(16,19,17,.45) 70%, rgba(16,19,17,.15) 100%),
+    url("img/hm-private-bg-1200.jpg");
+  background-image:
+    linear-gradient(180deg, rgba(16,19,17,.92) 0%, rgba(16,19,17,.86) 40%, rgba(16,19,17,.45) 70%, rgba(16,19,17,.15) 100%),
+    image-set(url("img/hm-private-bg-1200.webp") type("image/webp"), url("img/hm-private-bg-1200.jpg") type("image/jpeg"));
+}
+@media (max-width: 760px) {
+  .panel.hm-private {
+    background-image:
+      linear-gradient(180deg, rgba(16,19,17,.92) 0%, rgba(16,19,17,.86) 60%, rgba(16,19,17,.74) 100%),
+      url("img/hm-private-bg-700.jpg");
+    background-image:
+      linear-gradient(180deg, rgba(16,19,17,.92) 0%, rgba(16,19,17,.86) 60%, rgba(16,19,17,.74) 100%),
+      image-set(url("img/hm-private-bg-700.webp") type("image/webp"), url("img/hm-private-bg-700.jpg") type("image/jpeg"));
+  }
+}
 .panel.tall .bt-callout { margin: 16px 0 26px; padding: 18px 22px; background: var(--panel-low); border-left: 3px solid var(--accent); }
 .panel.tall .bt-callout h3 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.1; letter-spacing: 0.02em; color: var(--accent); }
 .panel.tall .bt-callout p { color: var(--fg); }
