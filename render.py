@@ -131,6 +131,9 @@ PAGES = [
      "Get the app · Bullseye Ballistics",
      "Bullseye Ballistics is available now on Google Play for Android, and coming soon to the "
      "App Store for iPhone."),
+    ("app-update-history/index.html", "_pages/app-update-history.html", "../",
+     "App Update History · Bullseye Ballistics",
+     "What changed in each Bullseye Ballistics release, newest first."),
     ("privacy/index.html", "PRIVACY_POLICY.md", "../",
      "Privacy policy · Bullseye Ballistics",
      "What Bullseye Ballistics accesses on your phone, what an optional backup contains, and how "

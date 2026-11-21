@@ -25,6 +25,7 @@ redirect them.
 | Ballistic Data Capture | https://bullseyeballisticscalculator.com/Ballistic-Data-Capture/ |
 | Adaptive MV | https://bullseyeballisticscalculator.com/adaptive-mv/ |
 | Auto Logging | https://bullseyeballisticscalculator.com/auto-logging/ |
+| App Update History (linked only from Get the app) | https://bullseyeballisticscalculator.com/app-update-history/ |
 | Terms of Use | https://bullseyeballisticscalculator.com/terms/ |
 | Privacy policy | https://bullseyeballisticscalculator.com/privacy/ |
 | Account deletion | https://bullseyeballisticscalculator.com/delete-account/ |
@@ -65,6 +66,7 @@ have drifted.
 | Hit Probability | `_pages/hit-probability.html`; its shot-cloud figure is inline SVG in the page |
 | Account deletion | `_pages/delete-account.html` |
 | Data deletion, keeping the account | `_pages/delete-data.html` |
+| App Update History (newest release first) | `_pages/app-update-history.html` |
 | Terms of Use | `_pages/terms.html`, from "Bullseye Ballistics - Terms of Use.docx" |
 | Not-found page | `_pages/404.html` |
 | Privacy policy | `PRIVACY_POLICY.md` |
