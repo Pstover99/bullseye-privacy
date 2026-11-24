@@ -2932,3 +2932,7 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
   .wc-rec .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 36px; }
   .wc-rec-media { order: -1; }
 }
+
+/* Wind Corridor hero: the "Coming soon" tag sits to the right of the title, and wraps under it when there's no room. */
+.wc-title { display: flex; flex-wrap: wrap; align-items: center; column-gap: 22px; row-gap: 4px; margin: 14px 0 20px; }
+.wc-title h1 { margin: 0; }
