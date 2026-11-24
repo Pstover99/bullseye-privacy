@@ -2843,3 +2843,92 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 @media (max-width:520px) {
   .chrono .ch-gallery.ch-two { grid-template-columns:1fr }
 }
+
+/* Wind Corridor feature tour: between the two cards and the simulated demo.
+   Intro + four points, the app recording beside its walkthrough (reuses .lw-media/.lw-phone/.lw-toggle),
+   the five-number summary table, two pairs of panels, then what you need and setup. */
+.wc-x { border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.wc-x h3 { font: 700 1.2rem/1.15 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; margin: 0 0 6px; color: var(--fg); }
+.wc-x strong { color: var(--fg); font-weight: 600; }
+.wc-mono { font: 500 0.85em/1.4 var(--font-mono); white-space: nowrap; }
+
+.wc-lede { margin: 0 0 14px; max-width: 34em; font-size: 1.2rem; line-height: 1.45; color: var(--fg); }
+.wc-points { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.wc-points li { padding-top: 16px; border-top: 2px solid var(--accent); min-width: 0; }
+.wc-points p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.wc-rec .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); column-gap: 56px; align-items: center; }
+.wc-rec-copy { min-width: 0; }
+.wc-p { margin: 0 0 18px; color: var(--muted); max-width: 36em; }
+.wc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.wc-list li { position: relative; padding-left: 20px; color: var(--muted); max-width: 36em; }
+.wc-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; background: var(--accent); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.wc-note { margin: 22px 0 0; max-width: 36em; color: var(--muted); font-size: 0.88rem; }
+
+.wc-table-wrap { overflow-x: auto; }
+.wc-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.wc-table th, .wc-table td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
+.wc-table thead th { font: 500 0.72rem/1.4 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding-top: 0; border-bottom-color: var(--line-strong); }
+.wc-table tbody th { font: 700 1.1rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; color: var(--fg); white-space: nowrap; }
+.wc-table tbody td { color: var(--muted); }
+.wc-table tbody td:last-child { font: 500 0.85rem/1.45 var(--font-mono); color: var(--accent); font-variant-numeric: tabular-nums; padding-right: 0; }
+.wc-table tr.wc-hl th { color: var(--accent); }
+.wc-intro .intro { margin-bottom: 14px; }
+.wc-intro .intro + .wc-callout { margin-top: 20px; }
+.wc-callout.wc-method { margin: 0 0 36px; }
+.wc-callout {
+  margin: 26px 0 0; padding: 20px 24px 22px; max-width: 46em; background: var(--panel); color: var(--muted);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.wc-callout .label { margin-bottom: 8px; color: var(--accent); }
+.wc-callout p { margin: 0; }
+
+.wc-split { align-items: start; }
+.wc-split .panel h2 { margin-top: 8px; }
+.wc-key { font: 500 0.85em/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent) !important; }
+
+.wc-start-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; margin-top: 26px; }
+.wc-need ul { margin: 10px 0 0; padding-left: 1.1rem; color: var(--muted); }
+.wc-need li { margin-bottom: 8px; }
+.wc-opt { display: inline-block; margin-right: 6px; padding: 1px 6px; font: 500 0.68rem/1.5 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line-strong); vertical-align: 1px; }
+.wc-steps { list-style: none; margin: 10px 0 0; padding: 0; counter-reset: wc-step; display: grid; gap: 10px; }
+.wc-steps li { counter-increment: wc-step; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.wc-steps li::before { content: counter(wc-step, decimal-leading-zero); font: 500 0.8rem/1.9 var(--font-mono); letter-spacing: 0.12em; color: var(--accent); }
+.wc-steps li:last-child { color: var(--fg); font-weight: 600; border-bottom: 0; }
+
+@media (max-width: 900px) {
+  .wc-points { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+  .wc-start-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 760px) { .wc-split { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .wc-points { grid-template-columns: minmax(0, 1fr); } }
+
+/* Terrain: three zones, each with a strip of streaks moving at a speed that matches the zone (illustrative). */
+.wc-zones { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.wc-zones li { min-width: 0; padding: 20px 22px 22px; background: var(--panel); clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); }
+.wc-zones p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.wc-flow { display: block; height: 10px; margin-bottom: 18px; background-image: repeating-linear-gradient(90deg, var(--accent) 0 22px, transparent 22px 40px); background-size: 40px 2px; background-repeat: repeat-x; background-position: 0 50%; animation: wc-flow 1s linear infinite; }
+.wc-flow--open { animation-duration: 0.7s; }
+.wc-flow--trees { animation-duration: 1.6s; opacity: 0.8; background-image: repeating-linear-gradient(90deg, var(--accent) 0 14px, transparent 14px 40px); }
+.wc-flow--woods { animation-duration: 3.4s; opacity: 0.6; background-image: repeating-linear-gradient(90deg, var(--accent) 0 7px, transparent 7px 40px); }
+@keyframes wc-flow { to { background-position: 40px 50%; } }
+@media (prefers-reduced-motion: reduce) { .wc-flow { animation: none; } }
+.wc-terrain-take { margin-top: 26px; }
+.wc-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+.wc-duo .wc-callout { margin: 0; max-width: none; }
+@media (max-width: 760px) { .wc-zones, .wc-duo { grid-template-columns: minmax(0, 1fr); } }
+
+/* The Wind Corridor recording is 576 x 1280, a touch wider than the Live Wind one. */
+.wc-rec .lw-phone video { aspect-ratio: 576 / 1280; }
+.wc-cap { margin: 0; max-width: 320px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+
+/* "How you learn" carries the page's binoculars watermark (.read-wind-card in site.css); room on the right keeps it clear of the text. */
+.wc-callout.wc-method { max-width: 62em; padding-right: 230px; }
+@media (max-width: 760px) { .wc-callout.wc-method { padding-right: 24px; padding-bottom: 110px; } }
+
+/* Keep the recording beside its text down to tablet width; stack it (video first) only on phones. */
+@media (max-width: 1000px) { .wc-rec .wrap { grid-template-columns: minmax(0, 1fr) minmax(230px, 300px); column-gap: 32px; } }
+@media (max-width: 680px) {
+  .wc-rec .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 36px; }
+  .wc-rec-media { order: -1; }
+}
