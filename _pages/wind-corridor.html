@@ -6,33 +6,192 @@
         <h1>Wind <span>Corridor</span></h1>
         <p class="lead">Pair Bullseye Ballistics with Calypso LoRa wind meters set out downrange, and for the first time you can actually see the wind between you and the target.</p>
         <p class="lead">Each meter reports the wind where it stands, and the app joins the readings into one live picture of the whole corridor, from the firing line to the target. The solver uses that same wind at every point along the bullet's path.</p>
-        <p class="wc-soon">Wind Corridor is coming soon to Bullseye Ballistics. Until then, try the demo below to see how it works.</p>
         <div class="cta-row">
+          <a class="btn btn-outline" href="#recording">Watch it in the app</a>
           <a class="btn btn-outline" href="#demo">Try the demo</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="flush">
+  <section class="wc-x wc-rec" id="recording" aria-labelledby="wc-rec-h">
     <div class="wrap">
-      <div class="split">
-        <article class="panel tall read-wind-card">
-          <div class="label">Learn to read it</div>
-          <h2>See what the wind looks like</h2>
-          <p>Pick a meter at 900 yards and read its speed and direction. Then look at the mirage, the leaves, the trees and the grass near 900 yards. That is what that wind looks like at that distance.</p>
-          <p>Do it often enough and you learn to read the wind from the mirage, leaves, trees and grass alone, at any distance and on any range, with or without meters.</p>
-        </article>
+      <div class="wc-rec-copy">
+        <div class="label">Recorded in the app</div>
+        <h2 id="wc-rec-h">Watch the wind, then look downrange</h2>
+        <p class="wc-p">The main screen draws moving wind across a satellite photo of your range, from the firing line to the target. Watch the wind build, fade and change direction down the course of the shot, then look up and find the same thing in the mirage, the trees and the grass.</p>
+        <ul class="wc-list">
+          <li><strong>Meters where they really are.</strong> Each meter sits at its true distance, with an arrow, its speed, and the direction it's coming from in clock terms ("9.6 mph from 9 o'clock"), so you know which patch of ground each reading belongs to.</li>
+          <li><strong>Net wind at a glance.</strong> A bar across the top sums up the whole shot, such as <span class="wc-mono">NET WIND: 0.8 mph LEFT · 4.6 tail</span>, and says whether it comes from one meter or several. Make your call first, then check it against the bar.</li>
+          <li><strong>Measured vs. assumed, clearly marked.</strong> Past your last meter, the stretch to the target is labeled "Assumed" and shaded, so you learn from readings, never from an estimate.</li>
+          <li><strong>Yardage scale</strong> along the side, so you can match a reading to the trees, flags or berm at that distance, and a live count of how many sensors are reporting.</li>
+          <li><strong>Line it up by eye.</strong> Tap Align to rotate the line of fire 1° at a time, right on the map, until the picture matches what you see downrange.</li>
+        </ul>
+        <p class="wc-note">The satellite photo is public USGS imagery of your exact location. Bullseye Ballistics places it using your phone's GPS and the direction you're facing, and scales it to your target distance.</p>
+      </div>
+      <div class="lw-media wc-rec-media">
+        <div class="frame lw-phone">
+          <video id="lw-video" src="{{ROOT}}assets/video/wind-corridor.mp4" poster="{{ROOT}}assets/img/wind-corridor-rec.webp" width="576" height="1280" autoplay muted loop playsinline controls preload="metadata" aria-label="Screen recording of Wind Corridor in the Bullseye Ballistics app: wind streaks over satellite imagery of a 1,024-yard range with meters at 0, 400 and 800 yards. The firing-line wind swings from 3 o\'clock around to 2:30, the 800-yard wind switches from 10 o\'clock to 12:30, and the net wind falls from about 7 mph left to nearly zero."></video>
+        </div>
+        <button class="lw-toggle" type="button" aria-controls="lw-video" hidden>
+          <svg class="lw-i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+          <svg class="lw-i-play" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M4 2.5v11l9-5.5z"/></svg>
+          <span>Pause video</span>
+        </button>
+        <p class="wc-cap">68 seconds, real time. Watch the firing-line wind swing from 3 o'clock all the way around to 2:30, the 800-yard wind switch from 10 o'clock to 12:30, and the net wind drop from about 7 mph to almost nothing. The streaks also follow the land: they run fastest across the open fields, slow as they reach the trees, slow further in the dense woods, and bend with the terrain.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wc-x wc-intro" aria-labelledby="wc-intro-h">
+    <div class="wrap">
+      <div class="label">Learn to read the wind</div>
+      <h2 id="wc-intro-h">See the wind, then learn to read it</h2>
+      <p class="wc-lede">A wind meter at the bench tells you what the wind is doing at the bench. <strong>Your bullet spends most of its flight somewhere else.</strong></p>
+      <p class="intro">Reading the wind is the hardest skill in long-range shooting, and the slowest to learn. The usual way is to make a call, take the shot, and work backward from where it landed. You almost never know what the wind was really doing at 500 or 900 yards, so every lesson is partly a guess, and getting good can take years of range time.</p>
+      <p class="intro"><strong>Wind Corridor was built to shorten that.</strong> It shows you what the wind is doing along the whole shot while you're looking at it, so every session at the range teaches you something real.</p>
+      <p class="intro">Place wireless wind meters downrange. Bullseye Ballistics then shows the wind along the entire shot, live, laid over satellite imagery of your own range.</p>
+      <div class="wc-callout wc-method read-wind-card">
+        <div class="label">How you learn</div>
+        <p>Pick a meter at 900 yards and read its speed and direction. Then look at the mirage, the leaves, the trees and the grass near 900 yards. That is what that wind looks like at that distance. Do it often enough and you learn to read the wind from the mirage, leaves, trees and grass alone, at any distance and on any range, with or without meters.</p>
+      </div>
+      <ul class="wc-points">
+        <li><h3>See it at every distance</h3><p>Live wind at every meter, shown at its real distance and updated about once a second, so what you see downrange has a reading to match.</p></li>
+        <li><h3>Check your call</h3><p>Make your own read, then compare it with one net wind call for the whole shot: crosswind, direction, and head or tail.</p></li>
+        <li><h3>Learn it on your range</h3><p>Your actual range, to scale, from public satellite imagery of your exact location, so every reading sits on ground you can see.</p></li>
+        <li><h3>Learn from real readings</h3><p>Bad data is caught, and you always know what's measured and what's estimated.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wc-x wc-terrain" id="terrain" aria-labelledby="wc-terrain-h">
+    <div class="wrap">
+      <div class="label">Terrain and trees</div>
+      <h2 id="wc-terrain-h">See how the land shapes the wind</h2>
+      <p class="intro">Wind doesn't cross a range evenly. Wind Corridor models how terrain, trees and dense forest change the natural flow of the wind, and draws it right on the map. The wind runs faster across open ground, slows when it reaches trees, and slows further in dense woods. The terrain bends it too, and you can watch it happen.</p>
+      <ul class="wc-zones">
+        <li><span class="wc-flow wc-flow--open" aria-hidden="true"></span><h3>Open ground</h3><p>Wind moves fastest across open landscape.</p></li>
+        <li><span class="wc-flow wc-flow--trees" aria-hidden="true"></span><h3>Trees</h3><p>It slows when it meets a line of trees.</p></li>
+        <li><span class="wc-flow wc-flow--woods" aria-hidden="true"></span><h3>Dense woods</h3><p>It slows further still in thick forest.</p></li>
+      </ul>
+      <p class="wc-p wc-terrain-take">This is what you're learning to read. When the flag in the clearing says one thing and the treeline says another, <strong>you can see why, and where along the shot the wind changes.</strong></p>
+    </div>
+  </section>
+
+  <section class="wc-x wc-five" aria-labelledby="wc-five-h">
+    <div class="wrap">
+      <div class="label">Check your read</div>
+      <h2 id="wc-five-h">The whole shot in five numbers</h2>
+      <p class="intro">A wind summary boils every meter down to the numbers that matter for the shot, recalculated with every reading. Read the wind yourself, make your call, then see how close you came.</p>
+      <div class="wc-table-wrap">
+        <table class="wc-table">
+          <thead><tr><th scope="col">Reading</th><th scope="col">What it tells you</th><th scope="col">Example</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Crosswind</th><td>The crosswind averaged over the whole flight, and which side it's from</td><td>0.8 mph from LEFT</td></tr>
+            <tr><th scope="row">Head/tail</th><td>Whether the shot has a headwind or a tailwind overall, and how much</td><td>4.5 mph TAILWIND</td></tr>
+            <tr class="wc-hl"><th scope="row">Shear</th><td>Where the wind changes most along the shot</td><td>8.3 mph less crosswind at 400 than at 0</td></tr>
+            <tr><th scope="row">Gusts (30&nbsp;s)</th><td>How much the wind is pulsing right now</td><td>peak 1.1 mph · spread ±0.1 mph</td></tr>
+            <tr><th scope="row">Coverage</th><td>How much of the shot is measured, and how much is assumed</td><td>78% measured: 0–800 yd measured, 800–1,024 yd assumed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="wc-duo">
+      <div class="wc-callout">
+        <div class="label">Why shear matters</div>
+        <p><strong>Shear is the lesson a single bench meter can never teach you:</strong> the wind at your feet can be blowing the opposite way from the wind at 600 yards. Wind Corridor shows you where it changes, so you can find that change in the mirage and the trees.</p>
+      </div>
+      <div class="wc-callout">
+        <div class="label">Net wind, two ways</div>
+        <p><strong>Switch how the Net Wind is calculated</strong> and compare a simple average of every meter with our ballistic calculation for your specific load. Spoiler: they're not even close. Averaging the wind you see downrange is not the same as working out the wind your bullet feels.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wc-x wc-setup" aria-label="Meters and line of fire">
+    <div class="wrap">
+      <div class="split wc-split">
         <article class="panel tall">
-          <div class="label">On the screen</div>
-          <h2>The whole corridor, live</h2>
+          <div class="label">Meters</div>
+          <h2>Meters that set themselves up</h2>
+          <p>Setup takes minutes, not menus, so your time on the range goes into reading the wind. Meters find you, and you tell the app where they are.</p>
           <ul>
-            <li><strong>Moving wind</strong> from the firing line to the target, faster where the wind is stronger.</li>
-            <li><strong>Every meter</strong> at its distance, with its speed, an arrow and its clock direction.</li>
-            <li><strong>Stretches no meter covers</strong> marked as assumed, so you know what is measured and what is not.</li>
-            <li><strong>A meter that drops out</strong> shows No signal and is left out until it is back.</li>
+            <li><strong>Long-range downrange meters.</strong> Calypso ULP LoRa wind meters send their readings by long-range radio to a single receiver at the firing line. The receiver passes them to Bullseye Ballistics over Bluetooth.</li>
+            <li><strong>They show up on their own.</strong> Each meter appears as soon as it's heard. No pairing each one, no typing in IDs. Enter its distance and it's in the picture.</li>
+            <li><strong>Add a meter at the line.</strong> Connect a Calypso ultrasonic Bluetooth meter at the firing line, and it becomes your 0-yard reading, with battery level shown.</li>
+            <li><strong>No exact aiming required.</strong> Meters are assumed to face the same way you're shooting. If one doesn't, type its heading in true or magnetic north and the readings are corrected for you.</li>
+            <li><strong>Turn any meter on or off</strong> with the "Use in corridor" switch, without walking out to it.</li>
           </ul>
         </article>
+        <article class="panel tall">
+          <div class="label">Line of fire</div>
+          <h2>Match the map to what you see</h2>
+          <p>Stand at the firing line, point your phone at the target, and tap <strong class="wc-key">Capture</strong>. Your GPS position and direction of fire are recorded, in both magnetic and true north, so the corridor on screen lines up with the ground in front of you.</p>
+          <p>Fine-tune the direction 1° at a time, or type it in. Set your target distance by typing it or with quick ±50-yard buttons.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wc-x wc-trust" aria-label="Data quality and display">
+    <div class="wrap">
+      <div class="split wc-split">
+        <article class="panel tall">
+          <div class="label">Data quality</div>
+          <h2>Learn from data you can trust</h2>
+          <p>One bad reading can teach you the wrong lesson. So every reading is checked before it reaches the screen, and you can see exactly what was held back and why.</p>
+          <ul>
+            <li><strong>Spike filter.</strong> A sudden jump of more than 3 m/s (about 6.7 mph) or 45° is held until the next readings confirm it. On by default, and you can switch it off.</li>
+            <li><strong>Impossible readings rejected.</strong> A garbled radio packet claiming 265 mph never makes it into your numbers.</li>
+            <li><strong>Rejected-readings log.</strong> Lists each held or rejected reading, with the time, meter, value and reason.</li>
+            <li><strong>Link health at a glance.</strong> Receiver connection quality, dropouts, and automatic reconnects. For each meter: a LIVE badge, packets received in the last 30 seconds, the longest gap, and when it was last heard.</li>
+            <li><strong>Radio timing check.</strong> Meters transmit on their own timing. If two drift close enough to interfere, you get a warning telling you which meter to power-cycle. It's a heads-up, never a roadblock.</li>
+            <li><strong>Mode history.</strong> Shows when the view switched between no data, one meter and multiple meters, and why.</li>
+            <li><strong>Record a session.</strong> Log everything your meters report, so you can go back over what the wind did after you leave the range.</li>
+          </ul>
+        </article>
+        <article class="panel tall">
+          <div class="label">Display</div>
+          <h2>Make the wind easy to see</h2>
+          <p>Tune the display to your eye and your conditions.</p>
+          <ul>
+            <li><strong>Three looks:</strong> Trails, Fog or Streaks.</li>
+            <li><strong>Particle density and speed:</strong> a busier or calmer picture, and faster or slower motion.</li>
+            <li><strong>Gust swirl:</strong> shows the air churning as gusts come through.</li>
+            <li><strong>Show or hide</strong> the assumed-zone shading, the meter badges, and the satellite photo.</li>
+            <li><strong>Photo dimming:</strong> fade the satellite photo so the wind stands out.</li>
+            <li><strong>Your units:</strong> yards or meters; mph, km/h, m/s or knots.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wc-x wc-start" id="setup" aria-labelledby="wc-start-h">
+    <div class="wrap">
+      <div class="label">Getting started</div>
+      <h2 id="wc-start-h">What you need and how to start</h2>
+      <div class="wc-start-grid">
+        <div class="wc-need">
+          <h3>What you need</h3>
+          <ul>
+            <li>Calypso ULP LoRa wind meters for downrange</li>
+            <li>A Calypso LoRa receiver at the firing line</li>
+            <li><span class="wc-opt">Optional</span> A Calypso ultrasonic Bluetooth wind meter at the firing line</li>
+            <li>Bullseye Ballistics on your phone</li>
+          </ul>
+        </div>
+        <div class="wc-steps-wrap">
+          <h3>Setup</h3>
+          <ol class="wc-steps">
+            <li>Place the meters downrange along your line of fire, facing the same way you're shooting.</li>
+            <li>Power on the meters and the receiver, then connect to the receiver from Bullseye Ballistics.</li>
+            <li>As each meter appears, enter its distance.</li>
+            <li>Optionally, connect your firing-line meter.</li>
+            <li>Stand at the firing line, point your phone at the target, tap Capture, and enter your target distance.</li>
+            <li>Read the wind downrange, make your call, then check it against the screen.</li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
