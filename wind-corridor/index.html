@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=ca307b3e0d">
+<link rel="stylesheet" href="../assets/site.css?v=e8329aefa2">
 <script src="../assets/site.js?v=7ecf365084" defer></script>
 </head>
 <body>
@@ -195,8 +195,8 @@
         <p><strong>Shear is the lesson a single bench meter can never teach you:</strong> the wind at your feet can be blowing the opposite way from the wind at 600 yards. Wind Corridor shows you where it changes, so you can find that change in the mirage and the trees.</p>
       </div>
       <div class="wc-callout">
-        <div class="label">Net wind, two ways</div>
-        <p><strong>Switch how the Net Wind is calculated</strong> and compare a simple average of every meter with our ballistic calculation for your specific load. Spoiler: they're not even close. Averaging the wind you see downrange is not the same as working out the wind your bullet feels.</p>
+        <div class="label">Net wind, three ways</div>
+        <p><strong>Switch how the Net Wind is calculated</strong> and compare three answers for the same wind: the firing-line meter alone, a simple average of every meter, and our ballistic calculation for your specific load. Spoiler: they're not even close. Averaging the wind you see downrange is not the same as working out the wind your bullet feels.</p>
       </div>
       </div>
     </div>
@@ -273,9 +273,9 @@
         <div><dt>800 yd</dt><dd>LoRa meter 2</dd></div>
         <div><dt>1,024 yd</dt><dd>Target, line of fire 154.9° true</dd></div>
       </dl>
-      <p class="wc-note wc-tour-note">Nothing in the app's settings was changed for the recordings. Lessons 1 to 6 were recorded in the morning with the NET WIND method on Simple average, so the bar at the top shows AVG and the Advanced Ballistics number appears on the comparison card. Lesson 7 was recorded at noon with the method switched to Advanced Ballistics.</p>
+      <p class="wc-note wc-tour-note">Nothing in the app's settings was changed for the recordings. Lessons 3 to 6 were recorded in the morning with the NET WIND method on Simple average, so the bar at the top shows AVG and the Advanced Ballistics number appears on the comparison card. Lessons 1 and 2 were recorded in the afternoon with the method on Advanced Ballistics, so the card shows all three crosswinds. Lesson 7 was recorded at noon with the method switched to Advanced Ballistics.</p>
       <nav class="wc-lesson-nav" aria-label="Lessons">
-        <a href="#lesson-1"><span>01</span>Same wind, two answers</a>
+        <a href="#lesson-1"><span>01</span>Same wind, three answers</a>
         <a href="#lesson-2"><span>02</span>Why wind near the muzzle matters most</a>
         <a href="#lesson-3"><span>03</span>Watching the wind follow the terrain</a>
         <a href="#lesson-4"><span>04</span>Line of fire and the ground under the shot</a>
@@ -290,38 +290,48 @@
     <div class="wrap">
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">01</span> Lesson 1</div>
-        <h2 id="wc-l1-h">Same wind, two answers</h2>
-        <p class="wc-p">The same three meters give a net wind of about <strong>1 mph</strong> by simple average, and about <strong>2.4 mph</strong> by Advanced Ballistics. Both say "from the left". One says barely hold; the other says hold two and a half times as much.</p>
-        <h3>What the meters were reading</h3>
+        <h2 id="wc-l1-h">Same wind, three answers</h2>
+        <p class="wc-p">The same three meters give three crosswinds on one card: about <strong>8 mph</strong> from the firing-line meter alone, about <strong>1.5 mph</strong> by simple average, and about <strong>3 mph</strong> by Advanced Ballistics. All three say "from the left". One says hold for a strong wind, one says barely hold, and the ballistic number sits in between.</p>
+        <h3>Where the meters were</h3>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
-            <thead><tr><th scope="col">Meter</th><th scope="col">Speed</th><th scope="col">From</th><th scope="col">For the shot</th></tr></thead>
+            <thead><tr><th scope="col">Meter</th><th scope="col">From</th><th scope="col">For the shot</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Firing line <small>0 yd</small></th><td>6.3–7.2 mph</td><td>9 o'clock</td><td>Full-value wind from the left</td></tr>
-              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>4.0–4.7 mph</td><td>7 to 7:30</td><td>Mostly tailwind, a little from the left</td></tr>
-              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>2.9–3.6 mph</td><td>3 to 3:30</td><td>Wind from the right</td></tr>
+              <tr><th scope="row">Firing line <small>0 yd</small></th><td>9 o'clock</td><td>Full-value wind from the left</td></tr>
+              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>7 to 7:30</td><td>Mostly tailwind, a little from the left</td></tr>
+              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>3 to 3:30</td><td>Wind from the right</td></tr>
             </tbody>
           </table>
         </div>
-        <h3>What the card showed over 47 seconds</h3>
+        <h3>What the card showed over 45 seconds</h3>
+        <p class="wc-p">NET WIND was on Advanced Ballistics, so that line is on top in bold, with the two answers it replaces beneath it.</p>
+        <div class="wc-table-wrap">
+          <table class="wc-table wc-table--data">
+            <thead><tr><th scope="col">Line on the card</th><th scope="col">Crosswind</th><th scope="col">What it tells you</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Advanced Ballistics <small>6.5 CM</small></th><td>2.6–3.7 mph from the left</td><td>The wind your bullet feels, weighted by where it acts</td></tr>
+              <tr><th scope="row">Simple average</th><td>1.0–2.0 mph from the left</td><td>About half as much: the 800 yd wind from the right cancels the bench wind</td></tr>
+              <tr><th scope="row">Firing line only <small>0 yd</small></th><td>7.6–8.7 mph from the left</td><td>What one bench meter says: two to three times too much</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul class="wc-list">
-          <li><strong>Crosswind, Simple average:</strong> 0.7 to 1.2 mph from the left.</li>
-          <li><strong>Crosswind, Advanced Ballistics (6.5 CM):</strong> 2.1 to 2.6 mph from the left.</li>
           <li><strong>Shear:</strong> "crosswind changes side between 400 and 800". The wind pushes left at the bench and right downrange.</li>
-          <li><strong>Head/tail:</strong> 1.2 to 1.8 mph tailwind.</li>
-          <li><strong>Coverage:</strong> 78% measured. Everything from 0 to 800 yd is measured; 800 to 1,024 yd is assumed from the last meter.</li>
+          <li><strong>Head/tail:</strong> 2.4 to 3.4 mph tailwind, weighted the same way as the crosswind.</li>
+          <li><strong>Coverage: "92% of the wind effect measured".</strong> With the method on Simple average, the same meters read "78% measured". Simple average counts yards: 224 of the 1,024 yd are unmeasured, so 22% is missing. Advanced Ballistics counts influence, and those last 224 yd sit near the target, where wind barely moves the bullet. Only 8% of the wind's effect is missing.</li>
+          <li><strong>Gusts: peak 3.5–3.7 mph.</strong> Gusts are measured on the selected crosswind. The morning Simple average recordings peaked at about 1.1–1.4 mph. Part of the jump is the stronger wind later in the day, and part may be that the ballistic number leans on the bench wind, so its swings carry through more than they do in an average. Because the wind changed between recordings, these clips can't separate the two.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
           <p>The simple average lets the left wind at the bench and the right wind at 800 yd cancel each other out. A bullet doesn't work that way. The left wind sits right at the muzzle, where it pushes the bullet for its entire flight. The right wind sits near the target, where it has little time to act. <strong>So the left wind wins, and the hold is far bigger than the average suggests.</strong></p>
-          <p>It's also why a single bench meter misleads in both directions. On its own, the firing-line meter would have said 6–7 mph full value, nearly three times too much.</p>
+          <p>A single bench meter misleads the other way. Firing line only says 7.6–8.7 mph full value, two to three times what the bullet actually feels, because the wind farther out is weaker and turns to the other side.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-01.mp4" poster="../assets/img/wc-lesson-01.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters corridor card switching between Advanced Ballistics and Simple average, with crosswind, head/tail, shear, gusts and coverage updating live."></video>
+          <video class="wc-vid" src="../assets/video/wc-fl-compare.mp4" poster="../assets/img/wc-fl-compare.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters comparison card with three crosswinds, all from the left: Advanced Ballistics 6.5 CM in bold at about 2.6 to 3.7 mph, Simple average at about 1.0 to 2.0 mph, and Firing line only (0 yd) at about 7.6 to 8.7 mph. Coverage reads 92% of the wind effect measured and gusts peak at about 3.7 mph."></video>
         </div>
-        <figcaption class="wc-cap">47 seconds. Simple average and Advanced Ballistics side by side, updating live.</figcaption>
+        <figcaption class="wc-cap">45 seconds. Advanced Ballistics, Simple average and Firing line only, side by side, updating live.</figcaption>
       </figure>
     </div>
   </section>
@@ -331,24 +341,26 @@
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">02</span> Lesson 2</div>
         <h2 id="wc-l2-h">Why wind near the muzzle matters most</h2>
-        <p class="wc-p">Tap <strong class="wc-key">Why different?</strong> on the comparison card and a sheet answers the question with one picture.</p>
+        <p class="wc-p">Tap <strong class="wc-key">Why different?</strong> on the comparison card and a sheet answers the question with two charts.</p>
         <ul class="wc-list">
-          <li><strong>Both numbers, side by side.</strong> In the clip: Advanced Ballistics 2.1–2.5 mph from the left, Simple average 0.7–1.2 mph from the left.</li>
+          <li><strong>All three answers, side by side.</strong> In the clip: Advanced Ballistics 2.6–3.6 mph from the left (outlined in gold, because it's the active method), Simple average 0.9–1.9 mph, and Firing line only (0 yd) 7.5–8.7 mph, all from the left.</li>
           <li><strong>Influence by distance.</strong> A curve from 100% at the muzzle down to 0% at the target. It shows how much a given wind at each distance moves a 6.5 Creedmoor 140-grain bullet at 2,700 fps.</li>
-          <li><strong>Your meters on the curve.</strong> Green markers sit at 0, 400 and 800 yd. The 0 yd meter counts fully, the 400 yd meter roughly 90%, and the 800 yd meter only about 45%.</li>
-          <li><strong>The reason in plain words:</strong> wind near the muzzle pushes the bullet for its whole remaining flight; wind near the target has almost no time to move it.</li>
+          <li><strong>Your meters on the curve.</strong> Green markers sit at 0, 400 and 800 yd. The 0 yd meter counts fully, the 400 yd meter roughly 85%, and the 800 yd meter only about 45%.</li>
+          <li><strong>Crosswind along the shot.</strong> The white line is the wind the meters measure along the line of fire: about 9 mph from the left at the muzzle, easing toward 400 yd, crossing to the right between 400 and 800 yd, and about 5 mph from the right at 800 yd. Past the last meter it's assumed to stay the same. The three flat lines are the three answers: blue dashes for Firing line only, orange for Advanced Ballistics, white dots for Simple average.</li>
+          <li><strong>The reason in plain words:</strong> wind near the muzzle pushes the bullet for its whole remaining flight; wind near the target has almost no time to move it. And, new on the sheet: <em>"Firing line only assumes the wind at the bench blows unchanged all the way to the target. When the wind changes along the shot, that assumption fails."</em></li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
           <p>The curve isn't a straight line. It stays high through the first half of the shot and drops steeply near the target. The bullet is still fast early on, but every early push has the rest of the flight to grow. Late wind, however strong, has run out of time.</p>
+          <p>The crosswind chart shows why both shortcuts miss. Firing line only draws a flat line at the bench wind, as if nothing changes downrange. Simple average draws a flat line through the middle, as if the 800 yd wind mattered as much as the bench wind. The orange Advanced Ballistics line sits between them, closer to the bench wind, because that's where the wind moves the bullet most.</p>
           <p><strong>For meter placement, the first few hundred yards deserve the most attention.</strong> A meter near the target tells you the least about the hold.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-02.mp4" poster="../assets/img/wc-lesson-02.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Why are they different sheet, showing both crosswinds and an influence-by-distance curve falling from 100% at the muzzle to 0% at the target, with the three meters marked on it."></video>
+          <video class="wc-vid" src="../assets/video/wc-why-different.mp4" poster="../assets/img/wc-why-different.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Why are they different sheet with three boxes, all from the left: Advanced Ballistics 6.5 CM outlined in gold at about 3 mph, Simple average at about 1.5 mph, and Firing line only (0 yd) at about 8 mph. Below them, an influence-by-distance curve falling from 100% at the muzzle to 0% at the target, then a crosswind-along-the-shot chart where the measured wind crosses from left to right between 400 and 800 yards, with a flat line for each answer."></video>
         </div>
-        <figcaption class="wc-cap">25 seconds. The "Why different?" sheet and its influence-by-distance chart.</figcaption>
+        <figcaption class="wc-cap">32 seconds. The "Why different?" sheet: three answers, influence by distance, and the crosswind along the shot.</figcaption>
       </figure>
     </div>
   </section>
@@ -368,7 +380,7 @@
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>Wind isn't one arrow. Over 1,000 yards of hills and tree lines it turns, speeds up and slows down. The meters give exact readings at three points, the terrain model fills in a believable picture between them, and <strong>the labels always tell you which is which.</strong></p>
+          <p>Wind isn't one arrow. Over 1,000 yards of hills and tree lines it turns, speeds up and slows down. The meters give exact readings at three points, the terrain model fills in the picture between them, and <strong>the labels always tell you which is which.</strong></p>
         </div>
         <p class="wc-note"><strong>Reading the badges.</strong> Each meter shows its speed and the clock direction the wind comes from: 12 is a headwind, 6 a tailwind, 9 from the left, 3 from the right.</p>
       </div>
@@ -397,7 +409,7 @@
         <div class="wc-callout">
           <div class="label">The lesson</div>
           <p>On a hill-to-hill shot, the bullet flies far above the meters. At 416 yd it's about 121 ft above the ground, right where meter 1 stands at 400 yd. A meter on a short mast reads the wind near the ground, and wind usually blows harder higher up. <strong>So on ranges like this, the measured wind can understate what the bullet actually meets.</strong></p>
-          <p>The profile makes that visible, and it's the first step toward learning, from logged shots, how much stronger the wind runs at shot height.</p>
+          <p>The profile makes that visible, and it's the first step toward learning, from logged shots, how much stronger the wind runs at shot height. <a href="#clearance">LiDAR ground clearance</a>, further down this page, maps that height along the whole shot and shows where a meter will read the air your bullet actually passes through.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
@@ -529,7 +541,7 @@
             <li><strong>Simple average:</strong> about 1 mph.</li>
             <li><strong>Advanced Ballistics:</strong> about 3 mph.</li>
           </ul>
-          <p><strong>Only the last one reflects how the bullet actually spends its time in that wind.</strong></p>
+          <p><strong>Only the last one reflects how the bullet actually spends its time in that wind.</strong> The comparison card shows all three side by side (Lesson 1), and the "Why different?" sheet charts why (Lesson 2).</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
@@ -541,54 +553,132 @@
     </div>
   </section>
 
-  <section class="wc-lesson wc-lesson--cont" aria-labelledby="wc-l7b-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <h3 id="wc-l7b-h">The comparison card flips its order</h3>
-        <p class="wc-p">Advanced Ballistics moves to the top line, 2.5–2.9 mph from the left, with the simple average beneath it at 0.7–1.4 mph. Three other lines change with the method.</p>
-        <ul class="wc-list">
-          <li><strong>Coverage: "92% of the wind effect measured",</strong> up from "78% measured" in Simple average, with the same meters. Simple average counts yards: 224 of the 1,024 yd are unmeasured, so 22% is missing. Advanced Ballistics counts influence, and those last 224 yd sit near the target, where wind barely moves the bullet. Only 8% of the wind's effect is missing.</li>
-          <li><strong>Gusts: peak 3.3 mph.</strong> Gusts are measured on the selected crosswind. This morning's Simple average peak was about 1.1–1.4 mph. Part of the jump is the stronger wind at noon, and part may be that the ballistic number leans on the bench wind, so its swings carry through more than they do in an average. Because the wind changed between recordings, these clips can't separate the two.</li>
-          <li><strong>Head/tail</strong> (2.0–2.7 mph tailwind) is weighted the same way.</li>
-        </ul>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-07b.mp4" poster="../assets/img/wc-lesson-07b.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters comparison card with Advanced Ballistics on top at about 2.5 to 2.9 mph from the left, simple average beneath, coverage 92% of the wind effect measured, and gusts peaking at 3.3 mph."></video>
-        </div>
-        <figcaption class="wc-cap">30 seconds. The comparison card with Advanced Ballistics on top.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-lesson wc-lesson--cont wc-lesson--rev" aria-labelledby="wc-l7c-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <h3 id="wc-l7c-h">"Why different?" in this mode</h3>
-        <p class="wc-p">The sheet highlights the Advanced Ballistics box as the active method, 2.5–3.0 mph from the left, next to Simple average at 0.8–1.4 mph. The influence curve is the same one from Lesson 2: the bench wind counts fully, which is why the ballistic number sits so much closer to it than the average does.</p>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-07c.mp4" poster="../assets/img/wc-lesson-07c.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Why are they different sheet with the Advanced Ballistics box highlighted as the active method, about 2.5 to 3.0 mph from the left, next to simple average at about 0.8 to 1.4 mph."></video>
-        </div>
-        <figcaption class="wc-cap">22 seconds. "Why different?" with Advanced Ballistics selected.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-x wc-try" id="try-this" aria-labelledby="wc-try-h">
+      <section class="wc-x wc-try" id="try-this" aria-labelledby="wc-try-h">
     <div class="wrap">
       <div class="label">Wind Coaching</div>
       <h2 id="wc-try-h">Six things to try on your own range</h2>
       <p class="intro">Work through these with your meters out, or walk a friend through them.</p>
       <ol class="wc-steps wc-steps--try">
-        <li>Open Wind Meters and read both crosswinds. Decide which one you'd hold before you look at anything else.</li>
+        <li>Open Wind Meters and read all three crosswinds: Advanced Ballistics, Simple average and Firing line only. Decide which one you'd hold before you look at anything else.</li>
         <li>Tap "Why different?" and find where each of your meters sits on the influence curve.</li>
         <li>Flip the NET WIND method, then switch to See the Wind and watch the bar change from AVG to your load, such as 6.5 CM.</li>
         <li>On See the Wind, trace the streaks from the bench to the target and find where the wind changes sides. Then look for that change in the grass, leaves and mirage.</li>
         <li>Open the ground profile and see how high your bullet flies above each meter.</li>
         <li>Scroll to Recent Rejected Readings and see what the app refused to use.</li>
       </ol>
+    </div>
+  </section>
+
+  <section class="wc-x wc-tour" id="clearance" aria-labelledby="wc-clr-h">
+    <div class="wrap">
+      <div class="label">LiDAR ground clearance</div>
+      <h2 id="wc-clr-h">How high your bullet flies</h2>
+      <p class="wc-lede">On a hill-to-hill range, your bullet can fly dozens or even hundreds of feet above the valley floor. <strong>A wind meter down in that valley is measuring different air.</strong></p>
+      <p class="intro">Ground clearance uses LiDAR terrain survey data to show exactly how high your shot flies above the ground, all the way to the target, and where a wind meter will actually measure the air your bullet passes through.</p>
+      <dl class="wc-setup-facts">
+        <div><dt>51 ft</dt><dd>Max clearance, at 476 yd</dd></div>
+        <div><dt>207 ft</dt><dd>Target lower than the shooter, 3.9° down</dd></div>
+        <div><dt>1 m</dt><dd>LiDAR terrain, USGS 3D Elevation Program</dd></div>
+        <div><dt>45% → 49%</dt><dd>Shot's air measured, with recommended spots</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="wc-x wc-lesson" aria-labelledby="wc-clr1-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <h2 id="wc-clr1-h">Clearance on the map</h2>
+        <ul class="wc-list">
+          <li><strong>A green band</strong> along your line of fire shows the shot's height above the ground, mapped from LiDAR all the way to the target.</li>
+          <li><strong>The highest point is marked</strong> on the map, for example <span class="wc-mono">Max clearance 51 ft · 476 yd</span>. It's often over a hollow or canyon, not the middle of the shot.</li>
+          <li><strong>Turn it on or off</strong> in Visualization Settings. With it off, the band, labels and spots disappear and the map is back to just the wind.</li>
+        </ul>
+        <div class="wc-callout">
+          <div class="label">Why it matters</div>
+          <p>A meter on a 10 ft mast at 476 yd would read the air about 40 ft below this bullet. <strong>Where the shot runs high over low ground, the meter and the bullet are in different wind.</strong></p>
+        </div>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-clear-map.mp4" poster="../assets/img/wc-clear-map.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind with ground clearance on. A green band runs along the line of fire, a callout explains it shows the shot's height above the ground from LiDAR, then the label Max clearance 51 ft at 476 yd is circled with the note that a 10 ft mast there reads air about 40 ft below the bullet."></video>
+        </div>
+        <figcaption class="wc-cap">25 seconds. The clearance band and its highest point.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-lesson wc-lesson--cont wc-lesson--rev" aria-labelledby="wc-clr2-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <h2 id="wc-clr2-h">Path Profile</h2>
+        <p class="wc-p">A side view of the ground from your firing line to the target, drawn from high-resolution LiDAR survey data (1 m, USGS 3D Elevation Program), with your line of sight, your meters and the recommended spots on it.</p>
+        <ul class="wc-list">
+          <li><strong>Your range at a glance.</strong> For example <span class="wc-mono">Target 207 ft lower · 3.9° down</span>, with the ground profile beneath it, right on the Wind Meters tab.</li>
+          <li><strong>The gap is the point.</strong> The space between the orange line of sight and the green ground is the air under your bullet. Here it's widest at 476 yd: 51 ft.</li>
+          <li><strong>Tap Path Profile</strong> on the Ground card to open the full view.</li>
+        </ul>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-clear-profile.mp4" poster="../assets/img/wc-clear-profile.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Path Profile sheet. A LiDAR ground profile falls from 1,196 ft to 805 ft with the dashed line of sight above it; the widest gap, 51 ft at 476 yd, is circled. Then the Meter Placement box is circled: 3 meters measure the shot's air over 45% of the path, 49% with the recommended spots. Later the spot selector is set to 1."></video>
+        </div>
+        <figcaption class="wc-cap">63 seconds. The ground under the shot, and what the recommended spots add.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-x wc-lesson" aria-labelledby="wc-clr3-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <div class="label">Meter Placement</div>
+        <h2 id="wc-clr3-h">Put your meters where they count</h2>
+        <p class="wc-p">Meter Placement searches the whole satellite photo, not just the line of fire, for spots where a meter on a mast sits in the same air as your bullet.</p>
+        <ul class="wc-list">
+          <li><strong>Up to three recommended spots,</strong> numbered on the map. Tap one to see why it was chosen, for example <span class="wc-mono">218 yd · 124 yd left · LiDAR shows the shot 31 ft above ground here · high influence · clear radio path</span>.</li>
+          <li><strong>Wind that matters most comes first.</strong> Spots near the muzzle score higher, because wind there moves the bullet the most.</li>
+          <li><strong>A clear radio path</strong> back to your receiver for every spot, checked against the terrain. Move the receiver on the photo and the recommendations follow.</li>
+          <li><strong>See what each spot adds.</strong> For example <span class="wc-mono">3 meters · shot's air measured over 45% of the path. With recommended spots: 49%</span>.</li>
+          <li><strong>Choose one, two or three spots,</strong> depending on how many meters you have.</li>
+        </ul>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-clear-spots.mp4" poster="../assets/img/wc-clear-spots.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the clearance map with three numbered meter spots circled. Each spot is tapped in turn and an arrow points to its card: spot 1 at 218 yd, 124 yd left, shot 31 ft above ground; spot 3 at 495 yd, 212 yd left, 24 ft; spot 2 at 840 yd, 80 yd left, 7 ft."></video>
+        </div>
+        <figcaption class="wc-cap">53 seconds. Three recommended spots, and why each was chosen.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-x wc-lesson wc-lesson--rev" aria-labelledby="wc-clr4-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <h2 id="wc-clr4-h">Settings that match how you shoot</h2>
+        <ul class="wc-list">
+          <li><strong>Shooting position:</strong> prone (1 ft), sitting (3 ft) or bench (4 ft), or type your own height.</li>
+          <li><strong>Target height, meter mast height and receiver height.</strong></li>
+          <li><strong>Trees:</strong> tree heights are taken into account where tree-height data is available, with an optional minimum allowance of your own.</li>
+          <li><strong>Instant updates.</strong> Change a setting and the clearance and recommendations update immediately, with nothing new to download. Switch from prone to bench and max clearance goes from 51 ft to 53 ft.</li>
+        </ul>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-clear-settings.mp4" poster="../assets/img/wc-clear-settings.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters tab scrolls to the Ground card, Target 207 ft lower, 3.9 degrees down, which is circled. Path and Placement Settings open with shooter, target, mast, tree and receiver heights. Bench (4 ft) is selected and an arrow shows max clearance change from 51 ft to 53 ft."></video>
+        </div>
+        <figcaption class="wc-cap">51 seconds. The Ground card and Path &amp; Placement Settings.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-x" aria-labelledby="wc-clr5-h">
+    <div class="wrap">
+      <div class="label">Honest by design</div>
+      <h2 id="wc-clr5-h">You always know what the data is</h2>
+      <ul class="wc-honest">
+        <li><h3>LiDAR means LiDAR</h3><p>"LiDAR" appears only where the terrain data really is LiDAR (1 m). Elsewhere the app says "terrain data" and shows the true resolution.</p></li>
+        <li><h3>Line of sight, not the arc</h3><p>Clearance is drawn along your line of sight. The real bullet arcs a little higher mid-range, and the app says so.</p></li>
+        <li><h3>The photo isn't LiDAR</h3><p>The satellite photo is aerial photography. The LiDAR is the shape of the ground underneath it.</p></li>
+      </ul>
     </div>
   </section>
 
