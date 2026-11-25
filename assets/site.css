@@ -2936,3 +2936,51 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 /* Wind Corridor hero: the "Coming soon" tag sits to the right of the title, and wraps under it when there's no room. */
 .wc-title { display: flex; flex-wrap: wrap; align-items: center; column-gap: 22px; row-gap: 4px; margin: 14px 0 20px; }
 .wc-title h1 { margin: 0; }
+
+/* Wind Corridor > Wind Coaching: six recorded lessons, each a clip beside its walkthrough (reuses
+   .lw-media/.lw-phone and .wc-list/.wc-callout/.wc-table). Clips play muted while on screen (site.js). */
+.wc-setup-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 26px 0 0; }
+.wc-setup-facts div { padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); min-width: 0; }
+.wc-setup-facts dt { font: 700 1.5rem/1 var(--font-display); color: var(--accent); }
+.wc-setup-facts dd { margin: 6px 0 0; font-size: 0.88rem; line-height: 1.35; color: var(--muted); }
+.wc-tour-note { max-width: 46em; }
+.wc-lesson-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 30px; }
+.wc-lesson-nav a { display: flex; gap: 12px; align-items: baseline; padding: 14px 16px; border: 1px solid var(--line-strong); color: var(--fg); text-decoration: none; font-weight: 600; line-height: 1.3; }
+.wc-lesson-nav a:hover { border-color: var(--accent); }
+.wc-lesson-nav span { font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.14em; color: var(--accent); }
+
+.wc-lesson .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); column-gap: 56px; align-items: start; }
+.wc-lesson--rev .wc-lesson-copy { order: 2; }
+.wc-lesson-copy { min-width: 0; }
+.wc-lesson-copy h2 { margin-top: 6px; }
+.wc-lesson-copy h3 { margin: 30px 0 12px; }
+.wc-lesson-copy .wc-callout { max-width: none; }
+.wc-lesson-copy .wc-callout p + p { margin-top: 10px; }
+.wc-lesson-media { margin: 0; position: sticky; top: 24px; }
+.wc-lesson .lw-phone video { aspect-ratio: 576 / 1280; }
+.wc-lesson--cont { padding-top: 0; }
+.wc-lesson--cont .wc-lesson-copy h3 { margin-top: 0; }
+.wc-table--data { min-width: 480px; }
+.wc-table--data tbody th { font-size: 1rem; }
+.wc-table--data tbody th small { display: block; margin-top: 3px; font: 500 0.72rem/1.3 var(--font-mono); letter-spacing: 0.08em; color: var(--muted); }
+.wc-table--data tbody td:last-child { font: inherit; color: var(--muted); }
+.wc-table--data tbody td { font-variant-numeric: tabular-nums; }
+.wc-lesson-copy .wc-mono { white-space: normal; }
+.wc-answers { margin: 12px 0; gap: 6px; }
+.wc-steps--try { max-width: 46em; }
+.wc-steps--try li:last-child { color: var(--muted); font-weight: inherit; }
+
+@media (max-width: 1000px) {
+  .wc-lesson .wrap { grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); column-gap: 32px; }
+  .wc-lesson-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wc-setup-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .wc-lesson .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
+  .wc-lesson-media, .wc-lesson--rev .wc-lesson-media { order: -1; position: static; }
+  .wc-lesson--rev .wc-lesson-copy { order: 0; }
+  .wc-lesson .lw-phone { max-width: 260px; }
+  .wc-table--data { min-width: 0; }
+  .wc-table--data th, .wc-table--data td { padding-right: 10px; }
+  .wc-lesson-nav { grid-template-columns: minmax(0, 1fr); }
+}

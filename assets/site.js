@@ -10,6 +10,7 @@
  *   #bb-ema          Under the Hood: draws the wind charts and the drift diagram
  *   .gn              the site nav: dropdowns on wide screens, the Menu button on phones
  *   #lw-video        Live Wind: swaps the video's own controls for one Pause/Play button
+ *   .wc-vid          Wind Corridor lessons: each clip plays muted while it's on screen
  *   [data-drag-x]    a sideways-scrolling strip a mouse can drag, like a finger swipe
  *   .to-top          a faint back-to-top arrow, on long pages once you're well down them
  */
@@ -956,4 +957,38 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
   window.addEventListener('load', draw);
   draw();
+})();
+
+// Wind Corridor lessons: each clip loads only when it's near the screen, plays muted while at
+// least half of it is visible, and pauses when it scrolls away. A clip the visitor paused stays
+// paused. No autoplay for visitors who ask for reduced motion; the clips keep their controls.
+(function () {
+  var vids = document.querySelectorAll('video.wc-vid');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+        if (v.dataset.userPaused) return;
+        v.dataset.autoPlaying = '1';
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else if (!v.paused) {
+        v.dataset.autoPausing = '1';
+        v.pause();
+      }
+    });
+  }, { threshold: [0, 0.5] });
+  Array.prototype.forEach.call(vids, function (v) {
+    v.addEventListener('pause', function () {
+      if (v.dataset.autoPausing) { delete v.dataset.autoPausing; return; }
+      v.dataset.userPaused = '1';
+    });
+    v.addEventListener('play', function () {
+      if (v.dataset.autoPlaying) { delete v.dataset.autoPlaying; return; }
+      delete v.dataset.userPaused;
+    });
+    io.observe(v);
+  });
 })();
