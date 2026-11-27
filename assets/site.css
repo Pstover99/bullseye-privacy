@@ -3016,11 +3016,14 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .bts-grid h3 { font-size: 1.05rem; }
 .bts-grid h3 .sn-tag { display: inline-block; margin-top: 6px; vertical-align: 2px; }
 .bts-grid p { font-size: 0.9rem; }
+.bts-grid .bts-wide { grid-column: span 2; }
+.bts-grid h3 a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .bts-uses { margin-top: 14px; }
 .bts-uses p { margin-top: 10px; }
 @media (max-width: 1000px) {
   .bts-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bts-grid .bts-wide { grid-column: auto; }
 }
 @media (max-width: 600px) {
   .bts-rail { grid-template-columns: minmax(0, 1fr); max-width: 300px; margin-inline: auto; }
