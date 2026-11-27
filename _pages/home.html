@@ -227,6 +227,64 @@
     </div>
   </section>
 
+  <section class="flush bts" aria-labelledby="bts-h">
+    <div class="wrap">
+      <div class="label">Behind the screen</div>
+      <h2 id="bts-h">Everything it takes. <span>Nothing you have to think about.</span></h2>
+      <p class="intro">Every number on the screen is the last step of a long chain. Bullseye fuses live sensors spread along your line of fire, terrain models of the ground beneath the shot, satellite imagery of your own range and a full trajectory solver tuned to your exact load, then collapses all of it into a display you can read at a glance. <strong>It just works, whether you're breaking the shot or learning why the wind did what it did.</strong></p>
+
+      <div class="bts-rail">
+        <figure class="bts-clip">
+          <div class="frame lw-phone">
+            <video class="wc-vid" src="{{ROOT}}assets/video/bts-corridor.mp4" poster="{{ROOT}}assets/img/bts-corridor.webp" width="576" height="1158" muted loop playsinline controls preload="none" aria-label="Screen recording of Wind Corridor's See the Wind view over a satellite photo of a 1,024-yard range with contour lines. The firing-line meter reads about 6.5 to 7 mph from 9 o'clock, meter 1 at 500 yards about 4 mph from 7:30, and meter 2 at 800 yards about 4.5 mph from 3:30 to 4 o'clock. The stretch past 800 yards is labeled Assumed, a gold label marks Max clearance 57 ft at 268 yards, and the NET WIND bar reads about 3 to 3.5 mph."></video>
+          </div>
+          <figcaption><span class="bts-k">Wind Corridor · See the Wind <span class="sn-tag sn-tag--soon">Coming soon</span></span>Three live meters on a 1,024-yard line of fire, with the wind between them drawn over the range itself.</figcaption>
+        </figure>
+        <figure class="bts-clip">
+          <div class="frame lw-phone">
+            <video class="wc-vid" src="{{ROOT}}assets/video/bts-target.mp4" poster="{{ROOT}}assets/img/bts-target.webp" width="576" height="1222" muted loop playsinline controls preload="none" aria-label="Screen recording of the full-screen solution in Target mode at 1,024 yards: elevation 8.09 mil up, windage about 0.85 to 0.92 mil left with a green Corridor tag, live wind, temperature, pressure and humidity, density altitude about 2,340 ft, and hit probability 80 percent with the miss broken down as wind 74, range 10, muzzle velocity 6, shooter 5 and BC 5 percent."></video>
+          </div>
+          <figcaption><span class="bts-k">Solver · Target</span>The dial, live. The Corridor tag means the wind hold comes from every meter on the path, not just the one at your feet.</figcaption>
+        </figure>
+        <figure class="bts-clip">
+          <div class="frame lw-phone">
+            <video class="wc-vid" src="{{ROOT}}assets/video/bts-wind.mp4" poster="{{ROOT}}assets/img/bts-wind.webp" width="576" height="1222" muted loop playsinline controls preload="none" aria-label="Screen recording of Wind View at 1,024 yards: elevation 8.1 mil up and a wind hold of 0.6 to 0.9 mil left, a wind clock with two minutes of swing from about 8 o'clock, tagged Corridor and labeled Steady, later Switchy tailwind, and a speed bar with High, Current, Average and Low wind, each with its own hold."></video>
+          </div>
+          <figcaption><span class="bts-k">Solver · Wind View</span>Two minutes of wind on one clock, with a hold for the high, the low, the average and right now.</figcaption>
+        </figure>
+        <figure class="bts-clip">
+          <div class="frame lw-phone">
+            <video class="wc-vid" src="{{ROOT}}assets/video/bts-hunt.mp4" poster="{{ROOT}}assets/img/bts-hunt.webp" width="576" height="1222" muted loop playsinline controls preload="none" aria-label="Screen recording of Hunt mode at 1,024 yards: elevation 8.09 mil up with a Max point blank 230 yd tag, windage about 0.9 mil left tagged Corridor, the wind about 3.8 mph from 8 o'clock, an Ethical shot check with 576 ft-lb energy on target, and direction of fire 325 degrees northwest at latitude 38.9 degrees north."></video>
+          </div>
+          <figcaption><span class="bts-k">Solver · Hunt</span>The same engine, boiled down to what matters in the field: the hold, the wind and an ethical-shot check.</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="bts-sub">What's working underneath</h3>
+      <div class="bts-grid">
+        <article class="panel"><div class="n">01</div><h3>Multi-sensor fusion along the flight path</h3><p>A Calypso Ultrasonic Mini at the firing line, LoRa wind meters relayed from downrange through a LoRa receiver, and a Calypso Weather Dot feeding temperature, pressure and humidity. Each wind reading is pinned to its distance on the line of fire and fused into one continuous wind field from muzzle to target, with shape-preserving PCHIP interpolation between meters.</p></article>
+        <article class="panel"><div class="n">02</div><h3>Every reading earns its place</h3><p>Data is validated as it arrives. Physically impossible values are thrown out, and sudden jumps in speed or direction are held until the next readings confirm them. Real wind changes come through a second or two later. Radio glitches never reach your hold.</p></article>
+        <article class="panel"><div class="n">03</div><h3>Advanced Ballistics weighting <span class="sn-tag sn-tag--soon">Coming soon</span></h3><p>Bullseye flies your exact load through the measured wind field with the full solver, then back-solves the single full-value crosswind that lands the bullet in the same place. Wind near the muzzle counts for more, because it has the rest of the flight to act. Coverage is measured by influence on the bullet, not by yards.</p></article>
+        <article class="panel"><div class="n">04</div><h3>LiDAR, ground to flight path <span class="sn-tag sn-tag--soon">Coming soon</span></h3><p>A 1 m LiDAR profile of the ground under your shot, with the line of sight drawn over it, shows how high the bullet flies above the terrain and where. You know whether a meter on a short mast is reading the same air your bullet passes through.</p></article>
+        <article class="panel"><div class="n">05</div><h3>Satellite and terrain overlays <span class="sn-tag sn-tag--soon">Coming soon</span></h3><p>The wind is drawn over satellite imagery of your own range, with contour lines from USGS 3DEP elevation data and optional LANDFIRE tree heights. Between meters the picture follows the ground, and anything past the last meter is clearly labeled as assumed.</p></article>
+        <article class="panel"><div class="n">06</div><h3>Geometry, solved for you</h3><p>GPS and the compass set your line of fire, with magnetic declination corrected from the World Magnetic Model. Latitude and direction of fire feed Coriolis, and every meter's wind is resolved into crosswind and head or tail wind against that exact line.</p></article>
+        <article class="panel"><div class="n">07</div><h3>A full point-mass solver</h3><p>G1 or G7 drag as it changes with Mach number, live atmospherics and density altitude, powder-temperature muzzle velocity, spin drift, aerodynamic jump and Coriolis, all rolled into one dial.</p></article>
+        <article class="panel"><div class="n">08</div><h3>Reads like a coach</h3><p>A two-minute wind history with a hold for each extreme, plain labels like "Steady" or "Switchy tailwind", and <a href="{{ROOT}}hit-probability/">hit probability</a> that tells you where a miss would come from: wind, range, velocity, BC or you.</p></article>
+      </div>
+
+      <div class="split bts-uses">
+        <article class="panel tall">
+          <div class="label">When you're shooting</div>
+          <p>One glance: elevation, a wind hold built from the whole flight path, and how sure you can be of the hit. No menus, no math, no coming out of the rifle.</p>
+        </article>
+        <article class="panel tall">
+          <div class="label">When you're learning</div>
+          <p>One tap deeper: watch the wind change sides between you and the target, see why the wind near the muzzle matters most, and compare your hold with the simple average and the bench meter alone. <a href="{{ROOT}}wind-corridor/#coaching">See the Wind Coaching lessons</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="flush lw-home wc-home" aria-labelledby="wc-home-h">
     <div class="wrap">
       <div>
