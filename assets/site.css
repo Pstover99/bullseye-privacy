@@ -2997,3 +2997,4 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .wc-looks .lw-phone video { aspect-ratio: 576 / 1280; }
 .wc-looks figcaption { margin-top: 8px; font-size: 0.85rem; line-height: 1.35; color: var(--muted, inherit); }
 .wc-looks figcaption strong { display: block; color: var(--text, inherit); }
+.wc-home .lw-phone video { aspect-ratio: 576 / 1280; }
