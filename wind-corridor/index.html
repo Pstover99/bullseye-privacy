@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/rajdhani-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=e8329aefa2">
+<link rel="stylesheet" href="../assets/site.css?v=f01f081f31">
 <script src="../assets/site.js?v=7ecf365084" defer></script>
 </head>
 <body>
@@ -98,7 +98,7 @@
           <div class="label feature-label"><span class="lw-dot lw-dot--soon" aria-hidden="true"></span>Coming soon</div>
         </div>
         <p class="lead">Pair Bullseye Ballistics with Calypso LoRa wind meters set out downrange, and for the first time you can actually see the wind between you and the target.</p>
-        <p class="lead">Each meter reports the wind where it stands, and the app joins the readings into one live picture of the whole corridor, from the firing line to the target. The solver uses that same wind at every point along the bullet's path.</p>
+        <p class="lead">Each meter reports the wind where it stands, and the app joins the readings into one live picture of the whole corridor, from the firing line to the target, laid over satellite imagery of your own range. LiDAR terrain data maps how high your flight path runs above the ground, so you know where a meter reads the same air your bullet flies through.</p>
         <div class="cta-row">
           <a class="btn btn-outline" href="#recording">Watch it in the app</a>
           <a class="btn btn-outline" href="#coaching">Wind Coaching</a>
@@ -114,10 +114,10 @@
         <div class="label">Recorded in the app</div>
         <h2 id="wc-rec-h">Watch downrange wind, then look at the wind screen</h2>
         <p class="wc-p">The main screen draws moving wind across a satellite photo of your range, from the firing line to the target. Watch the wind build, fade and change direction down the course of the shot, then look up and find the same thing in the mirage, the trees and the grass.</p>
-        <p class="wc-p">In this recording the bench meter reads 6.6–7.5 mph from 8:30, the 400-yard meter 5.2–6.0 mph from 7:30 to 8 o'clock, and the 800-yard meter 6.6–7.5 mph from 3:30, with NET WIND set to Advanced Ballistics. The wind pushes the bullet left to right near you and right to left at 800 yards.</p>
+        <p class="wc-p">In this recording the bench meter reads 9.3–9.7 mph from 9 o'clock, the 400-yard meter 2.5–3.0 mph from 7:30, and the 800-yard meter 5.8–7.1 mph from 3:30 to 4 o'clock, with NET WIND set to Advanced Ballistics. The wind pushes the bullet hard left to right near you, turns mostly into a tailwind at 400 yards, and pushes back right to left at 800 yards.</p>
         <ul class="wc-list">
-          <li><strong>Meters where they really are.</strong> Each meter sits at its true distance, with an arrow, its speed, and the direction it's coming from in clock terms ("6.8 mph from 8:30"), so you know which patch of ground each reading belongs to.</li>
-          <li><strong>Net wind at a glance.</strong> A bar across the top sums up the whole shot for your load, such as <span class="wc-mono">NET WIND · 6GT Lupua Brass - Berger 109's · 4.0 mph 7:30</span>: the combined wind, crosswind and tailwind together, as a speed and a clock direction. Make your call first, then check it against the bar.</li>
+          <li><strong>Meters where they really are.</strong> Each meter sits at its true distance, with an arrow, its speed, and the direction it's coming from in clock terms ("9.5 mph from 9 o'clock"), so you know which patch of ground each reading belongs to.</li>
+          <li><strong>Net wind at a glance.</strong> A bar across the top gives the crosswind for the whole shot, worked out for your load, such as <span class="wc-mono">NET WIND · 6GT Lupua Brass – Berger 109's · 2.0 mph ►</span>. The arrow shows which way it pushes the bullet. Make your call first, then check it against the bar.</li>
           <li><strong>Measured vs. assumed, clearly marked.</strong> Past your last meter, the stretch to the target is labeled "Assumed · from 800 yd", so you learn from readings, never from an estimate.</li>
           <li><strong>Yardage scale</strong> along the side, so you can match a reading to the trees, flags or berm at that distance, and a live count of how many sensors are reporting.</li>
           <li><strong>Line it up by eye.</strong> Tap Align to rotate the line of fire 1° at a time, right on the map, until the picture matches what you see downrange.</li>
@@ -126,14 +126,14 @@
       </div>
       <div class="lw-media wc-rec-media">
         <div class="frame lw-phone">
-          <video id="lw-video" src="../assets/video/wc-lesson-08a.mp4" poster="../assets/img/wc-lesson-08a.webp" width="576" height="1280" autoplay muted loop playsinline controls preload="metadata" aria-label="Screen recording of Wind Corridor in the Bullseye Ballistics app with NET WIND set to Advanced Ballistics: wind streaks over satellite imagery of a 1,024-yard range with meters at 0, 400 and 800 yards. The firing-line wind blows about 7 mph from 8:30 and the 400-yard wind about 5.5 mph from 7:30, both pushing left to right, while the 800-yard wind blows about 7 mph from 3:30, pushing right to left. The NET WIND bar reads about 4 mph from 7:30."></video>
+          <video id="lw-video" src="../assets/video/wc-lesson-08a.mp4" poster="../assets/img/wc-lesson-08a.webp" width="576" height="1280" autoplay muted loop playsinline controls preload="metadata" aria-label="Screen recording of Wind Corridor in the Bullseye Ballistics app with NET WIND set to Advanced Ballistics: moving wind over satellite imagery of a 1,024-yard range with meters at 0, 400 and 800 yards. The firing-line wind blows about 9.5 mph from 9 o'clock, pushing left to right; the 400-yard wind about 3 mph from 7:30, mostly a tailwind; and the 800-yard wind about 6 mph from 3:30, pushing right to left. The NET WIND bar reads about 2 mph left to right."></video>
         </div>
         <button class="lw-toggle" type="button" aria-controls="lw-video" hidden>
           <svg class="lw-i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
           <svg class="lw-i-play" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M4 2.5v11l9-5.5z"/></svg>
           <span>Pause video</span>
         </button>
-        <p class="wc-cap">45 seconds, real time, with NET WIND set to Advanced Ballistics. The bench wind blows about 7 mph from 8:30 and the 800-yard wind about 7 mph from 3:30, the opposite side. The bar reads 3.8–4.3 mph from 7:30, crosswind and tailwind together, and the crosswind your bullet actually feels works out to about 3 mph. Lesson 8 below explains why.</p>
+        <p class="wc-cap">45 seconds, real time, with NET WIND set to Advanced Ballistics. The bench wind blows about 9.5 mph from 9 o'clock and the 800-yard wind about 6 mph from 3:30, the opposite side. The bar holds at 1.8–2.3 mph left to right: the crosswind your bullet actually feels. Lesson 7 below explains why.</p>
       </div>
     </div>
   </section>
@@ -182,11 +182,11 @@
         <table class="wc-table">
           <thead><tr><th scope="col">Reading</th><th scope="col">What it tells you</th><th scope="col">Example</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Crosswind</th><td>The crosswind averaged over the whole flight, and which side it's from</td><td>0.8 mph from LEFT</td></tr>
-            <tr><th scope="row">Head/tail</th><td>Whether the shot has a headwind or a tailwind overall, and how much</td><td>4.5 mph TAILWIND</td></tr>
-            <tr class="wc-hl"><th scope="row">Shear</th><td>Where the wind changes most along the shot</td><td>8.3 mph less crosswind at 400 than at 0</td></tr>
-            <tr><th scope="row">Gusts (30&nbsp;s)</th><td>How much the wind is pulsing right now</td><td>peak 1.1 mph · spread ±0.1 mph</td></tr>
-            <tr><th scope="row">Coverage</th><td>How much of the shot is measured, and how much is assumed</td><td>78% measured: 0–800 yd measured, 800–1,024 yd assumed</td></tr>
+            <tr><th scope="row">Crosswind</th><td>The crosswind averaged over the whole flight, and which side it's from</td><td>2.2 mph, pushing left to right</td></tr>
+            <tr><th scope="row">Head/tail</th><td>Whether the shot has a headwind or a tailwind overall, and how much</td><td>1.6 mph tailwind</td></tr>
+            <tr class="wc-hl"><th scope="row">Shear</th><td>Where the wind changes most along the shot</td><td>Shear 7.7 mph</td></tr>
+            <tr><th scope="row">Gusts (30&nbsp;s)</th><td>How much the wind is pulsing right now</td><td>Gust 2.2 mph</td></tr>
+            <tr><th scope="row">Coverage</th><td>How much of the shot is measured, and how much is assumed</td><td>92% of the wind effect measured; 800–1,024 yd assumed</td></tr>
           </tbody>
         </table>
       </div>
@@ -234,14 +234,11 @@
         <article class="panel tall">
           <div class="label">Data quality</div>
           <h2>Learn from data you can trust</h2>
-          <p>One bad reading can teach you the wrong lesson. So every reading is checked before it reaches the screen, and you can see exactly what was held back and why.</p>
+          <p>One bad reading can teach you the wrong lesson. So every reading is checked before it reaches the screen.</p>
           <ul>
             <li><strong>Spike filter.</strong> A sudden jump of more than 3 m/s (about 6.7 mph) or 45° is held until the next readings confirm it. On by default, and you can switch it off.</li>
             <li><strong>Impossible readings rejected.</strong> A garbled radio packet claiming 265 mph never makes it into your numbers.</li>
-            <li><strong>Rejected-readings log.</strong> Lists each held or rejected reading, with the time, meter, value and reason.</li>
-            <li><strong>Link health at a glance.</strong> Receiver connection quality, dropouts, and automatic reconnects. For each meter: a LIVE badge, packets received in the last 30 seconds, the longest gap, and when it was last heard.</li>
             <li><strong>Radio timing check.</strong> Meters transmit on their own timing. If two drift close enough to interfere, you get a warning telling you which meter to power-cycle. It's a heads-up, never a roadblock.</li>
-            <li><strong>Mode history.</strong> Shows when the view switched between no data, one meter and multiple meters, and why.</li>
             <li><strong>Record a session.</strong> Log everything your meters report, so you can go back over what the wind did after you leave the range.</li>
           </ul>
         </article>
@@ -253,7 +250,7 @@
             <li><strong>Three looks:</strong> Trails, Fog or Streaks.</li>
             <li><strong>Particle density and speed:</strong> a busier or calmer picture, and faster or slower motion.</li>
             <li><strong>Gust swirl:</strong> shows the air churning as gusts come through.</li>
-            <li><strong>Show or hide</strong> the assumed-zone shading, the meter badges, and the satellite photo.</li>
+            <li><strong>Show or hide</strong> the meter badges, satellite photo, terrain relief, contour lines, ground clearance, terrain wind and tree heights.</li>
             <li><strong>Photo dimming:</strong> fade the satellite photo so the wind stands out.</li>
             <li><strong>Your units:</strong> yards or meters; mph, km/h, m/s or knots.</li>
           </ul>
@@ -272,18 +269,18 @@
         <div><dt>0 yd</dt><dd>Ultrasonic meter at the firing line</dd></div>
         <div><dt>400 yd</dt><dd>LoRa meter 1</dd></div>
         <div><dt>800 yd</dt><dd>LoRa meter 2</dd></div>
-        <div><dt>1,024 yd</dt><dd>Target, line of fire 184.9° true</dd></div>
+        <div><dt>1,024 yd</dt><dd>Target, line of fire 350° true</dd></div>
       </dl>
-      <p class="wc-note wc-tour-note">Nothing in the app's settings was changed for the recordings. Lessons 3 to 6 were recorded in the morning with the NET WIND method on Simple average, so the bar at the top shows AVG and the Advanced Ballistics number appears on the comparison card. Lessons 1 and 2 were recorded in the afternoon with the method on Advanced Ballistics, so the card shows all three crosswinds. Lesson 7 was recorded at noon with the method switched to Advanced Ballistics. Lesson 8 was recorded the next afternoon, on a newer version of the app.</p>
+      <p class="wc-note wc-tour-note">All eight lessons were recorded in one session on the evening of 26 Nov, with the same range, load (6GT, Berger 109 gr) and meters, and NET WIND on Advanced Ballistics except where a lesson switches it. The wind was strong at the bench, light and mostly behind the shooter at 400 yd, and blowing the other way at 800 yd.</p>
       <nav class="wc-lesson-nav" aria-label="Lessons">
         <a href="#lesson-1"><span>01</span>Same wind, three answers</a>
         <a href="#lesson-2"><span>02</span>Why wind near the muzzle matters most</a>
         <a href="#lesson-3"><span>03</span>Watching the wind follow the terrain</a>
         <a href="#lesson-4"><span>04</span>Line of fire and the ground under the shot</a>
-        <a href="#lesson-5"><span>05</span>Meters you can trust</a>
-        <a href="#lesson-6"><span>06</span>Set it up your way</a>
-        <a href="#lesson-7"><span>07</span>Advanced Ballistics mode</a>
-        <a href="#lesson-8"><span>08</span>When the wind changes direction along the shot</a>
+        <a href="#lesson-5"><span>05</span>Set it up your way</a>
+        <a href="#lesson-6"><span>06</span>Advanced Ballistics mode</a>
+        <a href="#lesson-7"><span>07</span>When the wind changes direction along the shot</a>
+        <a href="#lesson-8"><span>08</span>The corridor in your hold</a>
       </nav>
     </div>
   </section>
@@ -293,45 +290,46 @@
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">01</span> Lesson 1</div>
         <h2 id="wc-l1-h">Same wind, three answers</h2>
-        <p class="wc-p">The same three meters give three crosswinds on one card: about <strong>8 mph</strong> from the firing-line meter alone, about <strong>1.5 mph</strong> by simple average, and about <strong>3 mph</strong> by Advanced Ballistics. All three say "from the left". One says hold for a strong wind, one says barely hold, and the ballistic number sits in between.</p>
+        <p class="wc-p">The Corridor tab gives three crosswinds for the same three meters: about <strong>9.5 mph</strong> from the firing-line meter alone, almost <strong>nothing</strong> by simple average, and about <strong>2 mph</strong> by Advanced Ballistics. One says hold for a strong wind, one says don't hold at all, and the ballistic number sits in between.</p>
         <h3>Where the meters were</h3>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
-            <thead><tr><th scope="col">Meter</th><th scope="col">From</th><th scope="col">For the shot</th></tr></thead>
+            <thead><tr><th scope="col">Meter</th><th scope="col">Reading</th><th scope="col">For the shot</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Firing line <small>0 yd</small></th><td>9 o'clock</td><td>Full-value wind from the left</td></tr>
-              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>7 to 7:30</td><td>Mostly tailwind, a little from the left</td></tr>
-              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>3 to 3:30</td><td>Wind from the right</td></tr>
+              <tr><th scope="row">Firing line <small>0 yd</small></th><td>9.3–9.7 mph from 9 o'clock</td><td>Full-value wind, left to right</td></tr>
+              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>2.5–3.0 mph from 7:30</td><td>Mostly tailwind, a little left to right</td></tr>
+              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>5.8–7.1 mph from 3:30</td><td>Right to left</td></tr>
             </tbody>
           </table>
         </div>
         <h3>What the card showed over 45 seconds</h3>
-        <p class="wc-p">NET WIND was on Advanced Ballistics, so that line is on top in bold, with the two answers it replaces beneath it.</p>
+        <p class="wc-p">NET WIND was on Advanced Ballistics, so that line is in gold, with the two answers it replaces beneath it. All three are full-value crosswinds.</p>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
             <thead><tr><th scope="col">Line on the card</th><th scope="col">Crosswind</th><th scope="col">What it tells you</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Advanced Ballistics <small>6.5 CM</small></th><td>2.6–3.7 mph from the left</td><td>The wind your bullet feels, weighted by where it acts</td></tr>
-              <tr><th scope="row">Simple average</th><td>1.0–2.0 mph from the left</td><td>About half as much: the 800 yd wind from the right cancels the bench wind</td></tr>
-              <tr><th scope="row">Firing line only <small>0 yd</small></th><td>7.6–8.7 mph from the left</td><td>What one bench meter says: two to three times too much</td></tr>
+              <tr><th scope="row">Advanced Ballistics <small>6GT, Berger 109</small></th><td>1.9–2.5 mph, left to right</td><td>The wind your bullet feels, weighted by where it acts</td></tr>
+              <tr><th scope="row">Simple average</th><td>0.0–0.5 mph</td><td>Next to nothing: the 800 yd wind from the right cancels the bench wind</td></tr>
+              <tr><th scope="row">Firing line only <small>0 yd</small></th><td>9.5–9.8 mph, left to right</td><td>What one bench meter says: four to five times too much</td></tr>
             </tbody>
           </table>
         </div>
         <ul class="wc-list">
-          <li><strong>Shear:</strong> "crosswind changes side between 400 and 800". The wind pushes left at the bench and right downrange.</li>
-          <li><strong>Head/tail:</strong> 2.4 to 3.4 mph tailwind, weighted the same way as the crosswind.</li>
-          <li><strong>Coverage: "92% of the wind effect measured".</strong> With the method on Simple average, the same meters read "78% measured". Simple average counts yards: 224 of the 1,024 yd are unmeasured, so 22% is missing. Advanced Ballistics counts influence, and those last 224 yd sit near the target, where wind barely moves the bullet. Only 8% of the wind's effect is missing.</li>
-          <li><strong>Gusts: peak 3.5–3.7 mph.</strong> Gusts are measured on the selected crosswind. The morning Simple average recordings peaked at about 1.1–1.4 mph. Part of the jump is the stronger wind later in the day, and part may be that the ballistic number leans on the bench wind, so its swings carry through more than they do in an average. Because the wind changed between recordings, these clips can't separate the two.</li>
+          <li><strong>Net Wind/Direction: 2.4–3.0 mph from 7:30 to 8.</strong> A new row above the three answers. It's the whole wind for the shot, crosswind plus head or tail wind, as a speed and a clock direction.</li>
+          <li><strong>Head/tail:</strong> 1.2–1.8 mph tailwind, weighted the same way as the crosswind.</li>
+          <li><strong>Shear: 7.7–8.3 mph.</strong> That's how much the crosswind changes along the shot, from a strong push at the bench to an opposite push at 800 yd.</li>
+          <li><strong>Coverage: 92%.</strong> With the method on Simple average, the same meters read 78% (Lesson 2). Simple average counts yards: 224 of the 1,024 yd are unmeasured, so 22% is missing. Advanced Ballistics counts influence, and those last 224 yd sit near the target, where wind barely moves the bullet. Only 8% of the wind's effect is missing.</li>
+          <li><strong>Gusts: 2.2–2.5 mph,</strong> measured on the selected crosswind.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>The simple average lets the left wind at the bench and the right wind at 800 yd cancel each other out. A bullet doesn't work that way. The left wind sits right at the muzzle, where it pushes the bullet for its entire flight. The right wind sits near the target, where it has little time to act. <strong>So the left wind wins, and the hold is far bigger than the average suggests.</strong></p>
-          <p>A single bench meter misleads the other way. Firing line only says 7.6–8.7 mph full value, two to three times what the bullet actually feels, because the wind farther out is weaker and turns to the other side.</p>
+          <p>The simple average lets the left wind at the bench and the right wind at 800 yd cancel each other out. A bullet doesn't work that way. The left wind sits right at the muzzle, where it pushes the bullet for its entire flight. The right wind sits near the target, where it has little time to act. <strong>So the left wind wins, and there's a real hold the average misses.</strong></p>
+          <p>A single bench meter misleads the other way. Firing line only says about 9.5 mph full value, four to five times what the bullet actually feels, because the wind farther out drops off and then turns to the other side.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-fl-compare.mp4" poster="../assets/img/wc-fl-compare.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters comparison card with three crosswinds, all from the left: Advanced Ballistics 6.5 CM in bold at about 2.6 to 3.7 mph, Simple average at about 1.0 to 2.0 mph, and Firing line only (0 yd) at about 7.6 to 8.7 mph. Coverage reads 92% of the wind effect measured and gusts peak at about 3.7 mph."></video>
+          <video class="wc-vid" src="../assets/video/wc-fl-compare.mp4" poster="../assets/img/wc-fl-compare.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor card with Advanced Ballistics selected. Crosswind 1.9 to 2.5 mph left to right, head or tail about 1.5 mph tailwind, coverage 92%. Net Wind/Direction about 2.4 to 3.0 mph from 7:30 to 8. Below it, three crosswinds: Advanced Ballistics in gold at about 2 mph, Simple average at 0.0 to 0.5 mph, and Firing line only (0 yd) at about 9.5 to 9.8 mph."></video>
         </div>
         <figcaption class="wc-cap">45 seconds. Advanced Ballistics, Simple average and Firing line only, side by side, updating live.</figcaption>
       </figure>
@@ -343,26 +341,34 @@
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">02</span> Lesson 2</div>
         <h2 id="wc-l2-h">Why wind near the muzzle matters most</h2>
-        <p class="wc-p">Tap <strong class="wc-key">Why different?</strong> on the comparison card and a sheet answers the question with two charts.</p>
+        <p class="wc-p">Flip the NET WIND method at the top of the Corridor card and watch the whole card change. The meters don't change. Only the way the wind along the shot is added up does.</p>
+        <div class="wc-table-wrap">
+          <table class="wc-table wc-table--data">
+            <thead><tr><th scope="col">On the card</th><th scope="col">Advanced Ballistics</th><th scope="col">Simple average</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Crosswind</th><td>2.4–2.5 mph</td><td>0.3–0.4 mph</td></tr>
+              <tr><th scope="row">Coverage</th><td>92%</td><td>78%</td></tr>
+              <tr><th scope="row">Net Wind/Direction</th><td>2.8–3.0 mph from 8:00</td><td>1.7–2.0 mph from 6:30</td></tr>
+              <tr><th scope="row">Firing line only</th><td colspan="2">9.5–9.8 mph either way: one meter, nothing to weigh</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul class="wc-list">
-          <li><strong>All three answers, side by side.</strong> In the clip: Advanced Ballistics 2.6–3.6 mph from the left (outlined in gold, because it's the active method), Simple average 0.9–1.9 mph, and Firing line only (0 yd) 7.5–8.7 mph, all from the left.</li>
-          <li><strong>Influence by distance.</strong> A curve from 100% at the muzzle down to 0% at the target. It shows how much a given wind at each distance moves a 6.5 Creedmoor 140-grain bullet at 2,700 fps.</li>
-          <li><strong>Your meters on the curve.</strong> Green markers sit at 0, 400 and 800 yd. The 0 yd meter counts fully, the 400 yd meter roughly 85%, and the 800 yd meter only about 45%.</li>
-          <li><strong>Crosswind along the shot.</strong> The white line is the wind the meters measure along the line of fire: about 9 mph from the left at the muzzle, easing toward 400 yd, crossing to the right between 400 and 800 yd, and about 5 mph from the right at 800 yd. Past the last meter it's assumed to stay the same. The three flat lines are the three answers: blue dashes for Firing line only, orange for Advanced Ballistics, white dots for Simple average.</li>
-          <li><strong>The reason in plain words:</strong> wind near the muzzle pushes the bullet for its whole remaining flight; wind near the target has almost no time to move it. And, new on the sheet: <em>"Firing line only assumes the wind at the bench blows unchanged all the way to the target. When the wind changes along the shot, that assumption fails."</em></li>
+          <li><strong>The crosswind nearly vanishes on Simple average.</strong> The average counts every yard the same, so the 800 yd wind pushing right to left cancels most of the bench wind pushing left to right.</li>
+          <li><strong>The Net Wind direction swings to 6:30,</strong> almost straight behind you, because with the crosswind canceled, mostly tailwind is left.</li>
+          <li><strong>Coverage drops from 92% to 78%.</strong> The unmeasured stretch past 800 yd is 22% of the yards, but only 8% of the wind's effect on the bullet.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>The curve isn't a straight line. It stays high through the first half of the shot and drops steeply near the target. The bullet is still fast early on, but every early push has the rest of the flight to grow. Late wind, however strong, has run out of time.</p>
-          <p>The crosswind chart shows why both shortcuts miss. Firing line only draws a flat line at the bench wind, as if nothing changes downrange. Simple average draws a flat line through the middle, as if the 800 yd wind mattered as much as the bench wind. The orange Advanced Ballistics line sits between them, closer to the bench wind, because that's where the wind moves the bullet most.</p>
+          <p>Wind near the muzzle pushes the bullet for its whole remaining flight. Wind near the target has almost no time to move it. Advanced Ballistics weighs each stretch of the shot by how much it moves your bullet, and Simple average doesn't. <strong>That's why the two disagree whenever the wind changes along the shot.</strong> Lesson 7 shows the weights the app uses.</p>
           <p><strong>For meter placement, the first few hundred yards deserve the most attention.</strong> A meter near the target tells you the least about the hold.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-08c.mp4" poster="../assets/img/wc-lesson-08c.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor card switching NET WIND from Advanced Ballistics to Simple average and back. The crosswind drops from about 2.8 mph to about 0.7 mph and coverage from 92% to 78%, while Firing line only stays near 7 mph. In between, See the Wind shows the bar reading NET WIND AVG."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-08c.mp4" poster="../assets/img/wc-lesson-08c.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor card switching NET WIND from Advanced Ballistics to Simple average and back. The crosswind drops from about 2.5 mph to about 0.3 mph, coverage from 92% to 78%, and Net Wind/Direction swings from about 2.9 mph from 8:00 to about 1.8 mph from 6:30, while Firing line only stays near 9.6 mph."></video>
         </div>
-        <figcaption class="wc-cap">27 seconds. Switching between Advanced Ballistics and Simple average. The crosswind drops from 2.8 to 0.7 mph because the average counts the 800 yd wind as much as the wind at the bench.</figcaption>
+        <figcaption class="wc-cap">30 seconds. Advanced Ballistics, then Simple average, then back. The crosswind drops from 2.5 to 0.3 mph because the average counts the 800 yd wind as much as the wind at the bench.</figcaption>
       </figure>
     </div>
   </section>
@@ -372,13 +378,13 @@
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">03</span> Lesson 3</div>
         <h2 id="wc-l3-h">Watching the wind follow the terrain</h2>
-        <p class="wc-p">See the Wind draws the moving air over a satellite photo of the actual range, firing line at the bottom and target at the top. It's the fastest way to understand a wind call before reading a single number. In this clip the shear zone is circled, with a question for you: what would you see there in real life?</p>
+        <p class="wc-p">See the Wind draws the moving air over a satellite photo of the actual range, firing line at the bottom and target at the top. It's the fastest way to understand a wind call before reading a single number. In this clip the stretch where the wind changes sides is circled, with a question for you: what would you see there in real life?</p>
         <ul class="wc-list">
-          <li><strong>The wind turns along the shot.</strong> At the bench the streaks push left to right (6.5–6.9 mph from 8:30–9 o'clock). By 400 yd they swing toward a quartering tailwind (from 7:30). By 800 yd they run right to left (from 3–3:30). You can see the flip without reading any numbers.</li>
-          <li><strong>Contour lines.</strong> White lines mark every 100 ft of elevation, so the hills and the low ground between them show on the photo.</li>
-          <li><strong>"Modeled from terrain."</strong> Between the meters, the wind is shaped by the ground and trees, using USGS 3DEP elevation data, rather than blended in a straight line. Air bends around high ground and channels through low ground, and the streaks show it.</li>
+          <li><strong>The wind turns along the shot.</strong> At the bench it pushes left to right (9.3–9.7 mph from 9 o'clock). By 400 yd it has eased to a light, mostly tailwind (2.5–3.0 mph from 7 to 7:30). By 800 yd it runs right to left (5.8–7.1 mph from 3:30 to 4 o'clock). You can see the flip without reading any numbers.</li>
+          <li><strong>Contour lines.</strong> White lines trace the elevation, so the hills and the low ground between them show on the photo.</li>
+          <li><strong>Terrain-blended wind.</strong> Between the meters, the wind is shaped by the ground and trees, using USGS 3DEP elevation data, rather than blended in a straight line. Air bends around high ground and channels through low ground. The footer says when you're looking at modeled wind.</li>
           <li><strong>"Assumed · from 800 yd."</strong> Past the last meter the app has no measurement, so it carries the 800 yd reading out to the target and labels it.</li>
-          <li><strong>The NET WIND bar</strong> at the top, here <span class="wc-mono">NET WIND · AVG: 1.0 mph ← LEFT · 1.6 tail · MULTI-POINT</span>, shows the selected method and whether it comes from one meter or several.</li>
+          <li><strong>The NET WIND bar</strong> at the top, here <span class="wc-mono">NET WIND · 1.9 mph ►</span>, gives the crosswind for the whole shot and which way it pushes.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
@@ -388,9 +394,9 @@
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-03.mp4" poster="../assets/img/wc-lesson-03.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: wind streaks over satellite imagery of a 1,024-yard range. The firing-line wind blows from 9 o'clock, the 400-yard wind from 7:30 and the 800-yard wind from 3:30. The ground between 400 and 800 yards is circled, with the caption: what do you see in real life downrange at this point? Grass, leaves and mirage leaning the opposite way from the bench."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-03.mp4" poster="../assets/img/wc-lesson-03.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: moving wind over satellite imagery of a 1,024-yard range. The firing-line wind blows about 9.5 mph from 9 o'clock, the 400-yard wind about 3 mph from 7:30 and the 800-yard wind about 6 mph from 3:30. The ground between 500 and 700 yards is circled, with the caption: the wind changes sides between 400 and 800 yards, what would you see out there? Then: grass, leaves and mirage leaning the opposite way from the bench."></video>
         </div>
-        <figcaption class="wc-cap">53 seconds. Wind over the satellite photo, shaped by the terrain, with the shear zone circled.</figcaption>
+        <figcaption class="wc-cap">50 seconds. Wind over the satellite photo, shaped by the terrain, with the stretch where it changes sides circled.</figcaption>
       </figure>
     </div>
   </section>
@@ -400,25 +406,25 @@
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">04</span> Lesson 4</div>
         <h2 id="wc-l4-h">Line of fire and the ground under the shot</h2>
-        <p class="wc-p">Before wind can be split into crosswind and head/tail, the app needs to know exactly which way you're shooting, and how far.</p>
+        <p class="wc-p">Before wind can be split into crosswind and head/tail, the app needs to know exactly which way you're shooting, and how far. It's all further down the Corridor tab.</p>
         <ul class="wc-list">
-          <li><strong>Sensors.</strong> The LoRa receiver, relaying the two downrange meters, and the ultrasonic meter at the firing line, both connected, with receiver drops and Bluetooth timing shown.</li>
-          <li><strong>Target.</strong> 1,024 yd, set by typing or with ±50 yd buttons.</li>
-          <li><strong>Capture.</strong> Point the phone at the target and tap <strong class="wc-key">Capture</strong>. The app records the GPS position (±12 m here) and the compass direction: 194.9° magnetic = 184.9° true. That 10° difference is the local magnetic declination, which the app handles for you.</li>
-          <li><strong>Nudge.</strong> ±1° buttons, or type the direction, to line it up exactly.</li>
-          <li><strong>Ground card (LiDAR, 1 m).</strong> A small side view of the ground along the shot, with the line of sight drawn as a dashed line. Here the target is 207 ft lower than the shooter, 3.9° down, and the ground dips into a hollow, so the shot passes as high as 51 ft above the ground at 476 yd. Tap <strong class="wc-key">Path Profile</strong> for the full view.</li>
+          <li><strong>Range &amp; Ground.</strong> The header reads <span class="wc-mono">LOF 350° True · 1024 yd</span>. Target distance is 1,024 yd, set by typing or with ±50 yd buttons.</li>
+          <li><strong>Capture.</strong> Point the phone at the target and tap <strong class="wc-key">Capture</strong>. The app records your GPS position and the direction of fire, converted to true north for you: here <span class="wc-mono">349° True · GPS locked</span>.</li>
+          <li><strong>Terrain downloads.</strong> With USGS satellite and terrain downloads on, the app loads the photo and the ground shape for your exact spot, here "Loaded LiDAR 1 m".</li>
+          <li><strong>Max clearance: 76 ft.</strong> How high the shot flies above the ground at its highest point. Tap it for the full Path Profile.</li>
+          <li><strong>Meters on range.</strong> Each meter with its live speed, distance and an on switch: the ultrasonic at 0 yd (9.7–9.8 mph, calibrated), meter 1 at 400 yd (2.6–2.8 mph) and meter 2 at 800 yd (5.9–6.1 mph), both set to face along the line of fire. The header lists the recommended meter spots: 161, 322 and 506 yd.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>On a hill-to-hill shot, the bullet flies far above the meters. At 476 yd it's about 51 ft above the ground, not far past meter 1 at 400 yd. A meter on a 10 ft mast reads the wind near the ground, about 40 ft below the bullet, and wind usually blows harder higher up. <strong>So on ranges like this, the measured wind can understate what the bullet actually meets.</strong></p>
-          <p>The profile makes that visible, and it's the first step toward learning, from logged shots, how much stronger the wind runs at shot height. <a href="#clearance">LiDAR ground clearance</a>, further down this page, maps that height along the whole shot and shows where a meter will read the air your bullet actually passes through.</p>
+          <p>On this range the shot runs 76 ft above the ground at its highest, at 268 yd. A meter on a 10 ft mast there reads the wind about 66 ft below the bullet, and wind usually blows harder higher up. <strong>So on ranges like this, the measured wind can understate what the bullet actually meets.</strong></p>
+          <p><a href="#clearance">LiDAR ground clearance</a>, further down this page, maps that height along the whole shot and shows where a meter will read the air your bullet actually passes through.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-04.mp4" poster="../assets/img/wc-lesson-04.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the sensors panel, target distance and line of fire at 184.9 degrees true, then the Ground card from 1 m LiDAR showing the target 207 feet lower, 3.9 degrees down, and a maximum clearance of 51 feet above the ground at 476 yards."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-04.mp4" poster="../assets/img/wc-lesson-04.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor tab scrolls from the summary card to Range and Ground, with line of fire 350 degrees true at 1,024 yards, site GPS 349 degrees true and locked, LiDAR 1 m loaded and a maximum clearance of 76 feet, then Meters on range with the ultrasonic meter at 0 yards and meters 1 and 2 at 400 and 800 yards, and recommended spots at 161, 322 and 506 yards."></video>
         </div>
-        <figcaption class="wc-cap">33 seconds. Sensors, target, line of fire, and the ground under the shot.</figcaption>
+        <figcaption class="wc-cap">34 seconds. Line of fire, terrain, ground clearance and the meters on the range.</figcaption>
       </figure>
     </div>
   </section>
@@ -427,37 +433,53 @@
     <div class="wrap">
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">05</span> Lesson 5</div>
-        <h2 id="wc-l5-h">Meters you can trust</h2>
-        <p class="wc-p">A wind call is only as good as its readings. This part of the app shows each meter's health and every reading it refused to use.</p>
-        <ul class="wc-list">
-          <li><strong>Meter cards.</strong> One per meter: speed, direction, distance (400 and 800 yd here), an optional heading in true or magnetic north, and a "Use in corridor" switch. A LIVE badge and a link line show the radio is healthy: <span class="wc-mono">Link 30s: 30/30 · max gap 1.2s · last 0.0s ago</span> means every one of the last 30 once-a-second readings arrived.</li>
-          <li><strong>Mode transitions.</strong> A timestamped log of how the picture changed as meters came online, such as <span class="wc-mono">NO_DATA → SINGLE_METER</span> and then <span class="wc-mono">SINGLE_METER → MULTI_POINT</span>.</li>
-        </ul>
-        <h3>Recent rejected readings</h3>
-        <p class="wc-p">Shortly after power-up at 09:53, meter 2 sent a burst of bad values. The app caught them all.</p>
+        <h2 id="wc-l5-h">Set it up your way</h2>
+        <p class="wc-p">The gear at the top right of Wind Corridor opens <strong>Visualization &amp; Recording</strong>: how the wind is drawn, what's laid over the map, and how sessions are shared.</p>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
-            <thead><tr><th scope="col">Reading</th><th scope="col">Why it was rejected</th></tr></thead>
+            <thead><tr><th scope="col">Setting</th><th scope="col">In the clip</th><th scope="col">What it does</th></tr></thead>
             <tbody>
-              <tr><th scope="row">452.6 mph</th><td>Out of range (more than 45 m/s, about 100 mph)</td></tr>
-              <tr><th scope="row">331.2 mph</th><td>Out of range</td></tr>
-              <tr><th scope="row">175.3 mph</th><td>Out of range</td></tr>
-              <tr><th scope="row">52.4, 52.3 mph</th><td>Jump filter: a 22.8 m/s jump, held until confirmed</td></tr>
-              <tr><th scope="row">44.5, 32.6, 24.4 mph</th><td>Jump filter: sudden speed jumps, held</td></tr>
-              <tr><th scope="row">4.7 mph <small>firing line</small></th><td>Jump filter: a 178° direction flip, held</td></tr>
+              <tr><th scope="row">Particle look</th><td>Fog</td><td>Trails, Fog or Streaks: three ways to draw moving air (below)</td></tr>
+              <tr><th scope="row">Particle density</th><td>160%</td><td>More particles make gentle wind easier to see</td></tr>
+              <tr><th scope="row">Particle speed</th><td>125%</td><td>How fast the particles move on screen</td></tr>
+              <tr><th scope="row">Gust swirl</th><td>On</td><td>Shows the air churning as gusts come through</td></tr>
+              <tr><th scope="row">Sensor markers</th><td>On</td><td>The live meter badges along the shot</td></tr>
+              <tr><th scope="row">Satellite imagery</th><td>On, 30% dimming</td><td>The real range under the wind</td></tr>
+              <tr><th scope="row">Terrain relief, contour lines</th><td>On</td><td>The shape of the ground</td></tr>
+              <tr><th scope="row">Clearance</th><td>On</td><td>How high the shot flies above the ground, from LiDAR</td></tr>
+              <tr><th scope="row">Terrain wind</th><td>On</td><td>Wind between meters shaped by the ground and trees (modeled)</td></tr>
+              <tr><th scope="row">Tree heights</th><td>Off</td><td>Canopy heights from LANDFIRE, in 30 m cells</td></tr>
+              <tr><th scope="row">GPS in shared file</th><td>Off</td><td>Your site's position is left out of shared recordings unless you turn this on</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="wc-callout">
-          <div class="label">The lesson</div>
-          <p>Radios garble data, and a single bad reading can wreck a wind call. Impossible readings are thrown out. Believable but sudden ones, more than 3 m/s or 45°, are held until the next readings confirm them. <strong>Real wind changes get through a second or two later; glitches never do.</strong> And the log shows exactly what was held back and why.</p>
-        </div>
+        <h3>Three looks for the same wind</h3>
+        <ul class="wc-looks">
+          <li>
+            <figure>
+              <div class="frame lw-phone"><video class="wc-vid" src="../assets/video/wc-look-fog.mp4" poster="../assets/img/wc-look-fog.webp" width="576" height="1280" muted loop playsinline preload="none" aria-label="See the Wind with the Fog look: soft moving haze over the range."></video></div>
+              <figcaption><strong>Fog</strong> Soft haze. Easy on the eye for a steady read.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="frame lw-phone"><video class="wc-vid" src="../assets/video/wc-look-streaks.mp4" poster="../assets/img/wc-look-streaks.webp" width="576" height="1280" muted loop playsinline preload="none" aria-label="See the Wind with the Streaks look: short white dashes moving with the wind."></video></div>
+              <figcaption><strong>Streaks</strong> Short dashes. Shows speed changes best.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="frame lw-phone"><video class="wc-vid" src="../assets/video/wc-look-trails.mp4" poster="../assets/img/wc-look-trails.webp" width="576" height="1280" muted loop playsinline preload="none" aria-label="See the Wind with the Trails look: longer fading lines following the wind."></video></div>
+              <figcaption><strong>Trails</strong> Long fading lines. Shows direction best.</figcaption>
+            </figure>
+          </li>
+        </ul>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-05.mp4" poster="../assets/img/wc-lesson-05.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: meter cards with LIVE badges and link health, the mode transitions log, and the recent rejected readings list, including a 452.6 mph reading rejected as out of range."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-07.mp4" poster="../assets/img/wc-lesson-07.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Visualization and Recording sheet, scrolling through particle look, density and speed, gust swirl, map and terrain overlays, photo dimming, and recording and share options."></video>
         </div>
-        <figcaption class="wc-cap">28 seconds. Meter cards, link health, mode changes and rejected readings.</figcaption>
+        <figcaption class="wc-cap">60 seconds. Visualization &amp; Recording, top to bottom.</figcaption>
       </figure>
     </div>
   </section>
@@ -466,109 +488,55 @@
     <div class="wrap">
       <div class="wc-lesson-copy">
         <div class="label"><span class="lw-num">06</span> Lesson 6</div>
-        <h2 id="wc-l6-h">Set it up your way</h2>
-        <h3>Units &amp; Filter</h3>
-        <p class="wc-p">On the Wind Meters tab, in the Sensors panel.</p>
-        <ul class="wc-list">
-          <li><strong>NET WIND method:</strong> Advanced Ballistics or Simple average. The single most useful switch for learning. Flip it and watch the bar and the comparison card change.</li>
-          <li><strong>Distance:</strong> yards or meters. <strong>Wind speed:</strong> mph, km/h, m/s or knots.</li>
-          <li><strong>Jump filter:</strong> holds sudden changes over 3 m/s or 45° until they're confirmed (Lesson 5).</li>
-        </ul>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-06.mp4" poster="../assets/img/wc-lesson-06.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Units and Filter sheet with the NET WIND method, distance unit, wind speed unit and jump filter."></video>
-        </div>
-        <figcaption class="wc-cap">14 seconds. Units, NET WIND method and the jump filter.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-lesson wc-lesson--cont" aria-labelledby="wc-l6b-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <h3 id="wc-l6b-h">Visualization Settings</h3>
-        <p class="wc-p">The slider button at the bottom right of See the Wind. The same sheet also holds the NET WIND method, jump filter and units, and an Open Wind Meters button.</p>
-        <div class="wc-table-wrap">
-          <table class="wc-table wc-table--data">
-            <thead><tr><th scope="col">Setting</th><th scope="col">In the clip</th><th scope="col">What it teaches</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Look</th><td>Trails</td><td>Trails, Fog or Streaks: three ways to draw moving air. Trails shows direction best.</td></tr>
-              <tr><th scope="row">Particle density</th><td>160%</td><td>More streaks make gentle wind easier to see</td></tr>
-              <tr><th scope="row">Particle speed</th><td>100%</td><td>How fast the streaks move on screen</td></tr>
-              <tr><th scope="row">Gust swirl</th><td>On</td><td>Shows the air churning as gusts come through</td></tr>
-              <tr><th scope="row">Assumed bands</th><td>On</td><td>Shades the stretches that are estimated, not measured</td></tr>
-              <tr><th scope="row">Sensor markers</th><td>On</td><td>The meter badges along the shot</td></tr>
-              <tr><th scope="row">Satellite imagery</th><td>On, 30% dimming</td><td>The real range under the wind</td></tr>
-              <tr><th scope="row">Terrain</th><td>On</td><td>Shading and contour lines every 100 ft</td></tr>
-              <tr><th scope="row">Tree heights</th><td>Off</td><td>Tree heights from LANDFIRE, in 30 m cells</td></tr>
-              <tr><th scope="row">Terrain wind</th><td>On</td><td>Wind between meters shaped by the ground and trees (modeled)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-07.mp4" poster="../assets/img/wc-lesson-07.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Visualization Settings sheet, scrolling through look, particle density and speed, gust swirl, assumed bands, sensor markers, satellite imagery, terrain, tree heights and terrain wind."></video>
-        </div>
-        <figcaption class="wc-cap">27 seconds. How the wind picture is drawn, including terrain options.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-x wc-lesson wc-lesson--rev" id="lesson-7" aria-labelledby="wc-l7-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <div class="label"><span class="lw-num">07</span> Lesson 7</div>
-        <h2 id="wc-l7-h">Advanced Ballistics mode</h2>
-        <p class="wc-p">Recorded at noon on 25 Nov with the NET WIND method switched to Advanced Ballistics. The wind had picked up a little since the morning.</p>
+        <h2 id="wc-l6-h">Advanced Ballistics mode</h2>
+        <p class="wc-p">With the NET WIND method on Advanced Ballistics, the bar at the top of See the Wind gives one number for the whole shot, worked out for your load.</p>
         <h3>What the meters were reading</h3>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
             <thead><tr><th scope="col">Meter</th><th scope="col">Speed</th><th scope="col">From</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Firing line <small>0 yd</small></th><td>7.4–8.3 mph</td><td>9 o'clock (full value from the left)</td></tr>
-              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>5.3–6.0 mph</td><td>7 to 7:30 (quartering tailwind from the left)</td></tr>
-              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>3.3–4.9 mph</td><td>3 to 3:30 (from the right)</td></tr>
+              <tr><th scope="row">Firing line <small>0 yd</small></th><td>9.3–9.7 mph</td><td>9 o'clock (full value from the left)</td></tr>
+              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>2.5–3.0 mph</td><td>7 to 7:30 (mostly tailwind)</td></tr>
+              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>5.8–7.1 mph</td><td>3:30 to 4 (from the right)</td></tr>
             </tbody>
           </table>
         </div>
-        <h3>The bar now says what a bullet feels</h3>
-        <p class="wc-p">For example <span class="wc-mono">NET WIND · 6.5 CM: 2.9 mph ← LEFT · 2.4 tail · MULTI-POINT</span>. Over 50 seconds it read 2.4 to 3.2 mph from the left. That is the single, steady crosswind that would push a 6.5 Creedmoor 140-grain bullet at 2,700 fps exactly as far as the real, changing wind did. In this clip the bar is circled, with a question for you: the bench meter says about 8 mph from the left, so why is NET WIND only about 3?</p>
+        <h3>The bar says what a bullet feels</h3>
+        <p class="wc-p">For example <span class="wc-mono">NET WIND · 6GT Lupua Brass – Berger 109's · 2.0 mph ►</span>. Over 50 seconds it read 1.8 to 2.3 mph, left to right. That is the single, steady crosswind that would push this 109-grain bullet exactly as far as the real, changing wind does. In this clip the bar is circled, with a question for you: the bench meter says about 9.5 mph from the left, so why is NET WIND only about 2?</p>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>With 8 mph from the left at the bench and 4 mph from the right at 800 yd, three tools give three different answers:</p>
+          <p>With 9.5 mph from the left at the bench and 6 mph from the right at 800 yd, three tools give three different answers:</p>
           <ul class="wc-list wc-answers">
-            <li><strong>Bench meter alone:</strong> about 8 mph.</li>
-            <li><strong>Simple average:</strong> about 1 mph.</li>
-            <li><strong>Advanced Ballistics:</strong> about 3 mph.</li>
+            <li><strong>Bench meter alone:</strong> about 9.5 mph.</li>
+            <li><strong>Simple average:</strong> almost nothing.</li>
+            <li><strong>Advanced Ballistics:</strong> about 2 mph.</li>
           </ul>
-          <p><strong>Only the last one reflects how the bullet actually spends its time in that wind.</strong> The comparison card shows all three side by side (Lesson 1), and the "Why different?" sheet charts why (Lesson 2).</p>
+          <p><strong>Only the last one reflects how the bullet actually spends its time in that wind.</strong> The Corridor card shows all three side by side (Lesson 1), and the "Why different?" sheet explains why (Lesson 7).</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-07a.mp4" poster="../assets/img/wc-lesson-07a.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind with the NET WIND bar on 6.5 CM, about 2.4 to 3.2 mph from the left. The bar is circled with a caption explaining the number, then asks why NET WIND is only about 3 mph when the bench meter says about 8 mph from the left, and shows the answer after a pause."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-07a.mp4" poster="../assets/img/wc-lesson-07a.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind with the NET WIND bar at about 2 mph left to right. The bar is circled with a caption explaining the number, then asks why NET WIND is only about 2 mph when the bench meter says 9.5 mph from 9 o'clock, and answers: at 800 yards the wind pushes back the other way, and wind near the muzzle counts most."></video>
         </div>
-        <figcaption class="wc-cap">50 seconds. See the Wind in Advanced Ballistics mode, with the NET WIND bar circled.</figcaption>
+        <figcaption class="wc-cap">50 seconds. See the Wind on Advanced Ballistics, with the NET WIND bar circled.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="wc-x wc-lesson" id="lesson-8" aria-labelledby="wc-l8-h">
+  <section class="wc-x wc-lesson" id="lesson-7" aria-labelledby="wc-l7-h">
     <div class="wrap">
       <div class="wc-lesson-copy">
-        <div class="label"><span class="lw-num">08</span> Lesson 8</div>
-        <h2 id="wc-l8-h">When the wind changes direction along the shot</h2>
-        <p class="wc-p">Recorded on the afternoon of 26 Nov with all three meters live and NET WIND on Advanced Ballistics. The wind at the bench and at 400 yd pushes the bullet left to right. By 800 yd it has turned around and pushes it back, right to left.</p>
+        <div class="label"><span class="lw-num">07</span> Lesson 7</div>
+        <h2 id="wc-l7-h">When the wind changes direction along the shot</h2>
+        <p class="wc-p">The wind at the bench pushes the bullet hard, left to right. By 400 yd it has eased off and swung mostly behind the shooter. By 800 yd it has turned around and pushes the bullet back, right to left.</p>
         <h3>What the meters were reading</h3>
         <div class="wc-table-wrap">
           <table class="wc-table wc-table--data">
             <thead><tr><th scope="col">Meter</th><th scope="col">Speed</th><th scope="col">From</th><th scope="col">Pushes the bullet</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Firing line <small>0 yd</small></th><td>6.6–7.5 mph</td><td>8:30</td><td>Left to right</td></tr>
-              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>5.2–6.0 mph</td><td>7:30 to 8</td><td>Left to right, with some tailwind</td></tr>
-              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>6.6–7.5 mph</td><td>3:30</td><td>Right to left</td></tr>
+              <tr><th scope="row">Firing line <small>0 yd</small></th><td>9.3–9.7 mph</td><td>9 o'clock</td><td>Left to right</td></tr>
+              <tr><th scope="row">Meter 1 <small>400 yd</small></th><td>2.5–3.0 mph</td><td>7:30</td><td>Mostly tailwind, a little left to right</td></tr>
+              <tr><th scope="row">Meter 2 <small>800 yd</small></th><td>5.8–7.1 mph</td><td>3:30 to 4</td><td>Right to left</td></tr>
             </tbody>
           </table>
         </div>
@@ -577,24 +545,94 @@
           <table class="wc-table wc-table--data">
             <thead><tr><th scope="col">Line on the card</th><th scope="col">Crosswind</th><th scope="col">What it tells you</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Firing line only <small>0 yd</small></th><td>7.4 mph</td><td>Assumes the bench wind blows unchanged all the way to the target</td></tr>
-              <tr><th scope="row">Simple average</th><td>0.7 mph</td><td>The 800 yd wind almost cancels the bench wind, so it says barely hold</td></tr>
-              <tr><th scope="row">Advanced Ballistics</th><td>3.0 mph</td><td>The wind near the muzzle counts most, so a real left-to-right push is left</td></tr>
+              <tr><th scope="row">Firing line only <small>0 yd</small></th><td>9.5 mph</td><td>Assumes the bench wind blows unchanged all the way to the target</td></tr>
+              <tr><th scope="row">Simple average</th><td>0.3 mph</td><td>The 800 yd wind cancels the bench wind, so it says don't hold</td></tr>
+              <tr><th scope="row">Advanced Ballistics</th><td>2.3 mph</td><td>The wind near the muzzle counts most, so a real left-to-right push is left</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="wc-p">The NET WIND bar on See the Wind read 3.8–4.3 mph from 7:30. That's the whole wind for the shot, crosswind and tailwind together. The crosswind alone is the 3.0 mph on the Corridor card.</p>
+        <p class="wc-p">The NET WIND bar on See the Wind gives the same crosswind, 1.8–2.3 mph. The Corridor card's Net Wind/Direction row, 2.8 mph from 8:00, adds the tailwind in.</p>
         <div class="wc-callout">
           <div class="label">The lesson</div>
-          <p>When the wind changes sides along the shot, a simple average can nearly cancel itself out and tell you to hold almost nothing. The bullet doesn't experience it that way. The bench wind pushes it for its whole flight, and the opposite wind at 800 yd only acts on the last part of the shot, when there's little time left to move it.</p>
-          <p><strong>Hold for about 3 mph here, not the 0.7 mph average or the 7.4 mph bench reading.</strong> On the range, look for this pattern in the grass, leaves and mirage: flags or trees leaning one way near you and the other way downrange.</p>
+          <p>When the wind changes sides along the shot, a simple average can cancel itself out and tell you to hold nothing. The bullet doesn't experience it that way. The bench wind pushes it for its whole flight, and the opposite wind at 800 yd only acts on the last part of the shot, when there's little time left to move it.</p>
+          <p><strong>Hold for about 2 mph here, not the 0.3 mph average or the 9.5 mph bench reading.</strong> On the range, look for this pattern in the grass, leaves and mirage: flags or trees leaning one way near you and the other way downrange.</p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-08a.mp4" poster="../assets/img/wc-lesson-08a.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind over a satellite photo of the range. The firing-line meter reads about 7 mph from 8:30 and meter 1 at 400 yards about 5.5 mph from 7:30, both pushing left to right, while meter 2 at 800 yards reads about 7 mph from 3:30, pushing right to left. The streaks swing from one side to the other between 400 and 800 yards, and the NET WIND bar reads about 4 mph from 7:30."></video>
+          <video class="wc-vid" src="../assets/video/wc-lesson-08a.mp4" poster="../assets/img/wc-lesson-08a.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind over a satellite photo of the range. The firing-line meter reads about 9.5 mph from 9 o'clock, pushing left to right; meter 1 at 400 yards about 3 mph from 7:30, mostly a tailwind; and meter 2 at 800 yards about 6 mph from 3:30, pushing right to left. The NET WIND bar reads about 2 mph left to right."></video>
         </div>
-        <figcaption class="wc-cap">45 seconds. The wind pushes left to right at the bench and 400 yd, then right to left at 800 yd.</figcaption>
+        <figcaption class="wc-cap">45 seconds. The wind pushes left to right at the bench, eases into a tailwind at 400 yd, then pushes right to left at 800 yd.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-lesson wc-lesson--cont wc-lesson--rev" aria-labelledby="wc-l7b-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <h3 id="wc-l7b-h">"Why different?" explains it, live</h3>
+        <p class="wc-p">Tap <strong class="wc-key">Why different?</strong> on the Corridor card. The sheet, "Why corridor estimates differ", spells out every number with the wind that's blowing right now.</p>
+        <ul class="wc-list">
+          <li><strong>What each number means.</strong> Advanced Ballistics is "the single steady crosswind that would push your bullet (this load) the same as the wind along the whole shot". Simple average counts every yard the same. Firing line only is what one meter at your position would tell you.</li>
+          <li><strong>Where the wind is.</strong> Firing line 9.5 mph left to right (0–200 yd), meter 1 1.5 mph left to right (200–600 yd), meter 2 5.6 mph right to left (600–1,024 yd, held to the target).</li>
+          <li><strong>Why they differ right now.</strong> In the app's words: Simple average gives meter 2's stretch 41% of the weight, "so it cancels most of the rest". Advanced Ballistics gives it only 24%, "because wind that far out has less time to move the bullet".</li>
+          <li><strong>Influence by distance</strong> for your load: highest at the muzzle, zero at the target. <strong>Crosswind along the bullet path:</strong> each meter's crosswind, crossing the zero line where the wind changes sides.</li>
+          <li><strong>Which to use.</strong> Advanced Ballistics is the best single number for your load, and it's the one the solver uses when the corridor drives the hold (Lesson 8).</li>
+        </ul>
+        <h3>How much each stretch counts</h3>
+        <div class="wc-table-wrap">
+          <table class="wc-table wc-table--data">
+            <thead><tr><th scope="col">Stretch</th><th scope="col">Simple average</th><th scope="col">Advanced Ballistics</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Firing line <small>0–200 yd</small></th><td>20%</td><td>28%</td></tr>
+              <tr><th scope="row">Meter 1 <small>200–600 yd</small></th><td>39%</td><td>48%</td></tr>
+              <tr><th scope="row">Meter 2 <small>600–1,024 yd</small></th><td>41%</td><td>24%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wc-p">No meter covers 800–1,024 yd. That stretch counts 22% in Simple average, but only 8% in Advanced Ballistics.</p>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-lesson-08b.mp4" poster="../assets/img/wc-lesson-08b.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor card, then the Why corridor estimates differ sheet scrolled to the bottom: the three answers, what each number means, where the wind is, how much each stretch counts for Simple average and Advanced Ballistics, why they differ right now, the influence-by-distance curve, the crosswind along the bullet path crossing zero, and which to use."></video>
+        </div>
+        <figcaption class="wc-cap">60 seconds. The Corridor card, then "Why different?" from top to bottom.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wc-x wc-lesson" id="lesson-8" aria-labelledby="wc-l8-h">
+    <div class="wrap">
+      <div class="wc-lesson-copy">
+        <div class="label"><span class="lw-num">08</span> Lesson 8</div>
+        <h2 id="wc-l8-h">The corridor in your hold</h2>
+        <p class="wc-p">With live sensors on, the solver takes its wind straight from the corridor. Switch the target card to <strong class="wc-key">WIND</strong> and it shows the last two minutes of wind, tagged <span class="wc-mono">● Corridor</span>: the wind comes from all three meters along the flight path, not one meter at the bench.</p>
+        <div class="wc-table-wrap">
+          <table class="wc-table wc-table--data">
+            <thead><tr><th scope="col">Wind · last 2 min</th><th scope="col">Speed</th><th scope="col">Hold</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">High</th><td>3.2 mph</td><td>0.75 mil left</td></tr>
+              <tr><th scope="row">Current wind</th><td>2.5–3.1 mph from 7:30 to 8</td><td>0.66–0.77 mil left</td></tr>
+              <tr><th scope="row">Average</th><td>2.7–2.8 mph from 8:00</td><td>0.68–0.69 mil left</td></tr>
+              <tr><th scope="row">Low</th><td>2.2–2.3 mph</td><td>0.56–0.65 mil left</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="wc-list">
+          <li><strong>The wind clock.</strong> An arrow at about 8 o'clock, with a red arc showing how far the gusts swing.</li>
+          <li><strong>The solution on top:</strong> elevation 7.9 mil up and a wind hold of 0.6–0.7 mil left at 1,024 yd.</li>
+          <li><strong>In the solver, "Wind: Corridor · 3 of 3"</strong> shows it's live from all three meters. Switch to Manual any time to set the wind by hand.</li>
+        </ul>
+        <div class="wc-callout">
+          <div class="label">The lesson</div>
+          <p>A bench meter alone would have put about 9.5 mph from the left into the solver. The corridor puts in the wind the bullet actually meets. <strong>That's the difference between holding about 0.7 mil and holding several times that, on the same shot.</strong></p>
+        </div>
+      </div>
+      <figure class="lw-media wc-lesson-media">
+        <div class="frame lw-phone">
+          <video class="wc-vid" src="../assets/video/wc-windview-corridor.mp4" poster="../assets/img/wc-windview-corridor.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the solver using live sensors, with elevation 7.9 mil up and wind hold about 0.7 mil left. The target card in WIND mode shows Wind, last 2 minutes, tagged Corridor, with a wind clock at about 8 o'clock and High 3.2, Current about 2.7, Average 2.7 and Low 2.3 mph."></video>
+        </div>
+        <figcaption class="wc-cap">22 seconds. The solver's WIND view, fed by the corridor.</figcaption>
       </figure>
     </div>
   </section>
@@ -602,19 +640,20 @@
   <section class="wc-lesson wc-lesson--cont wc-lesson--rev" aria-labelledby="wc-l8b-h">
     <div class="wrap">
       <div class="wc-lesson-copy">
-        <h3 id="wc-l8b-h">The Corridor card and "Why different?"</h3>
+        <h3 id="wc-l8b-h">TARGET view</h3>
+        <p class="wc-p">Switch the card to <strong class="wc-key">TARGET</strong> and the full solution fills the screen, with the windage tagged <span class="wc-mono">● Corridor</span> so you know where the wind came from.</p>
         <ul class="wc-list">
-          <li><strong>Corridor card:</strong> crosswind 2.8–3.0 mph left to right, a 3.1 mph gust, and shear of about 11 mph, because the wind reverses between 400 and 800 yd. Coverage is 92%.</li>
-          <li><strong>All three answers:</strong> Advanced Ballistics 2.6–3.1 mph, Simple average 0.5–1.0 mph and Firing line only 7.1–7.7 mph, all left to right.</li>
-          <li><strong>Crosswind along the bullet path:</strong> the line starts high at the muzzle, falls through 400 yd and crosses zero between 400 and 800 yd, where the wind changes sides.</li>
-          <li><strong>Influence by distance:</strong> the same curve as Lesson 2. Wind near the muzzle bends the bullet's path for the full flight, and wind downrange acts for less time.</li>
+          <li><strong>Elevation:</strong> 7.91–7.92 mil up.</li>
+          <li><strong>Windage:</strong> 0.69–0.75 mil left, from the corridor.</li>
+          <li><strong>Wind:</strong> 2.7–2.9 mph from 8 o'clock, live.</li>
+          <li><strong>Shot angle:</strong> solved for a 0.6° downhill shot.</li>
         </ul>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-lesson-08b.mp4" poster="../assets/img/wc-lesson-08b.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Corridor card with Advanced Ballistics at about 3 mph, Simple average at about 0.7 mph and Firing line only at about 7 mph, then the Why corridor estimates differ sheet with the same three answers, an influence-by-distance curve, and a crosswind-along-the-bullet-path line that crosses zero between 400 and 800 yards."></video>
+          <video class="wc-vid" src="../assets/video/wc-windview-target.mp4" poster="../assets/img/wc-windview-target.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the target card in TARGET mode, full screen, with elevation about 7.9 mil up and windage about 0.7 mil left tagged Corridor, wind 2.7 to 2.9 mph from 8 o'clock live, and the shot solved for a 0.6 degree downhill angle."></video>
         </div>
-        <figcaption class="wc-cap">27 seconds. The Corridor card, then "Why different?" with the wind crossing zero downrange.</figcaption>
+        <figcaption class="wc-cap">18 seconds. The solution, with windage from the corridor.</figcaption>
       </figure>
     </div>
   </section>
@@ -625,12 +664,12 @@
       <h2 id="wc-try-h">Six things to try on your own range</h2>
       <p class="intro">Work through these with your meters out, or walk a friend through them.</p>
       <ol class="wc-steps wc-steps--try">
-        <li>Open Wind Meters and read all three crosswinds: Advanced Ballistics, Simple average and Firing line only. Decide which one you'd hold before you look at anything else.</li>
-        <li>Tap "Why different?" and find where each of your meters sits on the influence curve.</li>
-        <li>Flip the NET WIND method, then switch to See the Wind and watch the bar change from AVG to your load, such as 6.5 CM.</li>
-        <li>On See the Wind, trace the streaks from the bench to the target and find where the wind changes sides. Then look for that change in the grass, leaves and mirage.</li>
-        <li>Open the ground profile and see how high your bullet flies above each meter.</li>
-        <li>Scroll to Recent Rejected Readings and see what the app refused to use.</li>
+        <li>Open the Corridor tab and read all three crosswinds: Advanced Ballistics, Simple average and Firing line only. Decide which one you'd hold before you look at anything else.</li>
+        <li>Tap "Why different?" and see how much each stretch of your shot counts.</li>
+        <li>Flip the NET WIND method between Advanced Ballistics and Simple average, and watch the crosswind and coverage change.</li>
+        <li>On See the Wind, trace the wind from the bench to the target and find where it changes sides. Then look for that change in the grass, leaves and mirage.</li>
+        <li>Open the Path Profile and see how high your bullet flies above each meter.</li>
+        <li>In the solver, switch the target card to WIND and check that it says Corridor before you take the shot.</li>
       </ol>
     </div>
   </section>
@@ -642,10 +681,10 @@
       <p class="wc-lede">On a hill-to-hill range, your bullet can fly dozens or even hundreds of feet above the valley floor. <strong>A wind meter down in that valley is measuring different air.</strong></p>
       <p class="intro">Ground clearance uses LiDAR terrain survey data to show exactly how high your shot flies above the ground, all the way to the target, and where a wind meter will actually measure the air your bullet passes through.</p>
       <dl class="wc-setup-facts">
-        <div><dt>51 ft</dt><dd>Max clearance, at 476 yd</dd></div>
-        <div><dt>207 ft</dt><dd>Target lower than the shooter, 3.9° down</dd></div>
+        <div><dt>76 ft</dt><dd>Max clearance, at 268 yd</dd></div>
+        <div><dt>181–512 yd</dt><dd>Where ground meters won't match the shot's wind</dd></div>
         <div><dt>1 m</dt><dd>LiDAR terrain, USGS 3D Elevation Program</dd></div>
-        <div><dt>45% → 49%</dt><dd>Shot's air measured, with recommended spots</dd></div>
+        <div><dt>3 spots</dt><dd>Recommended meter spots at 161, 322 and 506 yd</dd></div>
       </dl>
     </div>
   </section>
@@ -655,20 +694,20 @@
       <div class="wc-lesson-copy">
         <h2 id="wc-clr1-h">Clearance on the map</h2>
         <ul class="wc-list">
-          <li><strong>A green band</strong> along your line of fire shows the shot's height above the ground, mapped from LiDAR all the way to the target.</li>
-          <li><strong>The highest point is marked</strong> on the map, for example <span class="wc-mono">Max clearance 51 ft · 476 yd</span>. It's often over a hollow or canyon, not the middle of the shot.</li>
-          <li><strong>Turn it on or off</strong> in Visualization Settings. With it off, the band, labels and spots disappear and the map is back to just the wind.</li>
+          <li><strong>The highest point is marked</strong> right on See the Wind, for example <span class="wc-mono">Max clearance 76 ft · 268 yd</span>. It's often over a hollow or a valley, not the middle of the shot.</li>
+          <li><strong>Tap Path Profile</strong> on the map for the full side view.</li>
+          <li><strong>Turn it on or off</strong> with Clearance in Visualization &amp; Recording.</li>
         </ul>
         <div class="wc-callout">
           <div class="label">Why it matters</div>
-          <p>A meter on a 10 ft mast at 476 yd would read the air about 40 ft below this bullet. <strong>Where the shot runs high over low ground, the meter and the bullet are in different wind.</strong></p>
+          <p>A meter on a 10 ft mast at 268 yd would read the air about 66 ft below this bullet. <strong>Where the shot runs high over low ground, the meter and the bullet are in different wind.</strong></p>
         </div>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-clear-map.mp4" poster="../assets/img/wc-clear-map.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind with ground clearance on. A green band runs along the line of fire, a callout explains it shows the shot's height above the ground from LiDAR, then the label Max clearance 51 ft at 476 yd is circled with the note that a 10 ft mast there reads air about 40 ft below the bullet."></video>
+          <video class="wc-vid" src="../assets/video/wc-clear-map.mp4" poster="../assets/img/wc-clear-map.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: See the Wind with the label Max clearance 76 ft at 268 yd circled, and the note that the shot passes 76 feet over the ground there, so a meter on a 10 ft mast reads air about 66 feet below the bullet."></video>
         </div>
-        <figcaption class="wc-cap">25 seconds. The clearance band and its highest point.</figcaption>
+        <figcaption class="wc-cap">25 seconds. The highest point of the shot above the ground.</figcaption>
       </figure>
     </div>
   </section>
@@ -676,62 +715,20 @@
   <section class="wc-lesson wc-lesson--cont wc-lesson--rev" aria-labelledby="wc-clr2-h">
     <div class="wrap">
       <div class="wc-lesson-copy">
-        <h2 id="wc-clr2-h">Path Profile</h2>
-        <p class="wc-p">A side view of the ground from your firing line to the target, drawn from high-resolution LiDAR survey data (1 m, USGS 3D Elevation Program), with your line of sight, your meters and the recommended spots on it.</p>
+        <h2 id="wc-clr2-h">Path Profile &amp; Meter Placement</h2>
+        <p class="wc-p">A side view of the ground from your firing line to the target, drawn from high-resolution LiDAR survey data (1 m, USGS 3D Elevation Program), with your line of sight and the recommended meter spots on it.</p>
         <ul class="wc-list">
-          <li><strong>Your range at a glance.</strong> For example <span class="wc-mono">Target 207 ft lower · 3.9° down</span>, with the ground profile beneath it, right on the Wind Meters tab.</li>
-          <li><strong>The gap is the point.</strong> The space between the orange line of sight and the green ground is the air under your bullet. Here it's widest at 476 yd: 51 ft.</li>
-          <li><strong>Tap Path Profile</strong> on the Ground card to open the full view.</li>
-        </ul>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-clear-profile.mp4" poster="../assets/img/wc-clear-profile.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Path Profile sheet. A LiDAR ground profile falls from 1,196 ft to 805 ft with the dashed line of sight above it; the widest gap, 51 ft at 476 yd, is circled. Then the Meter Placement box is circled: 3 meters measure the shot's air over 45% of the path, 49% with the recommended spots. Later the spot selector is set to 1."></video>
-        </div>
-        <figcaption class="wc-cap">63 seconds. The ground under the shot, and what the recommended spots add.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-x wc-lesson" aria-labelledby="wc-clr3-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <div class="label">Meter Placement</div>
-        <h2 id="wc-clr3-h">Put your meters where they count</h2>
-        <p class="wc-p">Meter Placement searches the whole satellite photo, not just the line of fire, for spots where a meter on a mast sits in the same air as your bullet.</p>
-        <ul class="wc-list">
-          <li><strong>Up to three recommended spots,</strong> numbered on the map. Tap one to see why it was chosen, for example <span class="wc-mono">218 yd · 124 yd left · LiDAR shows the shot 31 ft above ground here · high influence · clear radio path</span>.</li>
+          <li><strong>The gap is the point.</strong> The space between the orange line of sight and the ground is the air under your bullet. Here it peaks at 76 ft.</li>
+          <li><strong>The app tells you where it matters:</strong> <span class="wc-mono">181–512 yd · Terrain data shows the shot 76 ft over the ground. Ground meters here won't match its wind.</span></li>
+          <li><strong>Best meter spots.</strong> The app searches the whole area, not just the line of fire, for spots where a meter sits in the same air as your bullet. Here it found three: 161 yd, 322 yd and 506 yd, each 561–668 yd right of the line, on ground 117–263 ft above the shot, with high influence and a clear radio path.</li>
           <li><strong>Wind that matters most comes first.</strong> Spots near the muzzle score higher, because wind there moves the bullet the most.</li>
-          <li><strong>A clear radio path</strong> back to your receiver for every spot, checked against the terrain. Move the receiver on the photo and the recommendations follow.</li>
-          <li><strong>See what each spot adds.</strong> For example <span class="wc-mono">3 meters · shot's air measured over 45% of the path. With recommended spots: 49%</span>.</li>
-          <li><strong>Choose one, two or three spots,</strong> depending on how many meters you have.</li>
         </ul>
       </div>
       <figure class="lw-media wc-lesson-media">
         <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-clear-spots.mp4" poster="../assets/img/wc-clear-spots.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the clearance map with three numbered meter spots circled. Each spot is tapped in turn and an arrow points to its card: spot 1 at 218 yd, 124 yd left, shot 31 ft above ground; spot 3 at 495 yd, 212 yd left, 24 ft; spot 2 at 840 yd, 80 yd left, 7 ft."></video>
+          <video class="wc-vid" src="../assets/video/wc-clear-profile.mp4" poster="../assets/img/wc-clear-profile.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Path Profile and Meter Placement sheet, LiDAR 1 m. The ground falls away under an orange line of sight, marked Max 76 ft, with three numbered meter spots. The text reads 181 to 512 yards, terrain data shows the shot 76 feet over the ground, ground meters here won't match its wind, then lists the best meter spots at 161, 322 and 506 yards."></video>
         </div>
-        <figcaption class="wc-cap">53 seconds. Three recommended spots, and why each was chosen.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wc-x wc-lesson wc-lesson--rev" aria-labelledby="wc-clr4-h">
-    <div class="wrap">
-      <div class="wc-lesson-copy">
-        <h2 id="wc-clr4-h">Settings that match how you shoot</h2>
-        <ul class="wc-list">
-          <li><strong>Shooting position:</strong> prone (1 ft), sitting (3 ft) or bench (4 ft), or type your own height.</li>
-          <li><strong>Target height, meter mast height and receiver height.</strong></li>
-          <li><strong>Trees:</strong> tree heights are taken into account where tree-height data is available, with an optional minimum allowance of your own.</li>
-          <li><strong>Instant updates.</strong> Change a setting and the clearance and recommendations update immediately, with nothing new to download. Switch from prone to bench and max clearance goes from 51 ft to 53 ft.</li>
-        </ul>
-      </div>
-      <figure class="lw-media wc-lesson-media">
-        <div class="frame lw-phone">
-          <video class="wc-vid" src="../assets/video/wc-clear-settings.mp4" poster="../assets/img/wc-clear-settings.webp" width="576" height="1280" muted loop playsinline controls preload="none" aria-label="Screen recording: the Wind Meters tab scrolls to the Ground card, Target 207 ft lower, 3.9 degrees down, which is circled. Path and Placement Settings open with shooter, target, mast, tree and receiver heights. Bench (4 ft) is selected and an arrow shows max clearance change from 51 ft to 53 ft."></video>
-        </div>
-        <figcaption class="wc-cap">51 seconds. The Ground card and Path &amp; Placement Settings.</figcaption>
+        <figcaption class="wc-cap">35 seconds. The ground under the shot, and the best places for your meters.</figcaption>
       </figure>
     </div>
   </section>
@@ -805,9 +802,10 @@
           <div class="label">The meters behind Wind Corridor</div>
           <h2><a href="https://www.ballisticswindmeters.com/lora-receiver?utm_source=bullseyeballistics&amp;utm_medium=referral&amp;utm_campaign=solver_partner&amp;utm_content=website_lora_receiver" target="_blank" rel="noopener">Calypso LoRa wind meters</a></h2>
           <p>Each ultrasonic meter reads the wind speed and direction where it stands, once a second. It sends that reading to a receiver beside you, and the receiver passes it to Bullseye Ballistics over Bluetooth.</p>
+          <p><strong>A full setup reads the wind at three points:</strong> a Calypso ultrasonic Bluetooth wind meter at the firing line, plus a LoRa receiver beside you and two LoRa meters downrange.</p>
           <div class="wc-calypso-facts">
             <div><b>3 km</b><span>Line of sight from meter to receiver (1.86 mi)</span></div>
-            <div><b>3 meters</b><span>Per receiver: near, midrange and at the target</span></div>
+            <div><b>3 meters</b><span>At the firing line, midrange and near the target</span></div>
             <div><b>1 s</b><span>A fresh reading from every meter</span></div>
           </div>
           <div class="cta-row">

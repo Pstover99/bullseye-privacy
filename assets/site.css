@@ -2989,3 +2989,11 @@ h3 .sn-tag, .gl-t .sn-tag, .cmp-table tbody th strong .sn-tag, .sc-title .sn-tag
 .wc-honest li { list-style: none; min-width: 0; padding: 20px 22px 22px; background: var(--panel); color: var(--muted); clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); }
 .wc-honest h3 { margin-bottom: 8px; }
 @media (max-width: 760px) { .wc-honest { grid-template-columns: minmax(0, 1fr); } }
+
+/* Wind Corridor Lesson 5: the three particle looks side by side */
+.wc-looks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.wc-looks figure { margin: 0; }
+.wc-looks .lw-phone { max-width: none; }
+.wc-looks .lw-phone video { aspect-ratio: 576 / 1280; }
+.wc-looks figcaption { margin-top: 8px; font-size: 0.85rem; line-height: 1.35; color: var(--muted, inherit); }
+.wc-looks figcaption strong { display: block; color: var(--text, inherit); }
